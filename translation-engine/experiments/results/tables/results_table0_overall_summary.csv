@@ -1,0 +1,8 @@
+metric,value
+Total models in ontology,97
+Models with classifier/both role,36
+Models tested in fit experiment,17
+Models present in more than 1 framework,21
+Models present in more than 1 framework with classifier/both role,18
+Unique config parameters found in configurations datasets,360
+Unique config hyperparameters covered by translation system,151

@@ -1,0 +1,11 @@
+canonical_model,AutoGluon,auto-sklearn,FLAML,H2O,TPOT
+decision_tree,-,100.0% (26),-,50.0% (26),-
+extra_trees,100.0% (142),83.3% (142),100.0% (142),-,-
+gradient_boosting,-,85.7% (67),-,85.7% (67),-
+k_nearest_neighbors,100.0% (12),100.0% (12),100.0% (12),-,-
+logistic_regression,-,-,100.0% (8),-,-
+naive_bayes,-,100.0% (23),-,73.9% (23),-
+neural_network,-,100.0% (14),-,0.0% (14),-
+random_forest,100.0% (113),83.3% (113),100.0% (113),33.3% (113),-
+sgd,-,100.0% (3),100.0% (3),-,-
+svm,-,100.0% (2),100.0% (2),0.0% (2),-

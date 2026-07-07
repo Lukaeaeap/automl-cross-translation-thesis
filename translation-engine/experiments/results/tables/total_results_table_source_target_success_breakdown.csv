@@ -1,0 +1,21 @@
+source,target,count,success,fail,fail_range,avg param cov %
+autogluon,autosklearn,"1,116","1,116",0,0,83.3
+autogluon,flaml,"2,232","2,232",0,0,85.5
+autogluon,h2o,837,837,0,0,46.0
+autogluon,tpot,"2,231","2,231",0,0,89.8
+autosklearn,autogluon,481,481,0,0,100.0
+autosklearn,flaml,"1,250","1,250",0,0,96.8
+autosklearn,h2o,"1,765","1,700",0,65,57.9
+autosklearn,tpot,"2,781","2,719",31,31,89.9
+flaml,autogluon,"1,350","1,350",0,0,84.1
+flaml,autosklearn,810,671,0,139,83.7
+flaml,h2o,810,810,0,0,71.8
+flaml,tpot,"1,890","1,890",0,0,84.1
+h2o,autogluon,"18,671","18,663",8,0,30.1
+h2o,autosklearn,"19,524","19,524",0,0,32.1
+h2o,flaml,"18,670","18,670",0,0,36.0
+h2o,tpot,"37,670","34,970",2700,0,28.4
+tpot,autogluon,267,267,0,0,100.0
+tpot,autosklearn,402,402,0,0,87.0
+tpot,flaml,280,280,0,0,100.0
+tpot,h2o,245,245,0,0,51.1

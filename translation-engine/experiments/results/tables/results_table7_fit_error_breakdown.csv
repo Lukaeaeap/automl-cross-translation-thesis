@@ -1,0 +1,8 @@
+outcome,fit_error,count
+FIT_FAIL,"test_size=0.0 should be either positive and smaller than the number of samples 50 or a float in the (0, 1) range",2700
+FIT_FAIL_RANGE,"The 'loss' parameter of SGDClassifier must be a str among {'hinge', 'epsilon_insensitive', 'log_loss', 'squared_error', 'squared_epsilon_insensitive', 'perceptron', 'modified_huber', 'huber', 'squared_hinge'}. Got 'log' instead.",98
+FIT_FAIL_RANGE,"The 'loss' parameter of SGDClassifier must be a str among {'perceptron', 'epsilon_insensitive', 'squared_epsilon_insensitive', 'squared_error', 'huber', 'squared_hinge', 'log_loss', 'modified_huber', 'hinge'}. Got 'log' instead.",41
+FIT_FAIL_RANGE,"Argument `regression_stop` should be a ?numeric, got string train",34
+FIT_FAIL,shrinkage not supported with 'svd' solver.,31
+FIT_FAIL_RANGE,"Argument `score_validation_samples` should be an ?integer, got float 0.1",31
+FIT_FAIL_RANGE,"The 'shrinkage' parameter of LinearDiscriminantAnalysis must be a str among {'auto'}, a float in the range [0.0, 1.0] or None. Got 'manual' instead.",31

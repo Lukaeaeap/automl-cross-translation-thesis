@@ -1,0 +1,1030 @@
+framework,family,class,parameter_name,value_default,value_type,description
+h2o,anovaglm,H2OANOVAGLMEstimator,model_id,None,key<model>,Destination id for this model; auto-generated if not specified.
+h2o,anovaglm,H2OANOVAGLMEstimator,training_frame,None,key<frame>,Id of the training data frame.
+h2o,anovaglm,H2OANOVAGLMEstimator,seed,-1,long,Seed for pseudo random number generator (if applicable)
+h2o,anovaglm,H2OANOVAGLMEstimator,response_column,None,vecspecifier,Response variable column.
+h2o,anovaglm,H2OANOVAGLMEstimator,ignored_columns,None,string[],Names of columns to ignore for training.
+h2o,anovaglm,H2OANOVAGLMEstimator,ignore_const_cols,True,bool,Ignore constant columns.
+h2o,anovaglm,H2OANOVAGLMEstimator,score_each_iteration,False,bool,Whether to score during each iteration of model training.
+h2o,anovaglm,H2OANOVAGLMEstimator,offset_column,None,vecspecifier,Offset column. This will be added to the combination of columns before applying the link function.
+h2o,anovaglm,H2OANOVAGLMEstimator,weights_column,None,vecspecifier,"Column with observation weights. Giving some observation a weight of zero is equivalent to excluding it from the dataset; giving an observation a relative weight of 2 is equivalent to repeating that row twice. Negative weights are not allowed. Note: Weights are per-row observation weights and do not increase the size of the data frame. This is typically the number of times a row is repeated, but non-integer values are supported as well. During training, rows with higher weights matter more, due to the larger loss function pre-factor. If you set weight = 0 for a row, the returned prediction frame at that row is zero and this is incorrect. To get an accurate prediction, remove all rows with weight == 0."
+h2o,anovaglm,H2OANOVAGLMEstimator,family,AUTO,"Categorical(['AUTO', 'gaussian', 'binomial', 'fractionalbinomial', 'quasibinomial', 'poisson', 'gamma', 'tweedie', 'negativebinomial'])","Family. Use binomial for classification with logistic regression, others are for regression problems."
+h2o,anovaglm,H2OANOVAGLMEstimator,tweedie_variance_power,0.0,float,Tweedie variance power
+h2o,anovaglm,H2OANOVAGLMEstimator,tweedie_link_power,1.0,float,Tweedie link power
+h2o,anovaglm,H2OANOVAGLMEstimator,theta,0.0,float,Theta
+h2o,anovaglm,H2OANOVAGLMEstimator,solver,IRLSM,"Categorical(['AUTO', 'IRLSM', 'L_BFGS', 'COORDINATE_DESCENT_NAIVE', 'COORDINATE_DESCENT', 'GRADIENT_DESCENT_LH', 'GRADIENT_DESCENT_SQERR'])","AUTO will set the solver based on given data and the other parameters. IRLSM is fast on on problems with small number of predictors and for lambda-search with L1 penalty, L_BFGS scales better for datasets with many columns."
+h2o,anovaglm,H2OANOVAGLMEstimator,missing_values_handling,MeanImputation,"Categorical(['MeanImputation', 'Skip', 'PlugValues'])","Handling of missing values. Either MeanImputation, Skip or PlugValues."
+h2o,anovaglm,H2OANOVAGLMEstimator,plug_values,None,key<frame>,"Plug Values (a single row frame containing values that will be used to impute missing values of the training/validation frame, use with conjunction missing_values_handling = PlugValues)"
+h2o,anovaglm,H2OANOVAGLMEstimator,compute_p_values,True,bool,"Request p-values computation, p-values work only with IRLSM solver and no regularization"
+h2o,anovaglm,H2OANOVAGLMEstimator,standardize,True,bool,Standardize numeric columns to have zero mean and unit variance
+h2o,anovaglm,H2OANOVAGLMEstimator,non_negative,False,bool,Restrict coefficients (not intercept) to be non-negative
+h2o,anovaglm,H2OANOVAGLMEstimator,max_iterations,0,int,Maximum number of iterations
+h2o,anovaglm,H2OANOVAGLMEstimator,link,family_default,"Categorical(['family_default', 'identity', 'logit', 'log', 'inverse', 'tweedie', 'ologit'])",Link function.
+h2o,anovaglm,H2OANOVAGLMEstimator,prior,0.0,float,Prior probability for y==1. To be used only for logistic regression iff the data has been sampled and the mean of response does not reflect reality.
+h2o,anovaglm,H2OANOVAGLMEstimator,alpha,None,float,"Distribution of regularization between the L1 (Lasso) and L2 (Ridge) penalties. A value of 1 for alpha represents Lasso regression, a value of 0 produces Ridge regression, and anything in between specifies the amount of mixing between the two. Default value of alpha is 0 when SOLVER = 'L-BFGS'; 0.5 otherwise."
+h2o,anovaglm,H2OANOVAGLMEstimator,lambda,[0.0],float,Regularization strength
+h2o,anovaglm,H2OANOVAGLMEstimator,lambda_search,False,bool,"Use lambda search starting at lambda max, given lambda is then interpreted as lambda min"
+h2o,anovaglm,H2OANOVAGLMEstimator,stopping_rounds,0,int,Early stopping based on convergence of stopping_metric. Stop if simple moving average of length k of the stopping_metric does not improve for k:=stopping_rounds scoring events (0 to disable)
+h2o,anovaglm,H2OANOVAGLMEstimator,stopping_metric,AUTO,"Categorical(['AUTO', 'deviance', 'logloss', 'MSE', 'RMSE', 'MAE', 'RMSLE', 'AUC', 'AUCPR', 'lift_top_group', 'misclassification', 'mean_per_class_error', 'anomaly_score', 'AUUC', 'ATE', 'ATT', 'ATC', 'qini', 'custom', 'custom_increasing'])","Metric to use for early stopping (AUTO: logloss for classification, deviance for regression and anomaly_score for Isolation Forest). Note that custom and custom_increasing can only be used in GBM and DRF with the Python client."
+h2o,anovaglm,H2OANOVAGLMEstimator,early_stopping,False,bool,Stop early when there is no more relative improvement on train or validation (if provided).
+h2o,anovaglm,H2OANOVAGLMEstimator,stopping_tolerance,0.001,float,Relative tolerance for metric-based stopping criterion (stop if relative improvement is not at least this much)
+h2o,anovaglm,H2OANOVAGLMEstimator,balance_classes,False,bool,Balance training data class counts via over/under-sampling (for imbalanced data).
+h2o,anovaglm,H2OANOVAGLMEstimator,class_sampling_factors,None,float,"Desired over/under-sampling ratios per class (in lexicographic order). If not specified, sampling factors will be automatically computed to obtain class balance during training. Requires balance_classes."
+h2o,anovaglm,H2OANOVAGLMEstimator,max_after_balance_size,5.0,float,Maximum relative size of the training data after balancing class counts (can be less than 1.0). Requires balance_classes.
+h2o,anovaglm,H2OANOVAGLMEstimator,max_runtime_secs,0.0,float,Maximum allowed runtime in seconds for model training. Use 0 to disable.
+h2o,anovaglm,H2OANOVAGLMEstimator,save_transformed_framekeys,False,bool,true to save the keys of transformed predictors and interaction column.
+h2o,anovaglm,H2OANOVAGLMEstimator,highest_interaction_term,0,int,"Limit the number of interaction terms, if 2 means interaction between 2 columns only, 3 for three columns and so on...  Default to 2."
+h2o,anovaglm,H2OANOVAGLMEstimator,nparallelism,4,int,Number of models to build in parallel.  Default to 4.  Adjust according to your system.
+h2o,anovaglm,H2OANOVAGLMEstimator,type,0,int,"Refer to the SS type 1, 2, 3, or 4.  We are currently only supporting 3"
+h2o,adaboost,H2OAdaBoostEstimator,model_id,None,key<model>,Destination id for this model; auto-generated if not specified.
+h2o,adaboost,H2OAdaBoostEstimator,training_frame,None,key<frame>,Id of the training data frame.
+h2o,adaboost,H2OAdaBoostEstimator,ignored_columns,None,string[],Names of columns to ignore for training.
+h2o,adaboost,H2OAdaBoostEstimator,ignore_const_cols,True,bool,Ignore constant columns.
+h2o,adaboost,H2OAdaBoostEstimator,categorical_encoding,AUTO,"Categorical(['AUTO', 'Enum', 'OneHotInternal', 'OneHotExplicit', 'Binary', 'Eigen', 'LabelEncoder', 'SortByResponse', 'EnumLimited'])",Encoding scheme for categorical features
+h2o,adaboost,H2OAdaBoostEstimator,weights_column,None,vecspecifier,"Column with observation weights. Giving some observation a weight of zero is equivalent to excluding it from the dataset; giving an observation a relative weight of 2 is equivalent to repeating that row twice. Negative weights are not allowed. Note: Weights are per-row observation weights and do not increase the size of the data frame. This is typically the number of times a row is repeated, but non-integer values are supported as well. During training, rows with higher weights matter more, due to the larger loss function pre-factor. If you set weight = 0 for a row, the returned prediction frame at that row is zero and this is incorrect. To get an accurate prediction, remove all rows with weight == 0."
+h2o,adaboost,H2OAdaBoostEstimator,nlearners,50,int,Number of AdaBoost weak learners.
+h2o,adaboost,H2OAdaBoostEstimator,weak_learner,AUTO,"Categorical(['AUTO', 'DRF', 'GLM', 'GBM', 'DEEP_LEARNING'])","Choose a weak learner type. Defaults to AUTO, which means DRF."
+h2o,adaboost,H2OAdaBoostEstimator,learn_rate,0.5,float,Learning rate (from 0.0 to 1.0)
+h2o,adaboost,H2OAdaBoostEstimator,weak_learner_params,,string,Customized parameters for the weak_learner algorithm.
+h2o,adaboost,H2OAdaBoostEstimator,seed,-1,long,Seed for pseudo random number generator (if applicable)
+h2o,aggregator,H2OAggregatorEstimator,model_id,None,key<model>,Destination id for this model; auto-generated if not specified.
+h2o,aggregator,H2OAggregatorEstimator,training_frame,None,key<frame>,Id of the training data frame.
+h2o,aggregator,H2OAggregatorEstimator,response_column,None,vecspecifier,Response variable column.
+h2o,aggregator,H2OAggregatorEstimator,ignored_columns,None,string[],Names of columns to ignore for training.
+h2o,aggregator,H2OAggregatorEstimator,ignore_const_cols,True,bool,Ignore constant columns.
+h2o,aggregator,H2OAggregatorEstimator,target_num_exemplars,5000,int,Targeted number of exemplars
+h2o,aggregator,H2OAggregatorEstimator,rel_tol_num_exemplars,0.5,float,"Relative tolerance for number of exemplars (e.g, 0.5 is +/- 50 percents)"
+h2o,aggregator,H2OAggregatorEstimator,transform,NORMALIZE,"Categorical(['NONE', 'STANDARDIZE', 'NORMALIZE', 'DEMEAN', 'DESCALE'])",Transformation of training data
+h2o,aggregator,H2OAggregatorEstimator,categorical_encoding,AUTO,"Categorical(['AUTO', 'Enum', 'OneHotInternal', 'OneHotExplicit', 'Binary', 'Eigen', 'LabelEncoder', 'SortByResponse', 'EnumLimited'])",Encoding scheme for categorical features
+h2o,aggregator,H2OAggregatorEstimator,save_mapping_frame,False,bool,Whether to export the mapping of the aggregated frame
+h2o,aggregator,H2OAggregatorEstimator,num_iteration_without_new_exemplar,500,int,The number of iterations to run before aggregator exits if the number of exemplars collected didn't change
+h2o,aggregator,H2OAggregatorEstimator,export_checkpoints_dir,None,string,Automatically export generated models to this directory.
+h2o,autoencoder,H2OAutoEncoderEstimator,model_id,None,key<model>,Destination id for this model; auto-generated if not specified.
+h2o,autoencoder,H2OAutoEncoderEstimator,training_frame,None,key<frame>,Id of the training data frame.
+h2o,autoencoder,H2OAutoEncoderEstimator,validation_frame,None,key<frame>,Id of the validation data frame.
+h2o,autoencoder,H2OAutoEncoderEstimator,nfolds,0,int,Number of folds for K-fold cross-validation (0 to disable or >= 2).
+h2o,autoencoder,H2OAutoEncoderEstimator,keep_cross_validation_models,True,bool,Whether to keep the cross-validation models.
+h2o,autoencoder,H2OAutoEncoderEstimator,keep_cross_validation_predictions,False,bool,Whether to keep the predictions of the cross-validation models.
+h2o,autoencoder,H2OAutoEncoderEstimator,keep_cross_validation_fold_assignment,False,bool,Whether to keep the cross-validation fold assignment.
+h2o,autoencoder,H2OAutoEncoderEstimator,fold_assignment,AUTO,"Categorical(['AUTO', 'Random', 'Modulo', 'Stratified'])","Cross-validation fold assignment scheme, if fold_column is not specified. The 'Stratified' option will stratify the folds based on the response variable, for classification problems."
+h2o,autoencoder,H2OAutoEncoderEstimator,fold_column,None,vecspecifier,Column with cross-validation fold index assignment per observation.
+h2o,autoencoder,H2OAutoEncoderEstimator,response_column,None,vecspecifier,Response variable column.
+h2o,autoencoder,H2OAutoEncoderEstimator,ignored_columns,None,string[],Names of columns to ignore for training.
+h2o,autoencoder,H2OAutoEncoderEstimator,ignore_const_cols,True,bool,Ignore constant columns.
+h2o,autoencoder,H2OAutoEncoderEstimator,score_each_iteration,False,bool,Whether to score during each iteration of model training.
+h2o,autoencoder,H2OAutoEncoderEstimator,weights_column,None,vecspecifier,"Column with observation weights. Giving some observation a weight of zero is equivalent to excluding it from the dataset; giving an observation a relative weight of 2 is equivalent to repeating that row twice. Negative weights are not allowed. Note: Weights are per-row observation weights and do not increase the size of the data frame. This is typically the number of times a row is repeated, but non-integer values are supported as well. During training, rows with higher weights matter more, due to the larger loss function pre-factor. If you set weight = 0 for a row, the returned prediction frame at that row is zero and this is incorrect. To get an accurate prediction, remove all rows with weight == 0."
+h2o,autoencoder,H2OAutoEncoderEstimator,offset_column,None,vecspecifier,Offset column. This will be added to the combination of columns before applying the link function.
+h2o,autoencoder,H2OAutoEncoderEstimator,balance_classes,False,bool,Balance training data class counts via over/under-sampling (for imbalanced data).
+h2o,autoencoder,H2OAutoEncoderEstimator,class_sampling_factors,None,float,"Desired over/under-sampling ratios per class (in lexicographic order). If not specified, sampling factors will be automatically computed to obtain class balance during training. Requires balance_classes."
+h2o,autoencoder,H2OAutoEncoderEstimator,max_after_balance_size,5.0,float,Maximum relative size of the training data after balancing class counts (can be less than 1.0). Requires balance_classes.
+h2o,autoencoder,H2OAutoEncoderEstimator,max_confusion_matrix_size,20,int,[Deprecated] Maximum size (# classes) for confusion matrices to be printed in the Logs.
+h2o,autoencoder,H2OAutoEncoderEstimator,checkpoint,None,key<model>,Model checkpoint to resume training with.
+h2o,autoencoder,H2OAutoEncoderEstimator,pretrained_autoencoder,None,key<model>,Pretrained autoencoder model to initialize this model with.
+h2o,autoencoder,H2OAutoEncoderEstimator,overwrite_with_best_model,True,bool,"If enabled, override the final model with the best model found during training."
+h2o,autoencoder,H2OAutoEncoderEstimator,use_all_factor_levels,True,bool,"Use all factor levels of categorical variables. Otherwise, the first factor level is omitted (without loss of accuracy). Useful for variable importances and auto-enabled for autoencoder."
+h2o,autoencoder,H2OAutoEncoderEstimator,standardize,True,bool,"If enabled, automatically standardize the data. If disabled, the user must provide properly scaled input data."
+h2o,autoencoder,H2OAutoEncoderEstimator,activation,Rectifier,"Categorical(['Tanh', 'TanhWithDropout', 'Rectifier', 'RectifierWithDropout', 'Maxout', 'MaxoutWithDropout'])",Activation function.
+h2o,autoencoder,H2OAutoEncoderEstimator,hidden,"[200, 200]",int,"Hidden layer sizes (e.g. [100, 100])."
+h2o,autoencoder,H2OAutoEncoderEstimator,epochs,10.0,float,"How many times the dataset should be iterated (streamed), can be fractional."
+h2o,autoencoder,H2OAutoEncoderEstimator,train_samples_per_iteration,-2,long,"Number of training samples (globally) per MapReduce iteration. Special values are 0: one epoch, -1: all available data (e.g., replicated training data), -2: automatic."
+h2o,autoencoder,H2OAutoEncoderEstimator,target_ratio_comm_to_comp,0.05,float,Target ratio of communication overhead to computation. Only for multi-node operation and train_samples_per_iteration = -2 (auto-tuning).
+h2o,autoencoder,H2OAutoEncoderEstimator,seed,-1,long,Seed for random numbers (affects sampling) - Note: only reproducible when running single threaded.
+h2o,autoencoder,H2OAutoEncoderEstimator,adaptive_rate,True,bool,Adaptive learning rate.
+h2o,autoencoder,H2OAutoEncoderEstimator,rho,0.99,float,Adaptive learning rate time decay factor (similarity to prior updates).
+h2o,autoencoder,H2OAutoEncoderEstimator,epsilon,1e-08,float,Adaptive learning rate smoothing factor (to avoid divisions by zero and allow progress).
+h2o,autoencoder,H2OAutoEncoderEstimator,rate,0.005,float,"Learning rate (higher => less stable, lower => slower convergence)."
+h2o,autoencoder,H2OAutoEncoderEstimator,rate_annealing,1e-06,float,Learning rate annealing: rate / (1 + rate_annealing * samples).
+h2o,autoencoder,H2OAutoEncoderEstimator,rate_decay,1.0,float,Learning rate decay factor between layers (N-th layer: rate * rate_decay ^ (n - 1).
+h2o,autoencoder,H2OAutoEncoderEstimator,momentum_start,0.0,float,Initial momentum at the beginning of training (try 0.5).
+h2o,autoencoder,H2OAutoEncoderEstimator,momentum_ramp,1000000.0,float,Number of training samples for which momentum increases.
+h2o,autoencoder,H2OAutoEncoderEstimator,momentum_stable,0.0,float,Final momentum after the ramp is over (try 0.99).
+h2o,autoencoder,H2OAutoEncoderEstimator,nesterov_accelerated_gradient,True,bool,Use Nesterov accelerated gradient (recommended).
+h2o,autoencoder,H2OAutoEncoderEstimator,input_dropout_ratio,0.0,float,"Input layer dropout ratio (can improve generalization, try 0.1 or 0.2)."
+h2o,autoencoder,H2OAutoEncoderEstimator,hidden_dropout_ratios,None,float,"Hidden layer dropout ratios (can improve generalization), specify one value per hidden layer, defaults to 0.5."
+h2o,autoencoder,H2OAutoEncoderEstimator,l1,0.0,float,"L1 regularization (can add stability and improve generalization, causes many weights to become 0)."
+h2o,autoencoder,H2OAutoEncoderEstimator,l2,0.0,float,"L2 regularization (can add stability and improve generalization, causes many weights to be small."
+h2o,autoencoder,H2OAutoEncoderEstimator,max_w2,3.4028235e+38,float,Constraint for squared sum of incoming weights per unit (e.g. for Rectifier).
+h2o,autoencoder,H2OAutoEncoderEstimator,initial_weight_distribution,UniformAdaptive,"Categorical(['UniformAdaptive', 'Uniform', 'Normal'])",Initial weight distribution.
+h2o,autoencoder,H2OAutoEncoderEstimator,initial_weight_scale,1.0,float,"Uniform: -value...value, Normal: stddev."
+h2o,autoencoder,H2OAutoEncoderEstimator,initial_weights,None,key<frame>[],A list of H2OFrame ids to initialize the weight matrices of this model with.
+h2o,autoencoder,H2OAutoEncoderEstimator,initial_biases,None,key<frame>[],A list of H2OFrame ids to initialize the bias vectors of this model with.
+h2o,autoencoder,H2OAutoEncoderEstimator,loss,Automatic,"Categorical(['Automatic', 'CrossEntropy', 'Quadratic', 'Huber', 'Absolute', 'Quantile'])",Loss function.
+h2o,autoencoder,H2OAutoEncoderEstimator,distribution,AUTO,"Categorical(['AUTO', 'bernoulli', 'quasibinomial', 'ordinal', 'multinomial', 'gaussian', 'poisson', 'gamma', 'tweedie', 'laplace', 'quantile', 'huber', 'custom'])",Distribution function
+h2o,autoencoder,H2OAutoEncoderEstimator,quantile_alpha,0.5,float,"Desired quantile for Quantile regression, must be between 0 and 1."
+h2o,autoencoder,H2OAutoEncoderEstimator,tweedie_power,1.5,float,"Tweedie power for Tweedie regression, must be between 1 and 2."
+h2o,autoencoder,H2OAutoEncoderEstimator,huber_alpha,0.9,float,"Desired quantile for Huber/M-regression (threshold between quadratic and linear loss, must be between 0 and 1)."
+h2o,autoencoder,H2OAutoEncoderEstimator,score_interval,5.0,float,Shortest time interval (in seconds) between model scoring.
+h2o,autoencoder,H2OAutoEncoderEstimator,score_training_samples,10000,long,Number of training set samples for scoring (0 for all).
+h2o,autoencoder,H2OAutoEncoderEstimator,score_validation_samples,0,long,Number of validation set samples for scoring (0 for all).
+h2o,autoencoder,H2OAutoEncoderEstimator,score_duty_cycle,0.1,float,"Maximum duty cycle fraction for scoring (lower: more training, higher: more scoring)."
+h2o,autoencoder,H2OAutoEncoderEstimator,classification_stop,0.0,float,Stopping criterion for classification error fraction on training data (-1 to disable).
+h2o,autoencoder,H2OAutoEncoderEstimator,regression_stop,1e-06,float,Stopping criterion for regression error (MSE) on training data (-1 to disable).
+h2o,autoencoder,H2OAutoEncoderEstimator,stopping_rounds,5,int,Early stopping based on convergence of stopping_metric. Stop if simple moving average of length k of the stopping_metric does not improve for k:=stopping_rounds scoring events (0 to disable)
+h2o,autoencoder,H2OAutoEncoderEstimator,stopping_metric,AUTO,"Categorical(['AUTO', 'deviance', 'logloss', 'MSE', 'RMSE', 'MAE', 'RMSLE', 'AUC', 'AUCPR', 'lift_top_group', 'misclassification', 'mean_per_class_error', 'anomaly_score', 'AUUC', 'ATE', 'ATT', 'ATC', 'qini', 'custom', 'custom_increasing'])","Metric to use for early stopping (AUTO: logloss for classification, deviance for regression and anomaly_score for Isolation Forest). Note that custom and custom_increasing can only be used in GBM and DRF with the Python client."
+h2o,autoencoder,H2OAutoEncoderEstimator,stopping_tolerance,0.0,float,Relative tolerance for metric-based stopping criterion (stop if relative improvement is not at least this much)
+h2o,autoencoder,H2OAutoEncoderEstimator,max_runtime_secs,0.0,float,Maximum allowed runtime in seconds for model training. Use 0 to disable.
+h2o,autoencoder,H2OAutoEncoderEstimator,score_validation_sampling,Uniform,"Categorical(['Uniform', 'Stratified'])",Method used to sample validation dataset for scoring.
+h2o,autoencoder,H2OAutoEncoderEstimator,diagnostics,True,bool,Enable diagnostics for hidden layers.
+h2o,autoencoder,H2OAutoEncoderEstimator,fast_mode,True,bool,Enable fast mode (minor approximation in back-propagation).
+h2o,autoencoder,H2OAutoEncoderEstimator,force_load_balance,True,bool,Force extra load balancing to increase training speed for small datasets (to keep all cores busy).
+h2o,autoencoder,H2OAutoEncoderEstimator,variable_importances,True,bool,Compute variable importances for input features (Gedeon method) - can be slow for large networks.
+h2o,autoencoder,H2OAutoEncoderEstimator,replicate_training_data,True,bool,Replicate the entire training dataset onto every node for faster training on small datasets.
+h2o,autoencoder,H2OAutoEncoderEstimator,single_node_mode,False,bool,Run on a single node for fine-tuning of model parameters.
+h2o,autoencoder,H2OAutoEncoderEstimator,shuffle_training_data,False,bool,"Enable shuffling of training data (recommended if training data is replicated and train_samples_per_iteration is close to #nodes x #rows, of if using balance_classes)."
+h2o,autoencoder,H2OAutoEncoderEstimator,missing_values_handling,MeanImputation,"Categorical(['MeanImputation', 'Skip'])",Handling of missing values. Either MeanImputation or Skip.
+h2o,autoencoder,H2OAutoEncoderEstimator,quiet_mode,False,bool,Enable quiet mode for less output to standard output.
+h2o,autoencoder,H2OAutoEncoderEstimator,autoencoder,False,bool,Auto-Encoder.
+h2o,autoencoder,H2OAutoEncoderEstimator,sparse,False,bool,Sparse data handling (more efficient for data with lots of 0 values).
+h2o,autoencoder,H2OAutoEncoderEstimator,col_major,False,bool,"#DEPRECATED Use a column major weight matrix for input layer. Can speed up forward propagation, but might slow down backpropagation."
+h2o,autoencoder,H2OAutoEncoderEstimator,average_activation,0.0,float,Average activation for sparse auto-encoder. #Experimental
+h2o,autoencoder,H2OAutoEncoderEstimator,sparsity_beta,0.0,float,Sparsity regularization. #Experimental
+h2o,autoencoder,H2OAutoEncoderEstimator,max_categorical_features,2147483647,int,"Max. number of categorical features, enforced via hashing. #Experimental"
+h2o,autoencoder,H2OAutoEncoderEstimator,reproducible,False,bool,Force reproducibility on small data (will be slow - only uses 1 thread).
+h2o,autoencoder,H2OAutoEncoderEstimator,export_weights_and_biases,False,bool,Whether to export Neural Network weights and biases to H2O Frames.
+h2o,autoencoder,H2OAutoEncoderEstimator,mini_batch_size,1,int,"Mini-batch size (smaller leads to better fit, larger can speed up and generalize better)."
+h2o,autoencoder,H2OAutoEncoderEstimator,categorical_encoding,AUTO,"Categorical(['AUTO', 'Enum', 'OneHotInternal', 'OneHotExplicit', 'Binary', 'Eigen', 'LabelEncoder', 'SortByResponse', 'EnumLimited'])",Encoding scheme for categorical features
+h2o,autoencoder,H2OAutoEncoderEstimator,elastic_averaging,False,bool,Elastic averaging between compute nodes can improve distributed model convergence. #Experimental
+h2o,autoencoder,H2OAutoEncoderEstimator,elastic_averaging_moving_rate,0.9,float,Elastic averaging moving rate (only if elastic averaging is enabled).
+h2o,autoencoder,H2OAutoEncoderEstimator,elastic_averaging_regularization,0.001,float,Elastic averaging regularization strength (only if elastic averaging is enabled).
+h2o,autoencoder,H2OAutoEncoderEstimator,export_checkpoints_dir,None,string,Automatically export generated models to this directory.
+h2o,autoencoder,H2OAutoEncoderEstimator,auc_type,AUTO,"Categorical(['AUTO', 'NONE', 'MACRO_OVR', 'WEIGHTED_OVR', 'MACRO_OVO', 'WEIGHTED_OVO'])",Set default multinomial AUC type.
+h2o,autoencoder,H2OAutoEncoderEstimator,custom_metric_func,None,string,"Reference to custom evaluation function, format: `language:keyName=funcName`"
+h2o,autoencoder,H2OAutoEncoderEstimator,gainslift_bins,-1,int,Gains/Lift table number of bins. 0 means disabled.. Default value -1 means automatic binning.
+h2o,coxproportionalhazards,H2OCoxProportionalHazardsEstimator,model_id,None,key<model>,Destination id for this model; auto-generated if not specified.
+h2o,coxproportionalhazards,H2OCoxProportionalHazardsEstimator,training_frame,None,key<frame>,Id of the training data frame.
+h2o,coxproportionalhazards,H2OCoxProportionalHazardsEstimator,start_column,None,vecspecifier,Start Time Column.
+h2o,coxproportionalhazards,H2OCoxProportionalHazardsEstimator,stop_column,None,vecspecifier,Stop Time Column.
+h2o,coxproportionalhazards,H2OCoxProportionalHazardsEstimator,response_column,None,vecspecifier,Response variable column.
+h2o,coxproportionalhazards,H2OCoxProportionalHazardsEstimator,ignored_columns,None,string[],Names of columns to ignore for training.
+h2o,coxproportionalhazards,H2OCoxProportionalHazardsEstimator,weights_column,None,vecspecifier,"Column with observation weights. Giving some observation a weight of zero is equivalent to excluding it from the dataset; giving an observation a relative weight of 2 is equivalent to repeating that row twice. Negative weights are not allowed. Note: Weights are per-row observation weights and do not increase the size of the data frame. This is typically the number of times a row is repeated, but non-integer values are supported as well. During training, rows with higher weights matter more, due to the larger loss function pre-factor. If you set weight = 0 for a row, the returned prediction frame at that row is zero and this is incorrect. To get an accurate prediction, remove all rows with weight == 0."
+h2o,coxproportionalhazards,H2OCoxProportionalHazardsEstimator,offset_column,None,vecspecifier,Offset column. This will be added to the combination of columns before applying the link function.
+h2o,coxproportionalhazards,H2OCoxProportionalHazardsEstimator,stratify_by,None,string[],List of columns to use for stratification.
+h2o,coxproportionalhazards,H2OCoxProportionalHazardsEstimator,ties,efron,"Categorical(['efron', 'breslow'])",Method for Handling Ties.
+h2o,coxproportionalhazards,H2OCoxProportionalHazardsEstimator,init,0.0,float,Coefficient starting value.
+h2o,coxproportionalhazards,H2OCoxProportionalHazardsEstimator,lre_min,9.0,float,Minimum log-relative error.
+h2o,coxproportionalhazards,H2OCoxProportionalHazardsEstimator,max_iterations,20,int,Maximum number of iterations.
+h2o,coxproportionalhazards,H2OCoxProportionalHazardsEstimator,interactions,None,string[],A list of predictor column indices to interact. All pairwise combinations will be computed for the list.
+h2o,coxproportionalhazards,H2OCoxProportionalHazardsEstimator,interaction_pairs,None,stringpair[],A list of pairwise (first order) column interactions.
+h2o,coxproportionalhazards,H2OCoxProportionalHazardsEstimator,interactions_only,None,string[],A list of columns that should only be used to create interactions but should not itself participate in model training.
+h2o,coxproportionalhazards,H2OCoxProportionalHazardsEstimator,use_all_factor_levels,False,bool,(Internal. For development only!) Indicates whether to use all factor levels.
+h2o,coxproportionalhazards,H2OCoxProportionalHazardsEstimator,export_checkpoints_dir,None,string,Automatically export generated models to this directory.
+h2o,coxproportionalhazards,H2OCoxProportionalHazardsEstimator,single_node_mode,False,bool,Run on a single node to reduce the effect of network overhead (for smaller datasets)
+h2o,decisiontree,H2ODecisionTreeEstimator,model_id,None,key<model>,Destination id for this model; auto-generated if not specified.
+h2o,decisiontree,H2ODecisionTreeEstimator,training_frame,None,key<frame>,Id of the training data frame.
+h2o,decisiontree,H2ODecisionTreeEstimator,ignored_columns,None,string[],Names of columns to ignore for training.
+h2o,decisiontree,H2ODecisionTreeEstimator,ignore_const_cols,True,bool,Ignore constant columns.
+h2o,decisiontree,H2ODecisionTreeEstimator,categorical_encoding,AUTO,"Categorical(['AUTO', 'Enum', 'OneHotInternal', 'OneHotExplicit', 'Binary', 'Eigen', 'LabelEncoder', 'SortByResponse', 'EnumLimited'])",Encoding scheme for categorical features
+h2o,decisiontree,H2ODecisionTreeEstimator,response_column,None,vecspecifier,Response variable column.
+h2o,decisiontree,H2ODecisionTreeEstimator,seed,-1,long,Seed for random numbers (affects sampling)
+h2o,decisiontree,H2ODecisionTreeEstimator,max_depth,20,int,Max depth of tree.
+h2o,decisiontree,H2ODecisionTreeEstimator,min_rows,10,int,Fewest allowed (weighted) observations in a leaf.
+h2o,deeplearning,H2ODeepLearningEstimator,model_id,None,key<model>,Destination id for this model; auto-generated if not specified.
+h2o,deeplearning,H2ODeepLearningEstimator,training_frame,None,key<frame>,Id of the training data frame.
+h2o,deeplearning,H2ODeepLearningEstimator,validation_frame,None,key<frame>,Id of the validation data frame.
+h2o,deeplearning,H2ODeepLearningEstimator,nfolds,0,int,Number of folds for K-fold cross-validation (0 to disable or >= 2).
+h2o,deeplearning,H2ODeepLearningEstimator,keep_cross_validation_models,True,bool,Whether to keep the cross-validation models.
+h2o,deeplearning,H2ODeepLearningEstimator,keep_cross_validation_predictions,False,bool,Whether to keep the predictions of the cross-validation models.
+h2o,deeplearning,H2ODeepLearningEstimator,keep_cross_validation_fold_assignment,False,bool,Whether to keep the cross-validation fold assignment.
+h2o,deeplearning,H2ODeepLearningEstimator,fold_assignment,AUTO,"Categorical(['AUTO', 'Random', 'Modulo', 'Stratified'])","Cross-validation fold assignment scheme, if fold_column is not specified. The 'Stratified' option will stratify the folds based on the response variable, for classification problems."
+h2o,deeplearning,H2ODeepLearningEstimator,fold_column,None,vecspecifier,Column with cross-validation fold index assignment per observation.
+h2o,deeplearning,H2ODeepLearningEstimator,response_column,None,vecspecifier,Response variable column.
+h2o,deeplearning,H2ODeepLearningEstimator,ignored_columns,None,string[],Names of columns to ignore for training.
+h2o,deeplearning,H2ODeepLearningEstimator,ignore_const_cols,True,bool,Ignore constant columns.
+h2o,deeplearning,H2ODeepLearningEstimator,score_each_iteration,False,bool,Whether to score during each iteration of model training.
+h2o,deeplearning,H2ODeepLearningEstimator,weights_column,None,vecspecifier,"Column with observation weights. Giving some observation a weight of zero is equivalent to excluding it from the dataset; giving an observation a relative weight of 2 is equivalent to repeating that row twice. Negative weights are not allowed. Note: Weights are per-row observation weights and do not increase the size of the data frame. This is typically the number of times a row is repeated, but non-integer values are supported as well. During training, rows with higher weights matter more, due to the larger loss function pre-factor. If you set weight = 0 for a row, the returned prediction frame at that row is zero and this is incorrect. To get an accurate prediction, remove all rows with weight == 0."
+h2o,deeplearning,H2ODeepLearningEstimator,offset_column,None,vecspecifier,Offset column. This will be added to the combination of columns before applying the link function.
+h2o,deeplearning,H2ODeepLearningEstimator,balance_classes,False,bool,Balance training data class counts via over/under-sampling (for imbalanced data).
+h2o,deeplearning,H2ODeepLearningEstimator,class_sampling_factors,None,float,"Desired over/under-sampling ratios per class (in lexicographic order). If not specified, sampling factors will be automatically computed to obtain class balance during training. Requires balance_classes."
+h2o,deeplearning,H2ODeepLearningEstimator,max_after_balance_size,5.0,float,Maximum relative size of the training data after balancing class counts (can be less than 1.0). Requires balance_classes.
+h2o,deeplearning,H2ODeepLearningEstimator,max_confusion_matrix_size,20,int,[Deprecated] Maximum size (# classes) for confusion matrices to be printed in the Logs.
+h2o,deeplearning,H2ODeepLearningEstimator,checkpoint,None,key<model>,Model checkpoint to resume training with.
+h2o,deeplearning,H2ODeepLearningEstimator,pretrained_autoencoder,None,key<model>,Pretrained autoencoder model to initialize this model with.
+h2o,deeplearning,H2ODeepLearningEstimator,overwrite_with_best_model,True,bool,"If enabled, override the final model with the best model found during training."
+h2o,deeplearning,H2ODeepLearningEstimator,use_all_factor_levels,True,bool,"Use all factor levels of categorical variables. Otherwise, the first factor level is omitted (without loss of accuracy). Useful for variable importances and auto-enabled for autoencoder."
+h2o,deeplearning,H2ODeepLearningEstimator,standardize,True,bool,"If enabled, automatically standardize the data. If disabled, the user must provide properly scaled input data."
+h2o,deeplearning,H2ODeepLearningEstimator,activation,Rectifier,"Categorical(['Tanh', 'TanhWithDropout', 'Rectifier', 'RectifierWithDropout', 'Maxout', 'MaxoutWithDropout'])",Activation function.
+h2o,deeplearning,H2ODeepLearningEstimator,hidden,"[200, 200]",int,"Hidden layer sizes (e.g. [100, 100])."
+h2o,deeplearning,H2ODeepLearningEstimator,epochs,10.0,float,"How many times the dataset should be iterated (streamed), can be fractional."
+h2o,deeplearning,H2ODeepLearningEstimator,train_samples_per_iteration,-2,long,"Number of training samples (globally) per MapReduce iteration. Special values are 0: one epoch, -1: all available data (e.g., replicated training data), -2: automatic."
+h2o,deeplearning,H2ODeepLearningEstimator,target_ratio_comm_to_comp,0.05,float,Target ratio of communication overhead to computation. Only for multi-node operation and train_samples_per_iteration = -2 (auto-tuning).
+h2o,deeplearning,H2ODeepLearningEstimator,seed,-1,long,Seed for random numbers (affects sampling) - Note: only reproducible when running single threaded.
+h2o,deeplearning,H2ODeepLearningEstimator,adaptive_rate,True,bool,Adaptive learning rate.
+h2o,deeplearning,H2ODeepLearningEstimator,rho,0.99,float,Adaptive learning rate time decay factor (similarity to prior updates).
+h2o,deeplearning,H2ODeepLearningEstimator,epsilon,1e-08,float,Adaptive learning rate smoothing factor (to avoid divisions by zero and allow progress).
+h2o,deeplearning,H2ODeepLearningEstimator,rate,0.005,float,"Learning rate (higher => less stable, lower => slower convergence)."
+h2o,deeplearning,H2ODeepLearningEstimator,rate_annealing,1e-06,float,Learning rate annealing: rate / (1 + rate_annealing * samples).
+h2o,deeplearning,H2ODeepLearningEstimator,rate_decay,1.0,float,Learning rate decay factor between layers (N-th layer: rate * rate_decay ^ (n - 1).
+h2o,deeplearning,H2ODeepLearningEstimator,momentum_start,0.0,float,Initial momentum at the beginning of training (try 0.5).
+h2o,deeplearning,H2ODeepLearningEstimator,momentum_ramp,1000000.0,float,Number of training samples for which momentum increases.
+h2o,deeplearning,H2ODeepLearningEstimator,momentum_stable,0.0,float,Final momentum after the ramp is over (try 0.99).
+h2o,deeplearning,H2ODeepLearningEstimator,nesterov_accelerated_gradient,True,bool,Use Nesterov accelerated gradient (recommended).
+h2o,deeplearning,H2ODeepLearningEstimator,input_dropout_ratio,0.0,float,"Input layer dropout ratio (can improve generalization, try 0.1 or 0.2)."
+h2o,deeplearning,H2ODeepLearningEstimator,hidden_dropout_ratios,None,float,"Hidden layer dropout ratios (can improve generalization), specify one value per hidden layer, defaults to 0.5."
+h2o,deeplearning,H2ODeepLearningEstimator,l1,0.0,float,"L1 regularization (can add stability and improve generalization, causes many weights to become 0)."
+h2o,deeplearning,H2ODeepLearningEstimator,l2,0.0,float,"L2 regularization (can add stability and improve generalization, causes many weights to be small."
+h2o,deeplearning,H2ODeepLearningEstimator,max_w2,3.4028235e+38,float,Constraint for squared sum of incoming weights per unit (e.g. for Rectifier).
+h2o,deeplearning,H2ODeepLearningEstimator,initial_weight_distribution,UniformAdaptive,"Categorical(['UniformAdaptive', 'Uniform', 'Normal'])",Initial weight distribution.
+h2o,deeplearning,H2ODeepLearningEstimator,initial_weight_scale,1.0,float,"Uniform: -value...value, Normal: stddev."
+h2o,deeplearning,H2ODeepLearningEstimator,initial_weights,None,key<frame>[],A list of H2OFrame ids to initialize the weight matrices of this model with.
+h2o,deeplearning,H2ODeepLearningEstimator,initial_biases,None,key<frame>[],A list of H2OFrame ids to initialize the bias vectors of this model with.
+h2o,deeplearning,H2ODeepLearningEstimator,loss,Automatic,"Categorical(['Automatic', 'CrossEntropy', 'Quadratic', 'Huber', 'Absolute', 'Quantile'])",Loss function.
+h2o,deeplearning,H2ODeepLearningEstimator,distribution,AUTO,"Categorical(['AUTO', 'bernoulli', 'quasibinomial', 'ordinal', 'multinomial', 'gaussian', 'poisson', 'gamma', 'tweedie', 'laplace', 'quantile', 'huber', 'custom'])",Distribution function
+h2o,deeplearning,H2ODeepLearningEstimator,quantile_alpha,0.5,float,"Desired quantile for Quantile regression, must be between 0 and 1."
+h2o,deeplearning,H2ODeepLearningEstimator,tweedie_power,1.5,float,"Tweedie power for Tweedie regression, must be between 1 and 2."
+h2o,deeplearning,H2ODeepLearningEstimator,huber_alpha,0.9,float,"Desired quantile for Huber/M-regression (threshold between quadratic and linear loss, must be between 0 and 1)."
+h2o,deeplearning,H2ODeepLearningEstimator,score_interval,5.0,float,Shortest time interval (in seconds) between model scoring.
+h2o,deeplearning,H2ODeepLearningEstimator,score_training_samples,10000,long,Number of training set samples for scoring (0 for all).
+h2o,deeplearning,H2ODeepLearningEstimator,score_validation_samples,0,long,Number of validation set samples for scoring (0 for all).
+h2o,deeplearning,H2ODeepLearningEstimator,score_duty_cycle,0.1,float,"Maximum duty cycle fraction for scoring (lower: more training, higher: more scoring)."
+h2o,deeplearning,H2ODeepLearningEstimator,classification_stop,0.0,float,Stopping criterion for classification error fraction on training data (-1 to disable).
+h2o,deeplearning,H2ODeepLearningEstimator,regression_stop,1e-06,float,Stopping criterion for regression error (MSE) on training data (-1 to disable).
+h2o,deeplearning,H2ODeepLearningEstimator,stopping_rounds,5,int,Early stopping based on convergence of stopping_metric. Stop if simple moving average of length k of the stopping_metric does not improve for k:=stopping_rounds scoring events (0 to disable)
+h2o,deeplearning,H2ODeepLearningEstimator,stopping_metric,AUTO,"Categorical(['AUTO', 'deviance', 'logloss', 'MSE', 'RMSE', 'MAE', 'RMSLE', 'AUC', 'AUCPR', 'lift_top_group', 'misclassification', 'mean_per_class_error', 'anomaly_score', 'AUUC', 'ATE', 'ATT', 'ATC', 'qini', 'custom', 'custom_increasing'])","Metric to use for early stopping (AUTO: logloss for classification, deviance for regression and anomaly_score for Isolation Forest). Note that custom and custom_increasing can only be used in GBM and DRF with the Python client."
+h2o,deeplearning,H2ODeepLearningEstimator,stopping_tolerance,0.0,float,Relative tolerance for metric-based stopping criterion (stop if relative improvement is not at least this much)
+h2o,deeplearning,H2ODeepLearningEstimator,max_runtime_secs,0.0,float,Maximum allowed runtime in seconds for model training. Use 0 to disable.
+h2o,deeplearning,H2ODeepLearningEstimator,score_validation_sampling,Uniform,"Categorical(['Uniform', 'Stratified'])",Method used to sample validation dataset for scoring.
+h2o,deeplearning,H2ODeepLearningEstimator,diagnostics,True,bool,Enable diagnostics for hidden layers.
+h2o,deeplearning,H2ODeepLearningEstimator,fast_mode,True,bool,Enable fast mode (minor approximation in back-propagation).
+h2o,deeplearning,H2ODeepLearningEstimator,force_load_balance,True,bool,Force extra load balancing to increase training speed for small datasets (to keep all cores busy).
+h2o,deeplearning,H2ODeepLearningEstimator,variable_importances,True,bool,Compute variable importances for input features (Gedeon method) - can be slow for large networks.
+h2o,deeplearning,H2ODeepLearningEstimator,replicate_training_data,True,bool,Replicate the entire training dataset onto every node for faster training on small datasets.
+h2o,deeplearning,H2ODeepLearningEstimator,single_node_mode,False,bool,Run on a single node for fine-tuning of model parameters.
+h2o,deeplearning,H2ODeepLearningEstimator,shuffle_training_data,False,bool,"Enable shuffling of training data (recommended if training data is replicated and train_samples_per_iteration is close to #nodes x #rows, of if using balance_classes)."
+h2o,deeplearning,H2ODeepLearningEstimator,missing_values_handling,MeanImputation,"Categorical(['MeanImputation', 'Skip'])",Handling of missing values. Either MeanImputation or Skip.
+h2o,deeplearning,H2ODeepLearningEstimator,quiet_mode,False,bool,Enable quiet mode for less output to standard output.
+h2o,deeplearning,H2ODeepLearningEstimator,autoencoder,False,bool,Auto-Encoder.
+h2o,deeplearning,H2ODeepLearningEstimator,sparse,False,bool,Sparse data handling (more efficient for data with lots of 0 values).
+h2o,deeplearning,H2ODeepLearningEstimator,col_major,False,bool,"#DEPRECATED Use a column major weight matrix for input layer. Can speed up forward propagation, but might slow down backpropagation."
+h2o,deeplearning,H2ODeepLearningEstimator,average_activation,0.0,float,Average activation for sparse auto-encoder. #Experimental
+h2o,deeplearning,H2ODeepLearningEstimator,sparsity_beta,0.0,float,Sparsity regularization. #Experimental
+h2o,deeplearning,H2ODeepLearningEstimator,max_categorical_features,2147483647,int,"Max. number of categorical features, enforced via hashing. #Experimental"
+h2o,deeplearning,H2ODeepLearningEstimator,reproducible,False,bool,Force reproducibility on small data (will be slow - only uses 1 thread).
+h2o,deeplearning,H2ODeepLearningEstimator,export_weights_and_biases,False,bool,Whether to export Neural Network weights and biases to H2O Frames.
+h2o,deeplearning,H2ODeepLearningEstimator,mini_batch_size,1,int,"Mini-batch size (smaller leads to better fit, larger can speed up and generalize better)."
+h2o,deeplearning,H2ODeepLearningEstimator,categorical_encoding,AUTO,"Categorical(['AUTO', 'Enum', 'OneHotInternal', 'OneHotExplicit', 'Binary', 'Eigen', 'LabelEncoder', 'SortByResponse', 'EnumLimited'])",Encoding scheme for categorical features
+h2o,deeplearning,H2ODeepLearningEstimator,elastic_averaging,False,bool,Elastic averaging between compute nodes can improve distributed model convergence. #Experimental
+h2o,deeplearning,H2ODeepLearningEstimator,elastic_averaging_moving_rate,0.9,float,Elastic averaging moving rate (only if elastic averaging is enabled).
+h2o,deeplearning,H2ODeepLearningEstimator,elastic_averaging_regularization,0.001,float,Elastic averaging regularization strength (only if elastic averaging is enabled).
+h2o,deeplearning,H2ODeepLearningEstimator,export_checkpoints_dir,None,string,Automatically export generated models to this directory.
+h2o,deeplearning,H2ODeepLearningEstimator,auc_type,AUTO,"Categorical(['AUTO', 'NONE', 'MACRO_OVR', 'WEIGHTED_OVR', 'MACRO_OVO', 'WEIGHTED_OVO'])",Set default multinomial AUC type.
+h2o,deeplearning,H2ODeepLearningEstimator,custom_metric_func,None,string,"Reference to custom evaluation function, format: `language:keyName=funcName`"
+h2o,deeplearning,H2ODeepLearningEstimator,gainslift_bins,-1,int,Gains/Lift table number of bins. 0 means disabled.. Default value -1 means automatic binning.
+h2o,extendedisolationforest,H2OExtendedIsolationForestEstimator,model_id,None,key<model>,Destination id for this model; auto-generated if not specified.
+h2o,extendedisolationforest,H2OExtendedIsolationForestEstimator,training_frame,None,key<frame>,Id of the training data frame.
+h2o,extendedisolationforest,H2OExtendedIsolationForestEstimator,ignored_columns,None,string[],Names of columns to ignore for training.
+h2o,extendedisolationforest,H2OExtendedIsolationForestEstimator,ignore_const_cols,True,bool,Ignore constant columns.
+h2o,extendedisolationforest,H2OExtendedIsolationForestEstimator,categorical_encoding,AUTO,"Categorical(['AUTO', 'Enum', 'OneHotInternal', 'OneHotExplicit', 'Binary', 'Eigen', 'LabelEncoder', 'SortByResponse', 'EnumLimited'])",Encoding scheme for categorical features
+h2o,extendedisolationforest,H2OExtendedIsolationForestEstimator,score_each_iteration,False,bool,Whether to score during each iteration of model training.
+h2o,extendedisolationforest,H2OExtendedIsolationForestEstimator,score_tree_interval,0,int,Score the model after every so many trees. Disabled if set to 0.
+h2o,extendedisolationforest,H2OExtendedIsolationForestEstimator,ntrees,100,int,Number of Extended Isolation Forest trees.
+h2o,extendedisolationforest,H2OExtendedIsolationForestEstimator,sample_size,256,int,Number of randomly sampled observations used to train each Extended Isolation Forest tree.
+h2o,extendedisolationforest,H2OExtendedIsolationForestEstimator,extension_level,0,int,Maximum is N - 1 (N = numCols). Minimum is 0. Extended Isolation Forest with extension_Level = 0 behaves like Isolation Forest.
+h2o,extendedisolationforest,H2OExtendedIsolationForestEstimator,seed,-1,long,Seed for pseudo random number generator (if applicable)
+h2o,extendedisolationforest,H2OExtendedIsolationForestEstimator,disable_training_metrics,True,bool,Disable calculating training metrics (expensive on large datasets)
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,model_id,None,key<model>,Destination id for this model; auto-generated if not specified.
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,training_frame,None,key<frame>,Id of the training data frame.
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,validation_frame,None,key<frame>,Id of the validation data frame.
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,nfolds,0,int,Number of folds for K-fold cross-validation (0 to disable or >= 2).
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,seed,-1,long,Seed for pseudo random number generator (if applicable)
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,keep_cross_validation_models,True,bool,Whether to keep the cross-validation models.
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,keep_cross_validation_predictions,False,bool,Whether to keep the predictions of the cross-validation models.
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,keep_cross_validation_fold_assignment,False,bool,Whether to keep the cross-validation fold assignment.
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,fold_assignment,AUTO,"Categorical(['AUTO', 'Random', 'Modulo', 'Stratified'])","Cross-validation fold assignment scheme, if fold_column is not specified. The 'Stratified' option will stratify the folds based on the response variable, for classification problems."
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,fold_column,None,vecspecifier,Column with cross-validation fold index assignment per observation.
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,response_column,None,vecspecifier,Response variable column.
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,ignored_columns,None,string[],Names of columns to ignore for training.
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,ignore_const_cols,True,bool,Ignore constant columns.
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,score_each_iteration,False,bool,Whether to score during each iteration of model training.
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,offset_column,None,vecspecifier,Offset column. This will be added to the combination of columns before applying the link function.
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,weights_column,None,vecspecifier,"Column with observation weights. Giving some observation a weight of zero is equivalent to excluding it from the dataset; giving an observation a relative weight of 2 is equivalent to repeating that row twice. Negative weights are not allowed. Note: Weights are per-row observation weights and do not increase the size of the data frame. This is typically the number of times a row is repeated, but non-integer values are supported as well. During training, rows with higher weights matter more, due to the larger loss function pre-factor. If you set weight = 0 for a row, the returned prediction frame at that row is zero and this is incorrect. To get an accurate prediction, remove all rows with weight == 0."
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,family,AUTO,"Categorical(['AUTO', 'gaussian', 'binomial', 'quasibinomial', 'ordinal', 'multinomial', 'poisson', 'gamma', 'tweedie', 'negativebinomial', 'fractionalbinomial'])","Family. Use binomial for classification with logistic regression, others are for regression problems."
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,tweedie_variance_power,0.0,float,Tweedie variance power
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,tweedie_link_power,0.0,float,Tweedie link power
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,theta,0.0,float,Theta
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,solver,AUTO,"Categorical(['AUTO', 'IRLSM', 'L_BFGS', 'COORDINATE_DESCENT_NAIVE', 'COORDINATE_DESCENT', 'GRADIENT_DESCENT_LH', 'GRADIENT_DESCENT_SQERR'])","AUTO will set the solver based on given data and the other parameters. IRLSM is fast on on problems with small number of predictors and for lambda-search with L1 penalty, L_BFGS scales better for datasets with many columns."
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,alpha,None,float,"Distribution of regularization between the L1 (Lasso) and L2 (Ridge) penalties. A value of 1 for alpha represents Lasso regression, a value of 0 produces Ridge regression, and anything in between specifies the amount of mixing between the two. Default value of alpha is 0 when SOLVER = 'L-BFGS'; 0.5 otherwise."
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,lambda,None,float,Regularization strength
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,lambda_search,False,bool,"Use lambda search starting at lambda max, given lambda is then interpreted as lambda min"
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,early_stopping,True,bool,Stop early when there is no more relative improvement on train or validation (if provided)
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,nlambdas,-1,int,"Number of lambdas to be used in a search. Default indicates: If alpha is zero, with lambda search set to True, the value of nlamdas is set to 30 (fewer lambdas are needed for ridge regression) otherwise it is set to 100."
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,standardize,False,bool,Standardize numeric columns to have zero mean and unit variance
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,missing_values_handling,MeanImputation,"Categorical(['MeanImputation', 'Skip', 'PlugValues'])","Handling of missing values. Either MeanImputation, Skip or PlugValues."
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,plug_values,None,key<frame>,"Plug Values (a single row frame containing values that will be used to impute missing values of the training/validation frame, use with conjunction missing_values_handling = PlugValues)"
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,compute_p_values,False,bool,"Request p-values computation, p-values work only with IRLSM solver and no regularization"
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,remove_collinear_columns,False,bool,"In case of linearly dependent columns, remove some of the dependent columns"
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,splines_non_negative,None,bool,"Valid for I-spline (bs=2) only.  True if the I-splines are monotonically increasing (and monotonically non-decreasing) and False if the I-splines are monotonically decreasing (and monotonically non-increasing).  If specified, must be the same size as gam_columns.  Values for other spline types will be ignored.  Default to true."
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,intercept,True,bool,Include constant term in the model
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,non_negative,False,bool,Restrict coefficients (not intercept) to be non-negative
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,max_iterations,-1,int,Maximum number of iterations
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,objective_epsilon,-1.0,float,"Converge if  objective value changes less than this. Default indicates: If lambda_search is set to True the value of objective_epsilon is set to .0001. If the lambda_search is set to False and lambda is equal to zero, the value of objective_epsilon is set to .000001, for any other value of lambda the default value of objective_epsilon is set to .0001."
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,beta_epsilon,0.0001,float,"Converge if  beta changes less (using L-infinity norm) than beta esilon, ONLY applies to IRLSM solver"
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,gradient_epsilon,-1.0,float,"Converge if  objective changes less (using L-infinity norm) than this, ONLY applies to L-BFGS solver. Default indicates: If lambda_search is set to False and lambda is equal to zero, the default value of gradient_epsilon is equal to .000001, otherwise the default value is .0001. If lambda_search is set to True, the conditional values above are 1E-8 and 1E-6 respectively."
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,link,family_default,"Categorical(['family_default', 'identity', 'logit', 'log', 'inverse', 'tweedie', 'ologit'])",Link function.
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,startval,None,float,double array to initialize coefficients for GAM.
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,prior,-1.0,float,Prior probability for y==1. To be used only for logistic regression iff the data has been sampled and the mean of response does not reflect reality.
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,cold_start,False,bool,"Only applicable to multiple alpha/lambda values when calling GLM from GAM.  If false, build the next model for next set of alpha/lambda values starting from the values provided by current model.  If true will start GLM model from scratch."
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,lambda_min_ratio,-1.0,float,"Minimum lambda used in lambda search, specified as a ratio of lambda_max (the smallest lambda that drives all coefficients to zero). Default indicates: if the number of observations is greater than the number of variables, then lambda_min_ratio is set to 0.0001; if the number of observations is less than the number of variables, then lambda_min_ratio is set to 0.01."
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,beta_constraints,None,key<frame>,Beta constraints
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,max_active_predictors,-1,int,"Maximum number of active predictors during computation. Use as a stopping criterion to prevent expensive model building with many predictors. Default indicates: If the IRLSM solver is used, the value of max_active_predictors is set to 5000 otherwise it is set to 100000000."
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,interactions,None,string[],A list of predictor column indices to interact. All pairwise combinations will be computed for the list.
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,interaction_pairs,None,stringpair[],A list of pairwise (first order) column interactions.
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,obj_reg,-1.0,float,"Likelihood divider in objective value computation, default is 1/nobs"
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,export_checkpoints_dir,None,string,Automatically export generated models to this directory.
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,stopping_rounds,0,int,Early stopping based on convergence of stopping_metric. Stop if simple moving average of length k of the stopping_metric does not improve for k:=stopping_rounds scoring events (0 to disable)
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,stopping_metric,AUTO,"Categorical(['AUTO', 'deviance', 'logloss', 'MSE', 'RMSE', 'MAE', 'RMSLE', 'AUC', 'AUCPR', 'lift_top_group', 'misclassification', 'mean_per_class_error', 'anomaly_score', 'AUUC', 'ATE', 'ATT', 'ATC', 'qini', 'custom', 'custom_increasing'])","Metric to use for early stopping (AUTO: logloss for classification, deviance for regression and anomaly_score for Isolation Forest). Note that custom and custom_increasing can only be used in GBM and DRF with the Python client."
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,stopping_tolerance,0.001,float,Relative tolerance for metric-based stopping criterion (stop if relative improvement is not at least this much)
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,balance_classes,False,bool,Balance training data class counts via over/under-sampling (for imbalanced data).
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,class_sampling_factors,None,float,"Desired over/under-sampling ratios per class (in lexicographic order). If not specified, sampling factors will be automatically computed to obtain class balance during training. Requires balance_classes."
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,max_after_balance_size,5.0,float,Maximum relative size of the training data after balancing class counts (can be less than 1.0). Requires balance_classes.
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,max_confusion_matrix_size,20,int,[Deprecated] Maximum size (# classes) for confusion matrices to be printed in the Logs
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,max_runtime_secs,0.0,float,Maximum allowed runtime in seconds for model training. Use 0 to disable.
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,num_knots,None,int,"Number of knots for gam predictors.  If specified, must specify one for each gam predictor.  For monotone I-splines, mininum = 2, for cs spline, minimum = 3.  For thin plate, minimum is size of polynomial basis + 2."
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,spline_orders,None,int,"Order of I-splines or NBSplineTypeI M-splines used for gam predictors. If specified, must be the same size as gam_columns.  For I-splines, the spline_orders will be the same as the polynomials used to generate the splines.  For M-splines, the polynomials used to generate the splines will be spline_order-1.  Values for bs=0 or 1 will be ignored."
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,knot_ids,None,string[],Array storing frame keys of knots.  One for each gam column set specified in gam_columns
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,gam_columns,None,string[][],"Arrays of predictor column names for gam for smoothers using single or multiple predictors like {{'c1'},{'c2','c3'},{'c4'},...}"
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,standardize_tp_gam_cols,False,bool,standardize tp (thin plate) predictor columns
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,scale_tp_penalty_mat,False,bool,Scale penalty matrix for tp (thin plate) smoothers as in R
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,bs,None,int,"Basis function type for each gam predictors, 0 for cr, 1 for thin plate regression with knots, 2 for monotone I-splines, 3 for NBSplineTypeI M-splines (refer to doc here: https://github.com/h2oai/h2o-3/issues/6926).  If specified, must be the same size as gam_columns"
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,scale,None,float,"Smoothing parameter for gam predictors.  If specified, must be of the same length as gam_columns"
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,keep_gam_cols,False,bool,Save keys of model matrix
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,store_knot_locations,False,bool,"If set to true, will return knot locations as double[][] array for gam column names found knots_for_gam.  Default to false."
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,auc_type,AUTO,"Categorical(['AUTO', 'NONE', 'MACRO_OVR', 'WEIGHTED_OVR', 'MACRO_OVO', 'WEIGHTED_OVO'])",Set default multinomial AUC type.
+h2o,generalizedadditive,H2OGeneralizedAdditiveEstimator,gainslift_bins,-1,int,Gains/Lift table number of bins. 0 means disabled.. Default value -1 means automatic binning.
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,model_id,None,key<model>,Destination id for this model; auto-generated if not specified.
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,training_frame,None,key<frame>,Id of the training data frame.
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,validation_frame,None,key<frame>,Id of the validation data frame.
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,nfolds,0,int,Number of folds for K-fold cross-validation (0 to disable or >= 2).
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,checkpoint,None,key<model>,Model checkpoint to resume training with.
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,export_checkpoints_dir,None,string,Automatically export generated models to this directory.
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,seed,-1,long,Seed for pseudo random number generator (if applicable).
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,keep_cross_validation_models,True,bool,Whether to keep the cross-validation models.
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,keep_cross_validation_predictions,False,bool,Whether to keep the predictions of the cross-validation models.
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,keep_cross_validation_fold_assignment,False,bool,Whether to keep the cross-validation fold assignment.
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,fold_assignment,AUTO,"Categorical(['AUTO', 'Random', 'Modulo', 'Stratified'])","Cross-validation fold assignment scheme, if fold_column is not specified. The 'Stratified' option will stratify the folds based on the response variable, for classification problems."
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,fold_column,None,vecspecifier,Column with cross-validation fold index assignment per observation.
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,response_column,None,vecspecifier,Response variable column.
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,ignored_columns,None,string[],Names of columns to ignore for training.
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,ignore_const_cols,True,bool,Ignore constant columns.
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,score_each_iteration,False,bool,Whether to score during each iteration of model training.
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,score_iteration_interval,-1,int,Perform scoring for every score_iteration_interval iterations.
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,offset_column,None,vecspecifier,Offset column. This will be added to the combination of columns before applying the link function.
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,weights_column,None,vecspecifier,"Column with observation weights. Giving some observation a weight of zero is equivalent to excluding it from the dataset; giving an observation a relative weight of 2 is equivalent to repeating that row twice. Negative weights are not allowed. Note: Weights are per-row observation weights and do not increase the size of the data frame. This is typically the number of times a row is repeated, but non-integer values are supported as well. During training, rows with higher weights matter more, due to the larger loss function pre-factor. If you set weight = 0 for a row, the returned prediction frame at that row is zero and this is incorrect. To get an accurate prediction, remove all rows with weight == 0."
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,family,AUTO,"Categorical(['AUTO', 'gaussian', 'binomial', 'fractionalbinomial', 'quasibinomial', 'ordinal', 'multinomial', 'poisson', 'gamma', 'tweedie', 'negativebinomial'])","Family. Use binomial for classification with logistic regression, others are for regression problems."
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,tweedie_variance_power,0.0,float,Tweedie variance power
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,tweedie_link_power,1.0,float,Tweedie link power.
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,theta,1e-10,float,Theta
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,solver,AUTO,"Categorical(['AUTO', 'IRLSM', 'L_BFGS', 'COORDINATE_DESCENT_NAIVE', 'COORDINATE_DESCENT', 'GRADIENT_DESCENT_LH', 'GRADIENT_DESCENT_SQERR'])","AUTO will set the solver based on given data and the other parameters. IRLSM is fast on on problems with small number of predictors and for lambda-search with L1 penalty, L_BFGS scales better for datasets with many columns."
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,alpha,None,float,"Distribution of regularization between the L1 (Lasso) and L2 (Ridge) penalties. A value of 1 for alpha represents Lasso regression, a value of 0 produces Ridge regression, and anything in between specifies the amount of mixing between the two. Default value of alpha is 0 when SOLVER = 'L-BFGS'; 0.5 otherwise."
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,lambda,None,float,Regularization strength
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,lambda_search,False,bool,"Use lambda search starting at lambda max, given lambda is then interpreted as lambda min."
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,early_stopping,True,bool,Stop early when there is no more relative improvement on train or validation (if provided).
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,nlambdas,-1,int,"Number of lambdas to be used in a search. Default indicates: If alpha is zero, with lambda search set to True, the value of nlamdas is set to 30 (fewer lambdas are needed for ridge regression) otherwise it is set to 100."
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,standardize,True,bool,Standardize numeric columns to have zero mean and unit variance.
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,missing_values_handling,MeanImputation,"Categorical(['MeanImputation', 'Skip', 'PlugValues'])","Handling of missing values. Either MeanImputation, Skip or PlugValues."
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,plug_values,None,key<frame>,"Plug Values (a single row frame containing values that will be used to impute missing values of the training/validation frame, use with conjunction missing_values_handling = PlugValues)."
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,compute_p_values,False,bool,"Request p-values computation, p-values work only with IRLSM solver."
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,dispersion_parameter_method,pearson,"Categorical(['deviance', 'pearson', 'ml'])","Method used to estimate the dispersion parameter for Tweedie, Gamma and Negative Binomial only."
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,init_dispersion_parameter,1.0,float,"Only used for Tweedie, Gamma and Negative Binomial GLM.  Store the initial value of dispersion parameter.  If fix_dispersion_parameter is set, this value will be used in the calculation of p-values."
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,remove_collinear_columns,False,bool,"In case of linearly dependent columns, remove the dependent columns."
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,intercept,True,bool,Include constant term in the model
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,non_negative,False,bool,Restrict coefficients (not intercept) to be non-negative.
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,max_iterations,-1,int,Maximum number of iterations.  Value should >=1.  A value of 0 is only set when only the model coefficient names and model coefficient dimensions are needed.
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,objective_epsilon,-1.0,float,"Converge if  objective value changes less than this. Default (of -1.0) indicates: If lambda_search is set to True the value of objective_epsilon is set to .0001. If the lambda_search is set to False and lambda is equal to zero, the value of objective_epsilon is set to .000001, for any other value of lambda the default value of objective_epsilon is set to .0001."
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,beta_epsilon,0.0001,float,Converge if beta changes less (using L-infinity norm) than beta esilon. ONLY applies to IRLSM solver.
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,gradient_epsilon,-1.0,float,"Converge if  objective changes less (using L-infinity norm) than this, ONLY applies to L-BFGS solver. Default (of -1.0) indicates: If lambda_search is set to False and lambda is equal to zero, the default value of gradient_epsilon is equal to .000001, otherwise the default value is .0001. If lambda_search is set to True, the conditional values above are 1E-8 and 1E-6 respectively."
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,link,family_default,"Categorical(['family_default', 'identity', 'logit', 'log', 'inverse', 'tweedie', 'ologit'])",Link function.
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,startval,None,float,"double array to initialize coefficients for GLM.  If standardize is true, the standardized coefficients should be used.  Otherwise, use the regular coefficients."
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,calc_like,False,bool,"if true, will return likelihood function value."
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,prior,-1.0,float,Prior probability for y==1. To be used only for logistic regression iff the data has been sampled and the mean of response does not reflect reality.
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,cold_start,False,bool,"Only applicable to multiple alpha/lambda values.  If false, build the next model for next set of alpha/lambda values starting from the values provided by current model.  If true will start GLM model from scratch."
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,lambda_min_ratio,-1.0,float,"Minimum lambda used in lambda search, specified as a ratio of lambda_max (the smallest lambda that drives all coefficients to zero).  Default indicates: if the number of observations is greater than the number of variables, then lambda_min_ratio is set to 0.0001; if the number of observations is less than the number of variables, then lambda_min_ratio is set to 0.01."
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,beta_constraints,None,key<frame>,Beta constraints
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,max_active_predictors,-1,int,"Maximum number of active predictors during computation. Use as a stopping criterion to prevent expensive model building with many predictors. Default indicates: If the IRLSM solver is used, the value of max_active_predictors is set to 5000 otherwise it is set to 100000000."
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,interactions,None,string[],A list of predictor column indices to interact. All pairwise combinations will be computed for the list.
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,interaction_pairs,None,stringpair[],A list of pairwise (first order) column interactions.
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,obj_reg,-1.0,float,"Likelihood divider in objective value computation, default (of -1.0) will set it to 1/nobs."
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,stopping_rounds,0,int,Early stopping based on convergence of stopping_metric. Stop if simple moving average of length k of the stopping_metric does not improve for k:=stopping_rounds scoring events (0 to disable)
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,stopping_metric,AUTO,"Categorical(['AUTO', 'deviance', 'logloss', 'MSE', 'RMSE', 'MAE', 'RMSLE', 'AUC', 'AUCPR', 'lift_top_group', 'misclassification', 'mean_per_class_error', 'anomaly_score', 'AUUC', 'ATE', 'ATT', 'ATC', 'qini', 'custom', 'custom_increasing'])","Metric to use for early stopping (AUTO: logloss for classification, deviance for regression and anomaly_score for Isolation Forest). Note that custom and custom_increasing can only be used in GBM and DRF with the Python client."
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,stopping_tolerance,0.001,float,Relative tolerance for metric-based stopping criterion (stop if relative improvement is not at least this much)
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,control_variables,None,string[],A list of predictor column indices which is used for training but removed for scoring. Experimental.
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,remove_offset_effects,False,bool,Remove offset effects from scoring and metric calculation. Experimental.
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,balance_classes,False,bool,Balance training data class counts via over/under-sampling (for imbalanced data).
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,class_sampling_factors,None,float,"Desired over/under-sampling ratios per class (in lexicographic order). If not specified, sampling factors will be automatically computed to obtain class balance during training. Requires balance_classes."
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,max_after_balance_size,5.0,float,Maximum relative size of the training data after balancing class counts (can be less than 1.0). Requires balance_classes.
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,max_confusion_matrix_size,20,int,[Deprecated] Maximum size (# classes) for confusion matrices to be printed in the Logs.
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,max_runtime_secs,0.0,float,Maximum allowed runtime in seconds for model training. Use 0 to disable.
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,custom_metric_func,None,string,"Reference to custom evaluation function, format: `language:keyName=funcName`"
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,generate_scoring_history,False,bool,"If set to true, will generate scoring history for GLM.  This may significantly slow down the algo."
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,auc_type,AUTO,"Categorical(['AUTO', 'NONE', 'MACRO_OVR', 'WEIGHTED_OVR', 'MACRO_OVO', 'WEIGHTED_OVO'])",Set default multinomial AUC type.
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,dispersion_epsilon,0.0001,float,"If changes in dispersion parameter estimation or loglikelihood value is smaller than dispersion_epsilon, will break out of the dispersion parameter estimation loop using maximum likelihood."
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,tweedie_epsilon,8e-17,float,"In estimating tweedie dispersion parameter using maximum likelihood, this is used to choose the lower and upper indices in the approximating of the infinite series summation."
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,max_iterations_dispersion,3000,int,Control the maximum number of iterations in the dispersion parameter estimation loop using maximum likelihood.
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,build_null_model,False,bool,"If set, will build a model with only the intercept.  Default to false."
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,fix_dispersion_parameter,False,bool,"Only used for Tweedie, Gamma and Negative Binomial GLM.  If set, will use the dispsersion parameter in init_dispersion_parameter as the standard error and use it to calculate the p-values. Default to false."
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,generate_variable_inflation_factors,False,bool,"if true, will generate variable inflation factors for numerical predictors.  Default to false."
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,fix_tweedie_variance_power,True,bool,"If true, will fix tweedie variance power value to the value set in tweedie_variance_power."
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,dispersion_learning_rate,0.5,float,"Dispersion learning rate is only valid for tweedie family dispersion parameter estimation using ml. It must be > 0.  This controls how much the dispersion parameter estimate is to be changed when the calculated loglikelihood actually decreases with the new dispersion.  In this case, instead of setting new dispersion = dispersion + change, we set new dispersion = dispersion + dispersion_learning_rate * change. Defaults to 0.5."
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,influence,None,Categorical(['dfbetas']),If set to dfbetas will calculate the difference in beta when a datarow is included and excluded in the dataset.
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,gainslift_bins,-1,int,Gains/Lift table number of bins. 0 means disabled.. Default value -1 means automatic binning.
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,linear_constraints,None,key<frame>,"Linear constraints: used to specify linear constraints involving more than one coefficients in standard form.  It is only supported for solver IRLSM.  It contains four columns: names (strings for coefficient names or constant), values, types ( strings of 'Equal' or 'LessThanEqual'), constraint_numbers (0 for first linear constraint, 1 for second linear constraint, ...)."
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,init_optimal_glm,False,bool,"If true, will initialize coefficients with values derived from GLM runs without linear constraints.  Only available for linear constraints."
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,separate_linear_beta,False,bool,"If true, will keep the beta constraints and linear constraints separate.  After new coefficients are found, first beta constraints will be applied followed by the application of linear constraints.  Note that the beta constraints in this case will not be part of the objective function.  If false, will combine the beta and linear constraints."
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,constraint_eta0,0.1258925,float,"For constrained GLM only.  It affects the setting of eta_k+1=eta_0/power(ck+1, alpha)."
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,constraint_tau,10.0,float,For constrained GLM only.  It affects the setting of c_k+1=tau*c_k.
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,constraint_alpha,0.1,float,"For constrained GLM only.  It affects the setting of  eta_k = eta_0/pow(c_0, alpha)."
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,constraint_beta,0.9,float,"For constrained GLM only.  It affects the setting of eta_k+1 = eta_k/pow(c_k, beta)."
+h2o,generalizedlinear,H2OGeneralizedLinearEstimator,constraint_c0,10.0,float,For constrained GLM only.  It affects the initial setting of epsilon_k = 1/c_0.
+h2o,generalizedlowrank,H2OGeneralizedLowRankEstimator,model_id,None,key<model>,Destination id for this model; auto-generated if not specified.
+h2o,generalizedlowrank,H2OGeneralizedLowRankEstimator,training_frame,None,key<frame>,Id of the training data frame.
+h2o,generalizedlowrank,H2OGeneralizedLowRankEstimator,validation_frame,None,key<frame>,Id of the validation data frame.
+h2o,generalizedlowrank,H2OGeneralizedLowRankEstimator,ignored_columns,None,string[],Names of columns to ignore for training.
+h2o,generalizedlowrank,H2OGeneralizedLowRankEstimator,ignore_const_cols,True,bool,Ignore constant columns.
+h2o,generalizedlowrank,H2OGeneralizedLowRankEstimator,score_each_iteration,False,bool,Whether to score during each iteration of model training.
+h2o,generalizedlowrank,H2OGeneralizedLowRankEstimator,representation_name,None,string,Frame key to save resulting X
+h2o,generalizedlowrank,H2OGeneralizedLowRankEstimator,loading_name,None,string,[Deprecated] Use representation_name instead.  Frame key to save resulting X.
+h2o,generalizedlowrank,H2OGeneralizedLowRankEstimator,transform,NONE,"Categorical(['NONE', 'STANDARDIZE', 'NORMALIZE', 'DEMEAN', 'DESCALE'])",Transformation of training data
+h2o,generalizedlowrank,H2OGeneralizedLowRankEstimator,k,1,int,Rank of matrix approximation
+h2o,generalizedlowrank,H2OGeneralizedLowRankEstimator,loss,Quadratic,"Categorical(['Quadratic', 'Absolute', 'Huber', 'Poisson', 'Hinge', 'Logistic', 'Periodic'])",Numeric loss function
+h2o,generalizedlowrank,H2OGeneralizedLowRankEstimator,loss_by_col,None,"Categorical(['Quadratic', 'Absolute', 'Huber', 'Poisson', 'Hinge', 'Logistic', 'Periodic', 'Categorical', 'Ordinal'])",Loss function by column (override)
+h2o,generalizedlowrank,H2OGeneralizedLowRankEstimator,loss_by_col_idx,None,int,Loss function by column index (override)
+h2o,generalizedlowrank,H2OGeneralizedLowRankEstimator,multi_loss,Categorical,"Categorical(['Categorical', 'Ordinal'])",Categorical loss function
+h2o,generalizedlowrank,H2OGeneralizedLowRankEstimator,period,1,int,Length of period (only used with periodic loss function)
+h2o,generalizedlowrank,H2OGeneralizedLowRankEstimator,regularization_x,None,"Categorical(['None', 'Quadratic', 'L2', 'L1', 'NonNegative', 'OneSparse', 'UnitOneSparse', 'Simplex'])",Regularization function for X matrix
+h2o,generalizedlowrank,H2OGeneralizedLowRankEstimator,regularization_y,None,"Categorical(['None', 'Quadratic', 'L2', 'L1', 'NonNegative', 'OneSparse', 'UnitOneSparse', 'Simplex'])",Regularization function for Y matrix
+h2o,generalizedlowrank,H2OGeneralizedLowRankEstimator,gamma_x,0.0,float,Regularization weight on X matrix
+h2o,generalizedlowrank,H2OGeneralizedLowRankEstimator,gamma_y,0.0,float,Regularization weight on Y matrix
+h2o,generalizedlowrank,H2OGeneralizedLowRankEstimator,max_iterations,1000,int,Maximum number of iterations
+h2o,generalizedlowrank,H2OGeneralizedLowRankEstimator,max_updates,2000,int,"Maximum number of updates, defaults to 2*max_iterations"
+h2o,generalizedlowrank,H2OGeneralizedLowRankEstimator,init_step_size,1.0,float,Initial step size
+h2o,generalizedlowrank,H2OGeneralizedLowRankEstimator,min_step_size,0.0001,float,Minimum step size
+h2o,generalizedlowrank,H2OGeneralizedLowRankEstimator,seed,-1,long,RNG seed for initialization
+h2o,generalizedlowrank,H2OGeneralizedLowRankEstimator,init,PlusPlus,"Categorical(['Random', 'SVD', 'PlusPlus', 'User'])",Initialization mode
+h2o,generalizedlowrank,H2OGeneralizedLowRankEstimator,svd_method,Randomized,"Categorical(['GramSVD', 'Power', 'Randomized'])",Method for computing SVD during initialization (Caution: Randomized is currently experimental and unstable)
+h2o,generalizedlowrank,H2OGeneralizedLowRankEstimator,user_y,None,key<frame>,User-specified initial Y
+h2o,generalizedlowrank,H2OGeneralizedLowRankEstimator,user_x,None,key<frame>,User-specified initial X
+h2o,generalizedlowrank,H2OGeneralizedLowRankEstimator,expand_user_y,True,bool,Expand categorical columns in user-specified initial Y
+h2o,generalizedlowrank,H2OGeneralizedLowRankEstimator,impute_original,False,bool,Reconstruct original training data by reversing transform
+h2o,generalizedlowrank,H2OGeneralizedLowRankEstimator,recover_svd,False,bool,Recover singular values and eigenvectors of XY
+h2o,generalizedlowrank,H2OGeneralizedLowRankEstimator,max_runtime_secs,0.0,float,Maximum allowed runtime in seconds for model training. Use 0 to disable.
+h2o,generalizedlowrank,H2OGeneralizedLowRankEstimator,export_checkpoints_dir,None,string,Automatically export generated models to this directory.
+h2o,generic,H2OGenericEstimator,model_id,None,key<model>,Destination id for this model; auto-generated if not specified.
+h2o,generic,H2OGenericEstimator,model_key,None,key<frame>,Key to the self-contained model archive already uploaded to H2O.
+h2o,generic,H2OGenericEstimator,path,None,string,Path to file with self-contained model archive.
+h2o,gradientboosting,H2OGradientBoostingEstimator,model_id,None,key<model>,Destination id for this model; auto-generated if not specified.
+h2o,gradientboosting,H2OGradientBoostingEstimator,training_frame,None,key<frame>,Id of the training data frame.
+h2o,gradientboosting,H2OGradientBoostingEstimator,validation_frame,None,key<frame>,Id of the validation data frame.
+h2o,gradientboosting,H2OGradientBoostingEstimator,nfolds,0,int,Number of folds for K-fold cross-validation (0 to disable or >= 2).
+h2o,gradientboosting,H2OGradientBoostingEstimator,keep_cross_validation_models,True,bool,Whether to keep the cross-validation models.
+h2o,gradientboosting,H2OGradientBoostingEstimator,keep_cross_validation_predictions,False,bool,Whether to keep the predictions of the cross-validation models.
+h2o,gradientboosting,H2OGradientBoostingEstimator,keep_cross_validation_fold_assignment,False,bool,Whether to keep the cross-validation fold assignment.
+h2o,gradientboosting,H2OGradientBoostingEstimator,score_each_iteration,False,bool,Whether to score during each iteration of model training.
+h2o,gradientboosting,H2OGradientBoostingEstimator,score_tree_interval,0,int,Score the model after every so many trees. Disabled if set to 0.
+h2o,gradientboosting,H2OGradientBoostingEstimator,fold_assignment,AUTO,"Categorical(['AUTO', 'Random', 'Modulo', 'Stratified'])","Cross-validation fold assignment scheme, if fold_column is not specified. The 'Stratified' option will stratify the folds based on the response variable, for classification problems."
+h2o,gradientboosting,H2OGradientBoostingEstimator,fold_column,None,vecspecifier,Column with cross-validation fold index assignment per observation.
+h2o,gradientboosting,H2OGradientBoostingEstimator,response_column,None,vecspecifier,Response variable column.
+h2o,gradientboosting,H2OGradientBoostingEstimator,ignored_columns,None,string[],Names of columns to ignore for training.
+h2o,gradientboosting,H2OGradientBoostingEstimator,ignore_const_cols,True,bool,Ignore constant columns.
+h2o,gradientboosting,H2OGradientBoostingEstimator,offset_column,None,vecspecifier,Offset column. This will be added to the combination of columns before applying the link function.
+h2o,gradientboosting,H2OGradientBoostingEstimator,weights_column,None,vecspecifier,"Column with observation weights. Giving some observation a weight of zero is equivalent to excluding it from the dataset; giving an observation a relative weight of 2 is equivalent to repeating that row twice. Negative weights are not allowed. Note: Weights are per-row observation weights and do not increase the size of the data frame. This is typically the number of times a row is repeated, but non-integer values are supported as well. During training, rows with higher weights matter more, due to the larger loss function pre-factor. If you set weight = 0 for a row, the returned prediction frame at that row is zero and this is incorrect. To get an accurate prediction, remove all rows with weight == 0."
+h2o,gradientboosting,H2OGradientBoostingEstimator,balance_classes,False,bool,Balance training data class counts via over/under-sampling (for imbalanced data).
+h2o,gradientboosting,H2OGradientBoostingEstimator,class_sampling_factors,None,float,"Desired over/under-sampling ratios per class (in lexicographic order). If not specified, sampling factors will be automatically computed to obtain class balance during training. Requires balance_classes."
+h2o,gradientboosting,H2OGradientBoostingEstimator,max_after_balance_size,5.0,float,Maximum relative size of the training data after balancing class counts (can be less than 1.0). Requires balance_classes.
+h2o,gradientboosting,H2OGradientBoostingEstimator,max_confusion_matrix_size,20,int,[Deprecated] Maximum size (# classes) for confusion matrices to be printed in the Logs
+h2o,gradientboosting,H2OGradientBoostingEstimator,ntrees,50,int,Number of trees.
+h2o,gradientboosting,H2OGradientBoostingEstimator,max_depth,5,int,Maximum tree depth (0 for unlimited).
+h2o,gradientboosting,H2OGradientBoostingEstimator,min_rows,10.0,float,Fewest allowed (weighted) observations in a leaf.
+h2o,gradientboosting,H2OGradientBoostingEstimator,nbins,20,int,"For numerical columns (real/int), build a histogram of (at least) this many bins, then split at the best point"
+h2o,gradientboosting,H2OGradientBoostingEstimator,nbins_top_level,1024,int,"For numerical columns (real/int), build a histogram of (at most) this many bins at the root level, then decrease by factor of two per level"
+h2o,gradientboosting,H2OGradientBoostingEstimator,nbins_cats,1024,int,"For categorical columns (factors), build a histogram of this many bins, then split at the best point. Higher values can lead to more overfitting."
+h2o,gradientboosting,H2OGradientBoostingEstimator,r2_stopping,1.7976931348623157e+308,float,"r2_stopping is no longer supported and will be ignored if set - please use stopping_rounds, stopping_metric and stopping_tolerance instead. Previous version of H2O would stop making trees when the R^2 metric equals or exceeds this"
+h2o,gradientboosting,H2OGradientBoostingEstimator,stopping_rounds,0,int,Early stopping based on convergence of stopping_metric. Stop if simple moving average of length k of the stopping_metric does not improve for k:=stopping_rounds scoring events (0 to disable)
+h2o,gradientboosting,H2OGradientBoostingEstimator,stopping_metric,AUTO,"Categorical(['AUTO', 'deviance', 'logloss', 'MSE', 'RMSE', 'MAE', 'RMSLE', 'AUC', 'AUCPR', 'lift_top_group', 'misclassification', 'mean_per_class_error', 'anomaly_score', 'AUUC', 'ATE', 'ATT', 'ATC', 'qini', 'custom', 'custom_increasing'])","Metric to use for early stopping (AUTO: logloss for classification, deviance for regression and anomaly_score for Isolation Forest). Note that custom and custom_increasing can only be used in GBM and DRF with the Python client."
+h2o,gradientboosting,H2OGradientBoostingEstimator,stopping_tolerance,0.001,float,Relative tolerance for metric-based stopping criterion (stop if relative improvement is not at least this much)
+h2o,gradientboosting,H2OGradientBoostingEstimator,max_runtime_secs,0.0,float,Maximum allowed runtime in seconds for model training. Use 0 to disable.
+h2o,gradientboosting,H2OGradientBoostingEstimator,seed,-1,long,Seed for pseudo random number generator (if applicable)
+h2o,gradientboosting,H2OGradientBoostingEstimator,build_tree_one_node,False,bool,Run on one node only; no network overhead but fewer cpus used. Suitable for small datasets.
+h2o,gradientboosting,H2OGradientBoostingEstimator,learn_rate,0.1,float,Learning rate (from 0.0 to 1.0)
+h2o,gradientboosting,H2OGradientBoostingEstimator,learn_rate_annealing,1.0,float,"Scale the learning rate by this factor after each tree (e.g., 0.99 or 0.999)"
+h2o,gradientboosting,H2OGradientBoostingEstimator,distribution,AUTO,"Categorical(['AUTO', 'bernoulli', 'quasibinomial', 'ordinal', 'multinomial', 'gaussian', 'poisson', 'gamma', 'tweedie', 'laplace', 'quantile', 'huber', 'custom'])",Distribution function
+h2o,gradientboosting,H2OGradientBoostingEstimator,quantile_alpha,0.5,float,"Desired quantile for Quantile regression, must be between 0 and 1."
+h2o,gradientboosting,H2OGradientBoostingEstimator,tweedie_power,1.5,float,"Tweedie power for Tweedie regression, must be between 1 and 2."
+h2o,gradientboosting,H2OGradientBoostingEstimator,huber_alpha,0.9,float,"Desired quantile for Huber/M-regression (threshold between quadratic and linear loss, must be between 0 and 1)."
+h2o,gradientboosting,H2OGradientBoostingEstimator,checkpoint,None,key<model>,Model checkpoint to resume training with.
+h2o,gradientboosting,H2OGradientBoostingEstimator,sample_rate,1.0,float,Row sample rate per tree (from 0.0 to 1.0)
+h2o,gradientboosting,H2OGradientBoostingEstimator,sample_rate_per_class,None,float,"A list of row sample rates per class (relative fraction for each class, from 0.0 to 1.0), for each tree"
+h2o,gradientboosting,H2OGradientBoostingEstimator,col_sample_rate,1.0,float,Column sample rate (from 0.0 to 1.0)
+h2o,gradientboosting,H2OGradientBoostingEstimator,col_sample_rate_change_per_level,1.0,float,Relative change of the column sampling rate for every level (must be > 0.0 and <= 2.0)
+h2o,gradientboosting,H2OGradientBoostingEstimator,col_sample_rate_per_tree,1.0,float,Column sample rate per tree (from 0.0 to 1.0)
+h2o,gradientboosting,H2OGradientBoostingEstimator,min_split_improvement,1e-05,float,Minimum relative improvement in squared error reduction for a split to happen
+h2o,gradientboosting,H2OGradientBoostingEstimator,histogram_type,AUTO,"Categorical(['AUTO', 'UniformAdaptive', 'Random', 'QuantilesGlobal', 'RoundRobin', 'UniformRobust'])",What type of histogram to use for finding optimal split points
+h2o,gradientboosting,H2OGradientBoostingEstimator,max_abs_leafnode_pred,1.7976931348623157e+308,float,Maximum absolute value of a leaf node prediction
+h2o,gradientboosting,H2OGradientBoostingEstimator,pred_noise_bandwidth,0.0,float,"Bandwidth (sigma) of Gaussian multiplicative noise ~N(1,sigma) for tree node predictions"
+h2o,gradientboosting,H2OGradientBoostingEstimator,categorical_encoding,AUTO,"Categorical(['AUTO', 'Enum', 'OneHotInternal', 'OneHotExplicit', 'Binary', 'Eigen', 'LabelEncoder', 'SortByResponse', 'EnumLimited'])",Encoding scheme for categorical features
+h2o,gradientboosting,H2OGradientBoostingEstimator,calibrate_model,False,bool,Use Platt Scaling (default) or Isotonic Regression to calculate calibrated class probabilities. Calibration can provide more accurate estimates of class probabilities.
+h2o,gradientboosting,H2OGradientBoostingEstimator,calibration_frame,None,key<frame>,Data for model calibration
+h2o,gradientboosting,H2OGradientBoostingEstimator,calibration_method,AUTO,"Categorical(['AUTO', 'PlattScaling', 'IsotonicRegression'])",Calibration method to use
+h2o,gradientboosting,H2OGradientBoostingEstimator,custom_metric_func,None,string,"Reference to custom evaluation function, format: `language:keyName=funcName`"
+h2o,gradientboosting,H2OGradientBoostingEstimator,custom_distribution_func,None,string,"Reference to custom distribution, format: `language:keyName=funcName`"
+h2o,gradientboosting,H2OGradientBoostingEstimator,export_checkpoints_dir,None,string,Automatically export generated models to this directory.
+h2o,gradientboosting,H2OGradientBoostingEstimator,in_training_checkpoints_dir,None,string,"Create checkpoints into defined directory while training process is still running. In case of cluster shutdown, this checkpoint can be used to restart training."
+h2o,gradientboosting,H2OGradientBoostingEstimator,in_training_checkpoints_tree_interval,1,int,Checkpoint the model after every so many trees. Parameter is used only when in_training_checkpoints_dir is defined
+h2o,gradientboosting,H2OGradientBoostingEstimator,monotone_constraints,None,keyvalue[],A mapping representing monotonic constraints. Use +1 to enforce an increasing constraint and -1 to specify a decreasing constraint.
+h2o,gradientboosting,H2OGradientBoostingEstimator,check_constant_response,True,bool,"Check if response column is constant. If enabled, then an exception is thrown if the response column is a constant value.If disabled, then model will train regardless of the response column being a constant value or not."
+h2o,gradientboosting,H2OGradientBoostingEstimator,gainslift_bins,-1,int,Gains/Lift table number of bins. 0 means disabled.. Default value -1 means automatic binning.
+h2o,gradientboosting,H2OGradientBoostingEstimator,auc_type,AUTO,"Categorical(['AUTO', 'NONE', 'MACRO_OVR', 'WEIGHTED_OVR', 'MACRO_OVO', 'WEIGHTED_OVO'])",Set default multinomial AUC type.
+h2o,gradientboosting,H2OGradientBoostingEstimator,interaction_constraints,None,string[][],A set of allowed column interactions.
+h2o,gradientboosting,H2OGradientBoostingEstimator,auto_rebalance,True,bool,Allow automatic rebalancing of training and validation datasets
+h2o,hglm,H2OHGLMEstimator,model_id,None,key<model>,Destination id for this model; auto-generated if not specified.
+h2o,hglm,H2OHGLMEstimator,training_frame,None,key<frame>,Id of the training data frame.
+h2o,hglm,H2OHGLMEstimator,validation_frame,None,key<frame>,Id of the validation data frame.
+h2o,hglm,H2OHGLMEstimator,response_column,None,vecspecifier,Response variable column.
+h2o,hglm,H2OHGLMEstimator,ignored_columns,None,string[],Names of columns to ignore for training.
+h2o,hglm,H2OHGLMEstimator,ignore_const_cols,True,bool,Ignore constant columns.
+h2o,hglm,H2OHGLMEstimator,offset_column,None,vecspecifier,Offset column. This will be added to the combination of columns before applying the link function.
+h2o,hglm,H2OHGLMEstimator,weights_column,None,vecspecifier,"Column with observation weights. Giving some observation a weight of zero is equivalent to excluding it from the dataset; giving an observation a relative weight of 2 is equivalent to repeating that row twice. Negative weights are not allowed. Note: Weights are per-row observation weights and do not increase the size of the data frame. This is typically the number of times a row is repeated, but non-integer values are supported as well. During training, rows with higher weights matter more, due to the larger loss function pre-factor. If you set weight = 0 for a row, the returned prediction frame at that row is zero and this is incorrect. To get an accurate prediction, remove all rows with weight == 0."
+h2o,hglm,H2OHGLMEstimator,max_runtime_secs,0.0,float,Maximum allowed runtime in seconds for model training. Use 0 to disable.
+h2o,hglm,H2OHGLMEstimator,custom_metric_func,None,string,"Reference to custom evaluation function, format: `language:keyName=funcName`"
+h2o,hglm,H2OHGLMEstimator,score_each_iteration,False,bool,Whether to score during each iteration of model training.
+h2o,hglm,H2OHGLMEstimator,score_iteration_interval,5,int,Perform scoring for every score_iteration_interval iterations.
+h2o,hglm,H2OHGLMEstimator,seed,-1,long,Seed for pseudo random number generator (if applicable).
+h2o,hglm,H2OHGLMEstimator,missing_values_handling,MeanImputation,"Categorical(['MeanImputation', 'Skip', 'PlugValues'])","Handling of missing values. Either MeanImputation, Skip or PlugValues."
+h2o,hglm,H2OHGLMEstimator,plug_values,None,key<frame>,"Plug Values (a single row frame containing values that will be used to impute missing values of the training/validation frame, use with conjunction missing_values_handling = PlugValues)."
+h2o,hglm,H2OHGLMEstimator,family,gaussian,Categorical(['gaussian']),Family. Only gaussian is supported now.
+h2o,hglm,H2OHGLMEstimator,rand_family,None,Categorical(['gaussian']),Set distribution of random effects.  Only Gaussian is implemented now.
+h2o,hglm,H2OHGLMEstimator,max_iterations,-1,int,Maximum number of iterations.  Value should >=1.  A value of 0 is only set when only the model coefficient names and model coefficient dimensions are needed.
+h2o,hglm,H2OHGLMEstimator,initial_fixed_effects,None,float,An array that contains initial values of the fixed effects coefficient.
+h2o,hglm,H2OHGLMEstimator,initial_random_effects,None,key<frame>,"A H2OFrame id that contains initial values of the random effects coefficient.  The row names shouldbe the random coefficient names.  If you are not sure what the random coefficient names are, build HGLM model with max_iterations = 0 and checkout the model output field random_coefficient_names.  The number of rows of this frame should be the number of level 2 units.  Again, to figure this out, build HGLM model with max_iterations=0 and check out the model output field group_column_names.  The number of rows should equal the length of thegroup_column_names."
+h2o,hglm,H2OHGLMEstimator,initial_t_matrix,None,key<frame>,A H2OFrame id that contains initial values of the T matrix.  It should be a positive symmetric matrix.
+h2o,hglm,H2OHGLMEstimator,tau_u_var_init,0.0,float,"Initial variance of random coefficient effects.  If set, should provide a value > 0.0.  If not set, will be randomly set in the model building process."
+h2o,hglm,H2OHGLMEstimator,tau_e_var_init,0.0,float,"Initial variance of random noise.  If set, should provide a value > 0.0.  If not set, will be randomly set in the model building process."
+h2o,hglm,H2OHGLMEstimator,random_columns,None,string[],Random columns indices for HGLM.
+h2o,hglm,H2OHGLMEstimator,method,EM,Categorical(['EM']),"We only implemented EM as a method to obtain the fixed, random coefficients and the various variances."
+h2o,hglm,H2OHGLMEstimator,em_epsilon,0.001,float,Converge if beta/ubeta/tmat/tauEVar changes less (using L-infinity norm) than em esilon. ONLY applies to EM method.
+h2o,hglm,H2OHGLMEstimator,random_intercept,True,bool,"If true, will allow random component to the GLM coefficients."
+h2o,hglm,H2OHGLMEstimator,group_column,None,string,Group column is the column that is categorical and used to generate the groups in HGLM
+h2o,hglm,H2OHGLMEstimator,gen_syn_data,False,bool,"If true, add gaussian noise with variance specified in parms._tau_e_var_init."
+h2o,infogram,H2OInfogram,model_id,None,key<model>,Destination id for this model; auto-generated if not specified.
+h2o,infogram,H2OInfogram,training_frame,None,key<frame>,Id of the training data frame.
+h2o,infogram,H2OInfogram,validation_frame,None,key<frame>,Id of the validation data frame.
+h2o,infogram,H2OInfogram,seed,-1,long,Seed for pseudo random number generator (if applicable).
+h2o,infogram,H2OInfogram,keep_cross_validation_models,True,bool,Whether to keep the cross-validation models.
+h2o,infogram,H2OInfogram,keep_cross_validation_predictions,False,bool,Whether to keep the predictions of the cross-validation models.
+h2o,infogram,H2OInfogram,keep_cross_validation_fold_assignment,False,bool,Whether to keep the cross-validation fold assignment.
+h2o,infogram,H2OInfogram,nfolds,0,int,Number of folds for K-fold cross-validation (0 to disable or >= 2).
+h2o,infogram,H2OInfogram,fold_assignment,AUTO,"Categorical(['AUTO', 'Random', 'Modulo', 'Stratified'])","Cross-validation fold assignment scheme, if fold_column is not specified. The 'Stratified' option will stratify the folds based on the response variable, for classification problems."
+h2o,infogram,H2OInfogram,fold_column,None,vecspecifier,Column with cross-validation fold index assignment per observation.
+h2o,infogram,H2OInfogram,response_column,None,vecspecifier,Response variable column.
+h2o,infogram,H2OInfogram,ignored_columns,None,string[],Names of columns to ignore for training.
+h2o,infogram,H2OInfogram,ignore_const_cols,True,bool,Ignore constant columns.
+h2o,infogram,H2OInfogram,score_each_iteration,False,bool,Whether to score during each iteration of model training.
+h2o,infogram,H2OInfogram,offset_column,None,vecspecifier,Offset column. This will be added to the combination of columns before applying the link function.
+h2o,infogram,H2OInfogram,weights_column,None,vecspecifier,"Column with observation weights. Giving some observation a weight of zero is equivalent to excluding it from the dataset; giving an observation a relative weight of 2 is equivalent to repeating that row twice. Negative weights are not allowed. Note: Weights are per-row observation weights and do not increase the size of the data frame. This is typically the number of times a row is repeated, but non-integer values are supported as well. During training, rows with higher weights matter more, due to the larger loss function pre-factor. If you set weight = 0 for a row, the returned prediction frame at that row is zero and this is incorrect. To get an accurate prediction, remove all rows with weight == 0."
+h2o,infogram,H2OInfogram,standardize,False,bool,Standardize numeric columns to have zero mean and unit variance.
+h2o,infogram,H2OInfogram,distribution,AUTO,"Categorical(['AUTO', 'bernoulli', 'quasibinomial', 'ordinal', 'multinomial', 'gaussian', 'poisson', 'gamma', 'tweedie', 'laplace', 'quantile', 'huber', 'custom'])",Distribution function
+h2o,infogram,H2OInfogram,plug_values,None,key<frame>,"Plug Values (a single row frame containing values that will be used to impute missing values of the training/validation frame, use with conjunction missing_values_handling = PlugValues)."
+h2o,infogram,H2OInfogram,max_iterations,0,int,Maximum number of iterations.
+h2o,infogram,H2OInfogram,stopping_rounds,0,int,Early stopping based on convergence of stopping_metric. Stop if simple moving average of length k of the stopping_metric does not improve for k:=stopping_rounds scoring events (0 to disable)
+h2o,infogram,H2OInfogram,stopping_metric,AUTO,"Categorical(['AUTO', 'deviance', 'logloss', 'MSE', 'RMSE', 'MAE', 'RMSLE', 'AUC', 'AUCPR', 'lift_top_group', 'misclassification', 'mean_per_class_error', 'anomaly_score', 'AUUC', 'ATE', 'ATT', 'ATC', 'qini', 'custom', 'custom_increasing'])","Metric to use for early stopping (AUTO: logloss for classification, deviance for regression and anomaly_score for Isolation Forest). Note that custom and custom_increasing can only be used in GBM and DRF with the Python client."
+h2o,infogram,H2OInfogram,stopping_tolerance,0.001,float,Relative tolerance for metric-based stopping criterion (stop if relative improvement is not at least this much)
+h2o,infogram,H2OInfogram,balance_classes,False,bool,Balance training data class counts via over/under-sampling (for imbalanced data).
+h2o,infogram,H2OInfogram,class_sampling_factors,None,float,"Desired over/under-sampling ratios per class (in lexicographic order). If not specified, sampling factors will be automatically computed to obtain class balance during training. Requires balance_classes."
+h2o,infogram,H2OInfogram,max_after_balance_size,5.0,float,Maximum relative size of the training data after balancing class counts (can be less than 1.0). Requires balance_classes.
+h2o,infogram,H2OInfogram,max_runtime_secs,0.0,float,Maximum allowed runtime in seconds for model training. Use 0 to disable.
+h2o,infogram,H2OInfogram,custom_metric_func,None,string,"Reference to custom evaluation function, format: `language:keyName=funcName`"
+h2o,infogram,H2OInfogram,auc_type,AUTO,"Categorical(['AUTO', 'NONE', 'MACRO_OVR', 'WEIGHTED_OVR', 'MACRO_OVO', 'WEIGHTED_OVO'])",Set default multinomial AUC type.
+h2o,infogram,H2OInfogram,algorithm,AUTO,"Categorical(['AUTO', 'deeplearning', 'drf', 'gbm', 'glm', 'xgboost'])","Type of machine learning algorithm used to build the infogram. Options include 'AUTO' (gbm), 'deeplearning' (Deep Learning with default parameters), 'drf' (Random Forest with default parameters), 'gbm' (GBM with default parameters), 'glm' (GLM with default parameters), or 'xgboost' (if available, XGBoost with default parameters)."
+h2o,infogram,H2OInfogram,algorithm_params,,string,Customized parameters for the machine learning algorithm specified in the algorithm parameter.
+h2o,infogram,H2OInfogram,protected_columns,None,string[],"Columns that contain features that are sensitive and need to be protected (legally, or otherwise), if applicable. These features (e.g. race, gender, etc) should not drive the prediction of the response."
+h2o,infogram,H2OInfogram,total_information_threshold,-1.0,float,"A number between 0 and 1 representing a threshold for total information, defaulting to 0.1. For a specific feature, if the total information is higher than this threshold, and the corresponding net information is also higher than the threshold ``net_information_threshold``, that feature will be considered admissible. The total information is the x-axis of the Core Infogram. Default is -1 which gets set to 0.1."
+h2o,infogram,H2OInfogram,net_information_threshold,-1.0,float,"A number between 0 and 1 representing a threshold for net information, defaulting to 0.1.  For a specific feature, if the net information is higher than this threshold, and the corresponding total information is also higher than the total_information_threshold, that feature will be considered admissible. The net information is the y-axis of the Core Infogram. Default is -1 which gets set to 0.1."
+h2o,infogram,H2OInfogram,relevance_index_threshold,-1.0,float,"A number between 0 and 1 representing a threshold for the relevance index, defaulting to 0.1.  This is only used when ``protected_columns`` is set by the user.  For a specific feature, if the relevance index value is higher than this threshold, and the corresponding safety index is also higher than the safety_index_threshold``, that feature will be considered admissible.  The relevance index is the x-axis of the Fair Infogram. Default is -1 which gets set to 0.1."
+h2o,infogram,H2OInfogram,safety_index_threshold,-1.0,float,"A number between 0 and 1 representing a threshold for the safety index, defaulting to 0.1.  This is only used when protected_columns is set by the user.  For a specific feature, if the safety index value is higher than this threshold, and the corresponding relevance index is also higher than the relevance_index_threshold, that feature will be considered admissible.  The safety index is the y-axis of the Fair Infogram. Default is -1 which gets set to 0.1."
+h2o,infogram,H2OInfogram,data_fraction,1.0,float,"The fraction of training frame to use to build the infogram model. Defaults to 1.0, and any value greater than 0 and less than or equal to 1.0 is acceptable."
+h2o,infogram,H2OInfogram,top_n_features,50,int,"An integer specifying the number of columns to evaluate in the infogram.  The columns are ranked by variable importance, and the top N are evaluated.  Defaults to 50."
+h2o,isolationforest,H2OIsolationForestEstimator,model_id,None,key<model>,Destination id for this model; auto-generated if not specified.
+h2o,isolationforest,H2OIsolationForestEstimator,training_frame,None,key<frame>,Id of the training data frame.
+h2o,isolationforest,H2OIsolationForestEstimator,score_each_iteration,False,bool,Whether to score during each iteration of model training.
+h2o,isolationforest,H2OIsolationForestEstimator,score_tree_interval,0,int,Score the model after every so many trees. Disabled if set to 0.
+h2o,isolationforest,H2OIsolationForestEstimator,ignored_columns,None,string[],Names of columns to ignore for training.
+h2o,isolationforest,H2OIsolationForestEstimator,ignore_const_cols,True,bool,Ignore constant columns.
+h2o,isolationforest,H2OIsolationForestEstimator,ntrees,50,int,Number of trees.
+h2o,isolationforest,H2OIsolationForestEstimator,max_depth,8,int,Maximum tree depth (0 for unlimited).
+h2o,isolationforest,H2OIsolationForestEstimator,min_rows,1.0,float,Fewest allowed (weighted) observations in a leaf.
+h2o,isolationforest,H2OIsolationForestEstimator,max_runtime_secs,0.0,float,Maximum allowed runtime in seconds for model training. Use 0 to disable.
+h2o,isolationforest,H2OIsolationForestEstimator,seed,-1,long,Seed for pseudo random number generator (if applicable)
+h2o,isolationforest,H2OIsolationForestEstimator,build_tree_one_node,False,bool,Run on one node only; no network overhead but fewer cpus used. Suitable for small datasets.
+h2o,isolationforest,H2OIsolationForestEstimator,mtries,-1,int,"Number of variables randomly sampled as candidates at each split. If set to -1, defaults (number of predictors)/3."
+h2o,isolationforest,H2OIsolationForestEstimator,sample_size,256,long,"Number of randomly sampled observations used to train each Isolation Forest tree. Only one of parameters sample_size and sample_rate should be defined. If sample_rate is defined, sample_size will be ignored."
+h2o,isolationforest,H2OIsolationForestEstimator,sample_rate,-1.0,float,"Rate of randomly sampled observations used to train each Isolation Forest tree. Needs to be in range from 0.0 to 1.0. If set to -1, sample_rate is disabled and sample_size will be used instead."
+h2o,isolationforest,H2OIsolationForestEstimator,col_sample_rate_change_per_level,1.0,float,Relative change of the column sampling rate for every level (must be > 0.0 and <= 2.0)
+h2o,isolationforest,H2OIsolationForestEstimator,col_sample_rate_per_tree,1.0,float,Column sample rate per tree (from 0.0 to 1.0)
+h2o,isolationforest,H2OIsolationForestEstimator,categorical_encoding,AUTO,"Categorical(['AUTO', 'Enum', 'OneHotInternal', 'OneHotExplicit', 'Binary', 'Eigen', 'LabelEncoder', 'SortByResponse', 'EnumLimited'])",Encoding scheme for categorical features
+h2o,isolationforest,H2OIsolationForestEstimator,stopping_rounds,0,int,Early stopping based on convergence of stopping_metric. Stop if simple moving average of length k of the stopping_metric does not improve for k:=stopping_rounds scoring events (0 to disable)
+h2o,isolationforest,H2OIsolationForestEstimator,stopping_metric,AUTO,"Categorical(['AUTO', 'deviance', 'logloss', 'MSE', 'RMSE', 'MAE', 'RMSLE', 'AUC', 'AUCPR', 'lift_top_group', 'misclassification', 'mean_per_class_error', 'anomaly_score', 'AUUC', 'ATE', 'ATT', 'ATC', 'qini', 'custom', 'custom_increasing'])","Metric to use for early stopping (AUTO: logloss for classification, deviance for regression and anomaly_score for Isolation Forest). Note that custom and custom_increasing can only be used in GBM and DRF with the Python client."
+h2o,isolationforest,H2OIsolationForestEstimator,stopping_tolerance,0.01,float,Relative tolerance for metric-based stopping criterion (stop if relative improvement is not at least this much)
+h2o,isolationforest,H2OIsolationForestEstimator,export_checkpoints_dir,None,string,Automatically export generated models to this directory.
+h2o,isolationforest,H2OIsolationForestEstimator,contamination,-1.0,float,Contamination ratio - the proportion of anomalies in the input dataset. If undefined (-1) the predict function will not mark observations as anomalies and only anomaly score will be returned. Defaults to -1 (undefined).
+h2o,isolationforest,H2OIsolationForestEstimator,validation_frame,None,key<frame>,Id of the validation data frame.
+h2o,isolationforest,H2OIsolationForestEstimator,validation_response_column,None,vecspecifier,(experimental) Name of the response column in the validation frame. Response column should be binary and indicate not anomaly/anomaly.
+h2o,isotonicregression,H2OIsotonicRegressionEstimator,model_id,None,key<model>,Destination id for this model; auto-generated if not specified.
+h2o,isotonicregression,H2OIsotonicRegressionEstimator,training_frame,None,key<frame>,Id of the training data frame.
+h2o,isotonicregression,H2OIsotonicRegressionEstimator,validation_frame,None,key<frame>,Id of the validation data frame.
+h2o,isotonicregression,H2OIsotonicRegressionEstimator,response_column,None,vecspecifier,Response variable column.
+h2o,isotonicregression,H2OIsotonicRegressionEstimator,ignored_columns,None,string[],Names of columns to ignore for training.
+h2o,isotonicregression,H2OIsotonicRegressionEstimator,weights_column,None,vecspecifier,"Column with observation weights. Giving some observation a weight of zero is equivalent to excluding it from the dataset; giving an observation a relative weight of 2 is equivalent to repeating that row twice. Negative weights are not allowed. Note: Weights are per-row observation weights and do not increase the size of the data frame. This is typically the number of times a row is repeated, but non-integer values are supported as well. During training, rows with higher weights matter more, due to the larger loss function pre-factor. If you set weight = 0 for a row, the returned prediction frame at that row is zero and this is incorrect. To get an accurate prediction, remove all rows with weight == 0."
+h2o,isotonicregression,H2OIsotonicRegressionEstimator,out_of_bounds,NA,"Categorical(['NA', 'clip'])",Method of handling values of X predictor that are outside of the bounds seen in training.
+h2o,isotonicregression,H2OIsotonicRegressionEstimator,custom_metric_func,None,string,"Reference to custom evaluation function, format: `language:keyName=funcName`"
+h2o,isotonicregression,H2OIsotonicRegressionEstimator,nfolds,0,int,Number of folds for K-fold cross-validation (0 to disable or >= 2).
+h2o,isotonicregression,H2OIsotonicRegressionEstimator,keep_cross_validation_models,True,bool,Whether to keep the cross-validation models.
+h2o,isotonicregression,H2OIsotonicRegressionEstimator,keep_cross_validation_predictions,False,bool,Whether to keep the predictions of the cross-validation models.
+h2o,isotonicregression,H2OIsotonicRegressionEstimator,keep_cross_validation_fold_assignment,False,bool,Whether to keep the cross-validation fold assignment.
+h2o,isotonicregression,H2OIsotonicRegressionEstimator,fold_assignment,AUTO,"Categorical(['AUTO', 'Random', 'Modulo', 'Stratified'])","Cross-validation fold assignment scheme, if fold_column is not specified. The 'Stratified' option will stratify the folds based on the response variable, for classification problems."
+h2o,isotonicregression,H2OIsotonicRegressionEstimator,fold_column,None,vecspecifier,Column with cross-validation fold index assignment per observation.
+h2o,kmeans,H2OKMeansEstimator,model_id,None,key<model>,Destination id for this model; auto-generated if not specified.
+h2o,kmeans,H2OKMeansEstimator,training_frame,None,key<frame>,Id of the training data frame.
+h2o,kmeans,H2OKMeansEstimator,validation_frame,None,key<frame>,Id of the validation data frame.
+h2o,kmeans,H2OKMeansEstimator,nfolds,0,int,Number of folds for K-fold cross-validation (0 to disable or >= 2).
+h2o,kmeans,H2OKMeansEstimator,keep_cross_validation_models,True,bool,Whether to keep the cross-validation models.
+h2o,kmeans,H2OKMeansEstimator,keep_cross_validation_predictions,False,bool,Whether to keep the predictions of the cross-validation models.
+h2o,kmeans,H2OKMeansEstimator,keep_cross_validation_fold_assignment,False,bool,Whether to keep the cross-validation fold assignment.
+h2o,kmeans,H2OKMeansEstimator,fold_assignment,AUTO,"Categorical(['AUTO', 'Random', 'Modulo', 'Stratified'])","Cross-validation fold assignment scheme, if fold_column is not specified. The 'Stratified' option will stratify the folds based on the response variable, for classification problems."
+h2o,kmeans,H2OKMeansEstimator,fold_column,None,vecspecifier,Column with cross-validation fold index assignment per observation.
+h2o,kmeans,H2OKMeansEstimator,ignored_columns,None,string[],Names of columns to ignore for training.
+h2o,kmeans,H2OKMeansEstimator,ignore_const_cols,True,bool,Ignore constant columns.
+h2o,kmeans,H2OKMeansEstimator,score_each_iteration,False,bool,Whether to score during each iteration of model training.
+h2o,kmeans,H2OKMeansEstimator,k,1,int,"The max. number of clusters. If estimate_k is disabled, the model will find k centroids, otherwise it will find up to k centroids."
+h2o,kmeans,H2OKMeansEstimator,estimate_k,False,bool,Whether to estimate the number of clusters (<=k) iteratively and deterministically.
+h2o,kmeans,H2OKMeansEstimator,user_points,None,key<frame>,"This option allows you to specify a dataframe, where each row represents an initial cluster center. The user-specified points must have the same number of columns as the training observations. The number of rows must equal the number of clusters"
+h2o,kmeans,H2OKMeansEstimator,max_iterations,10,int,"Maximum training iterations (if estimate_k is enabled, then this is for each inner Lloyds iteration)"
+h2o,kmeans,H2OKMeansEstimator,standardize,True,bool,Standardize columns before computing distances
+h2o,kmeans,H2OKMeansEstimator,seed,-1,long,RNG Seed
+h2o,kmeans,H2OKMeansEstimator,init,Furthest,"Categorical(['Random', 'PlusPlus', 'Furthest', 'User'])",Initialization mode
+h2o,kmeans,H2OKMeansEstimator,max_runtime_secs,0.0,float,Maximum allowed runtime in seconds for model training. Use 0 to disable.
+h2o,kmeans,H2OKMeansEstimator,categorical_encoding,AUTO,"Categorical(['AUTO', 'Enum', 'OneHotInternal', 'OneHotExplicit', 'Binary', 'Eigen', 'LabelEncoder', 'SortByResponse', 'EnumLimited'])",Encoding scheme for categorical features
+h2o,kmeans,H2OKMeansEstimator,export_checkpoints_dir,None,string,Automatically export generated models to this directory.
+h2o,kmeans,H2OKMeansEstimator,cluster_size_constraints,None,int,An array specifying the minimum number of points that should be in each cluster. The length of the constraints array has to be the same as the number of clusters.
+h2o,modelselection,H2OModelSelectionEstimator,model_id,None,key<model>,Destination id for this model; auto-generated if not specified.
+h2o,modelselection,H2OModelSelectionEstimator,training_frame,None,key<frame>,Id of the training data frame.
+h2o,modelselection,H2OModelSelectionEstimator,validation_frame,None,key<frame>,Id of the validation data frame.
+h2o,modelselection,H2OModelSelectionEstimator,nfolds,0,int,Number of folds for K-fold cross-validation (0 to disable or >= 2).
+h2o,modelselection,H2OModelSelectionEstimator,seed,-1,long,Seed for pseudo random number generator (if applicable)
+h2o,modelselection,H2OModelSelectionEstimator,fold_assignment,AUTO,"Categorical(['AUTO', 'Random', 'Modulo', 'Stratified'])","Cross-validation fold assignment scheme, if fold_column is not specified. The 'Stratified' option will stratify the folds based on the response variable, for classification problems."
+h2o,modelselection,H2OModelSelectionEstimator,fold_column,None,vecspecifier,Column with cross-validation fold index assignment per observation.
+h2o,modelselection,H2OModelSelectionEstimator,response_column,None,vecspecifier,Response variable column.
+h2o,modelselection,H2OModelSelectionEstimator,ignored_columns,None,string[],Names of columns to ignore for training.
+h2o,modelselection,H2OModelSelectionEstimator,ignore_const_cols,True,bool,Ignore constant columns.
+h2o,modelselection,H2OModelSelectionEstimator,score_each_iteration,False,bool,Whether to score during each iteration of model training.
+h2o,modelselection,H2OModelSelectionEstimator,score_iteration_interval,0,int,Perform scoring for every score_iteration_interval iterations
+h2o,modelselection,H2OModelSelectionEstimator,offset_column,None,vecspecifier,Offset column. This will be added to the combination of columns before applying the link function.
+h2o,modelselection,H2OModelSelectionEstimator,weights_column,None,vecspecifier,"Column with observation weights. Giving some observation a weight of zero is equivalent to excluding it from the dataset; giving an observation a relative weight of 2 is equivalent to repeating that row twice. Negative weights are not allowed. Note: Weights are per-row observation weights and do not increase the size of the data frame. This is typically the number of times a row is repeated, but non-integer values are supported as well. During training, rows with higher weights matter more, due to the larger loss function pre-factor. If you set weight = 0 for a row, the returned prediction frame at that row is zero and this is incorrect. To get an accurate prediction, remove all rows with weight == 0."
+h2o,modelselection,H2OModelSelectionEstimator,family,AUTO,"Categorical(['AUTO', 'gaussian', 'binomial', 'fractionalbinomial', 'quasibinomial', 'poisson', 'gamma', 'tweedie', 'negativebinomial'])","Family. For maxr/maxrsweep, only gaussian.  For backward, ordinal and multinomial families are not supported"
+h2o,modelselection,H2OModelSelectionEstimator,link,family_default,"Categorical(['family_default', 'identity', 'logit', 'log', 'inverse', 'tweedie', 'ologit'])",Link function.
+h2o,modelselection,H2OModelSelectionEstimator,tweedie_variance_power,0.0,float,Tweedie variance power
+h2o,modelselection,H2OModelSelectionEstimator,tweedie_link_power,0.0,float,Tweedie link power
+h2o,modelselection,H2OModelSelectionEstimator,theta,0.0,float,Theta
+h2o,modelselection,H2OModelSelectionEstimator,solver,IRLSM,"Categorical(['AUTO', 'IRLSM', 'L_BFGS', 'COORDINATE_DESCENT_NAIVE', 'COORDINATE_DESCENT', 'GRADIENT_DESCENT_LH', 'GRADIENT_DESCENT_SQERR'])","AUTO will set the solver based on given data and the other parameters. IRLSM is fast on on problems with small number of predictors and for lambda-search with L1 penalty, L_BFGS scales better for datasets with many columns."
+h2o,modelselection,H2OModelSelectionEstimator,alpha,None,float,"Distribution of regularization between the L1 (Lasso) and L2 (Ridge) penalties. A value of 1 for alpha represents Lasso regression, a value of 0 produces Ridge regression, and anything in between specifies the amount of mixing between the two. Default value of alpha is 0 when SOLVER = 'L-BFGS'; 0.5 otherwise."
+h2o,modelselection,H2OModelSelectionEstimator,lambda,[0.0],float,Regularization strength
+h2o,modelselection,H2OModelSelectionEstimator,lambda_search,False,bool,"Use lambda search starting at lambda max, given lambda is then interpreted as lambda min"
+h2o,modelselection,H2OModelSelectionEstimator,early_stopping,False,bool,Stop early when there is no more relative improvement on train or validation (if provided)
+h2o,modelselection,H2OModelSelectionEstimator,nlambdas,0,int,"Number of lambdas to be used in a search. Default indicates: If alpha is zero, with lambda search set to True, the value of nlamdas is set to 30 (fewer lambdas are needed for ridge regression) otherwise it is set to 100."
+h2o,modelselection,H2OModelSelectionEstimator,standardize,True,bool,Standardize numeric columns to have zero mean and unit variance
+h2o,modelselection,H2OModelSelectionEstimator,missing_values_handling,MeanImputation,"Categorical(['MeanImputation', 'Skip', 'PlugValues'])","Handling of missing values. Either MeanImputation, Skip or PlugValues."
+h2o,modelselection,H2OModelSelectionEstimator,plug_values,None,key<frame>,"Plug Values (a single row frame containing values that will be used to impute missing values of the training/validation frame, use with conjunction missing_values_handling = PlugValues)"
+h2o,modelselection,H2OModelSelectionEstimator,compute_p_values,False,bool,"Request p-values computation, p-values work only with IRLSM solver and no regularization"
+h2o,modelselection,H2OModelSelectionEstimator,remove_collinear_columns,False,bool,"In case of linearly dependent columns, remove some of the dependent columns"
+h2o,modelselection,H2OModelSelectionEstimator,intercept,True,bool,Include constant term in the model
+h2o,modelselection,H2OModelSelectionEstimator,non_negative,False,bool,Restrict coefficients (not intercept) to be non-negative
+h2o,modelselection,H2OModelSelectionEstimator,max_iterations,0,int,Maximum number of iterations
+h2o,modelselection,H2OModelSelectionEstimator,objective_epsilon,-1.0,float,"Converge if  objective value changes less than this. Default (of -1.0) indicates: If lambda_search is set to True the value of objective_epsilon is set to .0001. If the lambda_search is set to False and lambda is equal to zero, the value of objective_epsilon is set to .000001, for any other value of lambda the default value of objective_epsilon is set to .0001."
+h2o,modelselection,H2OModelSelectionEstimator,beta_epsilon,0.0001,float,"Converge if  beta changes less (using L-infinity norm) than beta esilon, ONLY applies to IRLSM solver"
+h2o,modelselection,H2OModelSelectionEstimator,gradient_epsilon,-1.0,float,"Converge if  objective changes less (using L-infinity norm) than this, ONLY applies to L-BFGS solver. Default (of -1.0) indicates: If lambda_search is set to False and lambda is equal to zero, the default value of gradient_epsilon is equal to .000001, otherwise the default value is .0001. If lambda_search is set to True, the conditional values above are 1E-8 and 1E-6 respectively."
+h2o,modelselection,H2OModelSelectionEstimator,startval,None,float,Double array to initialize coefficients for GLM.
+h2o,modelselection,H2OModelSelectionEstimator,prior,0.0,float,Prior probability for y==1. To be used only for logistic regression iff the data has been sampled and the mean of response does not reflect reality.
+h2o,modelselection,H2OModelSelectionEstimator,cold_start,False,bool,"Only applicable to multiple alpha/lambda values.  If false, build the next model for next set of alpha/lambda values starting from the values provided by current model.  If true will start GLM model from scratch."
+h2o,modelselection,H2OModelSelectionEstimator,lambda_min_ratio,0.0,float,"Minimum lambda used in lambda search, specified as a ratio of lambda_max (the smallest lambda that drives all coefficients to zero). Default indicates: if the number of observations is greater than the number of variables, then lambda_min_ratio is set to 0.0001; if the number of observations is less than the number of variables, then lambda_min_ratio is set to 0.01."
+h2o,modelselection,H2OModelSelectionEstimator,beta_constraints,None,key<frame>,Beta constraints
+h2o,modelselection,H2OModelSelectionEstimator,max_active_predictors,-1,int,"Maximum number of active predictors during computation. Use as a stopping criterion to prevent expensive model building with many predictors. Default indicates: If the IRLSM solver is used, the value of max_active_predictors is set to 5000 otherwise it is set to 100000000."
+h2o,modelselection,H2OModelSelectionEstimator,obj_reg,-1.0,float,"Likelihood divider in objective value computation, default (of -1.0) will set it to 1/nobs"
+h2o,modelselection,H2OModelSelectionEstimator,stopping_rounds,0,int,Early stopping based on convergence of stopping_metric. Stop if simple moving average of length k of the stopping_metric does not improve for k:=stopping_rounds scoring events (0 to disable)
+h2o,modelselection,H2OModelSelectionEstimator,stopping_metric,AUTO,"Categorical(['AUTO', 'deviance', 'logloss', 'MSE', 'RMSE', 'MAE', 'RMSLE', 'AUC', 'AUCPR', 'lift_top_group', 'misclassification', 'mean_per_class_error', 'anomaly_score', 'AUUC', 'ATE', 'ATT', 'ATC', 'qini', 'custom', 'custom_increasing'])","Metric to use for early stopping (AUTO: logloss for classification, deviance for regression and anomaly_score for Isolation Forest). Note that custom and custom_increasing can only be used in GBM and DRF with the Python client."
+h2o,modelselection,H2OModelSelectionEstimator,stopping_tolerance,0.001,float,Relative tolerance for metric-based stopping criterion (stop if relative improvement is not at least this much)
+h2o,modelselection,H2OModelSelectionEstimator,balance_classes,False,bool,Balance training data class counts via over/under-sampling (for imbalanced data).
+h2o,modelselection,H2OModelSelectionEstimator,class_sampling_factors,None,float,"Desired over/under-sampling ratios per class (in lexicographic order). If not specified, sampling factors will be automatically computed to obtain class balance during training. Requires balance_classes."
+h2o,modelselection,H2OModelSelectionEstimator,max_after_balance_size,5.0,float,Maximum relative size of the training data after balancing class counts (can be less than 1.0). Requires balance_classes.
+h2o,modelselection,H2OModelSelectionEstimator,max_confusion_matrix_size,20,int,[Deprecated] Maximum size (# classes) for confusion matrices to be printed in the Logs
+h2o,modelselection,H2OModelSelectionEstimator,max_runtime_secs,0.0,float,Maximum allowed runtime in seconds for model training. Use 0 to disable.
+h2o,modelselection,H2OModelSelectionEstimator,nparallelism,0,int,number of models to build in parallel.  Defaults to 0.0 which is adaptive to the system capability
+h2o,modelselection,H2OModelSelectionEstimator,max_predictor_number,1,int,Maximum number of predictors to be considered when building GLM models.  Defaults to 1.
+h2o,modelselection,H2OModelSelectionEstimator,min_predictor_number,1,int,For mode = 'backward' only.  Minimum number of predictors to be considered when building GLM models starting with all predictors to be included.  Defaults to 1.
+h2o,modelselection,H2OModelSelectionEstimator,mode,maxr,"Categorical(['allsubsets', 'maxr', 'maxrsweep', 'backward'])","Mode: Used to choose model selection algorithms to use.  Options include 'allsubsets' for all subsets, 'maxr' that uses sequential replacement and GLM to build all models, slow but works with cross-validation, validation frames for more robust results, 'maxrsweep' that uses sequential replacement and sweeping action, much faster than 'maxr', 'backward' for backward selection."
+h2o,modelselection,H2OModelSelectionEstimator,build_glm_model,False,bool,"For maxrsweep mode only.  If true, will return full blown GLM models with the desired predictorsubsets.  If false, only the predictor subsets, predictor coefficients are returned.  This is forspeeding up the model selection process.  The users can choose to build the GLM models themselvesby using the predictor subsets themselves.  Defaults to false."
+h2o,modelselection,H2OModelSelectionEstimator,p_values_threshold,0.0,float,"For mode='backward' only.  If specified, will stop the model building process when all coefficientsp-values drop below this threshold"
+h2o,modelselection,H2OModelSelectionEstimator,influence,None,Categorical(['dfbetas']),If set to dfbetas will calculate the difference in beta when a datarow is included and excluded in the dataset.
+h2o,modelselection,H2OModelSelectionEstimator,multinode_mode,False,bool,"For maxrsweep only.  If enabled, will attempt to perform sweeping action using multiple nodes in the cluster.  Defaults to false."
+h2o,naivebayes,H2ONaiveBayesEstimator,model_id,None,key<model>,Destination id for this model; auto-generated if not specified.
+h2o,naivebayes,H2ONaiveBayesEstimator,nfolds,0,int,Number of folds for K-fold cross-validation (0 to disable or >= 2).
+h2o,naivebayes,H2ONaiveBayesEstimator,seed,-1,long,"Seed for pseudo random number generator (only used for cross-validation and fold_assignment=""Random"" or ""AUTO"")"
+h2o,naivebayes,H2ONaiveBayesEstimator,fold_assignment,AUTO,"Categorical(['AUTO', 'Random', 'Modulo', 'Stratified'])","Cross-validation fold assignment scheme, if fold_column is not specified. The 'Stratified' option will stratify the folds based on the response variable, for classification problems."
+h2o,naivebayes,H2ONaiveBayesEstimator,fold_column,None,vecspecifier,Column with cross-validation fold index assignment per observation.
+h2o,naivebayes,H2ONaiveBayesEstimator,keep_cross_validation_models,True,bool,Whether to keep the cross-validation models.
+h2o,naivebayes,H2ONaiveBayesEstimator,keep_cross_validation_predictions,False,bool,Whether to keep the predictions of the cross-validation models.
+h2o,naivebayes,H2ONaiveBayesEstimator,keep_cross_validation_fold_assignment,False,bool,Whether to keep the cross-validation fold assignment.
+h2o,naivebayes,H2ONaiveBayesEstimator,training_frame,None,key<frame>,Id of the training data frame.
+h2o,naivebayes,H2ONaiveBayesEstimator,validation_frame,None,key<frame>,Id of the validation data frame.
+h2o,naivebayes,H2ONaiveBayesEstimator,response_column,None,vecspecifier,Response variable column.
+h2o,naivebayes,H2ONaiveBayesEstimator,ignored_columns,None,string[],Names of columns to ignore for training.
+h2o,naivebayes,H2ONaiveBayesEstimator,ignore_const_cols,True,bool,Ignore constant columns.
+h2o,naivebayes,H2ONaiveBayesEstimator,score_each_iteration,False,bool,Whether to score during each iteration of model training.
+h2o,naivebayes,H2ONaiveBayesEstimator,balance_classes,False,bool,Balance training data class counts via over/under-sampling (for imbalanced data).
+h2o,naivebayes,H2ONaiveBayesEstimator,class_sampling_factors,None,float,"Desired over/under-sampling ratios per class (in lexicographic order). If not specified, sampling factors will be automatically computed to obtain class balance during training. Requires balance_classes."
+h2o,naivebayes,H2ONaiveBayesEstimator,max_after_balance_size,5.0,float,Maximum relative size of the training data after balancing class counts (can be less than 1.0). Requires balance_classes.
+h2o,naivebayes,H2ONaiveBayesEstimator,max_confusion_matrix_size,20,int,[Deprecated] Maximum size (# classes) for confusion matrices to be printed in the Logs
+h2o,naivebayes,H2ONaiveBayesEstimator,laplace,0.0,float,Laplace smoothing parameter
+h2o,naivebayes,H2ONaiveBayesEstimator,min_sdev,0.001,float,Min. standard deviation to use for observations with not enough data
+h2o,naivebayes,H2ONaiveBayesEstimator,eps_sdev,0.0,float,Cutoff below which standard deviation is replaced with min_sdev
+h2o,naivebayes,H2ONaiveBayesEstimator,min_prob,0.001,float,Min. probability to use for observations with not enough data
+h2o,naivebayes,H2ONaiveBayesEstimator,eps_prob,0.0,float,Cutoff below which probability is replaced with min_prob
+h2o,naivebayes,H2ONaiveBayesEstimator,compute_metrics,True,bool,Compute metrics on training data
+h2o,naivebayes,H2ONaiveBayesEstimator,max_runtime_secs,0.0,float,Maximum allowed runtime in seconds for model training. Use 0 to disable.
+h2o,naivebayes,H2ONaiveBayesEstimator,export_checkpoints_dir,None,string,Automatically export generated models to this directory.
+h2o,naivebayes,H2ONaiveBayesEstimator,gainslift_bins,-1,int,Gains/Lift table number of bins. 0 means disabled.. Default value -1 means automatic binning.
+h2o,naivebayes,H2ONaiveBayesEstimator,auc_type,AUTO,"Categorical(['AUTO', 'NONE', 'MACRO_OVR', 'WEIGHTED_OVR', 'MACRO_OVO', 'WEIGHTED_OVO'])",Set default multinomial AUC type.
+h2o,principalcomponentanalysis,H2OPrincipalComponentAnalysisEstimator,model_id,None,key<model>,Destination id for this model; auto-generated if not specified.
+h2o,principalcomponentanalysis,H2OPrincipalComponentAnalysisEstimator,training_frame,None,key<frame>,Id of the training data frame.
+h2o,principalcomponentanalysis,H2OPrincipalComponentAnalysisEstimator,validation_frame,None,key<frame>,Id of the validation data frame.
+h2o,principalcomponentanalysis,H2OPrincipalComponentAnalysisEstimator,ignored_columns,None,string[],Names of columns to ignore for training.
+h2o,principalcomponentanalysis,H2OPrincipalComponentAnalysisEstimator,ignore_const_cols,True,bool,Ignore constant columns.
+h2o,principalcomponentanalysis,H2OPrincipalComponentAnalysisEstimator,score_each_iteration,False,bool,Whether to score during each iteration of model training.
+h2o,principalcomponentanalysis,H2OPrincipalComponentAnalysisEstimator,transform,NONE,"Categorical(['NONE', 'STANDARDIZE', 'NORMALIZE', 'DEMEAN', 'DESCALE'])",Transformation of training data
+h2o,principalcomponentanalysis,H2OPrincipalComponentAnalysisEstimator,pca_method,GramSVD,"Categorical(['GramSVD', 'Power', 'Randomized', 'GLRM'])","Specify the algorithm to use for computing the principal components: GramSVD - uses a distributed computation of the Gram matrix, followed by a local SVD; Power - computes the SVD using the power iteration method (experimental); Randomized - uses randomized subspace iteration method; GLRM - fits a generalized low-rank model with L2 loss function and no regularization and solves for the SVD using local matrix algebra (experimental)"
+h2o,principalcomponentanalysis,H2OPrincipalComponentAnalysisEstimator,pca_impl,None,"Categorical(['MTJ_EVD_DENSEMATRIX', 'MTJ_EVD_SYMMMATRIX', 'MTJ_SVD_DENSEMATRIX', 'JAMA'])",Specify the implementation to use for computing PCA (via SVD or EVD): MTJ_EVD_DENSEMATRIX - eigenvalue decompositions for dense matrix using MTJ; MTJ_EVD_SYMMMATRIX - eigenvalue decompositions for symmetric matrix using MTJ; MTJ_SVD_DENSEMATRIX - singular-value decompositions for dense matrix using MTJ; JAMA - eigenvalue decompositions for dense matrix using JAMA. References: JAMA - http://math.nist.gov/javanumerics/jama/; MTJ - https://github.com/fommil/matrix-toolkits-java/
+h2o,principalcomponentanalysis,H2OPrincipalComponentAnalysisEstimator,k,1,int,Rank of matrix approximation
+h2o,principalcomponentanalysis,H2OPrincipalComponentAnalysisEstimator,max_iterations,1000,int,Maximum training iterations
+h2o,principalcomponentanalysis,H2OPrincipalComponentAnalysisEstimator,use_all_factor_levels,False,bool,Whether first factor level is included in each categorical expansion
+h2o,principalcomponentanalysis,H2OPrincipalComponentAnalysisEstimator,compute_metrics,True,bool,Whether to compute metrics on the training data
+h2o,principalcomponentanalysis,H2OPrincipalComponentAnalysisEstimator,impute_missing,False,bool,Whether to impute missing entries with the column mean
+h2o,principalcomponentanalysis,H2OPrincipalComponentAnalysisEstimator,seed,-1,long,RNG seed for initialization
+h2o,principalcomponentanalysis,H2OPrincipalComponentAnalysisEstimator,max_runtime_secs,0.0,float,Maximum allowed runtime in seconds for model training. Use 0 to disable.
+h2o,principalcomponentanalysis,H2OPrincipalComponentAnalysisEstimator,export_checkpoints_dir,None,string,Automatically export generated models to this directory.
+h2o,randomforest,H2ORandomForestEstimator,model_id,None,key<model>,Destination id for this model; auto-generated if not specified.
+h2o,randomforest,H2ORandomForestEstimator,training_frame,None,key<frame>,Id of the training data frame.
+h2o,randomforest,H2ORandomForestEstimator,validation_frame,None,key<frame>,Id of the validation data frame.
+h2o,randomforest,H2ORandomForestEstimator,nfolds,0,int,Number of folds for K-fold cross-validation (0 to disable or >= 2).
+h2o,randomforest,H2ORandomForestEstimator,keep_cross_validation_models,True,bool,Whether to keep the cross-validation models.
+h2o,randomforest,H2ORandomForestEstimator,keep_cross_validation_predictions,False,bool,Whether to keep the predictions of the cross-validation models.
+h2o,randomforest,H2ORandomForestEstimator,keep_cross_validation_fold_assignment,False,bool,Whether to keep the cross-validation fold assignment.
+h2o,randomforest,H2ORandomForestEstimator,score_each_iteration,False,bool,Whether to score during each iteration of model training.
+h2o,randomforest,H2ORandomForestEstimator,score_tree_interval,0,int,Score the model after every so many trees. Disabled if set to 0.
+h2o,randomforest,H2ORandomForestEstimator,fold_assignment,AUTO,"Categorical(['AUTO', 'Random', 'Modulo', 'Stratified'])","Cross-validation fold assignment scheme, if fold_column is not specified. The 'Stratified' option will stratify the folds based on the response variable, for classification problems."
+h2o,randomforest,H2ORandomForestEstimator,fold_column,None,vecspecifier,Column with cross-validation fold index assignment per observation.
+h2o,randomforest,H2ORandomForestEstimator,response_column,None,vecspecifier,Response variable column.
+h2o,randomforest,H2ORandomForestEstimator,ignored_columns,None,string[],Names of columns to ignore for training.
+h2o,randomforest,H2ORandomForestEstimator,ignore_const_cols,True,bool,Ignore constant columns.
+h2o,randomforest,H2ORandomForestEstimator,offset_column,None,vecspecifier,Offset column. This will be added to the combination of columns before applying the link function.
+h2o,randomforest,H2ORandomForestEstimator,weights_column,None,vecspecifier,"Column with observation weights. Giving some observation a weight of zero is equivalent to excluding it from the dataset; giving an observation a relative weight of 2 is equivalent to repeating that row twice. Negative weights are not allowed. Note: Weights are per-row observation weights and do not increase the size of the data frame. This is typically the number of times a row is repeated, but non-integer values are supported as well. During training, rows with higher weights matter more, due to the larger loss function pre-factor. If you set weight = 0 for a row, the returned prediction frame at that row is zero and this is incorrect. To get an accurate prediction, remove all rows with weight == 0."
+h2o,randomforest,H2ORandomForestEstimator,balance_classes,False,bool,Balance training data class counts via over/under-sampling (for imbalanced data).
+h2o,randomforest,H2ORandomForestEstimator,class_sampling_factors,None,float,"Desired over/under-sampling ratios per class (in lexicographic order). If not specified, sampling factors will be automatically computed to obtain class balance during training. Requires balance_classes."
+h2o,randomforest,H2ORandomForestEstimator,max_after_balance_size,5.0,float,Maximum relative size of the training data after balancing class counts (can be less than 1.0). Requires balance_classes.
+h2o,randomforest,H2ORandomForestEstimator,max_confusion_matrix_size,20,int,[Deprecated] Maximum size (# classes) for confusion matrices to be printed in the Logs
+h2o,randomforest,H2ORandomForestEstimator,ntrees,50,int,Number of trees.
+h2o,randomforest,H2ORandomForestEstimator,max_depth,20,int,Maximum tree depth (0 for unlimited).
+h2o,randomforest,H2ORandomForestEstimator,min_rows,1.0,float,Fewest allowed (weighted) observations in a leaf.
+h2o,randomforest,H2ORandomForestEstimator,nbins,20,int,"For numerical columns (real/int), build a histogram of (at least) this many bins, then split at the best point"
+h2o,randomforest,H2ORandomForestEstimator,nbins_top_level,1024,int,"For numerical columns (real/int), build a histogram of (at most) this many bins at the root level, then decrease by factor of two per level"
+h2o,randomforest,H2ORandomForestEstimator,nbins_cats,1024,int,"For categorical columns (factors), build a histogram of this many bins, then split at the best point. Higher values can lead to more overfitting."
+h2o,randomforest,H2ORandomForestEstimator,r2_stopping,1.7976931348623157e+308,float,"r2_stopping is no longer supported and will be ignored if set - please use stopping_rounds, stopping_metric and stopping_tolerance instead. Previous version of H2O would stop making trees when the R^2 metric equals or exceeds this"
+h2o,randomforest,H2ORandomForestEstimator,stopping_rounds,0,int,Early stopping based on convergence of stopping_metric. Stop if simple moving average of length k of the stopping_metric does not improve for k:=stopping_rounds scoring events (0 to disable)
+h2o,randomforest,H2ORandomForestEstimator,stopping_metric,AUTO,"Categorical(['AUTO', 'deviance', 'logloss', 'MSE', 'RMSE', 'MAE', 'RMSLE', 'AUC', 'AUCPR', 'lift_top_group', 'misclassification', 'mean_per_class_error', 'anomaly_score', 'AUUC', 'ATE', 'ATT', 'ATC', 'qini', 'custom', 'custom_increasing'])","Metric to use for early stopping (AUTO: logloss for classification, deviance for regression and anomaly_score for Isolation Forest). Note that custom and custom_increasing can only be used in GBM and DRF with the Python client."
+h2o,randomforest,H2ORandomForestEstimator,stopping_tolerance,0.001,float,Relative tolerance for metric-based stopping criterion (stop if relative improvement is not at least this much)
+h2o,randomforest,H2ORandomForestEstimator,max_runtime_secs,0.0,float,Maximum allowed runtime in seconds for model training. Use 0 to disable.
+h2o,randomforest,H2ORandomForestEstimator,seed,-1,long,Seed for pseudo random number generator (if applicable)
+h2o,randomforest,H2ORandomForestEstimator,build_tree_one_node,False,bool,Run on one node only; no network overhead but fewer cpus used. Suitable for small datasets.
+h2o,randomforest,H2ORandomForestEstimator,mtries,-1,int,"Number of variables randomly sampled as candidates at each split. If set to -1, defaults to sqrt{p} for classification and p/3 for regression (where p is the # of predictors"
+h2o,randomforest,H2ORandomForestEstimator,sample_rate,0.632,float,Row sample rate per tree (from 0.0 to 1.0)
+h2o,randomforest,H2ORandomForestEstimator,sample_rate_per_class,None,float,"A list of row sample rates per class (relative fraction for each class, from 0.0 to 1.0), for each tree"
+h2o,randomforest,H2ORandomForestEstimator,binomial_double_trees,False,bool,For binary classification: Build 2x as many trees (one per class) - can lead to higher accuracy.
+h2o,randomforest,H2ORandomForestEstimator,checkpoint,None,key<model>,Model checkpoint to resume training with.
+h2o,randomforest,H2ORandomForestEstimator,col_sample_rate_change_per_level,1.0,float,Relative change of the column sampling rate for every level (must be > 0.0 and <= 2.0)
+h2o,randomforest,H2ORandomForestEstimator,col_sample_rate_per_tree,1.0,float,Column sample rate per tree (from 0.0 to 1.0)
+h2o,randomforest,H2ORandomForestEstimator,min_split_improvement,1e-05,float,Minimum relative improvement in squared error reduction for a split to happen
+h2o,randomforest,H2ORandomForestEstimator,histogram_type,AUTO,"Categorical(['AUTO', 'UniformAdaptive', 'Random', 'QuantilesGlobal', 'RoundRobin', 'UniformRobust'])",What type of histogram to use for finding optimal split points
+h2o,randomforest,H2ORandomForestEstimator,categorical_encoding,AUTO,"Categorical(['AUTO', 'Enum', 'OneHotInternal', 'OneHotExplicit', 'Binary', 'Eigen', 'LabelEncoder', 'SortByResponse', 'EnumLimited'])",Encoding scheme for categorical features
+h2o,randomforest,H2ORandomForestEstimator,calibrate_model,False,bool,Use Platt Scaling (default) or Isotonic Regression to calculate calibrated class probabilities. Calibration can provide more accurate estimates of class probabilities.
+h2o,randomforest,H2ORandomForestEstimator,calibration_frame,None,key<frame>,Data for model calibration
+h2o,randomforest,H2ORandomForestEstimator,calibration_method,AUTO,"Categorical(['AUTO', 'PlattScaling', 'IsotonicRegression'])",Calibration method to use
+h2o,randomforest,H2ORandomForestEstimator,distribution,AUTO,"Categorical(['AUTO', 'bernoulli', 'quasibinomial', 'ordinal', 'multinomial', 'gaussian', 'poisson', 'gamma', 'tweedie', 'laplace', 'quantile', 'huber', 'custom'])",Distribution function
+h2o,randomforest,H2ORandomForestEstimator,custom_metric_func,None,string,"Reference to custom evaluation function, format: `language:keyName=funcName`"
+h2o,randomforest,H2ORandomForestEstimator,export_checkpoints_dir,None,string,Automatically export generated models to this directory.
+h2o,randomforest,H2ORandomForestEstimator,check_constant_response,True,bool,"Check if response column is constant. If enabled, then an exception is thrown if the response column is a constant value.If disabled, then model will train regardless of the response column being a constant value or not."
+h2o,randomforest,H2ORandomForestEstimator,gainslift_bins,-1,int,Gains/Lift table number of bins. 0 means disabled.. Default value -1 means automatic binning.
+h2o,randomforest,H2ORandomForestEstimator,auc_type,AUTO,"Categorical(['AUTO', 'NONE', 'MACRO_OVR', 'WEIGHTED_OVR', 'MACRO_OVO', 'WEIGHTED_OVO'])",Set default multinomial AUC type.
+h2o,rulefit,H2ORuleFitEstimator,model_id,None,key<model>,Destination id for this model; auto-generated if not specified.
+h2o,rulefit,H2ORuleFitEstimator,training_frame,None,key<frame>,Id of the training data frame.
+h2o,rulefit,H2ORuleFitEstimator,validation_frame,None,key<frame>,Id of the validation data frame.
+h2o,rulefit,H2ORuleFitEstimator,seed,-1,long,Seed for pseudo random number generator (if applicable).
+h2o,rulefit,H2ORuleFitEstimator,response_column,None,vecspecifier,Response variable column.
+h2o,rulefit,H2ORuleFitEstimator,ignored_columns,None,string[],Names of columns to ignore for training.
+h2o,rulefit,H2ORuleFitEstimator,algorithm,AUTO,"Categorical(['AUTO', 'DRF', 'GBM'])",The algorithm to use to generate rules.
+h2o,rulefit,H2ORuleFitEstimator,min_rule_length,3,int,Minimum length of rules. Defaults to 3.
+h2o,rulefit,H2ORuleFitEstimator,max_rule_length,3,int,Maximum length of rules. Defaults to 3.
+h2o,rulefit,H2ORuleFitEstimator,max_num_rules,-1,int,The maximum number of rules to return. defaults to -1 which means the number of rules is selected  by diminishing returns in model deviance.
+h2o,rulefit,H2ORuleFitEstimator,model_type,RULES_AND_LINEAR,"Categorical(['RULES_AND_LINEAR', 'RULES', 'LINEAR'])",Specifies type of base learners in the ensemble.
+h2o,rulefit,H2ORuleFitEstimator,weights_column,None,vecspecifier,"Column with observation weights. Giving some observation a weight of zero is equivalent to excluding it from the dataset; giving an observation a relative weight of 2 is equivalent to repeating that row twice. Negative weights are not allowed. Note: Weights are per-row observation weights and do not increase the size of the data frame. This is typically the number of times a row is repeated, but non-integer values are supported as well. During training, rows with higher weights matter more, due to the larger loss function pre-factor. If you set weight = 0 for a row, the returned prediction frame at that row is zero and this is incorrect. To get an accurate prediction, remove all rows with weight == 0."
+h2o,rulefit,H2ORuleFitEstimator,distribution,AUTO,"Categorical(['AUTO', 'bernoulli', 'quasibinomial', 'ordinal', 'multinomial', 'gaussian', 'poisson', 'gamma', 'tweedie', 'laplace', 'quantile', 'huber', 'custom'])",Distribution function
+h2o,rulefit,H2ORuleFitEstimator,rule_generation_ntrees,50,int,Specifies the number of trees to build in the tree model. Defaults to 50.
+h2o,rulefit,H2ORuleFitEstimator,auc_type,AUTO,"Categorical(['AUTO', 'NONE', 'MACRO_OVR', 'WEIGHTED_OVR', 'MACRO_OVO', 'WEIGHTED_OVO'])",Set default multinomial AUC type.
+h2o,rulefit,H2ORuleFitEstimator,remove_duplicates,True,bool,Whether to remove rules which are identical to an earlier rule. Defaults to true.
+h2o,rulefit,H2ORuleFitEstimator,lambda,None,float,Lambda for LASSO regressor.
+h2o,rulefit,H2ORuleFitEstimator,max_categorical_levels,10,int,"For every categorical feature, only use this many most frequent categorical levels for model training. Only used for categorical_encoding == EnumLimited."
+h2o,singularvaluedecomposition,H2OSingularValueDecompositionEstimator,model_id,None,key<model>,Destination id for this model; auto-generated if not specified.
+h2o,singularvaluedecomposition,H2OSingularValueDecompositionEstimator,training_frame,None,key<frame>,Id of the training data frame.
+h2o,singularvaluedecomposition,H2OSingularValueDecompositionEstimator,validation_frame,None,key<frame>,Id of the validation data frame.
+h2o,singularvaluedecomposition,H2OSingularValueDecompositionEstimator,ignored_columns,None,string[],Names of columns to ignore for training.
+h2o,singularvaluedecomposition,H2OSingularValueDecompositionEstimator,ignore_const_cols,True,bool,Ignore constant columns.
+h2o,singularvaluedecomposition,H2OSingularValueDecompositionEstimator,score_each_iteration,False,bool,Whether to score during each iteration of model training.
+h2o,singularvaluedecomposition,H2OSingularValueDecompositionEstimator,transform,NONE,"Categorical(['NONE', 'STANDARDIZE', 'NORMALIZE', 'DEMEAN', 'DESCALE'])",Transformation of training data
+h2o,singularvaluedecomposition,H2OSingularValueDecompositionEstimator,svd_method,GramSVD,"Categorical(['GramSVD', 'Power', 'Randomized'])",Method for computing SVD (Caution: Randomized is currently experimental and unstable)
+h2o,singularvaluedecomposition,H2OSingularValueDecompositionEstimator,nv,1,int,Number of right singular vectors
+h2o,singularvaluedecomposition,H2OSingularValueDecompositionEstimator,max_iterations,1000,int,Maximum iterations
+h2o,singularvaluedecomposition,H2OSingularValueDecompositionEstimator,seed,-1,long,RNG seed for k-means++ initialization
+h2o,singularvaluedecomposition,H2OSingularValueDecompositionEstimator,keep_u,True,bool,Save left singular vectors?
+h2o,singularvaluedecomposition,H2OSingularValueDecompositionEstimator,u_name,None,string,Frame key to save left singular vectors
+h2o,singularvaluedecomposition,H2OSingularValueDecompositionEstimator,use_all_factor_levels,True,bool,Whether first factor level is included in each categorical expansion
+h2o,singularvaluedecomposition,H2OSingularValueDecompositionEstimator,max_runtime_secs,0.0,float,Maximum allowed runtime in seconds for model training. Use 0 to disable.
+h2o,singularvaluedecomposition,H2OSingularValueDecompositionEstimator,export_checkpoints_dir,None,string,Automatically export generated models to this directory.
+h2o,stackedensemble,H2OStackedEnsembleEstimator,model_id,None,key<model>,Destination id for this model; auto-generated if not specified.
+h2o,stackedensemble,H2OStackedEnsembleEstimator,training_frame,None,key<frame>,Id of the training data frame.
+h2o,stackedensemble,H2OStackedEnsembleEstimator,response_column,None,vecspecifier,Response variable column.
+h2o,stackedensemble,H2OStackedEnsembleEstimator,validation_frame,None,key<frame>,Id of the validation data frame.
+h2o,stackedensemble,H2OStackedEnsembleEstimator,blending_frame,None,key<frame>,Frame used to compute the predictions that serve as the training frame for the metalearner (triggers blending mode if provided)
+h2o,stackedensemble,H2OStackedEnsembleEstimator,base_models,[],key<keyed>[],"List of models or grids (or their ids) to ensemble/stack together. Grids are expanded to individual models. If not using blending frame, then models must have been cross-validated using nfolds > 1, and folds must be identical across models."
+h2o,stackedensemble,H2OStackedEnsembleEstimator,metalearner_algorithm,AUTO,"Categorical(['AUTO', 'deeplearning', 'drf', 'gbm', 'glm', 'naivebayes', 'xgboost'])","Type of algorithm to use as the metalearner. Options include 'AUTO' (GLM with non negative weights; if validation_frame is present, a lambda search is performed), 'deeplearning' (Deep Learning with default parameters), 'drf' (Random Forest with default parameters), 'gbm' (GBM with default parameters), 'glm' (GLM with default parameters), 'naivebayes' (NaiveBayes with default parameters), or 'xgboost' (if available, XGBoost with default parameters)."
+h2o,stackedensemble,H2OStackedEnsembleEstimator,metalearner_nfolds,0,int,Number of folds for K-fold cross-validation of the metalearner algorithm (0 to disable or >= 2).
+h2o,stackedensemble,H2OStackedEnsembleEstimator,metalearner_fold_assignment,None,"Categorical(['AUTO', 'Random', 'Modulo', 'Stratified'])","Cross-validation fold assignment scheme for metalearner cross-validation.  Defaults to AUTO (which is currently set to Random). The 'Stratified' option will stratify the folds based on the response variable, for classification problems."
+h2o,stackedensemble,H2OStackedEnsembleEstimator,metalearner_fold_column,None,vecspecifier,Column with cross-validation fold index assignment per observation for cross-validation of the metalearner.
+h2o,stackedensemble,H2OStackedEnsembleEstimator,metalearner_params,,string,Parameters for metalearner algorithm
+h2o,stackedensemble,H2OStackedEnsembleEstimator,metalearner_transform,NONE,"Categorical(['NONE', 'Logit'])",Transformation used for the level one frame.
+h2o,stackedensemble,H2OStackedEnsembleEstimator,max_runtime_secs,0.0,float,Maximum allowed runtime in seconds for model training. Use 0 to disable.
+h2o,stackedensemble,H2OStackedEnsembleEstimator,weights_column,None,vecspecifier,"Column with observation weights. Giving some observation a weight of zero is equivalent to excluding it from the dataset; giving an observation a relative weight of 2 is equivalent to repeating that row twice. Negative weights are not allowed. Note: Weights are per-row observation weights and do not increase the size of the data frame. This is typically the number of times a row is repeated, but non-integer values are supported as well. During training, rows with higher weights matter more, due to the larger loss function pre-factor. If you set weight = 0 for a row, the returned prediction frame at that row is zero and this is incorrect. To get an accurate prediction, remove all rows with weight == 0."
+h2o,stackedensemble,H2OStackedEnsembleEstimator,offset_column,None,vecspecifier,Offset column. This will be added to the combination of columns before applying the link function.
+h2o,stackedensemble,H2OStackedEnsembleEstimator,custom_metric_func,None,string,"Reference to custom evaluation function, format: `language:keyName=funcName`"
+h2o,stackedensemble,H2OStackedEnsembleEstimator,seed,-1,long,Seed for random numbers; passed through to the metalearner algorithm. Defaults to -1 (time-based random number)
+h2o,stackedensemble,H2OStackedEnsembleEstimator,score_training_samples,10000,long,"Specify the number of training set samples for scoring. The value must be >= 0. To use all training samples, enter 0."
+h2o,stackedensemble,H2OStackedEnsembleEstimator,keep_levelone_frame,False,bool,Keep level one frame used for metalearner training.
+h2o,stackedensemble,H2OStackedEnsembleEstimator,export_checkpoints_dir,None,string,Automatically export generated models to this directory.
+h2o,stackedensemble,H2OStackedEnsembleEstimator,auc_type,AUTO,"Categorical(['AUTO', 'NONE', 'MACRO_OVR', 'WEIGHTED_OVR', 'MACRO_OVO', 'WEIGHTED_OVO'])",Set default multinomial AUC type.
+h2o,stackedensemble,H2OStackedEnsembleEstimator,gainslift_bins,-1,int,Gains/Lift table number of bins. 0 means disabled.. Default value -1 means automatic binning.
+h2o,supportvectormachine,H2OSupportVectorMachineEstimator,model_id,None,key<model>,Destination id for this model; auto-generated if not specified.
+h2o,supportvectormachine,H2OSupportVectorMachineEstimator,training_frame,None,key<frame>,Id of the training data frame.
+h2o,supportvectormachine,H2OSupportVectorMachineEstimator,validation_frame,None,key<frame>,Id of the validation data frame.
+h2o,supportvectormachine,H2OSupportVectorMachineEstimator,response_column,None,vecspecifier,Response variable column.
+h2o,supportvectormachine,H2OSupportVectorMachineEstimator,ignored_columns,None,string[],Names of columns to ignore for training.
+h2o,supportvectormachine,H2OSupportVectorMachineEstimator,ignore_const_cols,True,bool,Ignore constant columns.
+h2o,supportvectormachine,H2OSupportVectorMachineEstimator,hyper_param,1.0,float,Penalty parameter C of the error term
+h2o,supportvectormachine,H2OSupportVectorMachineEstimator,kernel_type,gaussian,Categorical(['gaussian']),Type of used kernel
+h2o,supportvectormachine,H2OSupportVectorMachineEstimator,gamma,-1.0,float,"Coefficient of the kernel (currently RBF gamma for gaussian kernel, -1 means 1/#features)"
+h2o,supportvectormachine,H2OSupportVectorMachineEstimator,rank_ratio,-1.0,float,Desired rank of the ICF matrix expressed as an ration of number of input rows (-1 means use sqrt(#rows)).
+h2o,supportvectormachine,H2OSupportVectorMachineEstimator,positive_weight,1.0,float,Weight of positive (+1) class of observations
+h2o,supportvectormachine,H2OSupportVectorMachineEstimator,negative_weight,1.0,float,Weight of positive (-1) class of observations
+h2o,supportvectormachine,H2OSupportVectorMachineEstimator,disable_training_metrics,True,bool,Disable calculating training metrics (expensive on large datasets)
+h2o,supportvectormachine,H2OSupportVectorMachineEstimator,sv_threshold,0.0001,float,Threshold for accepting a candidate observation into the set of support vectors
+h2o,supportvectormachine,H2OSupportVectorMachineEstimator,fact_threshold,1e-05,float,Convergence threshold of the Incomplete Cholesky Factorization (ICF)
+h2o,supportvectormachine,H2OSupportVectorMachineEstimator,feasible_threshold,0.001,float,Convergence threshold for primal-dual residuals in the IPM iteration
+h2o,supportvectormachine,H2OSupportVectorMachineEstimator,surrogate_gap_threshold,0.001,float,Feasibility criterion of the surrogate duality gap (eta)
+h2o,supportvectormachine,H2OSupportVectorMachineEstimator,mu_factor,10.0,float,Increasing factor mu
+h2o,supportvectormachine,H2OSupportVectorMachineEstimator,max_iterations,200,int,Maximum number of iteration of the algorithm
+h2o,supportvectormachine,H2OSupportVectorMachineEstimator,seed,-1,long,Seed for pseudo random number generator (if applicable)
+h2o,targetencoder,H2OTargetEncoderEstimator,model_id,None,key<model>,Destination id for this model; auto-generated if not specified.
+h2o,targetencoder,H2OTargetEncoderEstimator,training_frame,None,key<frame>,Id of the training data frame.
+h2o,targetencoder,H2OTargetEncoderEstimator,fold_column,None,vecspecifier,Column with cross-validation fold index assignment per observation.
+h2o,targetencoder,H2OTargetEncoderEstimator,response_column,None,vecspecifier,Response variable column.
+h2o,targetencoder,H2OTargetEncoderEstimator,ignored_columns,None,string[],Names of columns to ignore for training.
+h2o,targetencoder,H2OTargetEncoderEstimator,columns_to_encode,None,string[][],"List of categorical columns or groups of categorical columns to encode. When groups of columns are specified, each group is encoded as a single column (interactions are created internally)."
+h2o,targetencoder,H2OTargetEncoderEstimator,keep_original_categorical_columns,True,bool,"If true, the original non-encoded categorical features will remain in the result frame."
+h2o,targetencoder,H2OTargetEncoderEstimator,blending,False,bool,"If true, enables blending of posterior probabilities (computed for a given categorical value) with prior probabilities (computed on the entire set). This allows to mitigate the effect of categorical values with small cardinality. The blending effect can be tuned using the `inflection_point` and `smoothing` parameters."
+h2o,targetencoder,H2OTargetEncoderEstimator,inflection_point,10.0,float,"Inflection point of the sigmoid used to blend probabilities (see `blending` parameter). For a given categorical value, if it appears less that `inflection_point` in a data sample, then the influence of the posterior probability will be smaller than the prior."
+h2o,targetencoder,H2OTargetEncoderEstimator,smoothing,20.0,float,"Smoothing factor corresponds to the inverse of the slope at the inflection point on the sigmoid used to blend probabilities (see `blending` parameter). If smoothing tends towards 0, then the sigmoid used for blending turns into a Heaviside step function."
+h2o,targetencoder,H2OTargetEncoderEstimator,data_leakage_handling,None,"Categorical(['LeaveOneOut', 'KFold', 'None'])","Data leakage handling strategy used to generate the encoding. Supported options are: 1) ""none"" (default) - no holdout, using the entire training frame. 2) ""leave_one_out"" - current row's response value is subtracted from the per-level frequencies pre-calculated on the entire training frame. 3) ""k_fold"" - encodings for a fold are generated based on out-of-fold data."
+h2o,targetencoder,H2OTargetEncoderEstimator,noise,0.01,float,"The amount of noise to add to the encoded column. Use 0 to disable noise, and -1 (=AUTO) to let the algorithm determine a reasonable amount of noise."
+h2o,targetencoder,H2OTargetEncoderEstimator,seed,-1,long,"Seed used to generate the noise. By default, the seed is chosen randomly."
+h2o,upliftrandomforest,H2OUpliftRandomForestEstimator,model_id,None,key<model>,Destination id for this model; auto-generated if not specified.
+h2o,upliftrandomforest,H2OUpliftRandomForestEstimator,training_frame,None,key<frame>,Id of the training data frame.
+h2o,upliftrandomforest,H2OUpliftRandomForestEstimator,validation_frame,None,key<frame>,Id of the validation data frame.
+h2o,upliftrandomforest,H2OUpliftRandomForestEstimator,score_each_iteration,False,bool,Whether to score during each iteration of model training.
+h2o,upliftrandomforest,H2OUpliftRandomForestEstimator,score_tree_interval,0,int,Score the model after every so many trees. Disabled if set to 0.
+h2o,upliftrandomforest,H2OUpliftRandomForestEstimator,response_column,None,vecspecifier,Response variable column.
+h2o,upliftrandomforest,H2OUpliftRandomForestEstimator,ignored_columns,None,string[],Names of columns to ignore for training.
+h2o,upliftrandomforest,H2OUpliftRandomForestEstimator,ignore_const_cols,True,bool,Ignore constant columns.
+h2o,upliftrandomforest,H2OUpliftRandomForestEstimator,ntrees,50,int,Number of trees.
+h2o,upliftrandomforest,H2OUpliftRandomForestEstimator,max_depth,20,int,Maximum tree depth (0 for unlimited).
+h2o,upliftrandomforest,H2OUpliftRandomForestEstimator,min_rows,1.0,float,Fewest allowed (weighted) observations in a leaf.
+h2o,upliftrandomforest,H2OUpliftRandomForestEstimator,nbins,20,int,"For numerical columns (real/int), build a histogram of (at least) this many bins, then split at the best point"
+h2o,upliftrandomforest,H2OUpliftRandomForestEstimator,nbins_top_level,1024,int,"For numerical columns (real/int), build a histogram of (at most) this many bins at the root level, then decrease by factor of two per level"
+h2o,upliftrandomforest,H2OUpliftRandomForestEstimator,nbins_cats,1024,int,"For categorical columns (factors), build a histogram of this many bins, then split at the best point. Higher values can lead to more overfitting."
+h2o,upliftrandomforest,H2OUpliftRandomForestEstimator,max_runtime_secs,0.0,float,Maximum allowed runtime in seconds for model training. Use 0 to disable.
+h2o,upliftrandomforest,H2OUpliftRandomForestEstimator,seed,-1,long,Seed for pseudo random number generator (if applicable)
+h2o,upliftrandomforest,H2OUpliftRandomForestEstimator,mtries,-2,int,"Number of variables randomly sampled as candidates at each split. If set to -1, defaults to sqrt{p} for classification and p/3 for regression (where p is the # of predictors"
+h2o,upliftrandomforest,H2OUpliftRandomForestEstimator,sample_rate,0.632,float,Row sample rate per tree (from 0.0 to 1.0)
+h2o,upliftrandomforest,H2OUpliftRandomForestEstimator,sample_rate_per_class,None,float,"A list of row sample rates per class (relative fraction for each class, from 0.0 to 1.0), for each tree"
+h2o,upliftrandomforest,H2OUpliftRandomForestEstimator,col_sample_rate_change_per_level,1.0,float,Relative change of the column sampling rate for every level (must be > 0.0 and <= 2.0)
+h2o,upliftrandomforest,H2OUpliftRandomForestEstimator,col_sample_rate_per_tree,1.0,float,Column sample rate per tree (from 0.0 to 1.0)
+h2o,upliftrandomforest,H2OUpliftRandomForestEstimator,histogram_type,AUTO,"Categorical(['AUTO', 'UniformAdaptive', 'Random', 'QuantilesGlobal', 'RoundRobin', 'UniformRobust'])",What type of histogram to use for finding optimal split points
+h2o,upliftrandomforest,H2OUpliftRandomForestEstimator,categorical_encoding,AUTO,"Categorical(['AUTO', 'Enum', 'OneHotInternal', 'OneHotExplicit', 'Binary', 'Eigen', 'LabelEncoder', 'SortByResponse', 'EnumLimited'])",Encoding scheme for categorical features
+h2o,upliftrandomforest,H2OUpliftRandomForestEstimator,distribution,AUTO,"Categorical(['AUTO', 'bernoulli', 'quasibinomial', 'ordinal', 'multinomial', 'gaussian', 'poisson', 'gamma', 'tweedie', 'laplace', 'quantile', 'huber', 'custom'])",Distribution function
+h2o,upliftrandomforest,H2OUpliftRandomForestEstimator,check_constant_response,True,bool,"Check if response column is constant. If enabled, then an exception is thrown if the response column is a constant value.If disabled, then model will train regardless of the response column being a constant value or not."
+h2o,upliftrandomforest,H2OUpliftRandomForestEstimator,custom_metric_func,None,string,"Reference to custom evaluation function, format: `language:keyName=funcName`"
+h2o,upliftrandomforest,H2OUpliftRandomForestEstimator,treatment_column,treatment,string,Define the column which will be used for computing uplift gain to select best split for a tree. The column has to divide the dataset into treatment (value 1) and control (value 0) groups.
+h2o,upliftrandomforest,H2OUpliftRandomForestEstimator,uplift_metric,AUTO,"Categorical(['AUTO', 'KL', 'Euclidean', 'ChiSquared'])",Divergence metric used to find best split when building an uplift tree.
+h2o,upliftrandomforest,H2OUpliftRandomForestEstimator,auuc_type,AUTO,"Categorical(['AUTO', 'qini', 'lift', 'gain'])",Metric used to calculate Area Under Uplift Curve.
+h2o,upliftrandomforest,H2OUpliftRandomForestEstimator,auuc_nbins,-1,int,Number of bins to calculate Area Under Uplift Curve.
+h2o,upliftrandomforest,H2OUpliftRandomForestEstimator,stopping_rounds,0,int,Early stopping based on convergence of stopping_metric. Stop if simple moving average of length k of the stopping_metric does not improve for k:=stopping_rounds scoring events (0 to disable)
+h2o,upliftrandomforest,H2OUpliftRandomForestEstimator,stopping_metric,AUTO,"Categorical(['AUTO', 'deviance', 'logloss', 'MSE', 'RMSE', 'MAE', 'RMSLE', 'AUC', 'AUCPR', 'lift_top_group', 'misclassification', 'mean_per_class_error', 'anomaly_score', 'AUUC', 'ATE', 'ATT', 'ATC', 'qini', 'custom', 'custom_increasing'])","Metric to use for early stopping (AUTO: logloss for classification, deviance for regression and anomaly_score for Isolation Forest). Note that custom and custom_increasing can only be used in GBM and DRF with the Python client."
+h2o,upliftrandomforest,H2OUpliftRandomForestEstimator,stopping_tolerance,0.001,float,Relative tolerance for metric-based stopping criterion (stop if relative improvement is not at least this much)
+h2o,word2vec,H2OWord2vecEstimator,model_id,None,key<model>,Destination id for this model; auto-generated if not specified.
+h2o,word2vec,H2OWord2vecEstimator,training_frame,None,key<frame>,Id of the training data frame.
+h2o,word2vec,H2OWord2vecEstimator,min_word_freq,5,int,This will discard words that appear less than <int> times
+h2o,word2vec,H2OWord2vecEstimator,word_model,SkipGram,"Categorical(['SkipGram', 'CBOW'])",The word model to use (SkipGram or CBOW)
+h2o,word2vec,H2OWord2vecEstimator,norm_model,HSM,Categorical(['HSM']),Use Hierarchical Softmax
+h2o,word2vec,H2OWord2vecEstimator,vec_size,100,int,Set size of word vectors
+h2o,word2vec,H2OWord2vecEstimator,window_size,5,int,Set max skip length between words
+h2o,word2vec,H2OWord2vecEstimator,sent_sample_rate,0.001,float,"Set threshold for occurrence of words. Those that appear with higher frequency in the training data 		will be randomly down-sampled; useful range is (0, 1e-5)"
+h2o,word2vec,H2OWord2vecEstimator,init_learning_rate,0.025,float,Set the starting learning rate
+h2o,word2vec,H2OWord2vecEstimator,epochs,5,int,Number of training iterations to run
+h2o,word2vec,H2OWord2vecEstimator,pre_trained,None,key<frame>,Id of a data frame that contains a pre-trained (external) word2vec model
+h2o,word2vec,H2OWord2vecEstimator,max_runtime_secs,0.0,float,Maximum allowed runtime in seconds for model training. Use 0 to disable.
+h2o,word2vec,H2OWord2vecEstimator,export_checkpoints_dir,None,string,Automatically export generated models to this directory.
+h2o,xgboost,H2OXGBoostEstimator,model_id,None,key<model>,Destination id for this model; auto-generated if not specified.
+h2o,xgboost,H2OXGBoostEstimator,training_frame,None,key<frame>,Id of the training data frame.
+h2o,xgboost,H2OXGBoostEstimator,validation_frame,None,key<frame>,Id of the validation data frame.
+h2o,xgboost,H2OXGBoostEstimator,nfolds,0,int,Number of folds for K-fold cross-validation (0 to disable or >= 2).
+h2o,xgboost,H2OXGBoostEstimator,keep_cross_validation_models,True,bool,Whether to keep the cross-validation models.
+h2o,xgboost,H2OXGBoostEstimator,keep_cross_validation_predictions,False,bool,Whether to keep the predictions of the cross-validation models.
+h2o,xgboost,H2OXGBoostEstimator,keep_cross_validation_fold_assignment,False,bool,Whether to keep the cross-validation fold assignment.
+h2o,xgboost,H2OXGBoostEstimator,score_each_iteration,False,bool,Whether to score during each iteration of model training.
+h2o,xgboost,H2OXGBoostEstimator,fold_assignment,AUTO,"Categorical(['AUTO', 'Random', 'Modulo', 'Stratified'])","Cross-validation fold assignment scheme, if fold_column is not specified. The 'Stratified' option will stratify the folds based on the response variable, for classification problems."
+h2o,xgboost,H2OXGBoostEstimator,fold_column,None,vecspecifier,Column with cross-validation fold index assignment per observation.
+h2o,xgboost,H2OXGBoostEstimator,response_column,None,vecspecifier,Response variable column.
+h2o,xgboost,H2OXGBoostEstimator,ignored_columns,None,string[],Names of columns to ignore for training.
+h2o,xgboost,H2OXGBoostEstimator,ignore_const_cols,True,bool,Ignore constant columns.
+h2o,xgboost,H2OXGBoostEstimator,offset_column,None,vecspecifier,Offset column. This will be added to the combination of columns before applying the link function.
+h2o,xgboost,H2OXGBoostEstimator,weights_column,None,vecspecifier,"Column with observation weights. Giving some observation a weight of zero is equivalent to excluding it from the dataset; giving an observation a relative weight of 2 is equivalent to repeating that row twice. Negative weights are not allowed. Note: Weights are per-row observation weights and do not increase the size of the data frame. This is typically the number of times a row is repeated, but non-integer values are supported as well. During training, rows with higher weights matter more, due to the larger loss function pre-factor. If you set weight = 0 for a row, the returned prediction frame at that row is zero and this is incorrect. To get an accurate prediction, remove all rows with weight == 0."
+h2o,xgboost,H2OXGBoostEstimator,stopping_rounds,0,int,Early stopping based on convergence of stopping_metric. Stop if simple moving average of length k of the stopping_metric does not improve for k:=stopping_rounds scoring events (0 to disable)
+h2o,xgboost,H2OXGBoostEstimator,stopping_metric,AUTO,"Categorical(['AUTO', 'deviance', 'logloss', 'MSE', 'RMSE', 'MAE', 'RMSLE', 'AUC', 'AUCPR', 'lift_top_group', 'misclassification', 'mean_per_class_error', 'anomaly_score', 'AUUC', 'ATE', 'ATT', 'ATC', 'qini', 'custom', 'custom_increasing'])","Metric to use for early stopping (AUTO: logloss for classification, deviance for regression and anomaly_score for Isolation Forest). Note that custom and custom_increasing can only be used in GBM and DRF with the Python client."
+h2o,xgboost,H2OXGBoostEstimator,stopping_tolerance,0.001,float,Relative tolerance for metric-based stopping criterion (stop if relative improvement is not at least this much)
+h2o,xgboost,H2OXGBoostEstimator,max_runtime_secs,0.0,float,Maximum allowed runtime in seconds for model training. Use 0 to disable.
+h2o,xgboost,H2OXGBoostEstimator,seed,-1,long,Seed for pseudo random number generator (if applicable)
+h2o,xgboost,H2OXGBoostEstimator,distribution,AUTO,"Categorical(['AUTO', 'bernoulli', 'quasibinomial', 'ordinal', 'multinomial', 'gaussian', 'poisson', 'gamma', 'tweedie', 'laplace', 'quantile', 'huber', 'custom'])",Distribution function
+h2o,xgboost,H2OXGBoostEstimator,tweedie_power,1.5,float,"Tweedie power for Tweedie regression, must be between 1 and 2."
+h2o,xgboost,H2OXGBoostEstimator,categorical_encoding,AUTO,"Categorical(['AUTO', 'Enum', 'OneHotInternal', 'OneHotExplicit', 'Binary', 'Eigen', 'LabelEncoder', 'SortByResponse', 'EnumLimited'])",Encoding scheme for categorical features
+h2o,xgboost,H2OXGBoostEstimator,quiet_mode,True,bool,Enable quiet mode
+h2o,xgboost,H2OXGBoostEstimator,checkpoint,None,key<model>,Model checkpoint to resume training with.
+h2o,xgboost,H2OXGBoostEstimator,export_checkpoints_dir,None,string,Automatically export generated models to this directory.
+h2o,xgboost,H2OXGBoostEstimator,custom_metric_func,None,string,"Reference to custom evaluation function, format: `language:keyName=funcName`"
+h2o,xgboost,H2OXGBoostEstimator,ntrees,50,int,(same as n_estimators) Number of trees.
+h2o,xgboost,H2OXGBoostEstimator,max_depth,6,int,Maximum tree depth (0 for unlimited).
+h2o,xgboost,H2OXGBoostEstimator,min_rows,1.0,float,(same as min_child_weight) Fewest allowed (weighted) observations in a leaf.
+h2o,xgboost,H2OXGBoostEstimator,min_child_weight,1.0,float,(same as min_rows) Fewest allowed (weighted) observations in a leaf.
+h2o,xgboost,H2OXGBoostEstimator,learn_rate,0.3,float,(same as eta) Learning rate (from 0.0 to 1.0)
+h2o,xgboost,H2OXGBoostEstimator,eta,0.3,float,(same as learn_rate) Learning rate (from 0.0 to 1.0)
+h2o,xgboost,H2OXGBoostEstimator,sample_rate,1.0,float,(same as subsample) Row sample rate per tree (from 0.0 to 1.0)
+h2o,xgboost,H2OXGBoostEstimator,subsample,1.0,float,(same as sample_rate) Row sample rate per tree (from 0.0 to 1.0)
+h2o,xgboost,H2OXGBoostEstimator,col_sample_rate,1.0,float,(same as colsample_bylevel) Column sample rate (from 0.0 to 1.0)
+h2o,xgboost,H2OXGBoostEstimator,colsample_bylevel,1.0,float,(same as col_sample_rate) Column sample rate (from 0.0 to 1.0)
+h2o,xgboost,H2OXGBoostEstimator,col_sample_rate_per_tree,1.0,float,(same as colsample_bytree) Column sample rate per tree (from 0.0 to 1.0)
+h2o,xgboost,H2OXGBoostEstimator,colsample_bytree,1.0,float,(same as col_sample_rate_per_tree) Column sample rate per tree (from 0.0 to 1.0)
+h2o,xgboost,H2OXGBoostEstimator,colsample_bynode,1.0,float,Column sample rate per tree node (from 0.0 to 1.0)
+h2o,xgboost,H2OXGBoostEstimator,max_abs_leafnode_pred,0.0,float,(same as max_delta_step) Maximum absolute value of a leaf node prediction
+h2o,xgboost,H2OXGBoostEstimator,max_delta_step,0.0,float,(same as max_abs_leafnode_pred) Maximum absolute value of a leaf node prediction
+h2o,xgboost,H2OXGBoostEstimator,monotone_constraints,None,keyvalue[],A mapping representing monotonic constraints. Use +1 to enforce an increasing constraint and -1 to specify a decreasing constraint.
+h2o,xgboost,H2OXGBoostEstimator,interaction_constraints,None,string[][],A set of allowed column interactions.
+h2o,xgboost,H2OXGBoostEstimator,score_tree_interval,0,int,Score the model after every so many trees. Disabled if set to 0.
+h2o,xgboost,H2OXGBoostEstimator,min_split_improvement,0.0,float,(same as gamma) Minimum relative improvement in squared error reduction for a split to happen
+h2o,xgboost,H2OXGBoostEstimator,gamma,0.0,float,(same as min_split_improvement) Minimum relative improvement in squared error reduction for a split to happen
+h2o,xgboost,H2OXGBoostEstimator,nthread,-1,int,Number of parallel threads that can be used to run XGBoost. Cannot exceed H2O cluster limits (-nthreads parameter). Defaults to maximum available
+h2o,xgboost,H2OXGBoostEstimator,save_matrix_directory,None,string,Directory where to save matrices passed to XGBoost library. Useful for debugging.
+h2o,xgboost,H2OXGBoostEstimator,build_tree_one_node,False,bool,Run on one node only; no network overhead but fewer cpus used. Suitable for small datasets.
+h2o,xgboost,H2OXGBoostEstimator,parallelize_cross_validation,True,bool,Allow parallel training of cross-validation models
+h2o,xgboost,H2OXGBoostEstimator,calibrate_model,False,bool,Use Platt Scaling (default) or Isotonic Regression to calculate calibrated class probabilities. Calibration can provide more accurate estimates of class probabilities.
+h2o,xgboost,H2OXGBoostEstimator,calibration_frame,None,key<frame>,Data for model calibration
+h2o,xgboost,H2OXGBoostEstimator,calibration_method,AUTO,"Categorical(['AUTO', 'PlattScaling', 'IsotonicRegression'])",Calibration method to use
+h2o,xgboost,H2OXGBoostEstimator,max_bins,256,int,For tree_method=hist only: maximum number of bins
+h2o,xgboost,H2OXGBoostEstimator,max_leaves,0,int,For tree_method=hist only: maximum number of leaves
+h2o,xgboost,H2OXGBoostEstimator,sample_type,uniform,"Categorical(['uniform', 'weighted'])",For booster=dart only: sample_type
+h2o,xgboost,H2OXGBoostEstimator,normalize_type,tree,"Categorical(['tree', 'forest'])",For booster=dart only: normalize_type
+h2o,xgboost,H2OXGBoostEstimator,rate_drop,0.0,float,For booster=dart only: rate_drop (0..1)
+h2o,xgboost,H2OXGBoostEstimator,one_drop,False,bool,For booster=dart only: one_drop
+h2o,xgboost,H2OXGBoostEstimator,skip_drop,0.0,float,For booster=dart only: skip_drop (0..1)
+h2o,xgboost,H2OXGBoostEstimator,tree_method,auto,"Categorical(['auto', 'exact', 'approx', 'hist'])",Tree method
+h2o,xgboost,H2OXGBoostEstimator,grow_policy,depthwise,"Categorical(['depthwise', 'lossguide'])","Grow policy - depthwise is standard GBM, lossguide is LightGBM"
+h2o,xgboost,H2OXGBoostEstimator,booster,gbtree,"Categorical(['gbtree', 'gblinear', 'dart'])",Booster type
+h2o,xgboost,H2OXGBoostEstimator,reg_lambda,1.0,float,L2 regularization
+h2o,xgboost,H2OXGBoostEstimator,reg_alpha,0.0,float,L1 regularization
+h2o,xgboost,H2OXGBoostEstimator,dmatrix_type,auto,"Categorical(['auto', 'dense', 'sparse'])","Type of DMatrix. For sparse, NAs and 0 are treated equally."
+h2o,xgboost,H2OXGBoostEstimator,backend,auto,"Categorical(['auto', 'gpu', 'cpu'])","Backend. By default (auto), a GPU is used if available."
+h2o,xgboost,H2OXGBoostEstimator,gpu_id,None,int,Which GPU(s) to use.
+h2o,xgboost,H2OXGBoostEstimator,gainslift_bins,-1,int,Gains/Lift table number of bins. 0 means disabled.. Default value -1 means automatic binning.
+h2o,xgboost,H2OXGBoostEstimator,auc_type,AUTO,"Categorical(['AUTO', 'NONE', 'MACRO_OVR', 'WEIGHTED_OVR', 'MACRO_OVO', 'WEIGHTED_OVO'])",Set default multinomial AUC type.
+h2o,xgboost,H2OXGBoostEstimator,scale_pos_weight,1.0,float,Controls the effect of observations with positive labels in relation to the observations with negative labels on gradient calculation. Useful for imbalanced problems.
+h2o,xgboost,H2OXGBoostEstimator,eval_metric,None,string,Specification of evaluation metric that will be passed to the native XGBoost backend.
+h2o,xgboost,H2OXGBoostEstimator,score_eval_metric_only,False,bool,"If enabled, score only the evaluation metric. This can make model training faster if scoring is frequent (eg. each iteration)."

@@ -1,0 +1,7 @@
+Framework,Present in ontology,Cross-framework mapping
+AutoGluon,14/14,11/14
+auto-sklearn,56/56,50/56
+FLAML,24/25,23/25
+H2O,92/94,20/94
+TPOT,24/24,24/24
+Total,151/154,73/154

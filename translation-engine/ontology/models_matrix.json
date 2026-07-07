@@ -1,0 +1,415 @@
+{
+  "adaboost": {
+    "h2o": true,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": true,
+    "autosklearn": true
+  },
+  "aggregator": {
+    "h2o": true,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": false,
+    "autosklearn": false
+  },
+  "anovaglm": {
+    "h2o": true,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": false,
+    "autosklearn": false
+  },
+  "ard_regression": {
+    "h2o": false,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": true,
+    "autosklearn": true
+  },
+  "bagging": {
+    "h2o": false,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": true,
+    "autosklearn": false
+  },
+  "bayesian_ridge": {
+    "h2o": false,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": true,
+    "autosklearn": false
+  },
+  "catboost": {
+    "h2o": false,
+    "flaml": true,
+    "autogluon": true,
+    "tpot": false,
+    "autosklearn": false
+  },
+  "cox_proportional_hazards": {
+    "h2o": true,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": false,
+    "autosklearn": false
+  },
+  "decision_tree": {
+    "h2o": true,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": true,
+    "autosklearn": true
+  },
+  "elastic": {
+    "h2o": false,
+    "flaml": true,
+    "autogluon": false,
+    "tpot": true,
+    "autosklearn": false
+  },
+  "elastic_cv": {
+    "h2o": false,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": true,
+    "autosklearn": false
+  },
+  "extended_isolation_forest": {
+    "h2o": true,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": false,
+    "autosklearn": false
+  },
+  "extra_trees": {
+    "h2o": false,
+    "flaml": true,
+    "autogluon": true,
+    "tpot": true,
+    "autosklearn": true
+  },
+  "gaussian_process": {
+    "h2o": false,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": true,
+    "autosklearn": true
+  },
+  "generalized": {
+    "h2o": true,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": false,
+    "autosklearn": false
+  },
+  "generalized_additive": {
+    "h2o": true,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": false,
+    "autosklearn": false
+  },
+  "generalized_low_rank": {
+    "h2o": true,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": false,
+    "autosklearn": false
+  },
+  "generic": {
+    "h2o": true,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": false,
+    "autosklearn": false
+  },
+  "gradient_boosting": {
+    "h2o": true,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": true,
+    "autosklearn": true
+  },
+  "h2oautoencoderestimator": {
+    "h2o": true,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": false,
+    "autosklearn": false
+  },
+  "h2omodelselectionestimator": {
+    "h2o": true,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": false,
+    "autosklearn": false
+  },
+  "hglm": {
+    "h2o": true,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": false,
+    "autosklearn": false
+  },
+  "hist_gradient_boosting": {
+    "h2o": false,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": true,
+    "autosklearn": false
+  },
+  "infogram": {
+    "h2o": true,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": false,
+    "autosklearn": false
+  },
+  "isolation_forest": {
+    "h2o": true,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": false,
+    "autosklearn": false
+  },
+  "isotonic_regression": {
+    "h2o": true,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": false,
+    "autosklearn": false
+  },
+  "k_means": {
+    "h2o": true,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": false,
+    "autosklearn": false
+  },
+  "k_nearest_neighbors": {
+    "h2o": false,
+    "flaml": true,
+    "autogluon": true,
+    "tpot": true,
+    "autosklearn": true
+  },
+  "lars": {
+    "h2o": false,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": true,
+    "autosklearn": false
+  },
+  "lasso": {
+    "h2o": false,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": true,
+    "autosklearn": false
+  },
+  "lasso_lars": {
+    "h2o": false,
+    "flaml": true,
+    "autogluon": false,
+    "tpot": true,
+    "autosklearn": false
+  },
+  "lasso_lars_cv": {
+    "h2o": false,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": true,
+    "autosklearn": false
+  },
+  "lightgbm": {
+    "h2o": false,
+    "flaml": true,
+    "autogluon": true,
+    "tpot": true,
+    "autosklearn": false
+  },
+  "linear_discriminant_analysis": {
+    "h2o": false,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": true,
+    "autosklearn": true
+  },
+  "linearmodel": {
+    "h2o": false,
+    "flaml": false,
+    "autogluon": true,
+    "tpot": false,
+    "autosklearn": false
+  },
+  "logistic_regression": {
+    "h2o": false,
+    "flaml": true,
+    "autogluon": false,
+    "tpot": true,
+    "autosklearn": false
+  },
+  "naive_bayes": {
+    "h2o": true,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": true,
+    "autosklearn": true
+  },
+  "neural_network": {
+    "h2o": true,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": true,
+    "autosklearn": true
+  },
+  "nn": {
+    "h2o": false,
+    "flaml": false,
+    "autogluon": true,
+    "tpot": false,
+    "autosklearn": false
+  },
+  "orthogonal_matching_pursuit": {
+    "h2o": false,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": true,
+    "autosklearn": false
+  },
+  "passive_aggressive": {
+    "h2o": false,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": true,
+    "autosklearn": true
+  },
+  "perceptron": {
+    "h2o": false,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": true,
+    "autosklearn": false
+  },
+  "principal_component_analysis": {
+    "h2o": true,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": false,
+    "autosklearn": false
+  },
+  "quadratic_discriminant_analysis": {
+    "h2o": false,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": true,
+    "autosklearn": true
+  },
+  "random_forest": {
+    "h2o": true,
+    "flaml": true,
+    "autogluon": true,
+    "tpot": true,
+    "autosklearn": true
+  },
+  "ridge": {
+    "h2o": false,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": true,
+    "autosklearn": false
+  },
+  "ridge_cv": {
+    "h2o": false,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": true,
+    "autosklearn": false
+  },
+  "rule_fit": {
+    "h2o": true,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": false,
+    "autosklearn": false
+  },
+  "sgd": {
+    "h2o": false,
+    "flaml": true,
+    "autogluon": false,
+    "tpot": true,
+    "autosklearn": true
+  },
+  "singular_value_decomposition": {
+    "h2o": true,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": false,
+    "autosklearn": false
+  },
+  "stacked_ensemble": {
+    "h2o": true,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": false,
+    "autosklearn": false
+  },
+  "svm": {
+    "h2o": true,
+    "flaml": true,
+    "autogluon": false,
+    "tpot": true,
+    "autosklearn": true
+  },
+  "target": {
+    "h2o": true,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": false,
+    "autosklearn": false
+  },
+  "theil_sen": {
+    "h2o": false,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": true,
+    "autosklearn": false
+  },
+  "transformersestimator": {
+    "h2o": false,
+    "flaml": true,
+    "autogluon": false,
+    "tpot": false,
+    "autosklearn": false
+  },
+  "transformersestimatormodelselection": {
+    "h2o": false,
+    "flaml": true,
+    "autogluon": false,
+    "tpot": false,
+    "autosklearn": false
+  },
+  "uplift_random_forest": {
+    "h2o": true,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": false,
+    "autosklearn": false
+  },
+  "word2vec": {
+    "h2o": true,
+    "flaml": false,
+    "autogluon": false,
+    "tpot": false,
+    "autosklearn": false
+  },
+  "xgboost": {
+    "h2o": true,
+    "flaml": true,
+    "autogluon": true,
+    "tpot": true,
+    "autosklearn": false
+  }
+}

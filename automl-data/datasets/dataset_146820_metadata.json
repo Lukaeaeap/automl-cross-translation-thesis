@@ -1,0 +1,1 @@
+{"task_id": 146820, "dataset_name": "wilt", "target_name": "class", "categorical_features": [], "attribute_names": ["GLCM_Pan", "Mean_G", "Mean_R", "Mean_NIR", "SD_Plan"]}

@@ -1,0 +1,7 @@
+canonical_model,AutoGluon,auto-sklearn,FLAML,H2O,TPOT
+extra_trees,100.0% (270),75.5% (270),-,-,100.0% (270)
+lightgbm,75.3% (270),-,-,-,87.6% (270)
+logistic_regression,-,-,-,-,100.0% (270)
+random_forest,100.0% (270),75.5% (270),-,26.5% (270),100.0% (270)
+sgd,-,100.0% (131),-,-,100.0% (270)
+xgboost,72.5% (540),-,-,94.5% (540),50.5% (540)

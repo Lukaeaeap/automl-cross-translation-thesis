@@ -1,0 +1,32 @@
+{
+  "catboost": {
+    "autogluon": [
+      "catboost"
+    ],
+    "flaml": [
+      "catboost"
+    ]
+  },
+  "lightgbm": {
+    "autogluon": [
+      "lightgbm"
+    ],
+    "flaml": [
+      "lightgbm"
+    ],
+    "tpot": [
+      "lightgbm"
+    ]
+  },
+  "xgboost": {
+    "autogluon": [
+      "xgboost"
+    ],
+    "flaml": [
+      "xgboost"
+    ],
+    "h2o": [
+      "xgboost"
+    ]
+  }
+}

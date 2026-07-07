@@ -1,0 +1,452 @@
+framework,family,class,parameter_name,value_default,value_type,description
+autogluon,lgb,LGBModel,learning_rate,0.05,"Real(0.005, 0.2)",
+autogluon,lgb,LGBModel,feature_fraction,1.0,"Real(0.75, 1.0)",
+autogluon,lgb,LGBModel,min_data_in_leaf,20,"Int(2, 60)",
+autogluon,lgb,LGBModel,num_leaves,31,"Int(16, 96)",
+autogluon,xgboost,XGBoostModel,n_estimators,10000,int,
+autogluon,xgboost,XGBoostModel,booster,gbtree,str,
+autogluon,xgboost,XGBoostModel,n_jobs,-1,int,
+autogluon,xgboost,XGBoostModel,learning_rate,0.1,"Real(0.005, 0.2)",
+autogluon,xgboost,XGBoostModel,max_depth,6,"Int(3, 10)",
+autogluon,xgboost,XGBoostModel,min_child_weight,1,"Int(1, 5)",
+autogluon,xgboost,XGBoostModel,colsample_bytree,1.0,"Real(0.5, 1.0)",
+autogluon,xgboost,XGBoostModel,objective,binary:logistic,str,
+autogluon,rf,RFModel,n_estimators,100,int,"The number of trees in the forest.
+
+.. versionchanged:: 0.22
+   The default value of ``n_estimators`` changed from 10 to 100
+   in 0.22."
+autogluon,rf,RFModel,criterion,gini,str,"The function to measure the quality of a split. Supported criteria are
+""gini"" for the Gini impurity and ""log_loss"" and ""entropy"" both for the
+Shannon information gain, see :ref:`tree_mathematical_formulation`.
+Note: This parameter is tree-specific."
+autogluon,rf,RFModel,max_depth,None,NoneType,"The maximum depth of the tree. If None, then nodes are expanded until
+all leaves are pure or until all leaves contain less than
+min_samples_split samples."
+autogluon,rf,RFModel,min_samples_split,2,int,"The minimum number of samples required to split an internal node:
+
+- If int, then consider `min_samples_split` as the minimum number.
+- If float, then `min_samples_split` is a fraction and
+  `ceil(min_samples_split * n_samples)` are the minimum
+  number of samples for each split.
+
+.. versionchanged:: 0.18
+   Added float values for fractions."
+autogluon,rf,RFModel,min_samples_leaf,1,int,"The minimum number of samples required to be at a leaf node.
+A split point at any depth will only be considered if it leaves at
+least ``min_samples_leaf`` training samples in each of the left and
+right branches.  This may have the effect of smoothing the model,
+especially in regression.
+
+- If int, then consider `min_samples_leaf` as the minimum number.
+- If float, then `min_samples_leaf` is a fraction and
+  `ceil(min_samples_leaf * n_samples)` are the minimum
+  number of samples for each node.
+
+.. versionchanged:: 0.18
+   Added float values for fractions."
+autogluon,rf,RFModel,min_weight_fraction_leaf,0.0,float,"The minimum weighted fraction of the sum total of weights (of all
+the input samples) required to be at a leaf node. Samples have
+equal weight when sample_weight is not provided."
+autogluon,rf,RFModel,max_features,sqrt,str,"The number of features to consider when looking for the best split:
+
+- If int, then consider `max_features` features at each split.
+- If float, then `max_features` is a fraction and
+  `max(1, int(max_features * n_features_in_))` features are considered at each
+  split.
+- If ""sqrt"", then `max_features=sqrt(n_features)`.
+- If ""log2"", then `max_features=log2(n_features)`.
+- If None, then `max_features=n_features`.
+
+.. versionchanged:: 1.1
+    The default of `max_features` changed from `""auto""` to `""sqrt""`.
+Note: the search for a split does not stop until at least one
+valid partition of the node samples is found, even if it requires to
+effectively inspect more than ``max_features`` features."
+autogluon,rf,RFModel,max_leaf_nodes,None,NoneType,"Grow trees with ``max_leaf_nodes`` in best-first fashion.
+Best nodes are defined as relative reduction in impurity.
+If None then unlimited number of leaf nodes."
+autogluon,rf,RFModel,min_impurity_decrease,0.0,float,"A node will be split if this split induces a decrease of the impurity
+greater than or equal to this value.
+
+The weighted impurity decrease equation is the following::
+
+    N_t / N * (impurity - N_t_R / N_t * right_impurity
+                        - N_t_L / N_t * left_impurity)
+
+where ``N`` is the total number of samples, ``N_t`` is the number of
+samples at the current node, ``N_t_L`` is the number of samples in the
+left child, and ``N_t_R`` is the number of samples in the right child.
+
+``N``, ``N_t``, ``N_t_R`` and ``N_t_L`` all refer to the weighted sum,
+if ``sample_weight`` is passed.
+
+.. versionadded:: 0.19"
+autogluon,rf,RFModel,bootstrap,True,bool,"Whether bootstrap samples are used when building trees. If False, the
+whole dataset is used to build each tree."
+autogluon,rf,RFModel,oob_score,False,bool,"Whether to use out-of-bag samples to estimate the generalization score.
+By default, :func:`~sklearn.metrics.accuracy_score` is used.
+Provide a callable with signature `metric(y_true, y_pred)` to use a
+custom metric. Only available if `bootstrap=True`."
+autogluon,rf,RFModel,n_jobs,None,NoneType,"The number of jobs to run in parallel. :meth:`fit`, :meth:`predict`,
+:meth:`decision_path` and :meth:`apply` are all parallelized over the
+trees. ``None`` means 1 unless in a :obj:`joblib.parallel_backend`
+context. ``-1`` means using all processors. See :term:`Glossary
+<n_jobs>` for more details."
+autogluon,rf,RFModel,random_state,None,NoneType,"Controls both the randomness of the bootstrapping of the samples used
+when building trees (if ``bootstrap=True``) and the sampling of the
+features to consider when looking for the best split at each node
+(if ``max_features < n_features``).
+See :term:`Glossary <random_state>` for details."
+autogluon,rf,RFModel,verbose,0,int,Controls the verbosity when fitting and predicting.
+autogluon,rf,RFModel,warm_start,False,bool,"When set to ``True``, reuse the solution of the previous call to fit
+and add more estimators to the ensemble, otherwise, just fit a whole
+new forest. See :term:`Glossary <warm_start>` and
+:ref:`gradient_boosting_warm_start` for details."
+autogluon,rf,RFModel,class_weight,None,NoneType,"Weights associated with classes in the form ``{class_label: weight}``.
+If not given, all classes are supposed to have weight one. For
+multi-output problems, a list of dicts can be provided in the same
+order as the columns of y.
+
+Note that for multioutput (including multilabel) weights should be
+defined for each class of every column in its own dict. For example,
+for four-class multilabel classification weights should be
+[{0: 1, 1: 1}, {0: 1, 1: 5}, {0: 1, 1: 1}, {0: 1, 1: 1}] instead of
+[{1:1}, {2:5}, {3:1}, {4:1}].
+
+The ""balanced"" mode uses the values of y to automatically adjust
+weights inversely proportional to class frequencies in the input data
+as ``n_samples / (n_classes * np.bincount(y))``
+
+The ""balanced_subsample"" mode is the same as ""balanced"" except that
+weights are computed based on the bootstrap sample for every tree
+grown.
+
+For multi-output, the weights of each column of y will be multiplied.
+
+Note that these weights will be multiplied with sample_weight (passed
+through the fit method) if sample_weight is specified."
+autogluon,rf,RFModel,ccp_alpha,0.0,float,"Complexity parameter used for Minimal Cost-Complexity Pruning. The
+subtree with the largest cost complexity that is smaller than
+``ccp_alpha`` will be chosen. By default, no pruning is performed. See
+:ref:`minimal_cost_complexity_pruning` for details.
+
+.. versionadded:: 0.22"
+autogluon,rf,RFModel,max_samples,None,NoneType,"If bootstrap is True, the number of samples to draw from X
+to train each base estimator.
+
+- If None (default), then draw `X.shape[0]` samples.
+- If int, then draw `max_samples` samples.
+- If float, then draw `max(round(n_samples * max_samples), 1)` samples. Thus,
+  `max_samples` should be in the interval `(0.0, 1.0]`.
+
+.. versionadded:: 0.22"
+autogluon,xt,XTModel,n_estimators,100,int,"The number of trees in the forest.
+
+.. versionchanged:: 0.22
+   The default value of ``n_estimators`` changed from 10 to 100
+   in 0.22."
+autogluon,xt,XTModel,criterion,gini,str,"The function to measure the quality of a split. Supported criteria are
+""gini"" for the Gini impurity and ""log_loss"" and ""entropy"" both for the
+Shannon information gain, see :ref:`tree_mathematical_formulation`.
+Note: This parameter is tree-specific."
+autogluon,xt,XTModel,max_depth,None,NoneType,"The maximum depth of the tree. If None, then nodes are expanded until
+all leaves are pure or until all leaves contain less than
+min_samples_split samples."
+autogluon,xt,XTModel,min_samples_split,2,int,"The minimum number of samples required to split an internal node:
+
+- If int, then consider `min_samples_split` as the minimum number.
+- If float, then `min_samples_split` is a fraction and
+  `ceil(min_samples_split * n_samples)` are the minimum
+  number of samples for each split.
+
+.. versionchanged:: 0.18
+   Added float values for fractions."
+autogluon,xt,XTModel,min_samples_leaf,1,int,"The minimum number of samples required to be at a leaf node.
+A split point at any depth will only be considered if it leaves at
+least ``min_samples_leaf`` training samples in each of the left and
+right branches.  This may have the effect of smoothing the model,
+especially in regression.
+
+- If int, then consider `min_samples_leaf` as the minimum number.
+- If float, then `min_samples_leaf` is a fraction and
+  `ceil(min_samples_leaf * n_samples)` are the minimum
+  number of samples for each node.
+
+.. versionchanged:: 0.18
+   Added float values for fractions."
+autogluon,xt,XTModel,min_weight_fraction_leaf,0.0,float,"The minimum weighted fraction of the sum total of weights (of all
+the input samples) required to be at a leaf node. Samples have
+equal weight when sample_weight is not provided."
+autogluon,xt,XTModel,max_features,sqrt,str,"The number of features to consider when looking for the best split:
+
+- If int, then consider `max_features` features at each split.
+- If float, then `max_features` is a fraction and
+  `max(1, int(max_features * n_features_in_))` features are considered at each
+  split.
+- If ""sqrt"", then `max_features=sqrt(n_features)`.
+- If ""log2"", then `max_features=log2(n_features)`.
+- If None, then `max_features=n_features`.
+
+.. versionchanged:: 1.1
+    The default of `max_features` changed from `""auto""` to `""sqrt""`.
+Note: the search for a split does not stop until at least one
+valid partition of the node samples is found, even if it requires to
+effectively inspect more than ``max_features`` features."
+autogluon,xt,XTModel,max_leaf_nodes,None,NoneType,"Grow trees with ``max_leaf_nodes`` in best-first fashion.
+Best nodes are defined as relative reduction in impurity.
+If None then unlimited number of leaf nodes."
+autogluon,xt,XTModel,min_impurity_decrease,0.0,float,"A node will be split if this split induces a decrease of the impurity
+greater than or equal to this value.
+
+The weighted impurity decrease equation is the following::
+
+    N_t / N * (impurity - N_t_R / N_t * right_impurity
+                        - N_t_L / N_t * left_impurity)
+
+where ``N`` is the total number of samples, ``N_t`` is the number of
+samples at the current node, ``N_t_L`` is the number of samples in the
+left child, and ``N_t_R`` is the number of samples in the right child.
+
+``N``, ``N_t``, ``N_t_R`` and ``N_t_L`` all refer to the weighted sum,
+if ``sample_weight`` is passed.
+
+.. versionadded:: 0.19"
+autogluon,xt,XTModel,bootstrap,False,bool,"Whether bootstrap samples are used when building trees. If False, the
+whole dataset is used to build each tree."
+autogluon,xt,XTModel,oob_score,False,bool,"Whether to use out-of-bag samples to estimate the generalization score.
+By default, :func:`~sklearn.metrics.accuracy_score` is used.
+Provide a callable with signature `metric(y_true, y_pred)` to use a
+custom metric. Only available if `bootstrap=True`."
+autogluon,xt,XTModel,n_jobs,None,NoneType,"The number of jobs to run in parallel. :meth:`fit`, :meth:`predict`,
+:meth:`decision_path` and :meth:`apply` are all parallelized over the
+trees. ``None`` means 1 unless in a :obj:`joblib.parallel_backend`
+context. ``-1`` means using all processors. See :term:`Glossary
+<n_jobs>` for more details."
+autogluon,xt,XTModel,random_state,None,NoneType,"Controls 3 sources of randomness:
+
+- the bootstrapping of the samples used when building trees
+  (if ``bootstrap=True``)
+- the sampling of the features to consider when looking for the best
+  split at each node (if ``max_features < n_features``)
+- the draw of the splits for each of the `max_features`
+See :term:`Glossary <random_state>` for details."
+autogluon,xt,XTModel,verbose,0,int,Controls the verbosity when fitting and predicting.
+autogluon,xt,XTModel,warm_start,False,bool,"When set to ``True``, reuse the solution of the previous call to fit
+and add more estimators to the ensemble, otherwise, just fit a whole
+new forest. See :term:`Glossary <warm_start>` and
+:ref:`gradient_boosting_warm_start` for details."
+autogluon,xt,XTModel,class_weight,None,NoneType,"Weights associated with classes in the form ``{class_label: weight}``.
+If not given, all classes are supposed to have weight one. For
+multi-output problems, a list of dicts can be provided in the same
+order as the columns of y.
+
+Note that for multioutput (including multilabel) weights should be
+defined for each class of every column in its own dict. For example,
+for four-class multilabel classification weights should be
+[{0: 1, 1: 1}, {0: 1, 1: 5}, {0: 1, 1: 1}, {0: 1, 1: 1}] instead of
+[{1:1}, {2:5}, {3:1}, {4:1}].
+
+The ""balanced"" mode uses the values of y to automatically adjust
+weights inversely proportional to class frequencies in the input data
+as ``n_samples / (n_classes * np.bincount(y))``
+
+The ""balanced_subsample"" mode is the same as ""balanced"" except that
+weights are computed based on the bootstrap sample for every tree
+grown.
+
+For multi-output, the weights of each column of y will be multiplied.
+
+Note that these weights will be multiplied with sample_weight (passed
+through the fit method) if sample_weight is specified."
+autogluon,xt,XTModel,ccp_alpha,0.0,float,"Complexity parameter used for Minimal Cost-Complexity Pruning. The
+subtree with the largest cost complexity that is smaller than
+``ccp_alpha`` will be chosen. By default, no pruning is performed. See
+:ref:`minimal_cost_complexity_pruning` for details.
+
+.. versionadded:: 0.22"
+autogluon,xt,XTModel,max_samples,None,NoneType,"If bootstrap is True, the number of samples to draw from X
+to train each base estimator.
+
+- If None (default), then draw `X.shape[0]` samples.
+- If int, then draw `max_samples` samples.
+- If float, then draw `max_samples * X.shape[0]` samples. Thus,
+  `max_samples` should be in the interval `(0.0, 1.0]`.
+
+.. versionadded:: 0.22"
+autogluon,catboost,CatBoostModel,learning_rate,0.05,"Real(0.005, 0.2)",
+autogluon,catboost,CatBoostModel,depth,6,"Int(5, 8)",
+autogluon,catboost,CatBoostModel,l2_leaf_reg,3,"Real(1, 5)",
+autogluon,knn,KNNModel,n_neighbors,5,int,Number of neighbors to use by default for :meth:`kneighbors` queries.
+autogluon,knn,KNNModel,weights,uniform,str,"Weight function used in prediction.  Possible values:
+
+- 'uniform' : uniform weights.  All points in each neighborhood
+  are weighted equally.
+- 'distance' : weight points by the inverse of their distance.
+  in this case, closer neighbors of a query point will have a
+  greater influence than neighbors which are further away.
+- [callable] : a user-defined function which accepts an
+  array of distances, and returns an array of the same shape
+  containing the weights.
+
+Refer to the example entitled
+:ref:`sphx_glr_auto_examples_neighbors_plot_classification.py`
+showing the impact of the `weights` parameter on the decision
+boundary."
+autogluon,knn,KNNModel,algorithm,auto,str,"Algorithm used to compute the nearest neighbors:
+
+- 'ball_tree' will use :class:`BallTree`
+- 'kd_tree' will use :class:`KDTree`
+- 'brute' will use a brute-force search.
+- 'auto' will attempt to decide the most appropriate algorithm
+  based on the values passed to :meth:`fit` method.
+Note: fitting on sparse input will override the setting of
+this parameter, using brute force."
+autogluon,knn,KNNModel,leaf_size,30,int,"Leaf size passed to BallTree or KDTree.  This can affect the
+speed of the construction and query, as well as the memory
+required to store the tree.  The optimal value depends on the
+nature of the problem."
+autogluon,knn,KNNModel,p,2,int,"Power parameter for the Minkowski metric. When p = 1, this is
+equivalent to using manhattan_distance (l1), and euclidean_distance
+(l2) for p = 2. For arbitrary p, minkowski_distance (l_p) is used."
+autogluon,knn,KNNModel,metric,minkowski,str,"Metric to use for distance computation. Default is ""minkowski"", which
+results in the standard Euclidean distance when p = 2. See the
+documentation of `scipy.spatial.distance
+<https://docs.scipy.org/doc/scipy/reference/spatial.distance.html>`_ and
+the metrics listed in
+:class:`~sklearn.metrics.pairwise.distance_metrics` for valid metric
+values.
+
+If metric is ""precomputed"", X is assumed to be a distance matrix and
+must be square during fit. X may be a :term:`sparse graph`, in which
+case only ""nonzero"" elements may be considered neighbors.
+
+If metric is a callable function, it takes two arrays representing 1D
+vectors as inputs and must return one value indicating the distance
+between those vectors. This works for Scipy's metrics, but is less
+efficient than passing the metric name as a string."
+autogluon,knn,KNNModel,metric_params,None,NoneType,Additional keyword arguments for the metric function.
+autogluon,knn,KNNModel,n_jobs,None,NoneType,"The number of parallel jobs to run for neighbors search.
+``None`` means 1 unless in a :obj:`joblib.parallel_backend` context.
+``-1`` means using all processors. See :term:`Glossary <n_jobs>`
+for more details.
+Doesn't affect :meth:`fit` method."
+autogluon,linear,LinearModel,C,1,"Real(0.1, 1000.0)",
+autogluon,linear,LinearModel,proc.skew_threshold,0.99,Categorical,
+autogluon,linear,LinearModel,penalty,L2,Categorical,
+autogluon,linear,LinearModel,dual,False,bool,"Dual (constrained) or primal (regularized, see also
+:ref:`this equation <regularized-logistic-loss>`) formulation. Dual formulation
+is only implemented for l2 penalty with liblinear solver. Prefer dual=False when
+n_samples > n_features."
+autogluon,linear,LinearModel,tol,0.0001,float,Tolerance for stopping criteria.
+autogluon,linear,LinearModel,fit_intercept,True,bool,"Specifies if a constant (a.k.a. bias or intercept) should be
+added to the decision function."
+autogluon,linear,LinearModel,intercept_scaling,1,int,"Useful only when the solver 'liblinear' is used
+and self.fit_intercept is set to True. In this case, x becomes
+[x, self.intercept_scaling],
+i.e. a ""synthetic"" feature with constant value equal to
+intercept_scaling is appended to the instance vector.
+The intercept becomes ``intercept_scaling * synthetic_feature_weight``.
+
+Note! the synthetic feature weight is subject to l1/l2 regularization
+as all other features.
+To lessen the effect of regularization on synthetic feature weight
+(and therefore on the intercept) intercept_scaling has to be increased."
+autogluon,linear,LinearModel,class_weight,None,NoneType,"Weights associated with classes in the form ``{class_label: weight}``.
+If not given, all classes are supposed to have weight one.
+
+The ""balanced"" mode uses the values of y to automatically adjust
+weights inversely proportional to class frequencies in the input data
+as ``n_samples / (n_classes * np.bincount(y))``.
+
+Note that these weights will be multiplied with sample_weight (passed
+through the fit method) if sample_weight is specified.
+
+.. versionadded:: 0.17
+   *class_weight='balanced'*"
+autogluon,linear,LinearModel,random_state,None,NoneType,"Used when ``solver`` == 'sag', 'saga' or 'liblinear' to shuffle the
+data. See :term:`Glossary <random_state>` for details."
+autogluon,linear,LinearModel,solver,lbfgs,str,"Algorithm to use in the optimization problem. Default is 'lbfgs'.
+To choose a solver, you might want to consider the following aspects:
+
+    - For small datasets, 'liblinear' is a good choice, whereas 'sag'
+      and 'saga' are faster for large ones;
+    - For multiclass problems, only 'newton-cg', 'sag', 'saga' and
+      'lbfgs' handle multinomial loss;
+    - 'liblinear' is limited to one-versus-rest schemes.
+    - 'newton-cholesky' is a good choice for `n_samples` >> `n_features`,
+      especially with one-hot encoded categorical features with rare
+      categories. Note that it is limited to binary classification and the
+      one-versus-rest reduction for multiclass classification. Be aware that
+      the memory usage of this solver has a quadratic dependency on
+      `n_features` because it explicitly computes the Hessian matrix.
+
+.. warning::
+   The choice of the algorithm depends on the penalty chosen.
+   Supported penalties by solver:
+
+   - 'lbfgs'           -   ['l2', None]
+   - 'liblinear'       -   ['l1', 'l2']
+   - 'newton-cg'       -   ['l2', None]
+   - 'newton-cholesky' -   ['l2', None]
+   - 'sag'             -   ['l2', None]
+   - 'saga'            -   ['elasticnet', 'l1', 'l2', None]
+
+.. note::
+   'sag' and 'saga' fast convergence is only guaranteed on features
+   with approximately the same scale. You can preprocess the data with
+   a scaler from :mod:`sklearn.preprocessing`.
+
+.. seealso::
+   Refer to the User Guide for more information regarding
+   :class:`LogisticRegression` and more specifically the
+   :ref:`Table <Logistic_regression>`
+   summarizing solver/penalty supports.
+
+.. versionadded:: 0.17
+   Stochastic Average Gradient descent solver.
+.. versionadded:: 0.19
+   SAGA solver.
+.. versionchanged:: 0.22
+    The default solver changed from 'liblinear' to 'lbfgs' in 0.22.
+.. versionadded:: 1.2
+   newton-cholesky solver."
+autogluon,linear,LinearModel,max_iter,100,int,Maximum number of iterations taken for the solvers to converge.
+autogluon,linear,LinearModel,multi_class,auto,str,"If the option chosen is 'ovr', then a binary problem is fit for each
+label. For 'multinomial' the loss minimised is the multinomial loss fit
+across the entire probability distribution, *even when the data is
+binary*. 'multinomial' is unavailable when solver='liblinear'.
+'auto' selects 'ovr' if the data is binary, or if solver='liblinear',
+and otherwise selects 'multinomial'.
+
+.. versionadded:: 0.18
+   Stochastic Average Gradient descent solver for 'multinomial' case.
+.. versionchanged:: 0.22
+    Default changed from 'ovr' to 'auto' in 0.22."
+autogluon,linear,LinearModel,verbose,0,int,"For the liblinear and lbfgs solvers set verbose to any positive
+number for verbosity."
+autogluon,linear,LinearModel,warm_start,False,bool,"When set to True, reuse the solution of the previous call to fit as
+initialization, otherwise, just erase the previous solution.
+Useless for liblinear solver. See :term:`the Glossary <warm_start>`.
+
+.. versionadded:: 0.17
+   *warm_start* to support *lbfgs*, *newton-cg*, *sag*, *saga* solvers."
+autogluon,linear,LinearModel,n_jobs,None,NoneType,"Number of CPU cores used when parallelizing over classes if
+multi_class='ovr'"". This parameter is ignored when the ``solver`` is
+set to 'liblinear' regardless of whether 'multi_class' is specified or
+not. ``None`` means 1 unless in a :obj:`joblib.parallel_backend`
+context. ``-1`` means using all processors.
+See :term:`Glossary <n_jobs>` for more details."
+autogluon,linear,LinearModel,l1_ratio,None,NoneType,"The Elastic-Net mixing parameter, with ``0 <= l1_ratio <= 1``. Only
+used if ``penalty='elasticnet'``. Setting ``l1_ratio=0`` is equivalent
+to using ``penalty='l2'``, while setting ``l1_ratio=1`` is equivalent
+to using ``penalty='l1'``. For ``0 < l1_ratio <1``, the penalty is a
+combination of L1 and L2."
+autogluon,nn,NNFastAiTabularModel,layers,None,Categorical,
+autogluon,nn,NNFastAiTabularModel,emb_drop,0.1,"Real(0.0, 0.5)",
+autogluon,nn,NNFastAiTabularModel,ps,0.1,"Real(0.0, 0.5)",
+autogluon,nn,NNFastAiTabularModel,bs,256,Categorical,
+autogluon,nn,NNFastAiTabularModel,lr,0.01,"Real(5e-05, 0.1)",
+autogluon,nn,NNFastAiTabularModel,epochs,30,"Int(5, 30)",
+autogluon,nn,NNFastAiTabularModel,early.stopping.min_delta,0.0001,float,
+autogluon,nn,NNFastAiTabularModel,early.stopping.patience,20,int,

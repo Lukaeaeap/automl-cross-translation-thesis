@@ -1,0 +1,5 @@
+canonical_model,AutoGluon,auto-sklearn,FLAML,H2O,TPOT
+gradient_boosting,-,34.8% (16300),-,-,34.8% (16300)
+neural_network,-,18.6% (2700),-,-,18.6% (0)
+random_forest,23.8% (524),19.1% (524),23.8% (524),-,23.8% (524)
+xgboost,30.3% (18139),-,36.4% (18146),-,24.2% (18146)

@@ -1,0 +1,8 @@
+Framework,Receive-side renames or value transformations,Emit-side renames,Framework specific value constraints,Ontology patch mappings (corrected/added),Total manual interventions
+AutoGluon,4,3,2,9,18
+auto-sklearn,3,0,1,9,13
+FLAML,2,2,0,9,13
+H2O,9,7,2,1,19
+TPOT,1,1,0,11,13
+Shared sklearn-family value constraints,,,8,,8
+Total,,,,,84

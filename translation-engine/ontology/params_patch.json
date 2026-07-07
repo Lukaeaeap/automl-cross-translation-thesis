@@ -1,0 +1,239 @@
+{
+  "_comment": "Manual additions to params.json for params missed by NLP clustering. Each key is a canonical model name. Each value merges into that model's param dict.",
+  "lightgbm": {
+    "extra_trees": {
+      "description": "If true, uses extremely randomized trees sampling (gradient-free split finding). AutoGluon-specific LightGBM flag; no cross-framework equivalent.",
+      "mappings": {
+        "autogluon": "extra_trees"
+      },
+      "value_types": {
+        "autogluon": "bool"
+      },
+      "value_defaults": {
+        "autogluon": "False"
+      }
+    },
+    "n_estimators": {
+      "description": "Number of boosted trees to fit.",
+      "mappings": {
+        "autogluon": "num_boost_round",
+        "flaml": "n_estimators",
+        "tpot": "n_estimators"
+      },
+      "value_types": {
+        "autogluon": "int",
+        "flaml": "{'domain': <flaml.tune.sample.Integer object at 0x74bb86d6c880>, 'init_value': 4, 'low_cost_init_value': 4}",
+        "tpot": "int"
+      },
+      "value_defaults": {
+        "autogluon": "100",
+        "tpot": "100"
+      }
+    }
+  },
+  "sgd": {
+    "learning_rate_schedule": {
+      "description": "SGD learning rate schedule selector (categorical). Determines how the learning rate adapts over iterations. Semantically different from the float learning_rate (step size) used in gradient boosting models.",
+      "mappings": {
+        "tpot": "learning_rate",
+        "autosklearn": "learning_rate",
+        "flaml": "learning_rate"
+      },
+      "value_types": {
+        "tpot": "Categorical(['optimal', 'invscaling', 'constant'])",
+        "autosklearn": "Categorical(['optimal', 'invscaling', 'constant'])",
+        "flaml": "Categorical(['optimal', 'invscaling', 'constant'])"
+      },
+      "value_defaults": {
+        "tpot": "invscaling",
+        "autosklearn": "invscaling",
+        "flaml": "invscaling"
+      }
+    }
+  },
+  "random_forest": {
+    "max_depth": {
+      "description": "The number of features to consider when looking for the best split:\n\n- If int, then consider `max_features` features at each split.\n- If float, then `max_features` is a fraction and\n  `max(1, int(max_features * n_features_in_))` features are considered at each\n  split.\n- If \"sqrt\", then `max_features=sqrt(n_features)`.\n- If \"log2\", then `max_features=log2(n_features)`.\n- If None, then `max_features=n_features`.\n\n.. versionchanged:: 1.1\n    The default of `max_features` changed from `\"auto\"` to `\"sqrt\"`.\nNote: the search for a split does not stop until at least one\nvalid partition of the node samples is found, even if it requires to\neffectively inspect more than ``max_features`` features.",
+      "mappings": {
+        "autogluon": "max_depth",
+        "autosklearn": "max_depth",
+        "flaml": "max_depth",
+        "h2o": "max_depth",
+        "tpot": "max_depth"
+      },
+      "value_types": {
+        "autogluon": "NoneType",
+        "autosklearn": "UnParametrizedHyperparameter",
+        "flaml": "NoneType",
+        "h2o": "int",
+        "tpot": "NoneType"
+      },
+      "value_defaults": {
+        "h2o": "20"
+      }
+    },
+    "max_features": {
+      "description": "The number of features to consider when looking for the best split:\n\n- If int, then consider `max_features` features at each split.\n- If float, then `max_features` is a fraction and\n  `max(1, int(max_features * n_features_in_))` features are considered at each\n  split.\n- If \"sqrt\", then `max_features=sqrt(n_features)`.\n- If \"log2\", then `max_features=log2(n_features)`.\n- If None, then `max_features=n_features`.\n\n.. versionchanged:: 1.1\n    The default of `max_features` changed from `\"auto\"` to `\"sqrt\"`.\nNote: the search for a split does not stop until at least one\nvalid partition of the node samples is found, even if it requires to\neffectively inspect more than ``max_features`` features.",
+      "mappings": {
+        "autogluon": "max_features",
+        "autosklearn": "max_features",
+        "flaml": "max_features",
+        "tpot": "max_features"
+      },
+      "value_types": {
+        "autogluon": "str",
+        "autosklearn": "Float(0.0, 1.0)",
+        "flaml": "str",
+        "tpot": "Float(0.05, 1.0)"
+      },
+      "value_defaults": {
+        "autogluon": "sqrt",
+        "autosklearn": "0.5",
+        "flaml": "sqrt",
+        "tpot": "sqrt"
+      }
+    },
+    "min_samples_split": {
+      "description": "The minimum number of samples required to be at a leaf node.\nA split point at any depth will only be considered if it leaves at\nleast ``min_samples_leaf`` training samples in each of the left and\nright branches.  This may have the effect of smoothing the model,\nespecially in regression.\n\n- If int, then consider `min_samples_leaf` as the minimum number.\n- If float, then `min_samples_leaf` is a fraction and\n  `ceil(min_samples_leaf * n_samples)` are the minimum\n  number of samples for each node.\n\n.. versionchanged:: 0.18\n   Added float values for fractions.",
+      "mappings": {
+        "autogluon": "min_samples_split",
+        "autosklearn": "min_samples_split",
+        "flaml": "min_samples_split",
+        "tpot": "min_samples_split"
+      },
+      "value_types": {
+        "autogluon": "int",
+        "autosklearn": "Integer(2, 20)",
+        "flaml": "int",
+        "tpot": "Integer(2, 20)"
+      },
+      "value_defaults": {
+        "autogluon": "2",
+        "autosklearn": "2",
+        "flaml": "2",
+        "tpot": "2"
+      }
+    },
+    "min_samples_leaf": {
+      "description": "The minimum number of samples required to be at a leaf node.\nA split point at any depth will only be considered if it leaves at\nleast ``min_samples_leaf`` training samples in each of the left and\nright branches.  This may have the effect of smoothing the model,\nespecially in regression.\n\n- If int, then consider `min_samples_leaf` as the minimum number.\n- If float, then `min_samples_leaf` is a fraction and\n  `ceil(min_samples_leaf * n_samples)` are the minimum\n  number of samples for each node.\n\n.. versionchanged:: 0.18\n   Added float values for fractions.",
+      "mappings": {
+        "autogluon": "min_samples_leaf",
+        "flaml": "min_samples_leaf",
+        "tpot": "min_samples_leaf"
+      },
+      "value_types": {
+        "autogluon": "int",
+        "flaml": "int",
+        "tpot": "Integer(1, 20)"
+      },
+      "value_defaults": {
+        "autogluon": "1",
+        "flaml": "1",
+        "tpot": "1"
+      }
+    }
+  },
+  "extra_trees": {
+    "max_depth": {
+      "description": "The number of features to consider when looking for the best split:\n\n- If int, then consider `max_features` features at each split.\n- If float, then `max_features` is a fraction and\n  `max(1, int(max_features * n_features_in_))` features are considered at each\n  split.\n- If \"sqrt\", then `max_features=sqrt(n_features)`.\n- If \"log2\", then `max_features=log2(n_features)`.\n- If None, then `max_features=n_features`.\n\n.. versionchanged:: 1.1\n    The default of `max_features` changed from `\"auto\"` to `\"sqrt\"`.\nNote: the search for a split does not stop until at least one\nvalid partition of the node samples is found, even if it requires to\neffectively inspect more than ``max_features`` features.",
+      "mappings": {
+        "autogluon": "max_depth",
+        "autosklearn": "max_depth",
+        "flaml": "max_depth",
+        "tpot": "max_depth"
+      },
+      "value_types": {
+        "autogluon": "NoneType",
+        "autosklearn": "UnParametrizedHyperparameter",
+        "flaml": "NoneType",
+        "tpot": "NoneType"
+      },
+      "value_defaults": {}
+    },
+    "max_features": {
+      "description": "The number of features to consider when looking for the best split:\n\n- If int, then consider `max_features` features at each split.\n- If float, then `max_features` is a fraction and\n  `max(1, int(max_features * n_features_in_))` features are considered at each\n  split.\n- If \"sqrt\", then `max_features=sqrt(n_features)`.\n- If \"log2\", then `max_features=log2(n_features)`.\n- If None, then `max_features=n_features`.\n\n.. versionchanged:: 1.1\n    The default of `max_features` changed from `\"auto\"` to `\"sqrt\"`.\nNote: the search for a split does not stop until at least one\nvalid partition of the node samples is found, even if it requires to\neffectively inspect more than ``max_features`` features.",
+      "mappings": {
+        "autogluon": "max_features",
+        "autosklearn": "max_features",
+        "flaml": "max_features",
+        "tpot": "max_features"
+      },
+      "value_types": {
+        "autogluon": "str",
+        "autosklearn": "Float(0.0, 1.0)",
+        "flaml": "str",
+        "tpot": "Float(0.05, 1.0)"
+      },
+      "value_defaults": {
+        "autogluon": "sqrt",
+        "autosklearn": "0.5",
+        "flaml": "sqrt",
+        "tpot": "sqrt"
+      }
+    },
+    "min_samples_leaf": {
+      "description": "The minimum number of samples required to be at a leaf node.\nA split point at any depth will only be considered if it leaves at\nleast ``min_samples_leaf`` training samples in each of the left and\nright branches.  This may have the effect of smoothing the model,\nespecially in regression.\n\n- If int, then consider `min_samples_leaf` as the minimum number.\n- If float, then `min_samples_leaf` is a fraction and\n  `ceil(min_samples_leaf * n_samples)` are the minimum\n  number of samples for each node.\n\n.. versionchanged:: 0.18\n   Added float values for fractions.",
+      "mappings": {
+        "autogluon": "min_samples_leaf",
+        "flaml": "min_samples_leaf",
+        "tpot": "min_samples_leaf"
+      },
+      "value_types": {
+        "autogluon": "int",
+        "flaml": "int",
+        "tpot": "Integer(1, 20)"
+      },
+      "value_defaults": {
+        "autogluon": "1",
+        "flaml": "1",
+        "tpot": "1"
+      }
+    }
+  },
+  "gradient_boosting": {
+    "min_samples_split": {
+      "description": "The minimum number of samples required to split an internal node:\n\n- If int, values must be in the range `[2, inf)`.\n- If float, values must be in the range `(0.0, 1.0]` and `min_samples_split`\n  will be `ceil(min_samples_split * n_samples)`.\n\n.. versionchanged:: 0.18\n   Added float values for fractions.",
+      "mappings": {
+        "autosklearn": "min_samples_split"
+      },
+      "value_types": {
+        "autosklearn": "int"
+      },
+      "value_defaults": {
+        "autosklearn": "2"
+      }
+    }
+  },
+  "neural_network": {
+    "learning_rate": {
+      "description": "Learning rate schedule for weight updates.\n\n- 'constant' is a constant learning rate given by\n  'learning_rate_init'.\n\n- 'invscaling' gradually decreases the learning rate at each\n  time step 't' using an inverse scaling exponent of 'power_t'.\n  effective_learning_rate = learning_rate_init / pow(t, power_t)\n\n- 'adaptive' keeps the learning rate constant to\n  'learning_rate_init' as long as training loss keeps decreasing.\n  Each time two consecutive epochs fail to decrease training loss by at\n  least tol, or fail to increase validation score by at least tol if\n  'early_stopping' is on, the current learning rate is divided by 5.\n\nOnly used when ``solver='sgd'``.",
+      "mappings": {
+        "autosklearn": "learning_rate",
+        "tpot": "learning_rate"
+      },
+      "value_types": {
+        "autosklearn": "str",
+        "tpot": "str"
+      },
+      "value_defaults": {
+        "autosklearn": "constant",
+        "tpot": "constant"
+      }
+    },
+    "learning_rate_init": {
+      "description": "The initial learning rate used. It controls the step-size\nin updating the weights. Only used when solver='sgd' or 'adam'.",
+      "mappings": {
+        "autosklearn": "learning_rate_init",
+        "tpot": "learning_rate_init"
+      },
+      "value_types": {
+        "autosklearn": "Float(0.0001, 0.5_log)",
+        "tpot": "Float(0.001, 1.0)"
+      },
+      "value_defaults": {
+        "autosklearn": "0.001",
+        "tpot": "0.001"
+      }
+    }
+  }
+}

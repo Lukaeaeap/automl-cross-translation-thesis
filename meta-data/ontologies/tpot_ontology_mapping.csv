@@ -1,0 +1,3147 @@
+framework,family,class,parameter_name,value_default,value_type,description
+tpot,classification,GaussianNB,(none),,fixed,No tunable hyperparameters
+tpot,classification,BernoulliNB,alpha,1.0,"Float(0.001, 100.0)","Additive (Laplace/Lidstone) smoothing parameter
+(set alpha=0 and force_alpha=True, for no smoothing)."
+tpot,classification,BernoulliNB,fit_prior,True,bool,"Whether to learn class prior probabilities or not.
+If false, a uniform prior will be used."
+tpot,classification,MultinomialNB,alpha,1.0,"Float(0.001, 100.0)","Additive (Laplace/Lidstone) smoothing parameter
+(set alpha=0 and force_alpha=True, for no smoothing)."
+tpot,classification,MultinomialNB,fit_prior,True,bool,"Whether to learn class prior probabilities or not.
+If false, a uniform prior will be used."
+tpot,classification,DecisionTreeClassifier,criterion,gini,"Categorical(['gini', 'entropy'])","The function to measure the quality of a split. Supported criteria are
+""gini"" for the Gini impurity and ""log_loss"" and ""entropy"" both for the
+Shannon information gain, see :ref:`tree_mathematical_formulation`."
+tpot,classification,DecisionTreeClassifier,max_depth,None,"Integer(1, 10)","The maximum depth of the tree. If None, then nodes are expanded until
+all leaves are pure or until all leaves contain less than
+min_samples_split samples."
+tpot,classification,DecisionTreeClassifier,min_samples_split,2,"Integer(2, 20)","The minimum number of samples required to split an internal node:
+
+- If int, then consider `min_samples_split` as the minimum number.
+- If float, then `min_samples_split` is a fraction and
+  `ceil(min_samples_split * n_samples)` are the minimum
+  number of samples for each split.
+
+.. versionchanged:: 0.18
+   Added float values for fractions."
+tpot,classification,DecisionTreeClassifier,min_samples_leaf,1,"Integer(1, 20)","The minimum number of samples required to be at a leaf node.
+A split point at any depth will only be considered if it leaves at
+least ``min_samples_leaf`` training samples in each of the left and
+right branches.  This may have the effect of smoothing the model,
+especially in regression.
+
+- If int, then consider `min_samples_leaf` as the minimum number.
+- If float, then `min_samples_leaf` is a fraction and
+  `ceil(min_samples_leaf * n_samples)` are the minimum
+  number of samples for each node.
+
+.. versionchanged:: 0.18
+   Added float values for fractions."
+tpot,classification,ExtraTreesClassifier,n_estimators,100,"Integer(100, 100)","The number of trees in the forest.
+
+.. versionchanged:: 0.22
+   The default value of ``n_estimators`` changed from 10 to 100
+   in 0.22."
+tpot,classification,ExtraTreesClassifier,criterion,gini,"Categorical(['gini', 'entropy'])","The function to measure the quality of a split. Supported criteria are
+""gini"" for the Gini impurity and ""log_loss"" and ""entropy"" both for the
+Shannon information gain, see :ref:`tree_mathematical_formulation`.
+Note: This parameter is tree-specific."
+tpot,classification,ExtraTreesClassifier,max_features,sqrt,"Float(0.05, 1.0)","The number of features to consider when looking for the best split:
+
+- If int, then consider `max_features` features at each split.
+- If float, then `max_features` is a fraction and
+  `max(1, int(max_features * n_features_in_))` features are considered at each
+  split.
+- If ""sqrt"", then `max_features=sqrt(n_features)`.
+- If ""log2"", then `max_features=log2(n_features)`.
+- If None, then `max_features=n_features`.
+
+.. versionchanged:: 1.1
+    The default of `max_features` changed from `""auto""` to `""sqrt""`.
+Note: the search for a split does not stop until at least one
+valid partition of the node samples is found, even if it requires to
+effectively inspect more than ``max_features`` features."
+tpot,classification,ExtraTreesClassifier,min_samples_split,2,"Integer(2, 20)","The minimum number of samples required to split an internal node:
+
+- If int, then consider `min_samples_split` as the minimum number.
+- If float, then `min_samples_split` is a fraction and
+  `ceil(min_samples_split * n_samples)` are the minimum
+  number of samples for each split.
+
+.. versionchanged:: 0.18
+   Added float values for fractions."
+tpot,classification,ExtraTreesClassifier,min_samples_leaf,1,"Integer(1, 20)","The minimum number of samples required to be at a leaf node.
+A split point at any depth will only be considered if it leaves at
+least ``min_samples_leaf`` training samples in each of the left and
+right branches.  This may have the effect of smoothing the model,
+especially in regression.
+
+- If int, then consider `min_samples_leaf` as the minimum number.
+- If float, then `min_samples_leaf` is a fraction and
+  `ceil(min_samples_leaf * n_samples)` are the minimum
+  number of samples for each node.
+
+.. versionchanged:: 0.18
+   Added float values for fractions."
+tpot,classification,ExtraTreesClassifier,bootstrap,False,bool,"Whether bootstrap samples are used when building trees. If False, the
+whole dataset is used to build each tree."
+tpot,classification,RandomForestClassifier,n_estimators,100,"Integer(100, 100)","The number of trees in the forest.
+
+.. versionchanged:: 0.22
+   The default value of ``n_estimators`` changed from 10 to 100
+   in 0.22."
+tpot,classification,RandomForestClassifier,criterion,gini,"Categorical(['gini', 'entropy'])","The function to measure the quality of a split. Supported criteria are
+""gini"" for the Gini impurity and ""log_loss"" and ""entropy"" both for the
+Shannon information gain, see :ref:`tree_mathematical_formulation`.
+Note: This parameter is tree-specific."
+tpot,classification,RandomForestClassifier,max_features,sqrt,"Float(0.05, 1.0)","The number of features to consider when looking for the best split:
+
+- If int, then consider `max_features` features at each split.
+- If float, then `max_features` is a fraction and
+  `max(1, int(max_features * n_features_in_))` features are considered at each
+  split.
+- If ""sqrt"", then `max_features=sqrt(n_features)`.
+- If ""log2"", then `max_features=log2(n_features)`.
+- If None, then `max_features=n_features`.
+
+.. versionchanged:: 1.1
+    The default of `max_features` changed from `""auto""` to `""sqrt""`.
+Note: the search for a split does not stop until at least one
+valid partition of the node samples is found, even if it requires to
+effectively inspect more than ``max_features`` features."
+tpot,classification,RandomForestClassifier,min_samples_split,2,"Integer(2, 20)","The minimum number of samples required to split an internal node:
+
+- If int, then consider `min_samples_split` as the minimum number.
+- If float, then `min_samples_split` is a fraction and
+  `ceil(min_samples_split * n_samples)` are the minimum
+  number of samples for each split.
+
+.. versionchanged:: 0.18
+   Added float values for fractions."
+tpot,classification,RandomForestClassifier,min_samples_leaf,1,"Integer(1, 20)","The minimum number of samples required to be at a leaf node.
+A split point at any depth will only be considered if it leaves at
+least ``min_samples_leaf`` training samples in each of the left and
+right branches.  This may have the effect of smoothing the model,
+especially in regression.
+
+- If int, then consider `min_samples_leaf` as the minimum number.
+- If float, then `min_samples_leaf` is a fraction and
+  `ceil(min_samples_leaf * n_samples)` are the minimum
+  number of samples for each node.
+
+.. versionchanged:: 0.18
+   Added float values for fractions."
+tpot,classification,RandomForestClassifier,bootstrap,True,bool,"Whether bootstrap samples are used when building trees. If False, the
+whole dataset is used to build each tree."
+tpot,classification,GradientBoostingClassifier,n_estimators,100,"Integer(100, 100)","The number of boosting stages to perform. Gradient boosting
+is fairly robust to over-fitting so a large number usually
+results in better performance.
+Values must be in the range `[1, inf)`."
+tpot,classification,GradientBoostingClassifier,learning_rate,0.1,"Float(0.001, 1.0)","Learning rate shrinks the contribution of each tree by `learning_rate`.
+There is a trade-off between learning_rate and n_estimators.
+Values must be in the range `[0.0, inf)`."
+tpot,classification,GradientBoostingClassifier,max_depth,3,"Integer(1, 10)","Maximum depth of the individual regression estimators. The maximum
+depth limits the number of nodes in the tree. Tune this parameter
+for best performance; the best value depends on the interaction
+of the input variables. If None, then nodes are expanded until
+all leaves are pure or until all leaves contain less than
+min_samples_split samples.
+If int, values must be in the range `[1, inf)`."
+tpot,classification,GradientBoostingClassifier,min_samples_split,2,"Integer(2, 20)","The minimum number of samples required to split an internal node:
+
+- If int, values must be in the range `[2, inf)`.
+- If float, values must be in the range `(0.0, 1.0]` and `min_samples_split`
+  will be `ceil(min_samples_split * n_samples)`.
+
+.. versionchanged:: 0.18
+   Added float values for fractions."
+tpot,classification,GradientBoostingClassifier,min_samples_leaf,1,"Integer(1, 20)","The minimum number of samples required to be at a leaf node.
+A split point at any depth will only be considered if it leaves at
+least ``min_samples_leaf`` training samples in each of the left and
+right branches.  This may have the effect of smoothing the model,
+especially in regression.
+
+- If int, values must be in the range `[1, inf)`.
+- If float, values must be in the range `(0.0, 1.0)` and `min_samples_leaf`
+  will be `ceil(min_samples_leaf * n_samples)`.
+
+.. versionchanged:: 0.18
+   Added float values for fractions."
+tpot,classification,GradientBoostingClassifier,subsample,1.0,"Float(0.05, 1.0)","The fraction of samples to be used for fitting the individual base
+learners. If smaller than 1.0 this results in Stochastic Gradient
+Boosting. `subsample` interacts with the parameter `n_estimators`.
+Choosing `subsample < 1.0` leads to a reduction of variance
+and an increase in bias.
+Values must be in the range `(0.0, 1.0]`."
+tpot,classification,GradientBoostingClassifier,max_features,None,"Float(0.05, 1.0)","The number of features to consider when looking for the best split:
+
+- If int, values must be in the range `[1, inf)`.
+- If float, values must be in the range `(0.0, 1.0]` and the features
+  considered at each split will be `max(1, int(max_features * n_features_in_))`.
+- If 'sqrt', then `max_features=sqrt(n_features)`.
+- If 'log2', then `max_features=log2(n_features)`.
+- If None, then `max_features=n_features`.
+
+Choosing `max_features < n_features` leads to a reduction of variance
+and an increase in bias.
+Note: the search for a split does not stop until at least one
+valid partition of the node samples is found, even if it requires to
+effectively inspect more than ``max_features`` features."
+tpot,classification,KNeighborsClassifier,n_neighbors,5,"Integer(1, 100)",Number of neighbors to use by default for :meth:`kneighbors` queries.
+tpot,classification,KNeighborsClassifier,weights,uniform,"Categorical(['uniform', 'distance'])","Weight function used in prediction.  Possible values:
+
+- 'uniform' : uniform weights.  All points in each neighborhood
+  are weighted equally.
+- 'distance' : weight points by the inverse of their distance.
+  in this case, closer neighbors of a query point will have a
+  greater influence than neighbors which are further away.
+- [callable] : a user-defined function which accepts an
+  array of distances, and returns an array of the same shape
+  containing the weights.
+
+Refer to the example entitled
+:ref:`sphx_glr_auto_examples_neighbors_plot_classification.py`
+showing the impact of the `weights` parameter on the decision
+boundary."
+tpot,classification,KNeighborsClassifier,p,2,"Integer(1, 2)","Power parameter for the Minkowski metric. When p = 1, this is
+equivalent to using manhattan_distance (l1), and euclidean_distance
+(l2) for p = 2. For arbitrary p, minkowski_distance (l_p) is used."
+tpot,classification,LinearSVC,penalty,l2,"Categorical(['l1', 'l2'])","Specifies the norm used in the penalization. The 'l2'
+penalty is the standard used in SVC. The 'l1' leads to ``coef_``
+vectors that are sparse."
+tpot,classification,LinearSVC,loss,squared_hinge,"Categorical(['hinge', 'squared_hinge'])","Specifies the loss function. 'hinge' is the standard SVM loss
+(used e.g. by the SVC class) while 'squared_hinge' is the
+square of the hinge loss. The combination of ``penalty='l1'``
+and ``loss='hinge'`` is not supported."
+tpot,classification,LinearSVC,dual,warn,bool,"Select the algorithm to either solve the dual or primal
+optimization problem. Prefer dual=False when n_samples > n_features.
+`dual=""auto""` will choose the value of the parameter automatically,
+based on the values of `n_samples`, `n_features`, `loss`, `multi_class`
+and `penalty`. If `n_samples` < `n_features` and optimizer supports
+chosen `loss`, `multi_class` and `penalty`, then dual will be set to True,
+otherwise it will be set to False.
+
+.. versionchanged:: 1.3
+   The `""auto""` option is added in version 1.3 and will be the default
+   in version 1.5."
+tpot,classification,LinearSVC,tol,0.0001,"Float(1e-05, 0.1)",Tolerance for stopping criteria.
+tpot,classification,LinearSVC,C,1.0,"Float(0.0001, 25.0)","Regularization parameter. The strength of the regularization is
+inversely proportional to C. Must be strictly positive."
+tpot,classification,LogisticRegression,penalty,l2,"Categorical(['l1', 'l2'])","Specify the norm of the penalty:
+
+- `None`: no penalty is added;
+- `'l2'`: add a L2 penalty term and it is the default choice;
+- `'l1'`: add a L1 penalty term;
+- `'elasticnet'`: both L1 and L2 penalty terms are added.
+
+.. warning::
+   Some penalties may not work with some solvers. See the parameter
+   `solver` below, to know the compatibility between the penalty and
+   solver.
+
+.. versionadded:: 0.19
+   l1 penalty with SAGA solver (allowing 'multinomial' + L1)
+
+.. deprecated:: 1.2
+   The 'none' option was deprecated in version 1.2, and will be removed
+   in 1.4. Use `None` instead."
+tpot,classification,LogisticRegression,C,1.0,"Float(0.0001, 25.0)","Inverse of regularization strength; must be a positive float.
+Like in support vector machines, smaller values specify stronger
+regularization."
+tpot,classification,LogisticRegression,dual,False,bool,"Dual (constrained) or primal (regularized, see also
+:ref:`this equation <regularized-logistic-loss>`) formulation. Dual formulation
+is only implemented for l2 penalty with liblinear solver. Prefer dual=False when
+n_samples > n_features."
+tpot,classification,XGBClassifier,n_estimators,None,"Integer(100, 100)",Number of boosting rounds.
+tpot,classification,XGBClassifier,max_depth,None,"Integer(1, 10)",Maximum tree depth for base learners.
+tpot,classification,XGBClassifier,learning_rate,None,"Float(0.001, 1.0)","Boosting learning rate (xgb's ""eta"")"
+tpot,classification,XGBClassifier,subsample,None,"Float(0.05, 1.0)",Subsample ratio of the training instance.
+tpot,classification,XGBClassifier,min_child_weight,None,"Integer(1, 20)",Minimum sum of instance weight(hessian) needed in a child.
+tpot,classification,XGBClassifier,n_jobs,None,"Integer(1, 1)","Number of parallel threads used to run xgboost.  When used with other
+Scikit-Learn algorithms like grid search, you may choose which algorithm to
+parallelize and balance the threads.  Creating thread contention will
+significantly slow down both algorithms."
+tpot,classification,XGBClassifier,verbosity,None,"Integer(0, 0)",The degree of verbosity. Valid values are 0 (silent) - 3 (debug).
+tpot,classification,SGDClassifier,loss,hinge,"Categorical(['log', 'hinge', 'modified_huber', 'squared_hinge', 'perceptron'])","The loss function to be used.
+
+- 'hinge' gives a linear SVM.
+- 'log_loss' gives logistic regression, a probabilistic classifier.
+- 'modified_huber' is another smooth loss that brings tolerance to
+  outliers as well as probability estimates.
+- 'squared_hinge' is like hinge but is quadratically penalized.
+- 'perceptron' is the linear loss used by the perceptron algorithm.
+- The other losses, 'squared_error', 'huber', 'epsilon_insensitive' and
+  'squared_epsilon_insensitive' are designed for regression but can be useful
+  in classification as well; see
+  :class:`~sklearn.linear_model.SGDRegressor` for a description.
+
+More details about the losses formulas can be found in the
+:ref:`User Guide <sgd_mathematical_formulation>`."
+tpot,classification,SGDClassifier,penalty,l2,Categorical(['elasticnet']),"The penalty (aka regularization term) to be used. Defaults to 'l2'
+which is the standard regularizer for linear SVM models. 'l1' and
+'elasticnet' might bring sparsity to the model (feature selection)
+not achievable with 'l2'. No penalty is added when set to `None`."
+tpot,classification,SGDClassifier,alpha,0.0001,"Float(0.0, 0.01)","Constant that multiplies the regularization term. The higher the
+value, the stronger the regularization. Also used to compute the
+learning rate when `learning_rate` is set to 'optimal'.
+Values must be in the range `[0.0, inf)`."
+tpot,classification,SGDClassifier,learning_rate,optimal,"Categorical(['invscaling', 'constant'])","The learning rate schedule:
+
+- 'constant': `eta = eta0`
+- 'optimal': `eta = 1.0 / (alpha * (t + t0))`
+  where `t0` is chosen by a heuristic proposed by Leon Bottou.
+- 'invscaling': `eta = eta0 / pow(t, power_t)`
+- 'adaptive': `eta = eta0`, as long as the training keeps decreasing.
+  Each time n_iter_no_change consecutive epochs fail to decrease the
+  training loss by tol or fail to increase validation score by tol if
+  `early_stopping` is `True`, the current learning rate is divided by 5.
+
+    .. versionadded:: 0.20
+        Added 'adaptive' option"
+tpot,classification,SGDClassifier,fit_intercept,True,bool,"Whether the intercept should be estimated or not. If False, the
+data is assumed to be already centered."
+tpot,classification,SGDClassifier,l1_ratio,0.15,"Float(0.0, 1.0)","The Elastic Net mixing parameter, with 0 <= l1_ratio <= 1.
+l1_ratio=0 corresponds to L2 penalty, l1_ratio=1 to L1.
+Only used if `penalty` is 'elasticnet'.
+Values must be in the range `[0.0, 1.0]`."
+tpot,classification,SGDClassifier,eta0,0.0,"Float(0.01, 1.0)","The initial learning rate for the 'constant', 'invscaling' or
+'adaptive' schedules. The default value is 0.0 as eta0 is not used by
+the default schedule 'optimal'.
+Values must be in the range `(0.0, inf)`."
+tpot,classification,SGDClassifier,power_t,0.5,"Float(0.0, 100.0)","The exponent for inverse scaling learning rate [default 0.5].
+Values must be in the range `(-inf, inf)`."
+tpot,classification,MLPClassifier,alpha,0.0001,"Float(0.0001, 0.1)","Strength of the L2 regularization term. The L2 regularization term
+is divided by the sample size when added to the loss."
+tpot,classification,MLPClassifier,learning_rate_init,0.001,"Float(0.001, 1.0)","The initial learning rate used. It controls the step-size
+in updating the weights. Only used when solver='sgd' or 'adam'."
+tpot,regression,ElasticNetCV,l1_ratio,0.5,"Float(0.0, 1.0)","Float between 0 and 1 passed to ElasticNet (scaling between
+l1 and l2 penalties). For ``l1_ratio = 0``
+the penalty is an L2 penalty. For ``l1_ratio = 1`` it is an L1 penalty.
+For ``0 < l1_ratio < 1``, the penalty is a combination of L1 and L2
+This parameter can be a list, in which case the different
+values are tested by cross-validation and the one giving the best
+prediction score is used. Note that a good choice of list of
+values for l1_ratio is often to put more values close to 1
+(i.e. Lasso) and less close to 0 (i.e. Ridge), as in ``[.1, .5, .7,
+.9, .95, .99, 1]``."
+tpot,regression,ElasticNetCV,tol,0.0001,"Float(1e-05, 0.1)","The tolerance for the optimization: if the updates are
+smaller than ``tol``, the optimization code checks the
+dual gap for optimality and continues until it is smaller
+than ``tol``."
+tpot,regression,ExtraTreesRegressor,n_estimators,100,"Integer(100, 100)","The number of trees in the forest.
+
+.. versionchanged:: 0.22
+   The default value of ``n_estimators`` changed from 10 to 100
+   in 0.22."
+tpot,regression,ExtraTreesRegressor,max_features,1.0,"Float(0.05, 1.0)","The number of features to consider when looking for the best split:
+
+- If int, then consider `max_features` features at each split.
+- If float, then `max_features` is a fraction and
+  `max(1, int(max_features * n_features_in_))` features are considered at each
+  split.
+- If ""sqrt"", then `max_features=sqrt(n_features)`.
+- If ""log2"", then `max_features=log2(n_features)`.
+- If None or 1.0, then `max_features=n_features`.
+
+.. note::
+    The default of 1.0 is equivalent to bagged trees and more
+    randomness can be achieved by setting smaller values, e.g. 0.3.
+
+.. versionchanged:: 1.1
+    The default of `max_features` changed from `""auto""` to 1.0.
+Note: the search for a split does not stop until at least one
+valid partition of the node samples is found, even if it requires to
+effectively inspect more than ``max_features`` features."
+tpot,regression,ExtraTreesRegressor,min_samples_split,2,"Integer(2, 20)","The minimum number of samples required to split an internal node:
+
+- If int, then consider `min_samples_split` as the minimum number.
+- If float, then `min_samples_split` is a fraction and
+  `ceil(min_samples_split * n_samples)` are the minimum
+  number of samples for each split.
+
+.. versionchanged:: 0.18
+   Added float values for fractions."
+tpot,regression,ExtraTreesRegressor,min_samples_leaf,1,"Integer(1, 20)","The minimum number of samples required to be at a leaf node.
+A split point at any depth will only be considered if it leaves at
+least ``min_samples_leaf`` training samples in each of the left and
+right branches.  This may have the effect of smoothing the model,
+especially in regression.
+
+- If int, then consider `min_samples_leaf` as the minimum number.
+- If float, then `min_samples_leaf` is a fraction and
+  `ceil(min_samples_leaf * n_samples)` are the minimum
+  number of samples for each node.
+
+.. versionchanged:: 0.18
+   Added float values for fractions."
+tpot,regression,ExtraTreesRegressor,bootstrap,False,bool,"Whether bootstrap samples are used when building trees. If False, the
+whole dataset is used to build each tree."
+tpot,regression,GradientBoostingRegressor,n_estimators,100,"Integer(100, 100)","The number of boosting stages to perform. Gradient boosting
+is fairly robust to over-fitting so a large number usually
+results in better performance.
+Values must be in the range `[1, inf)`."
+tpot,regression,GradientBoostingRegressor,loss,squared_error,"Categorical(['ls', 'lad', 'huber', 'quantile'])","Loss function to be optimized. 'squared_error' refers to the squared
+error for regression. 'absolute_error' refers to the absolute error of
+regression and is a robust loss function. 'huber' is a
+combination of the two. 'quantile' allows quantile regression (use
+`alpha` to specify the quantile)."
+tpot,regression,GradientBoostingRegressor,learning_rate,0.1,"Float(0.001, 1.0)","Learning rate shrinks the contribution of each tree by `learning_rate`.
+There is a trade-off between learning_rate and n_estimators.
+Values must be in the range `[0.0, inf)`."
+tpot,regression,GradientBoostingRegressor,max_depth,3,"Integer(1, 10)","Maximum depth of the individual regression estimators. The maximum
+depth limits the number of nodes in the tree. Tune this parameter
+for best performance; the best value depends on the interaction
+of the input variables. If None, then nodes are expanded until
+all leaves are pure or until all leaves contain less than
+min_samples_split samples.
+If int, values must be in the range `[1, inf)`."
+tpot,regression,GradientBoostingRegressor,min_samples_split,2,"Integer(2, 20)","The minimum number of samples required to split an internal node:
+
+- If int, values must be in the range `[2, inf)`.
+- If float, values must be in the range `(0.0, 1.0]` and `min_samples_split`
+  will be `ceil(min_samples_split * n_samples)`.
+
+.. versionchanged:: 0.18
+   Added float values for fractions."
+tpot,regression,GradientBoostingRegressor,min_samples_leaf,1,"Integer(1, 20)","The minimum number of samples required to be at a leaf node.
+A split point at any depth will only be considered if it leaves at
+least ``min_samples_leaf`` training samples in each of the left and
+right branches.  This may have the effect of smoothing the model,
+especially in regression.
+
+- If int, values must be in the range `[1, inf)`.
+- If float, values must be in the range `(0.0, 1.0)` and `min_samples_leaf`
+  will be `ceil(min_samples_leaf * n_samples)`.
+
+.. versionchanged:: 0.18
+   Added float values for fractions."
+tpot,regression,GradientBoostingRegressor,subsample,1.0,"Float(0.05, 1.0)","The fraction of samples to be used for fitting the individual base
+learners. If smaller than 1.0 this results in Stochastic Gradient
+Boosting. `subsample` interacts with the parameter `n_estimators`.
+Choosing `subsample < 1.0` leads to a reduction of variance
+and an increase in bias.
+Values must be in the range `(0.0, 1.0]`."
+tpot,regression,GradientBoostingRegressor,max_features,None,"Float(0.05, 1.0)","The number of features to consider when looking for the best split:
+
+- If int, values must be in the range `[1, inf)`.
+- If float, values must be in the range `(0.0, 1.0]` and the features
+  considered at each split will be `max(1, int(max_features * n_features_in_))`.
+- If ""sqrt"", then `max_features=sqrt(n_features)`.
+- If ""log2"", then `max_features=log2(n_features)`.
+- If None, then `max_features=n_features`.
+
+Choosing `max_features < n_features` leads to a reduction of variance
+and an increase in bias.
+Note: the search for a split does not stop until at least one
+valid partition of the node samples is found, even if it requires to
+effectively inspect more than ``max_features`` features."
+tpot,regression,GradientBoostingRegressor,alpha,0.9,"Float(0.75, 0.99)","The alpha-quantile of the huber loss function and the quantile
+loss function. Only if ``loss='huber'`` or ``loss='quantile'``.
+Values must be in the range `(0.0, 1.0)`."
+tpot,regression,AdaBoostRegressor,n_estimators,50,"Integer(100, 100)","The maximum number of estimators at which boosting is terminated.
+In case of perfect fit, the learning procedure is stopped early.
+Values must be in the range `[1, inf)`."
+tpot,regression,AdaBoostRegressor,learning_rate,1.0,"Float(0.001, 1.0)","Weight applied to each regressor at each boosting iteration. A higher
+learning rate increases the contribution of each regressor. There is
+a trade-off between the `learning_rate` and `n_estimators` parameters.
+Values must be in the range `(0.0, inf)`."
+tpot,regression,AdaBoostRegressor,loss,linear,"Categorical(['linear', 'square', 'exponential'])","The loss function to use when updating the weights after each
+boosting iteration."
+tpot,regression,DecisionTreeRegressor,max_depth,None,"Integer(1, 10)","The maximum depth of the tree. If None, then nodes are expanded until
+all leaves are pure or until all leaves contain less than
+min_samples_split samples."
+tpot,regression,DecisionTreeRegressor,min_samples_split,2,"Integer(2, 20)","The minimum number of samples required to split an internal node:
+
+- If int, then consider `min_samples_split` as the minimum number.
+- If float, then `min_samples_split` is a fraction and
+  `ceil(min_samples_split * n_samples)` are the minimum
+  number of samples for each split.
+
+.. versionchanged:: 0.18
+   Added float values for fractions."
+tpot,regression,DecisionTreeRegressor,min_samples_leaf,1,"Integer(1, 20)","The minimum number of samples required to be at a leaf node.
+A split point at any depth will only be considered if it leaves at
+least ``min_samples_leaf`` training samples in each of the left and
+right branches.  This may have the effect of smoothing the model,
+especially in regression.
+
+- If int, then consider `min_samples_leaf` as the minimum number.
+- If float, then `min_samples_leaf` is a fraction and
+  `ceil(min_samples_leaf * n_samples)` are the minimum
+  number of samples for each node.
+
+.. versionchanged:: 0.18
+   Added float values for fractions."
+tpot,regression,KNeighborsRegressor,n_neighbors,5,"Integer(1, 100)",Number of neighbors to use by default for :meth:`kneighbors` queries.
+tpot,regression,KNeighborsRegressor,weights,uniform,"Categorical(['uniform', 'distance'])","Weight function used in prediction.  Possible values:
+
+- 'uniform' : uniform weights.  All points in each neighborhood
+  are weighted equally.
+- 'distance' : weight points by the inverse of their distance.
+  in this case, closer neighbors of a query point will have a
+  greater influence than neighbors which are further away.
+- [callable] : a user-defined function which accepts an
+  array of distances, and returns an array of the same shape
+  containing the weights.
+
+Uniform weights are used by default."
+tpot,regression,KNeighborsRegressor,p,2,"Integer(1, 2)","Power parameter for the Minkowski metric. When p = 1, this is
+equivalent to using manhattan_distance (l1), and euclidean_distance
+(l2) for p = 2. For arbitrary p, minkowski_distance (l_p) is used."
+tpot,regression,LassoLarsCV,normalize,deprecated,bool,"This parameter is ignored when ``fit_intercept`` is set to False.
+If True, the regressors X will be normalized before regression by
+subtracting the mean and dividing by the l2-norm.
+If you wish to standardize, please use
+:class:`~sklearn.preprocessing.StandardScaler` before calling ``fit``
+on an estimator with ``normalize=False``.
+
+.. versionchanged:: 1.2
+   default changed from True to False in 1.2.
+
+.. deprecated:: 1.2
+    ``normalize`` was deprecated in version 1.2 and will be removed in 1.4."
+tpot,regression,LinearSVR,loss,epsilon_insensitive,"Categorical(['epsilon_insensitive', 'squared_epsilon_insensitive'])","Specifies the loss function. The epsilon-insensitive loss
+(standard SVR) is the L1 loss, while the squared epsilon-insensitive
+loss ('squared_epsilon_insensitive') is the L2 loss."
+tpot,regression,LinearSVR,dual,warn,bool,"Select the algorithm to either solve the dual or primal
+optimization problem. Prefer dual=False when n_samples > n_features.
+`dual=""auto""` will choose the value of the parameter automatically,
+based on the values of `n_samples`, `n_features` and `loss`. If
+`n_samples` < `n_features` and optimizer supports chosen `loss`,
+then dual will be set to True, otherwise it will be set to False.
+
+.. versionchanged:: 1.3
+   The `""auto""` option is added in version 1.3 and will be the default
+   in version 1.5."
+tpot,regression,LinearSVR,tol,0.0001,"Float(1e-05, 0.1)",Tolerance for stopping criteria.
+tpot,regression,LinearSVR,C,1.0,"Float(0.0001, 25.0)","Regularization parameter. The strength of the regularization is
+inversely proportional to C. Must be strictly positive."
+tpot,regression,LinearSVR,epsilon,0.0,"Float(0.0001, 1.0)","Epsilon parameter in the epsilon-insensitive loss function. Note
+that the value of this parameter depends on the scale of the target
+variable y. If unsure, set ``epsilon=0``."
+tpot,regression,RandomForestRegressor,n_estimators,100,"Integer(100, 100)","The number of trees in the forest.
+
+.. versionchanged:: 0.22
+   The default value of ``n_estimators`` changed from 10 to 100
+   in 0.22."
+tpot,regression,RandomForestRegressor,max_features,1.0,"Float(0.05, 1.0)","The number of features to consider when looking for the best split:
+
+- If int, then consider `max_features` features at each split.
+- If float, then `max_features` is a fraction and
+  `max(1, int(max_features * n_features_in_))` features are considered at each
+  split.
+- If ""sqrt"", then `max_features=sqrt(n_features)`.
+- If ""log2"", then `max_features=log2(n_features)`.
+- If None or 1.0, then `max_features=n_features`.
+
+.. note::
+    The default of 1.0 is equivalent to bagged trees and more
+    randomness can be achieved by setting smaller values, e.g. 0.3.
+
+.. versionchanged:: 1.1
+    The default of `max_features` changed from `""auto""` to 1.0.
+Note: the search for a split does not stop until at least one
+valid partition of the node samples is found, even if it requires to
+effectively inspect more than ``max_features`` features."
+tpot,regression,RandomForestRegressor,min_samples_split,2,"Integer(2, 20)","The minimum number of samples required to split an internal node:
+
+- If int, then consider `min_samples_split` as the minimum number.
+- If float, then `min_samples_split` is a fraction and
+  `ceil(min_samples_split * n_samples)` are the minimum
+  number of samples for each split.
+
+.. versionchanged:: 0.18
+   Added float values for fractions."
+tpot,regression,RandomForestRegressor,min_samples_leaf,1,"Integer(1, 20)","The minimum number of samples required to be at a leaf node.
+A split point at any depth will only be considered if it leaves at
+least ``min_samples_leaf`` training samples in each of the left and
+right branches.  This may have the effect of smoothing the model,
+especially in regression.
+
+- If int, then consider `min_samples_leaf` as the minimum number.
+- If float, then `min_samples_leaf` is a fraction and
+  `ceil(min_samples_leaf * n_samples)` are the minimum
+  number of samples for each node.
+
+.. versionchanged:: 0.18
+   Added float values for fractions."
+tpot,regression,RandomForestRegressor,bootstrap,True,bool,"Whether bootstrap samples are used when building trees. If False, the
+whole dataset is used to build each tree."
+tpot,regression,RidgeCV,(none),,fixed,No tunable hyperparameters
+tpot,regression,XGBRegressor,n_estimators,None,"Integer(100, 100)","Number of gradient boosted trees.  Equivalent to number of boosting
+rounds."
+tpot,regression,XGBRegressor,max_depth,None,"Integer(1, 10)",Maximum tree depth for base learners.
+tpot,regression,XGBRegressor,learning_rate,None,"Float(0.001, 1.0)","Boosting learning rate (xgb's ""eta"")"
+tpot,regression,XGBRegressor,subsample,None,"Float(0.05, 1.0)",Subsample ratio of the training instance.
+tpot,regression,XGBRegressor,min_child_weight,None,"Integer(1, 20)",Minimum sum of instance weight(hessian) needed in a child.
+tpot,regression,XGBRegressor,n_jobs,None,"Integer(1, 1)","Number of parallel threads used to run xgboost.  When used with other
+Scikit-Learn algorithms like grid search, you may choose which algorithm to
+parallelize and balance the threads.  Creating thread contention will
+significantly slow down both algorithms."
+tpot,regression,XGBRegressor,verbosity,None,"Integer(0, 0)",The degree of verbosity. Valid values are 0 (silent) - 3 (debug).
+tpot,regression,XGBRegressor,objective,reg:squarederror,Categorical(['reg:squarederror']),"Specify the learning task and the corresponding learning objective or a custom
+objective function to be used.
+
+For custom objective, see :doc:`/tutorials/custom_metric_obj` and
+:ref:`custom-obj-metric` for more information, along with the end note for
+function signatures."
+tpot,regression,SGDRegressor,loss,squared_error,"Categorical(['squared_loss', 'huber', 'epsilon_insensitive'])","The loss function to be used. The possible values are 'squared_error',
+'huber', 'epsilon_insensitive', or 'squared_epsilon_insensitive'
+
+The 'squared_error' refers to the ordinary least squares fit.
+'huber' modifies 'squared_error' to focus less on getting outliers
+correct by switching from squared to linear loss past a distance of
+epsilon. 'epsilon_insensitive' ignores errors less than epsilon and is
+linear past that; this is the loss function used in SVR.
+'squared_epsilon_insensitive' is the same but becomes squared loss past
+a tolerance of epsilon.
+
+More details about the losses formulas can be found in the
+:ref:`User Guide <sgd_mathematical_formulation>`."
+tpot,regression,SGDRegressor,penalty,l2,Categorical(['elasticnet']),"The penalty (aka regularization term) to be used. Defaults to 'l2'
+which is the standard regularizer for linear SVM models. 'l1' and
+'elasticnet' might bring sparsity to the model (feature selection)
+not achievable with 'l2'. No penalty is added when set to `None`."
+tpot,regression,SGDRegressor,alpha,0.0001,"Float(0.0, 0.01)","Constant that multiplies the regularization term. The higher the
+value, the stronger the regularization.
+Also used to compute the learning rate when set to `learning_rate` is
+set to 'optimal'."
+tpot,regression,SGDRegressor,learning_rate,invscaling,"Categorical(['invscaling', 'constant'])","The learning rate schedule:
+
+- 'constant': `eta = eta0`
+- 'optimal': `eta = 1.0 / (alpha * (t + t0))`
+  where t0 is chosen by a heuristic proposed by Leon Bottou.
+- 'invscaling': `eta = eta0 / pow(t, power_t)`
+- 'adaptive': eta = eta0, as long as the training keeps decreasing.
+  Each time n_iter_no_change consecutive epochs fail to decrease the
+  training loss by tol or fail to increase validation score by tol if
+  early_stopping is True, the current learning rate is divided by 5.
+
+    .. versionadded:: 0.20
+        Added 'adaptive' option"
+tpot,regression,SGDRegressor,fit_intercept,True,bool,"Whether the intercept should be estimated or not. If False, the
+data is assumed to be already centered."
+tpot,regression,SGDRegressor,l1_ratio,0.15,"Float(0.0, 1.0)","The Elastic Net mixing parameter, with 0 <= l1_ratio <= 1.
+l1_ratio=0 corresponds to L2 penalty, l1_ratio=1 to L1.
+Only used if `penalty` is 'elasticnet'."
+tpot,regression,SGDRegressor,eta0,0.01,"Float(0.01, 1.0)","The initial learning rate for the 'constant', 'invscaling' or
+'adaptive' schedules. The default value is 0.01."
+tpot,regression,SGDRegressor,power_t,0.25,"Float(0.0, 100.0)",The exponent for inverse scaling learning rate.
+tpot,classification,AdaBoostClassifier,estimator,None,NoneType,"The base estimator from which the boosted ensemble is built.
+Support for sample weighting is required, as well as proper
+``classes_`` and ``n_classes_`` attributes. If ``None``, then
+the base estimator is :class:`~sklearn.tree.DecisionTreeClassifier`
+initialized with `max_depth=1`.
+
+.. versionadded:: 1.2
+   `base_estimator` was renamed to `estimator`."
+tpot,classification,AdaBoostClassifier,n_estimators,50,int,"The maximum number of estimators at which boosting is terminated.
+In case of perfect fit, the learning procedure is stopped early.
+Values must be in the range `[1, inf)`."
+tpot,classification,AdaBoostClassifier,learning_rate,1.0,float,"Weight applied to each classifier at each boosting iteration. A higher
+learning rate increases the contribution of each classifier. There is
+a trade-off between the `learning_rate` and `n_estimators` parameters.
+Values must be in the range `(0.0, inf)`."
+tpot,classification,AdaBoostClassifier,algorithm,SAMME.R,str,"If 'SAMME.R' then use the SAMME.R real boosting algorithm.
+``estimator`` must support calculation of class probabilities.
+If 'SAMME' then use the SAMME discrete boosting algorithm.
+The SAMME.R algorithm typically converges faster than SAMME,
+achieving a lower test error with fewer boosting iterations."
+tpot,classification,AdaBoostClassifier,random_state,None,NoneType,"Controls the random seed given at each `estimator` at each
+boosting iteration.
+Thus, it is only used when `estimator` exposes a `random_state`.
+Pass an int for reproducible output across multiple function calls.
+See :term:`Glossary <random_state>`."
+tpot,classification,AdaBoostClassifier,base_estimator,deprecated,str,"The base estimator from which the boosted ensemble is built.
+Support for sample weighting is required, as well as proper
+``classes_`` and ``n_classes_`` attributes. If ``None``, then
+the base estimator is :class:`~sklearn.tree.DecisionTreeClassifier`
+initialized with `max_depth=1`.
+
+.. deprecated:: 1.2
+    `base_estimator` is deprecated and will be removed in 1.4.
+    Use `estimator` instead."
+tpot,classification,BaggingClassifier,estimator,None,NoneType,"The base estimator to fit on random subsets of the dataset.
+If None, then the base estimator is a
+:class:`~sklearn.tree.DecisionTreeClassifier`.
+
+.. versionadded:: 1.2
+   `base_estimator` was renamed to `estimator`."
+tpot,classification,BaggingClassifier,n_estimators,10,int,The number of base estimators in the ensemble.
+tpot,classification,BaggingClassifier,max_samples,1.0,float,"The number of samples to draw from X to train each base estimator (with
+replacement by default, see `bootstrap` for more details).
+
+- If int, then draw `max_samples` samples.
+- If float, then draw `max_samples * X.shape[0]` samples."
+tpot,classification,BaggingClassifier,max_features,1.0,float,"The number of features to draw from X to train each base estimator (
+without replacement by default, see `bootstrap_features` for more
+details).
+
+- If int, then draw `max_features` features.
+- If float, then draw `max(1, int(max_features * n_features_in_))` features."
+tpot,classification,BaggingClassifier,bootstrap,True,bool,"Whether samples are drawn with replacement. If False, sampling
+without replacement is performed."
+tpot,classification,BaggingClassifier,bootstrap_features,False,bool,Whether features are drawn with replacement.
+tpot,classification,BaggingClassifier,oob_score,False,bool,"Whether to use out-of-bag samples to estimate
+the generalization error. Only available if bootstrap=True."
+tpot,classification,BaggingClassifier,warm_start,False,bool,"When set to True, reuse the solution of the previous call to fit
+and add more estimators to the ensemble, otherwise, just fit
+a whole new ensemble. See :term:`the Glossary <warm_start>`.
+
+.. versionadded:: 0.17
+   *warm_start* constructor parameter."
+tpot,classification,BaggingClassifier,n_jobs,None,NoneType,"The number of jobs to run in parallel for both :meth:`fit` and
+:meth:`predict`. ``None`` means 1 unless in a
+:obj:`joblib.parallel_backend` context. ``-1`` means using all
+processors. See :term:`Glossary <n_jobs>` for more details."
+tpot,classification,BaggingClassifier,random_state,None,NoneType,"Controls the random resampling of the original dataset
+(sample wise and feature wise).
+If the base estimator accepts a `random_state` attribute, a different
+seed is generated for each instance in the ensemble.
+Pass an int for reproducible output across multiple function calls.
+See :term:`Glossary <random_state>`."
+tpot,classification,BaggingClassifier,verbose,0,int,Controls the verbosity when fitting and predicting.
+tpot,classification,BaggingClassifier,base_estimator,deprecated,str,"Use `estimator` instead.
+
+.. deprecated:: 1.2
+    `base_estimator` is deprecated and will be removed in 1.4.
+    Use `estimator` instead."
+tpot,classification,BernoulliNB,force_alpha,warn,str,"If False and alpha is less than 1e-10, it will set alpha to
+1e-10. If True, alpha will remain unchanged. This may cause
+numerical errors if alpha is too close to 0.
+
+.. versionadded:: 1.2
+.. deprecated:: 1.2
+   The default value of `force_alpha` will change to `True` in v1.4."
+tpot,classification,BernoulliNB,binarize,0.0,float,"Threshold for binarizing (mapping to booleans) of sample features.
+If None, input is presumed to already consist of binary vectors."
+tpot,classification,BernoulliNB,class_prior,None,NoneType,"Prior probabilities of the classes. If specified, the priors are not
+adjusted according to the data."
+tpot,classification,DecisionTreeClassifier,splitter,best,str,"The strategy used to choose the split at each node. Supported
+strategies are ""best"" to choose the best split and ""random"" to choose
+the best random split."
+tpot,classification,DecisionTreeClassifier,min_weight_fraction_leaf,0.0,float,"The minimum weighted fraction of the sum total of weights (of all
+the input samples) required to be at a leaf node. Samples have
+equal weight when sample_weight is not provided."
+tpot,classification,DecisionTreeClassifier,max_features,None,NoneType,"The number of features to consider when looking for the best split:
+
+    - If int, then consider `max_features` features at each split.
+    - If float, then `max_features` is a fraction and
+      `max(1, int(max_features * n_features_in_))` features are considered at
+      each split.
+    - If ""sqrt"", then `max_features=sqrt(n_features)`.
+    - If ""log2"", then `max_features=log2(n_features)`.
+    - If None, then `max_features=n_features`.
+Note: the search for a split does not stop until at least one
+valid partition of the node samples is found, even if it requires to
+effectively inspect more than ``max_features`` features."
+tpot,classification,DecisionTreeClassifier,random_state,None,NoneType,"Controls the randomness of the estimator. The features are always
+randomly permuted at each split, even if ``splitter`` is set to
+``""best""``. When ``max_features < n_features``, the algorithm will
+select ``max_features`` at random at each split before finding the best
+split among them. But the best found split may vary across different
+runs, even if ``max_features=n_features``. That is the case, if the
+improvement of the criterion is identical for several splits and one
+split has to be selected at random. To obtain a deterministic behaviour
+during fitting, ``random_state`` has to be fixed to an integer.
+See :term:`Glossary <random_state>` for details."
+tpot,classification,DecisionTreeClassifier,max_leaf_nodes,None,NoneType,"Grow a tree with ``max_leaf_nodes`` in best-first fashion.
+Best nodes are defined as relative reduction in impurity.
+If None then unlimited number of leaf nodes."
+tpot,classification,DecisionTreeClassifier,min_impurity_decrease,0.0,float,"A node will be split if this split induces a decrease of the impurity
+greater than or equal to this value.
+
+The weighted impurity decrease equation is the following::
+
+    N_t / N * (impurity - N_t_R / N_t * right_impurity
+                        - N_t_L / N_t * left_impurity)
+
+where ``N`` is the total number of samples, ``N_t`` is the number of
+samples at the current node, ``N_t_L`` is the number of samples in the
+left child, and ``N_t_R`` is the number of samples in the right child.
+
+``N``, ``N_t``, ``N_t_R`` and ``N_t_L`` all refer to the weighted sum,
+if ``sample_weight`` is passed.
+
+.. versionadded:: 0.19"
+tpot,classification,DecisionTreeClassifier,class_weight,None,NoneType,"Weights associated with classes in the form ``{class_label: weight}``.
+If None, all classes are supposed to have weight one. For
+multi-output problems, a list of dicts can be provided in the same
+order as the columns of y.
+
+Note that for multioutput (including multilabel) weights should be
+defined for each class of every column in its own dict. For example,
+for four-class multilabel classification weights should be
+[{0: 1, 1: 1}, {0: 1, 1: 5}, {0: 1, 1: 1}, {0: 1, 1: 1}] instead of
+[{1:1}, {2:5}, {3:1}, {4:1}].
+
+The ""balanced"" mode uses the values of y to automatically adjust
+weights inversely proportional to class frequencies in the input data
+as ``n_samples / (n_classes * np.bincount(y))``
+
+For multi-output, the weights of each column of y will be multiplied.
+
+Note that these weights will be multiplied with sample_weight (passed
+through the fit method) if sample_weight is specified."
+tpot,classification,DecisionTreeClassifier,ccp_alpha,0.0,float,"Complexity parameter used for Minimal Cost-Complexity Pruning. The
+subtree with the largest cost complexity that is smaller than
+``ccp_alpha`` will be chosen. By default, no pruning is performed. See
+:ref:`minimal_cost_complexity_pruning` for details.
+
+.. versionadded:: 0.22"
+tpot,classification,ExtraTreesClassifier,max_depth,None,NoneType,"The maximum depth of the tree. If None, then nodes are expanded until
+all leaves are pure or until all leaves contain less than
+min_samples_split samples."
+tpot,classification,ExtraTreesClassifier,min_weight_fraction_leaf,0.0,float,"The minimum weighted fraction of the sum total of weights (of all
+the input samples) required to be at a leaf node. Samples have
+equal weight when sample_weight is not provided."
+tpot,classification,ExtraTreesClassifier,max_leaf_nodes,None,NoneType,"Grow trees with ``max_leaf_nodes`` in best-first fashion.
+Best nodes are defined as relative reduction in impurity.
+If None then unlimited number of leaf nodes."
+tpot,classification,ExtraTreesClassifier,min_impurity_decrease,0.0,float,"A node will be split if this split induces a decrease of the impurity
+greater than or equal to this value.
+
+The weighted impurity decrease equation is the following::
+
+    N_t / N * (impurity - N_t_R / N_t * right_impurity
+                        - N_t_L / N_t * left_impurity)
+
+where ``N`` is the total number of samples, ``N_t`` is the number of
+samples at the current node, ``N_t_L`` is the number of samples in the
+left child, and ``N_t_R`` is the number of samples in the right child.
+
+``N``, ``N_t``, ``N_t_R`` and ``N_t_L`` all refer to the weighted sum,
+if ``sample_weight`` is passed.
+
+.. versionadded:: 0.19"
+tpot,classification,ExtraTreesClassifier,oob_score,False,bool,"Whether to use out-of-bag samples to estimate the generalization score.
+By default, :func:`~sklearn.metrics.accuracy_score` is used.
+Provide a callable with signature `metric(y_true, y_pred)` to use a
+custom metric. Only available if `bootstrap=True`."
+tpot,classification,ExtraTreesClassifier,n_jobs,None,NoneType,"The number of jobs to run in parallel. :meth:`fit`, :meth:`predict`,
+:meth:`decision_path` and :meth:`apply` are all parallelized over the
+trees. ``None`` means 1 unless in a :obj:`joblib.parallel_backend`
+context. ``-1`` means using all processors. See :term:`Glossary
+<n_jobs>` for more details."
+tpot,classification,ExtraTreesClassifier,random_state,None,NoneType,"Controls 3 sources of randomness:
+
+- the bootstrapping of the samples used when building trees
+  (if ``bootstrap=True``)
+- the sampling of the features to consider when looking for the best
+  split at each node (if ``max_features < n_features``)
+- the draw of the splits for each of the `max_features`
+See :term:`Glossary <random_state>` for details."
+tpot,classification,ExtraTreesClassifier,verbose,0,int,Controls the verbosity when fitting and predicting.
+tpot,classification,ExtraTreesClassifier,warm_start,False,bool,"When set to ``True``, reuse the solution of the previous call to fit
+and add more estimators to the ensemble, otherwise, just fit a whole
+new forest. See :term:`Glossary <warm_start>` and
+:ref:`gradient_boosting_warm_start` for details."
+tpot,classification,ExtraTreesClassifier,class_weight,None,NoneType,"Weights associated with classes in the form ``{class_label: weight}``.
+If not given, all classes are supposed to have weight one. For
+multi-output problems, a list of dicts can be provided in the same
+order as the columns of y.
+
+Note that for multioutput (including multilabel) weights should be
+defined for each class of every column in its own dict. For example,
+for four-class multilabel classification weights should be
+[{0: 1, 1: 1}, {0: 1, 1: 5}, {0: 1, 1: 1}, {0: 1, 1: 1}] instead of
+[{1:1}, {2:5}, {3:1}, {4:1}].
+
+The ""balanced"" mode uses the values of y to automatically adjust
+weights inversely proportional to class frequencies in the input data
+as ``n_samples / (n_classes * np.bincount(y))``
+
+The ""balanced_subsample"" mode is the same as ""balanced"" except that
+weights are computed based on the bootstrap sample for every tree
+grown.
+
+For multi-output, the weights of each column of y will be multiplied.
+
+Note that these weights will be multiplied with sample_weight (passed
+through the fit method) if sample_weight is specified."
+tpot,classification,ExtraTreesClassifier,ccp_alpha,0.0,float,"Complexity parameter used for Minimal Cost-Complexity Pruning. The
+subtree with the largest cost complexity that is smaller than
+``ccp_alpha`` will be chosen. By default, no pruning is performed. See
+:ref:`minimal_cost_complexity_pruning` for details.
+
+.. versionadded:: 0.22"
+tpot,classification,ExtraTreesClassifier,max_samples,None,NoneType,"If bootstrap is True, the number of samples to draw from X
+to train each base estimator.
+
+- If None (default), then draw `X.shape[0]` samples.
+- If int, then draw `max_samples` samples.
+- If float, then draw `max_samples * X.shape[0]` samples. Thus,
+  `max_samples` should be in the interval `(0.0, 1.0]`.
+
+.. versionadded:: 0.22"
+tpot,classification,GaussianNB,priors,None,NoneType,"Prior probabilities of the classes. If specified, the priors are not
+adjusted according to the data."
+tpot,classification,GaussianNB,var_smoothing,1e-09,float,"Portion of the largest variance of all features that is added to
+variances for calculation stability.
+
+.. versionadded:: 0.20"
+tpot,classification,GaussianProcessClassifier,kernel,None,NoneType,"The kernel specifying the covariance function of the GP. If None is
+passed, the kernel ""1.0 * RBF(1.0)"" is used as default. Note that
+the kernel's hyperparameters are optimized during fitting. Also kernel
+cannot be a `CompoundKernel`."
+tpot,classification,GaussianProcessClassifier,optimizer,fmin_l_bfgs_b,str,"Can either be one of the internally supported optimizers for optimizing
+the kernel's parameters, specified by a string, or an externally
+defined optimizer passed as a callable. If a callable is passed, it
+must have the  signature::
+
+    def optimizer(obj_func, initial_theta, bounds):
+        # * 'obj_func' is the objective function to be maximized, which
+        #   takes the hyperparameters theta as parameter and an
+        #   optional flag eval_gradient, which determines if the
+        #   gradient is returned additionally to the function value
+        # * 'initial_theta': the initial value for theta, which can be
+        #   used by local optimizers
+        # * 'bounds': the bounds on the values of theta
+        ....
+        # Returned are the best found hyperparameters theta and
+        # the corresponding value of the target function.
+        return theta_opt, func_min
+
+Per default, the 'L-BFGS-B' algorithm from scipy.optimize.minimize
+is used. If None is passed, the kernel's parameters are kept fixed.
+Available internal optimizers are::
+
+    'fmin_l_bfgs_b'"
+tpot,classification,GaussianProcessClassifier,n_restarts_optimizer,0,int,"The number of restarts of the optimizer for finding the kernel's
+parameters which maximize the log-marginal likelihood. The first run
+of the optimizer is performed from the kernel's initial parameters,
+the remaining ones (if any) from thetas sampled log-uniform randomly
+from the space of allowed theta-values. If greater than 0, all bounds
+must be finite. Note that n_restarts_optimizer=0 implies that one
+run is performed."
+tpot,classification,GaussianProcessClassifier,max_iter_predict,100,int,"The maximum number of iterations in Newton's method for approximating
+the posterior during predict. Smaller values will reduce computation
+time at the cost of worse results."
+tpot,classification,GaussianProcessClassifier,warm_start,False,bool,"If warm-starts are enabled, the solution of the last Newton iteration
+on the Laplace approximation of the posterior mode is used as
+initialization for the next call of _posterior_mode(). This can speed
+up convergence when _posterior_mode is called several times on similar
+problems as in hyperparameter optimization. See :term:`the Glossary
+<warm_start>`."
+tpot,classification,GaussianProcessClassifier,copy_X_train,True,bool,"If True, a persistent copy of the training data is stored in the
+object. Otherwise, just a reference to the training data is stored,
+which might cause predictions to change if the data is modified
+externally."
+tpot,classification,GaussianProcessClassifier,random_state,None,NoneType,"Determines random number generation used to initialize the centers.
+Pass an int for reproducible results across multiple function calls.
+See :term:`Glossary <random_state>`."
+tpot,classification,GaussianProcessClassifier,multi_class,one_vs_rest,str,"Specifies how multi-class classification problems are handled.
+Supported are 'one_vs_rest' and 'one_vs_one'. In 'one_vs_rest',
+one binary Gaussian process classifier is fitted for each class, which
+is trained to separate this class from the rest. In 'one_vs_one', one
+binary Gaussian process classifier is fitted for each pair of classes,
+which is trained to separate these two classes. The predictions of
+these binary predictors are combined into multi-class predictions.
+Note that 'one_vs_one' does not support predicting probability
+estimates."
+tpot,classification,GaussianProcessClassifier,n_jobs,None,NoneType,"The number of jobs to use for the computation: the specified
+multiclass problems are computed in parallel.
+``None`` means 1 unless in a :obj:`joblib.parallel_backend` context.
+``-1`` means using all processors. See :term:`Glossary <n_jobs>`
+for more details."
+tpot,classification,GradientBoostingClassifier,loss,log_loss,str,"The loss function to be optimized. 'log_loss' refers to binomial and
+multinomial deviance, the same as used in logistic regression.
+It is a good choice for classification with probabilistic outputs.
+For loss 'exponential', gradient boosting recovers the AdaBoost algorithm."
+tpot,classification,GradientBoostingClassifier,criterion,friedman_mse,str,"The function to measure the quality of a split. Supported criteria are
+'friedman_mse' for the mean squared error with improvement score by
+Friedman, 'squared_error' for mean squared error. The default value of
+'friedman_mse' is generally the best as it can provide a better
+approximation in some cases.
+
+.. versionadded:: 0.18"
+tpot,classification,GradientBoostingClassifier,min_weight_fraction_leaf,0.0,float,"The minimum weighted fraction of the sum total of weights (of all
+the input samples) required to be at a leaf node. Samples have
+equal weight when sample_weight is not provided.
+Values must be in the range `[0.0, 0.5]`."
+tpot,classification,GradientBoostingClassifier,min_impurity_decrease,0.0,float,"A node will be split if this split induces a decrease of the impurity
+greater than or equal to this value.
+Values must be in the range `[0.0, inf)`.
+
+The weighted impurity decrease equation is the following::
+
+    N_t / N * (impurity - N_t_R / N_t * right_impurity
+                        - N_t_L / N_t * left_impurity)
+
+where ``N`` is the total number of samples, ``N_t`` is the number of
+samples at the current node, ``N_t_L`` is the number of samples in the
+left child, and ``N_t_R`` is the number of samples in the right child.
+
+``N``, ``N_t``, ``N_t_R`` and ``N_t_L`` all refer to the weighted sum,
+if ``sample_weight`` is passed.
+
+.. versionadded:: 0.19"
+tpot,classification,GradientBoostingClassifier,init,None,NoneType,"An estimator object that is used to compute the initial predictions.
+``init`` has to provide :term:`fit` and :term:`predict_proba`. If
+'zero', the initial raw predictions are set to zero. By default, a
+``DummyEstimator`` predicting the classes priors is used."
+tpot,classification,GradientBoostingClassifier,random_state,None,NoneType,"Controls the random seed given to each Tree estimator at each
+boosting iteration.
+In addition, it controls the random permutation of the features at
+each split (see Notes for more details).
+It also controls the random splitting of the training data to obtain a
+validation set if `n_iter_no_change` is not None.
+Pass an int for reproducible output across multiple function calls.
+See :term:`Glossary <random_state>`."
+tpot,classification,GradientBoostingClassifier,verbose,0,int,"Enable verbose output. If 1 then it prints progress and performance
+once in a while (the more trees the lower the frequency). If greater
+than 1 then it prints progress and performance for every tree.
+Values must be in the range `[0, inf)`."
+tpot,classification,GradientBoostingClassifier,max_leaf_nodes,None,NoneType,"Grow trees with ``max_leaf_nodes`` in best-first fashion.
+Best nodes are defined as relative reduction in impurity.
+Values must be in the range `[2, inf)`.
+If `None`, then unlimited number of leaf nodes."
+tpot,classification,GradientBoostingClassifier,warm_start,False,bool,"When set to ``True``, reuse the solution of the previous call to fit
+and add more estimators to the ensemble, otherwise, just erase the
+previous solution. See :term:`the Glossary <warm_start>`."
+tpot,classification,GradientBoostingClassifier,validation_fraction,0.1,float,"The proportion of training data to set aside as validation set for
+early stopping. Values must be in the range `(0.0, 1.0)`.
+Only used if ``n_iter_no_change`` is set to an integer.
+
+.. versionadded:: 0.20"
+tpot,classification,GradientBoostingClassifier,n_iter_no_change,None,NoneType,"``n_iter_no_change`` is used to decide if early stopping will be used
+to terminate training when validation score is not improving. By
+default it is set to None to disable early stopping. If set to a
+number, it will set aside ``validation_fraction`` size of the training
+data as validation and terminate training when validation score is not
+improving in all of the previous ``n_iter_no_change`` numbers of
+iterations. The split is stratified.
+Values must be in the range `[1, inf)`.
+
+.. versionadded:: 0.20"
+tpot,classification,GradientBoostingClassifier,tol,0.0001,float,"Tolerance for the early stopping. When the loss is not improving
+by at least tol for ``n_iter_no_change`` iterations (if set to a
+number), the training stops.
+Values must be in the range `[0.0, inf)`.
+
+.. versionadded:: 0.20"
+tpot,classification,GradientBoostingClassifier,ccp_alpha,0.0,float,"Complexity parameter used for Minimal Cost-Complexity Pruning. The
+subtree with the largest cost complexity that is smaller than
+``ccp_alpha`` will be chosen. By default, no pruning is performed.
+Values must be in the range `[0.0, inf)`.
+See :ref:`minimal_cost_complexity_pruning` for details.
+
+.. versionadded:: 0.22"
+tpot,classification,HistGradientBoostingClassifier,loss,log_loss,str,"The loss function to use in the boosting process.
+
+For binary classification problems, 'log_loss' is also known as logistic loss,
+binomial deviance or binary crossentropy. Internally, the model fits one tree
+per boosting iteration and uses the logistic sigmoid function (expit) as
+inverse link function to compute the predicted positive class probability.
+
+For multiclass classification problems, 'log_loss' is also known as multinomial
+deviance or categorical crossentropy. Internally, the model fits one tree per
+boosting iteration and per class and uses the softmax function as inverse link
+function to compute the predicted probabilities of the classes."
+tpot,classification,HistGradientBoostingClassifier,learning_rate,0.1,float,"The learning rate, also known as *shrinkage*. This is used as a
+multiplicative factor for the leaves values. Use ``1`` for no
+shrinkage."
+tpot,classification,HistGradientBoostingClassifier,max_iter,100,int,"The maximum number of iterations of the boosting process, i.e. the
+maximum number of trees for binary classification. For multiclass
+classification, `n_classes` trees per iteration are built."
+tpot,classification,HistGradientBoostingClassifier,max_leaf_nodes,31,int,"The maximum number of leaves for each tree. Must be strictly greater
+than 1. If None, there is no maximum limit."
+tpot,classification,HistGradientBoostingClassifier,max_depth,None,NoneType,"The maximum depth of each tree. The depth of a tree is the number of
+edges to go from the root to the deepest leaf.
+Depth isn't constrained by default."
+tpot,classification,HistGradientBoostingClassifier,min_samples_leaf,20,int,"The minimum number of samples per leaf. For small datasets with less
+than a few hundred samples, it is recommended to lower this value
+since only very shallow trees would be built."
+tpot,classification,HistGradientBoostingClassifier,l2_regularization,0.0,float,The L2 regularization parameter. Use 0 for no regularization.
+tpot,classification,HistGradientBoostingClassifier,max_bins,255,int,"The maximum number of bins to use for non-missing values. Before
+training, each feature of the input array `X` is binned into
+integer-valued bins, which allows for a much faster training stage.
+Features with a small number of unique values may use less than
+``max_bins`` bins. In addition to the ``max_bins`` bins, one more bin
+is always reserved for missing values. Must be no larger than 255."
+tpot,classification,HistGradientBoostingClassifier,categorical_features,None,NoneType,"Indicates the categorical features.
+
+- None : no feature will be considered categorical.
+- boolean array-like : boolean mask indicating categorical features.
+- integer array-like : integer indices indicating categorical
+  features.
+- str array-like: names of categorical features (assuming the training
+  data has feature names).
+
+For each categorical feature, there must be at most `max_bins` unique
+categories, and each categorical value must be less then `max_bins - 1`.
+Negative values for categorical features are treated as missing values.
+All categorical values are converted to floating point numbers.
+This means that categorical values of 1.0 and 1 are treated as
+the same category.
+
+Read more in the :ref:`User Guide <categorical_support_gbdt>`.
+
+.. versionadded:: 0.24
+
+.. versionchanged:: 1.2
+   Added support for feature names."
+tpot,classification,HistGradientBoostingClassifier,monotonic_cst,None,NoneType,"Monotonic constraint to enforce on each feature are specified using the
+following integer values:
+
+- 1: monotonic increase
+- 0: no constraint
+- -1: monotonic decrease
+
+If a dict with str keys, map feature to monotonic constraints by name.
+If an array, the features are mapped to constraints by position. See
+:ref:`monotonic_cst_features_names` for a usage example.
+
+The constraints are only valid for binary classifications and hold
+over the probability of the positive class.
+Read more in the :ref:`User Guide <monotonic_cst_gbdt>`.
+
+.. versionadded:: 0.23
+
+.. versionchanged:: 1.2
+   Accept dict of constraints with feature names as keys."
+tpot,classification,HistGradientBoostingClassifier,interaction_cst,None,NoneType,"Specify interaction constraints, the sets of features which can
+interact with each other in child node splits.
+
+Each item specifies the set of feature indices that are allowed
+to interact with each other. If there are more features than
+specified in these constraints, they are treated as if they were
+specified as an additional set.
+
+The strings ""pairwise"" and ""no_interactions"" are shorthands for
+allowing only pairwise or no interactions, respectively.
+
+For instance, with 5 features in total, `interaction_cst=[{0, 1}]`
+is equivalent to `interaction_cst=[{0, 1}, {2, 3, 4}]`,
+and specifies that each branch of a tree will either only split
+on features 0 and 1 or only split on features 2, 3 and 4.
+
+.. versionadded:: 1.2"
+tpot,classification,HistGradientBoostingClassifier,warm_start,False,bool,"When set to ``True``, reuse the solution of the previous call to fit
+and add more estimators to the ensemble. For results to be valid, the
+estimator should be re-trained on the same data only.
+See :term:`the Glossary <warm_start>`."
+tpot,classification,HistGradientBoostingClassifier,early_stopping,auto,str,"If 'auto', early stopping is enabled if the sample size is larger than
+10000. If True, early stopping is enabled, otherwise early stopping is
+disabled.
+
+.. versionadded:: 0.23"
+tpot,classification,HistGradientBoostingClassifier,scoring,loss,str,"Scoring parameter to use for early stopping. It can be a single
+string (see :ref:`scoring_parameter`) or a callable (see
+:ref:`scoring`). If None, the estimator's default scorer
+is used. If ``scoring='loss'``, early stopping is checked
+w.r.t the loss value. Only used if early stopping is performed."
+tpot,classification,HistGradientBoostingClassifier,validation_fraction,0.1,float,"Proportion (or absolute size) of training data to set aside as
+validation data for early stopping. If None, early stopping is done on
+the training data. Only used if early stopping is performed."
+tpot,classification,HistGradientBoostingClassifier,n_iter_no_change,10,int,"Used to determine when to ""early stop"". The fitting process is
+stopped when none of the last ``n_iter_no_change`` scores are better
+than the ``n_iter_no_change - 1`` -th-to-last one, up to some
+tolerance. Only used if early stopping is performed."
+tpot,classification,HistGradientBoostingClassifier,tol,1e-07,float,"The absolute tolerance to use when comparing scores. The higher the
+tolerance, the more likely we are to early stop: higher tolerance
+means that it will be harder for subsequent iterations to be
+considered an improvement upon the reference score."
+tpot,classification,HistGradientBoostingClassifier,verbose,0,int,"The verbosity level. If not zero, print some information about the
+fitting process."
+tpot,classification,HistGradientBoostingClassifier,random_state,None,NoneType,"Pseudo-random number generator to control the subsampling in the
+binning process, and the train/validation data split if early stopping
+is enabled.
+Pass an int for reproducible output across multiple function calls.
+See :term:`Glossary <random_state>`."
+tpot,classification,HistGradientBoostingClassifier,class_weight,None,NoneType,"Weights associated with classes in the form `{class_label: weight}`.
+If not given, all classes are supposed to have weight one.
+The ""balanced"" mode uses the values of y to automatically adjust
+weights inversely proportional to class frequencies in the input data
+as `n_samples / (n_classes * np.bincount(y))`.
+Note that these weights will be multiplied with sample_weight (passed
+through the fit method) if `sample_weight` is specified.
+
+.. versionadded:: 1.2"
+tpot,classification,KNeighborsClassifier,algorithm,auto,str,"Algorithm used to compute the nearest neighbors:
+
+- 'ball_tree' will use :class:`BallTree`
+- 'kd_tree' will use :class:`KDTree`
+- 'brute' will use a brute-force search.
+- 'auto' will attempt to decide the most appropriate algorithm
+  based on the values passed to :meth:`fit` method.
+Note: fitting on sparse input will override the setting of
+this parameter, using brute force."
+tpot,classification,KNeighborsClassifier,leaf_size,30,int,"Leaf size passed to BallTree or KDTree.  This can affect the
+speed of the construction and query, as well as the memory
+required to store the tree.  The optimal value depends on the
+nature of the problem."
+tpot,classification,KNeighborsClassifier,metric,minkowski,str,"Metric to use for distance computation. Default is ""minkowski"", which
+results in the standard Euclidean distance when p = 2. See the
+documentation of `scipy.spatial.distance
+<https://docs.scipy.org/doc/scipy/reference/spatial.distance.html>`_ and
+the metrics listed in
+:class:`~sklearn.metrics.pairwise.distance_metrics` for valid metric
+values.
+
+If metric is ""precomputed"", X is assumed to be a distance matrix and
+must be square during fit. X may be a :term:`sparse graph`, in which
+case only ""nonzero"" elements may be considered neighbors.
+
+If metric is a callable function, it takes two arrays representing 1D
+vectors as inputs and must return one value indicating the distance
+between those vectors. This works for Scipy's metrics, but is less
+efficient than passing the metric name as a string."
+tpot,classification,KNeighborsClassifier,metric_params,None,NoneType,Additional keyword arguments for the metric function.
+tpot,classification,KNeighborsClassifier,n_jobs,None,NoneType,"The number of parallel jobs to run for neighbors search.
+``None`` means 1 unless in a :obj:`joblib.parallel_backend` context.
+``-1`` means using all processors. See :term:`Glossary <n_jobs>`
+for more details.
+Doesn't affect :meth:`fit` method."
+tpot,classification,LGBMClassifier,boosting_type,gbdt,str,"'gbdt', traditional Gradient Boosting Decision Tree.
+'dart', Dropouts meet Multiple Additive Regression Trees.
+'rf', Random Forest."
+tpot,classification,LGBMClassifier,num_leaves,31,int,Maximum tree leaves for base learners.
+tpot,classification,LGBMClassifier,max_depth,-1,int,"Maximum tree depth for base learners, <=0 means no limit.
+If setting this to a positive value, consider also changing ``num_leaves`` to ``<= 2^max_depth``."
+tpot,classification,LGBMClassifier,learning_rate,0.1,float,"Boosting learning rate.
+You can use ``callbacks`` parameter of ``fit`` method to shrink/adapt learning rate
+in training using ``reset_parameter`` callback.
+Note, that this will ignore the ``learning_rate`` argument in training."
+tpot,classification,LGBMClassifier,n_estimators,100,int,Number of boosted trees to fit.
+tpot,classification,LGBMClassifier,subsample_for_bin,200000,int,Number of samples for constructing bins.
+tpot,classification,LGBMClassifier,objective,None,NoneType,"Specify the learning task and the corresponding learning objective or
+a custom objective function to be used (see note below).
+Default: 'regression' for LGBMRegressor, 'binary' or 'multiclass' for LGBMClassifier, 'lambdarank' for LGBMRanker."
+tpot,classification,LGBMClassifier,class_weight,None,NoneType,"Weights associated with classes in the form ``{class_label: weight}``.
+Use this parameter only for multi-class classification task;
+for binary classification task you may use ``is_unbalance`` or ``scale_pos_weight`` parameters.
+Note, that the usage of all these parameters will result in poor estimates of the individual class probabilities.
+You may want to consider performing probability calibration
+(https://scikit-learn.org/stable/modules/calibration.html) of your model.
+The 'balanced' mode uses the values of y to automatically adjust weights
+inversely proportional to class frequencies in the input data as ``n_samples / (n_classes * np.bincount(y))``.
+If None, all classes are supposed to have weight one.
+Note, that these weights will be multiplied with ``sample_weight`` (passed through the ``fit`` method)
+if ``sample_weight`` is specified."
+tpot,classification,LGBMClassifier,min_split_gain,0.0,float,Minimum loss reduction required to make a further partition on a leaf node of the tree.
+tpot,classification,LGBMClassifier,min_child_weight,0.001,float,Minimum sum of instance weight (Hessian) needed in a child (leaf).
+tpot,classification,LGBMClassifier,min_child_samples,20,int,Minimum number of data needed in a child (leaf).
+tpot,classification,LGBMClassifier,subsample,1.0,float,Subsample ratio of the training instance.
+tpot,classification,LGBMClassifier,subsample_freq,0,int,"Frequency of subsample, <=0 means no enable."
+tpot,classification,LGBMClassifier,colsample_bytree,1.0,float,Subsample ratio of columns when constructing each tree.
+tpot,classification,LGBMClassifier,reg_alpha,0.0,float,L1 regularization term on weights.
+tpot,classification,LGBMClassifier,reg_lambda,0.0,float,L2 regularization term on weights.
+tpot,classification,LGBMClassifier,random_state,None,NoneType,"Random number seed.
+If int, this number is used to seed the C++ code.
+If RandomState or Generator object (numpy), a random integer is picked based on its state to seed the C++ code.
+If None, default seeds in C++ code are used."
+tpot,classification,LGBMClassifier,n_jobs,None,NoneType,"Number of parallel threads to use for training (can be changed at prediction time by
+passing it as an extra keyword argument).
+
+For better performance, it is recommended to set this to the number of physical cores
+in the CPU.
+
+Negative integers are interpreted as following joblib's formula (n_cpus + 1 + n_jobs), just like
+scikit-learn (so e.g. -1 means using all threads). A value of zero corresponds the default number of
+threads configured for OpenMP in the system. A value of ``None`` (the default) corresponds
+to using the number of physical cores in the system (its correct detection requires
+either the ``joblib`` or the ``psutil`` util libraries to be installed).
+
+.. versionchanged:: 4.0.0"
+tpot,classification,LGBMClassifier,importance_type,split,str,"The type of feature importance to be filled into ``feature_importances_``.
+If 'split', result contains numbers of times the feature is used in a model.
+If 'gain', result contains total gains of splits which use the feature."
+tpot,classification,LinearDiscriminantAnalysis,solver,svd,str,"Solver to use, possible values:
+  - 'svd': Singular value decomposition (default).
+    Does not compute the covariance matrix, therefore this solver is
+    recommended for data with a large number of features.
+  - 'lsqr': Least squares solution.
+    Can be combined with shrinkage or custom covariance estimator.
+  - 'eigen': Eigenvalue decomposition.
+    Can be combined with shrinkage or custom covariance estimator.
+
+.. versionchanged:: 1.2
+    `solver=""svd""` now has experimental Array API support. See the
+    :ref:`Array API User Guide <array_api>` for more details."
+tpot,classification,LinearDiscriminantAnalysis,shrinkage,None,NoneType,"Shrinkage parameter, possible values:
+  - None: no shrinkage (default).
+  - 'auto': automatic shrinkage using the Ledoit-Wolf lemma.
+  - float between 0 and 1: fixed shrinkage parameter.
+
+This should be left to None if `covariance_estimator` is used.
+Note that shrinkage works only with 'lsqr' and 'eigen' solvers."
+tpot,classification,LinearDiscriminantAnalysis,priors,None,NoneType,"The class prior probabilities. By default, the class proportions are
+inferred from the training data."
+tpot,classification,LinearDiscriminantAnalysis,n_components,None,NoneType,"Number of components (<= min(n_classes - 1, n_features)) for
+dimensionality reduction. If None, will be set to
+min(n_classes - 1, n_features). This parameter only affects the
+`transform` method."
+tpot,classification,LinearDiscriminantAnalysis,store_covariance,False,bool,"If True, explicitly compute the weighted within-class covariance
+matrix when solver is 'svd'. The matrix is always computed
+and stored for the other solvers.
+
+.. versionadded:: 0.17"
+tpot,classification,LinearDiscriminantAnalysis,tol,0.0001,float,"Absolute threshold for a singular value of X to be considered
+significant, used to estimate the rank of X. Dimensions whose
+singular values are non-significant are discarded. Only used if
+solver is 'svd'.
+
+.. versionadded:: 0.17"
+tpot,classification,LinearDiscriminantAnalysis,covariance_estimator,None,NoneType,"If not None, `covariance_estimator` is used to estimate
+the covariance matrices instead of relying on the empirical
+covariance estimator (with potential shrinkage).
+The object should have a fit method and a ``covariance_`` attribute
+like the estimators in :mod:`sklearn.covariance`.
+if None the shrinkage parameter drives the estimate.
+
+This should be left to None if `shrinkage` is used.
+Note that `covariance_estimator` works only with 'lsqr' and 'eigen'
+solvers.
+
+.. versionadded:: 0.24"
+tpot,classification,LinearSVC,multi_class,ovr,str,"Determines the multi-class strategy if `y` contains more than
+two classes.
+``""ovr""`` trains n_classes one-vs-rest classifiers, while
+``""crammer_singer""`` optimizes a joint objective over all classes.
+While `crammer_singer` is interesting from a theoretical perspective
+as it is consistent, it is seldom used in practice as it rarely leads
+to better accuracy and is more expensive to compute.
+If ``""crammer_singer""`` is chosen, the options loss, penalty and dual
+will be ignored."
+tpot,classification,LinearSVC,fit_intercept,True,bool,"Whether or not to fit an intercept. If set to True, the feature vector
+is extended to include an intercept term: `[x_1, ..., x_n, 1]`, where
+1 corresponds to the intercept. If set to False, no intercept will be
+used in calculations (i.e. data is expected to be already centered)."
+tpot,classification,LinearSVC,intercept_scaling,1,int,"When `fit_intercept` is True, the instance vector x becomes ``[x_1,
+..., x_n, intercept_scaling]``, i.e. a ""synthetic"" feature with a
+constant value equal to `intercept_scaling` is appended to the instance
+vector. The intercept becomes intercept_scaling * synthetic feature
+weight. Note that liblinear internally penalizes the intercept,
+treating it like any other term in the feature vector. To reduce the
+impact of the regularization on the intercept, the `intercept_scaling`
+parameter can be set to a value greater than 1; the higher the value of
+`intercept_scaling`, the lower the impact of regularization on it.
+Then, the weights become `[w_x_1, ..., w_x_n,
+w_intercept*intercept_scaling]`, where `w_x_1, ..., w_x_n` represent
+the feature weights and the intercept weight is scaled by
+`intercept_scaling`. This scaling allows the intercept term to have a
+different regularization behavior compared to the other features."
+tpot,classification,LinearSVC,class_weight,None,NoneType,"Set the parameter C of class i to ``class_weight[i]*C`` for
+SVC. If not given, all classes are supposed to have
+weight one.
+The ""balanced"" mode uses the values of y to automatically adjust
+weights inversely proportional to class frequencies in the input data
+as ``n_samples / (n_classes * np.bincount(y))``."
+tpot,classification,LinearSVC,verbose,0,int,"Enable verbose output. Note that this setting takes advantage of a
+per-process runtime setting in liblinear that, if enabled, may not work
+properly in a multithreaded context."
+tpot,classification,LinearSVC,random_state,None,NoneType,"Controls the pseudo random number generation for shuffling the data for
+the dual coordinate descent (if ``dual=True``). When ``dual=False`` the
+underlying implementation of :class:`LinearSVC` is not random and
+``random_state`` has no effect on the results.
+Pass an int for reproducible output across multiple function calls.
+See :term:`Glossary <random_state>`."
+tpot,classification,LinearSVC,max_iter,1000,int,The maximum number of iterations to be run.
+tpot,classification,LogisticRegression,tol,0.0001,float,Tolerance for stopping criteria.
+tpot,classification,LogisticRegression,fit_intercept,True,bool,"Specifies if a constant (a.k.a. bias or intercept) should be
+added to the decision function."
+tpot,classification,LogisticRegression,intercept_scaling,1,int,"Useful only when the solver 'liblinear' is used
+and self.fit_intercept is set to True. In this case, x becomes
+[x, self.intercept_scaling],
+i.e. a ""synthetic"" feature with constant value equal to
+intercept_scaling is appended to the instance vector.
+The intercept becomes ``intercept_scaling * synthetic_feature_weight``.
+
+Note! the synthetic feature weight is subject to l1/l2 regularization
+as all other features.
+To lessen the effect of regularization on synthetic feature weight
+(and therefore on the intercept) intercept_scaling has to be increased."
+tpot,classification,LogisticRegression,class_weight,None,NoneType,"Weights associated with classes in the form ``{class_label: weight}``.
+If not given, all classes are supposed to have weight one.
+
+The ""balanced"" mode uses the values of y to automatically adjust
+weights inversely proportional to class frequencies in the input data
+as ``n_samples / (n_classes * np.bincount(y))``.
+
+Note that these weights will be multiplied with sample_weight (passed
+through the fit method) if sample_weight is specified.
+
+.. versionadded:: 0.17
+   *class_weight='balanced'*"
+tpot,classification,LogisticRegression,random_state,None,NoneType,"Used when ``solver`` == 'sag', 'saga' or 'liblinear' to shuffle the
+data. See :term:`Glossary <random_state>` for details."
+tpot,classification,LogisticRegression,solver,lbfgs,str,"Algorithm to use in the optimization problem. Default is 'lbfgs'.
+To choose a solver, you might want to consider the following aspects:
+
+    - For small datasets, 'liblinear' is a good choice, whereas 'sag'
+      and 'saga' are faster for large ones;
+    - For multiclass problems, only 'newton-cg', 'sag', 'saga' and
+      'lbfgs' handle multinomial loss;
+    - 'liblinear' is limited to one-versus-rest schemes.
+    - 'newton-cholesky' is a good choice for `n_samples` >> `n_features`,
+      especially with one-hot encoded categorical features with rare
+      categories. Note that it is limited to binary classification and the
+      one-versus-rest reduction for multiclass classification. Be aware that
+      the memory usage of this solver has a quadratic dependency on
+      `n_features` because it explicitly computes the Hessian matrix.
+
+.. warning::
+   The choice of the algorithm depends on the penalty chosen.
+   Supported penalties by solver:
+
+   - 'lbfgs'           -   ['l2', None]
+   - 'liblinear'       -   ['l1', 'l2']
+   - 'newton-cg'       -   ['l2', None]
+   - 'newton-cholesky' -   ['l2', None]
+   - 'sag'             -   ['l2', None]
+   - 'saga'            -   ['elasticnet', 'l1', 'l2', None]
+
+.. note::
+   'sag' and 'saga' fast convergence is only guaranteed on features
+   with approximately the same scale. You can preprocess the data with
+   a scaler from :mod:`sklearn.preprocessing`.
+
+.. seealso::
+   Refer to the User Guide for more information regarding
+   :class:`LogisticRegression` and more specifically the
+   :ref:`Table <Logistic_regression>`
+   summarizing solver/penalty supports.
+
+.. versionadded:: 0.17
+   Stochastic Average Gradient descent solver.
+.. versionadded:: 0.19
+   SAGA solver.
+.. versionchanged:: 0.22
+    The default solver changed from 'liblinear' to 'lbfgs' in 0.22.
+.. versionadded:: 1.2
+   newton-cholesky solver."
+tpot,classification,LogisticRegression,max_iter,100,int,Maximum number of iterations taken for the solvers to converge.
+tpot,classification,LogisticRegression,multi_class,auto,str,"If the option chosen is 'ovr', then a binary problem is fit for each
+label. For 'multinomial' the loss minimised is the multinomial loss fit
+across the entire probability distribution, *even when the data is
+binary*. 'multinomial' is unavailable when solver='liblinear'.
+'auto' selects 'ovr' if the data is binary, or if solver='liblinear',
+and otherwise selects 'multinomial'.
+
+.. versionadded:: 0.18
+   Stochastic Average Gradient descent solver for 'multinomial' case.
+.. versionchanged:: 0.22
+    Default changed from 'ovr' to 'auto' in 0.22."
+tpot,classification,LogisticRegression,verbose,0,int,"For the liblinear and lbfgs solvers set verbose to any positive
+number for verbosity."
+tpot,classification,LogisticRegression,warm_start,False,bool,"When set to True, reuse the solution of the previous call to fit as
+initialization, otherwise, just erase the previous solution.
+Useless for liblinear solver. See :term:`the Glossary <warm_start>`.
+
+.. versionadded:: 0.17
+   *warm_start* to support *lbfgs*, *newton-cg*, *sag*, *saga* solvers."
+tpot,classification,LogisticRegression,n_jobs,None,NoneType,"Number of CPU cores used when parallelizing over classes if
+multi_class='ovr'"". This parameter is ignored when the ``solver`` is
+set to 'liblinear' regardless of whether 'multi_class' is specified or
+not. ``None`` means 1 unless in a :obj:`joblib.parallel_backend`
+context. ``-1`` means using all processors.
+See :term:`Glossary <n_jobs>` for more details."
+tpot,classification,LogisticRegression,l1_ratio,None,NoneType,"The Elastic-Net mixing parameter, with ``0 <= l1_ratio <= 1``. Only
+used if ``penalty='elasticnet'``. Setting ``l1_ratio=0`` is equivalent
+to using ``penalty='l2'``, while setting ``l1_ratio=1`` is equivalent
+to using ``penalty='l1'``. For ``0 < l1_ratio <1``, the penalty is a
+combination of L1 and L2."
+tpot,classification,MLPClassifier,hidden_layer_sizes,"(100,)",tuple,"The ith element represents the number of neurons in the ith
+hidden layer."
+tpot,classification,MLPClassifier,activation,relu,str,"Activation function for the hidden layer.
+
+- 'identity', no-op activation, useful to implement linear bottleneck,
+  returns f(x) = x
+
+- 'logistic', the logistic sigmoid function,
+  returns f(x) = 1 / (1 + exp(-x)).
+
+- 'tanh', the hyperbolic tan function,
+  returns f(x) = tanh(x).
+
+- 'relu', the rectified linear unit function,
+  returns f(x) = max(0, x)"
+tpot,classification,MLPClassifier,solver,adam,str,"The solver for weight optimization.
+
+- 'lbfgs' is an optimizer in the family of quasi-Newton methods.
+
+- 'sgd' refers to stochastic gradient descent.
+
+- 'adam' refers to a stochastic gradient-based optimizer proposed
+  by Kingma, Diederik, and Jimmy Ba
+Note: The default solver 'adam' works pretty well on relatively
+large datasets (with thousands of training samples or more) in terms of
+both training time and validation score.
+For small datasets, however, 'lbfgs' can converge faster and perform
+better."
+tpot,classification,MLPClassifier,batch_size,auto,str,"Size of minibatches for stochastic optimizers.
+If the solver is 'lbfgs', the classifier will not use minibatch.
+When set to ""auto"", `batch_size=min(200, n_samples)`."
+tpot,classification,MLPClassifier,learning_rate,constant,str,"Learning rate schedule for weight updates.
+
+- 'constant' is a constant learning rate given by
+  'learning_rate_init'.
+
+- 'invscaling' gradually decreases the learning rate at each
+  time step 't' using an inverse scaling exponent of 'power_t'.
+  effective_learning_rate = learning_rate_init / pow(t, power_t)
+
+- 'adaptive' keeps the learning rate constant to
+  'learning_rate_init' as long as training loss keeps decreasing.
+  Each time two consecutive epochs fail to decrease training loss by at
+  least tol, or fail to increase validation score by at least tol if
+  'early_stopping' is on, the current learning rate is divided by 5.
+
+Only used when ``solver='sgd'``."
+tpot,classification,MLPClassifier,power_t,0.5,float,"The exponent for inverse scaling learning rate.
+It is used in updating effective learning rate when the learning_rate
+is set to 'invscaling'. Only used when solver='sgd'."
+tpot,classification,MLPClassifier,max_iter,200,int,"Maximum number of iterations. The solver iterates until convergence
+(determined by 'tol') or this number of iterations. For stochastic
+solvers ('sgd', 'adam'), note that this determines the number of epochs
+(how many times each data point will be used), not the number of
+gradient steps."
+tpot,classification,MLPClassifier,shuffle,True,bool,"Whether to shuffle samples in each iteration. Only used when
+solver='sgd' or 'adam'."
+tpot,classification,MLPClassifier,random_state,None,NoneType,"Determines random number generation for weights and bias
+initialization, train-test split if early stopping is used, and batch
+sampling when solver='sgd' or 'adam'.
+Pass an int for reproducible results across multiple function calls.
+See :term:`Glossary <random_state>`."
+tpot,classification,MLPClassifier,tol,0.0001,float,"Tolerance for the optimization. When the loss or score is not improving
+by at least ``tol`` for ``n_iter_no_change`` consecutive iterations,
+unless ``learning_rate`` is set to 'adaptive', convergence is
+considered to be reached and training stops."
+tpot,classification,MLPClassifier,verbose,False,bool,Whether to print progress messages to stdout.
+tpot,classification,MLPClassifier,warm_start,False,bool,"When set to True, reuse the solution of the previous
+call to fit as initialization, otherwise, just erase the
+previous solution. See :term:`the Glossary <warm_start>`."
+tpot,classification,MLPClassifier,momentum,0.9,float,"Momentum for gradient descent update. Should be between 0 and 1. Only
+used when solver='sgd'."
+tpot,classification,MLPClassifier,nesterovs_momentum,True,bool,"Whether to use Nesterov's momentum. Only used when solver='sgd' and
+momentum > 0."
+tpot,classification,MLPClassifier,early_stopping,False,bool,"Whether to use early stopping to terminate training when validation
+score is not improving. If set to true, it will automatically set
+aside 10% of training data as validation and terminate training when
+validation score is not improving by at least tol for
+``n_iter_no_change`` consecutive epochs. The split is stratified,
+except in a multilabel setting.
+If early stopping is False, then the training stops when the training
+loss does not improve by more than tol for n_iter_no_change consecutive
+passes over the training set.
+Only effective when solver='sgd' or 'adam'."
+tpot,classification,MLPClassifier,validation_fraction,0.1,float,"The proportion of training data to set aside as validation set for
+early stopping. Must be between 0 and 1.
+Only used if early_stopping is True."
+tpot,classification,MLPClassifier,beta_1,0.9,float,"Exponential decay rate for estimates of first moment vector in adam,
+should be in [0, 1). Only used when solver='adam'."
+tpot,classification,MLPClassifier,beta_2,0.999,float,"Exponential decay rate for estimates of second moment vector in adam,
+should be in [0, 1). Only used when solver='adam'."
+tpot,classification,MLPClassifier,epsilon,1e-08,float,Value for numerical stability in adam. Only used when solver='adam'.
+tpot,classification,MLPClassifier,n_iter_no_change,10,int,"Maximum number of epochs to not meet ``tol`` improvement.
+Only effective when solver='sgd' or 'adam'.
+
+.. versionadded:: 0.20"
+tpot,classification,MLPClassifier,max_fun,15000,int,"Only used when solver='lbfgs'. Maximum number of loss function calls.
+The solver iterates until convergence (determined by 'tol'), number
+of iterations reaches max_iter, or this number of loss function calls.
+Note that number of loss function calls will be greater than or equal
+to the number of iterations for the `MLPClassifier`.
+
+.. versionadded:: 0.22"
+tpot,classification,MultinomialNB,force_alpha,warn,str,"If False and alpha is less than 1e-10, it will set alpha to
+1e-10. If True, alpha will remain unchanged. This may cause
+numerical errors if alpha is too close to 0.
+
+.. versionadded:: 1.2
+.. deprecated:: 1.2
+   The default value of `force_alpha` will change to `True` in v1.4."
+tpot,classification,MultinomialNB,class_prior,None,NoneType,"Prior probabilities of the classes. If specified, the priors are not
+adjusted according to the data."
+tpot,classification,PassiveAggressiveClassifier,C,1.0,float,Maximum step size (regularization). Defaults to 1.0.
+tpot,classification,PassiveAggressiveClassifier,fit_intercept,True,bool,"Whether the intercept should be estimated or not. If False, the
+data is assumed to be already centered."
+tpot,classification,PassiveAggressiveClassifier,max_iter,1000,int,"The maximum number of passes over the training data (aka epochs).
+It only impacts the behavior in the ``fit`` method, and not the
+:meth:`PassiveAggressive.partial_fit` method.
+
+.. versionadded:: 0.19"
+tpot,classification,PassiveAggressiveClassifier,tol,0.001,float,"The stopping criterion. If it is not None, the iterations will stop
+when (loss > previous_loss - tol).
+
+.. versionadded:: 0.19"
+tpot,classification,PassiveAggressiveClassifier,early_stopping,False,bool,"Whether to use early stopping to terminate training when validation.
+score is not improving. If set to True, it will automatically set aside
+a stratified fraction of training data as validation and terminate
+training when validation score is not improving by at least tol for
+n_iter_no_change consecutive epochs.
+
+.. versionadded:: 0.20"
+tpot,classification,PassiveAggressiveClassifier,validation_fraction,0.1,float,"The proportion of training data to set aside as validation set for
+early stopping. Must be between 0 and 1.
+Only used if early_stopping is True.
+
+.. versionadded:: 0.20"
+tpot,classification,PassiveAggressiveClassifier,n_iter_no_change,5,int,"Number of iterations with no improvement to wait before early stopping.
+
+.. versionadded:: 0.20"
+tpot,classification,PassiveAggressiveClassifier,shuffle,True,bool,Whether or not the training data should be shuffled after each epoch.
+tpot,classification,PassiveAggressiveClassifier,verbose,0,int,The verbosity level.
+tpot,classification,PassiveAggressiveClassifier,loss,hinge,str,"The loss function to be used:
+hinge: equivalent to PA-I in the reference paper.
+squared_hinge: equivalent to PA-II in the reference paper."
+tpot,classification,PassiveAggressiveClassifier,n_jobs,None,NoneType,"The number of CPUs to use to do the OVA (One Versus All, for
+multi-class problems) computation.
+``None`` means 1 unless in a :obj:`joblib.parallel_backend` context.
+``-1`` means using all processors. See :term:`Glossary <n_jobs>`
+for more details."
+tpot,classification,PassiveAggressiveClassifier,random_state,None,NoneType,"Used to shuffle the training data, when ``shuffle`` is set to
+``True``. Pass an int for reproducible output across multiple
+function calls.
+See :term:`Glossary <random_state>`."
+tpot,classification,PassiveAggressiveClassifier,warm_start,False,bool,"When set to True, reuse the solution of the previous call to fit as
+initialization, otherwise, just erase the previous solution.
+See :term:`the Glossary <warm_start>`.
+
+Repeatedly calling fit or partial_fit when warm_start is True can
+result in a different solution than when calling fit a single time
+because of the way the data is shuffled."
+tpot,classification,PassiveAggressiveClassifier,class_weight,None,NoneType,"Preset for the class_weight fit parameter.
+
+Weights associated with classes. If not given, all classes
+are supposed to have weight one.
+
+The ""balanced"" mode uses the values of y to automatically adjust
+weights inversely proportional to class frequencies in the input data
+as ``n_samples / (n_classes * np.bincount(y))``.
+
+.. versionadded:: 0.17
+   parameter *class_weight* to automatically weight samples."
+tpot,classification,PassiveAggressiveClassifier,average,False,bool,"When set to True, computes the averaged SGD weights and stores the
+result in the ``coef_`` attribute. If set to an int greater than 1,
+averaging will begin once the total number of samples seen reaches
+average. So average=10 will begin averaging after seeing 10 samples.
+
+.. versionadded:: 0.19
+   parameter *average* to use weights averaging in SGD."
+tpot,classification,QuadraticDiscriminantAnalysis,priors,None,NoneType,"Class priors. By default, the class proportions are inferred from the
+training data."
+tpot,classification,QuadraticDiscriminantAnalysis,reg_param,0.0,float,"Regularizes the per-class covariance estimates by transforming S2 as
+``S2 = (1 - reg_param) * S2 + reg_param * np.eye(n_features)``,
+where S2 corresponds to the `scaling_` attribute of a given class."
+tpot,classification,QuadraticDiscriminantAnalysis,store_covariance,False,bool,"If True, the class covariance matrices are explicitly computed and
+stored in the `self.covariance_` attribute.
+
+.. versionadded:: 0.17"
+tpot,classification,QuadraticDiscriminantAnalysis,tol,0.0001,float,"Absolute threshold for a singular value to be considered significant,
+used to estimate the rank of `Xk` where `Xk` is the centered matrix
+of samples in class k. This parameter does not affect the
+predictions. It only controls a warning that is raised when features
+are considered to be colinear.
+
+.. versionadded:: 0.17"
+tpot,classification,RandomForestClassifier,max_depth,None,NoneType,"The maximum depth of the tree. If None, then nodes are expanded until
+all leaves are pure or until all leaves contain less than
+min_samples_split samples."
+tpot,classification,RandomForestClassifier,min_weight_fraction_leaf,0.0,float,"The minimum weighted fraction of the sum total of weights (of all
+the input samples) required to be at a leaf node. Samples have
+equal weight when sample_weight is not provided."
+tpot,classification,RandomForestClassifier,max_leaf_nodes,None,NoneType,"Grow trees with ``max_leaf_nodes`` in best-first fashion.
+Best nodes are defined as relative reduction in impurity.
+If None then unlimited number of leaf nodes."
+tpot,classification,RandomForestClassifier,min_impurity_decrease,0.0,float,"A node will be split if this split induces a decrease of the impurity
+greater than or equal to this value.
+
+The weighted impurity decrease equation is the following::
+
+    N_t / N * (impurity - N_t_R / N_t * right_impurity
+                        - N_t_L / N_t * left_impurity)
+
+where ``N`` is the total number of samples, ``N_t`` is the number of
+samples at the current node, ``N_t_L`` is the number of samples in the
+left child, and ``N_t_R`` is the number of samples in the right child.
+
+``N``, ``N_t``, ``N_t_R`` and ``N_t_L`` all refer to the weighted sum,
+if ``sample_weight`` is passed.
+
+.. versionadded:: 0.19"
+tpot,classification,RandomForestClassifier,oob_score,False,bool,"Whether to use out-of-bag samples to estimate the generalization score.
+By default, :func:`~sklearn.metrics.accuracy_score` is used.
+Provide a callable with signature `metric(y_true, y_pred)` to use a
+custom metric. Only available if `bootstrap=True`."
+tpot,classification,RandomForestClassifier,n_jobs,None,NoneType,"The number of jobs to run in parallel. :meth:`fit`, :meth:`predict`,
+:meth:`decision_path` and :meth:`apply` are all parallelized over the
+trees. ``None`` means 1 unless in a :obj:`joblib.parallel_backend`
+context. ``-1`` means using all processors. See :term:`Glossary
+<n_jobs>` for more details."
+tpot,classification,RandomForestClassifier,random_state,None,NoneType,"Controls both the randomness of the bootstrapping of the samples used
+when building trees (if ``bootstrap=True``) and the sampling of the
+features to consider when looking for the best split at each node
+(if ``max_features < n_features``).
+See :term:`Glossary <random_state>` for details."
+tpot,classification,RandomForestClassifier,verbose,0,int,Controls the verbosity when fitting and predicting.
+tpot,classification,RandomForestClassifier,warm_start,False,bool,"When set to ``True``, reuse the solution of the previous call to fit
+and add more estimators to the ensemble, otherwise, just fit a whole
+new forest. See :term:`Glossary <warm_start>` and
+:ref:`gradient_boosting_warm_start` for details."
+tpot,classification,RandomForestClassifier,class_weight,None,NoneType,"Weights associated with classes in the form ``{class_label: weight}``.
+If not given, all classes are supposed to have weight one. For
+multi-output problems, a list of dicts can be provided in the same
+order as the columns of y.
+
+Note that for multioutput (including multilabel) weights should be
+defined for each class of every column in its own dict. For example,
+for four-class multilabel classification weights should be
+[{0: 1, 1: 1}, {0: 1, 1: 5}, {0: 1, 1: 1}, {0: 1, 1: 1}] instead of
+[{1:1}, {2:5}, {3:1}, {4:1}].
+
+The ""balanced"" mode uses the values of y to automatically adjust
+weights inversely proportional to class frequencies in the input data
+as ``n_samples / (n_classes * np.bincount(y))``
+
+The ""balanced_subsample"" mode is the same as ""balanced"" except that
+weights are computed based on the bootstrap sample for every tree
+grown.
+
+For multi-output, the weights of each column of y will be multiplied.
+
+Note that these weights will be multiplied with sample_weight (passed
+through the fit method) if sample_weight is specified."
+tpot,classification,RandomForestClassifier,ccp_alpha,0.0,float,"Complexity parameter used for Minimal Cost-Complexity Pruning. The
+subtree with the largest cost complexity that is smaller than
+``ccp_alpha`` will be chosen. By default, no pruning is performed. See
+:ref:`minimal_cost_complexity_pruning` for details.
+
+.. versionadded:: 0.22"
+tpot,classification,RandomForestClassifier,max_samples,None,NoneType,"If bootstrap is True, the number of samples to draw from X
+to train each base estimator.
+
+- If None (default), then draw `X.shape[0]` samples.
+- If int, then draw `max_samples` samples.
+- If float, then draw `max(round(n_samples * max_samples), 1)` samples. Thus,
+  `max_samples` should be in the interval `(0.0, 1.0]`.
+
+.. versionadded:: 0.22"
+tpot,classification,SGDClassifier,max_iter,1000,int,"The maximum number of passes over the training data (aka epochs).
+It only impacts the behavior in the ``fit`` method, and not the
+:meth:`partial_fit` method.
+Values must be in the range `[1, inf)`.
+
+.. versionadded:: 0.19"
+tpot,classification,SGDClassifier,tol,0.001,float,"The stopping criterion. If it is not None, training will stop
+when (loss > best_loss - tol) for ``n_iter_no_change`` consecutive
+epochs.
+Convergence is checked against the training loss or the
+validation loss depending on the `early_stopping` parameter.
+Values must be in the range `[0.0, inf)`.
+
+.. versionadded:: 0.19"
+tpot,classification,SGDClassifier,shuffle,True,bool,Whether or not the training data should be shuffled after each epoch.
+tpot,classification,SGDClassifier,verbose,0,int,"The verbosity level.
+Values must be in the range `[0, inf)`."
+tpot,classification,SGDClassifier,epsilon,0.1,float,"Epsilon in the epsilon-insensitive loss functions; only if `loss` is
+'huber', 'epsilon_insensitive', or 'squared_epsilon_insensitive'.
+For 'huber', determines the threshold at which it becomes less
+important to get the prediction exactly right.
+For epsilon-insensitive, any differences between the current prediction
+and the correct label are ignored if they are less than this threshold.
+Values must be in the range `[0.0, inf)`."
+tpot,classification,SGDClassifier,n_jobs,None,NoneType,"The number of CPUs to use to do the OVA (One Versus All, for
+multi-class problems) computation.
+``None`` means 1 unless in a :obj:`joblib.parallel_backend` context.
+``-1`` means using all processors. See :term:`Glossary <n_jobs>`
+for more details."
+tpot,classification,SGDClassifier,random_state,None,NoneType,"Used for shuffling the data, when ``shuffle`` is set to ``True``.
+Pass an int for reproducible output across multiple function calls.
+See :term:`Glossary <random_state>`.
+Integer values must be in the range `[0, 2**32 - 1]`."
+tpot,classification,SGDClassifier,early_stopping,False,bool,"Whether to use early stopping to terminate training when validation
+score is not improving. If set to `True`, it will automatically set aside
+a stratified fraction of training data as validation and terminate
+training when validation score returned by the `score` method is not
+improving by at least tol for n_iter_no_change consecutive epochs.
+
+.. versionadded:: 0.20
+    Added 'early_stopping' option"
+tpot,classification,SGDClassifier,validation_fraction,0.1,float,"The proportion of training data to set aside as validation set for
+early stopping. Must be between 0 and 1.
+Only used if `early_stopping` is True.
+Values must be in the range `(0.0, 1.0)`.
+
+.. versionadded:: 0.20
+    Added 'validation_fraction' option"
+tpot,classification,SGDClassifier,n_iter_no_change,5,int,"Number of iterations with no improvement to wait before stopping
+fitting.
+Convergence is checked against the training loss or the
+validation loss depending on the `early_stopping` parameter.
+Integer values must be in the range `[1, max_iter)`.
+
+.. versionadded:: 0.20
+    Added 'n_iter_no_change' option"
+tpot,classification,SGDClassifier,class_weight,None,NoneType,"Preset for the class_weight fit parameter.
+
+Weights associated with classes. If not given, all classes
+are supposed to have weight one.
+
+The ""balanced"" mode uses the values of y to automatically adjust
+weights inversely proportional to class frequencies in the input data
+as ``n_samples / (n_classes * np.bincount(y))``."
+tpot,classification,SGDClassifier,warm_start,False,bool,"When set to True, reuse the solution of the previous call to fit as
+initialization, otherwise, just erase the previous solution.
+See :term:`the Glossary <warm_start>`.
+
+Repeatedly calling fit or partial_fit when warm_start is True can
+result in a different solution than when calling fit a single time
+because of the way the data is shuffled.
+If a dynamic learning rate is used, the learning rate is adapted
+depending on the number of samples already seen. Calling ``fit`` resets
+this counter, while ``partial_fit`` will result in increasing the
+existing counter."
+tpot,classification,SGDClassifier,average,False,bool,"When set to `True`, computes the averaged SGD weights across all
+updates and stores the result in the ``coef_`` attribute. If set to
+an int greater than 1, averaging will begin once the total number of
+samples seen reaches `average`. So ``average=10`` will begin
+averaging after seeing 10 samples.
+Integer values must be in the range `[1, n_samples]`."
+tpot,classification,SVC,C,1.0,float,"Regularization parameter. The strength of the regularization is
+inversely proportional to C. Must be strictly positive. The penalty
+is a squared l2 penalty."
+tpot,classification,SVC,kernel,rbf,str,"Specifies the kernel type to be used in the algorithm. If
+none is given, 'rbf' will be used. If a callable is given it is used to
+pre-compute the kernel matrix from data matrices; that matrix should be
+an array of shape ``(n_samples, n_samples)``. For an intuitive
+visualization of different kernel types see
+:ref:`sphx_glr_auto_examples_svm_plot_svm_kernels.py`."
+tpot,classification,SVC,degree,3,int,"Degree of the polynomial kernel function ('poly').
+Must be non-negative. Ignored by all other kernels."
+tpot,classification,SVC,gamma,scale,str,"Kernel coefficient for 'rbf', 'poly' and 'sigmoid'.
+
+- if ``gamma='scale'`` (default) is passed then it uses
+  1 / (n_features * X.var()) as value of gamma,
+- if 'auto', uses 1 / n_features
+- if float, must be non-negative.
+
+.. versionchanged:: 0.22
+   The default value of ``gamma`` changed from 'auto' to 'scale'."
+tpot,classification,SVC,coef0,0.0,float,"Independent term in kernel function.
+It is only significant in 'poly' and 'sigmoid'."
+tpot,classification,SVC,shrinking,True,bool,"Whether to use the shrinking heuristic.
+See the :ref:`User Guide <shrinking_svm>`."
+tpot,classification,SVC,probability,False,bool,"Whether to enable probability estimates. This must be enabled prior
+to calling `fit`, will slow down that method as it internally uses
+5-fold cross-validation, and `predict_proba` may be inconsistent with
+`predict`. Read more in the :ref:`User Guide <scores_probabilities>`."
+tpot,classification,SVC,tol,0.001,float,Tolerance for stopping criterion.
+tpot,classification,SVC,cache_size,200,int,Specify the size of the kernel cache (in MB).
+tpot,classification,SVC,class_weight,None,NoneType,"Set the parameter C of class i to class_weight[i]*C for
+SVC. If not given, all classes are supposed to have
+weight one.
+The ""balanced"" mode uses the values of y to automatically adjust
+weights inversely proportional to class frequencies in the input data
+as ``n_samples / (n_classes * np.bincount(y))``."
+tpot,classification,SVC,verbose,False,bool,"Enable verbose output. Note that this setting takes advantage of a
+per-process runtime setting in libsvm that, if enabled, may not work
+properly in a multithreaded context."
+tpot,classification,SVC,max_iter,-1,int,"Hard limit on iterations within solver, or -1 for no limit."
+tpot,classification,SVC,decision_function_shape,ovr,str,"Whether to return a one-vs-rest ('ovr') decision function of shape
+(n_samples, n_classes) as all other classifiers, or the original
+one-vs-one ('ovo') decision function of libsvm which has shape
+(n_samples, n_classes * (n_classes - 1) / 2). However, note that
+internally, one-vs-one ('ovo') is always used as a multi-class strategy
+to train models; an ovr matrix is only constructed from the ovo matrix.
+The parameter is ignored for binary classification.
+
+.. versionchanged:: 0.19
+    decision_function_shape is 'ovr' by default.
+
+.. versionadded:: 0.17
+   *decision_function_shape='ovr'* is recommended.
+
+.. versionchanged:: 0.17
+   Deprecated *decision_function_shape='ovo' and None*."
+tpot,classification,SVC,break_ties,False,bool,"If true, ``decision_function_shape='ovr'``, and number of classes > 2,
+:term:`predict` will break ties according to the confidence values of
+:term:`decision_function`; otherwise the first class among the tied
+classes is returned. Please note that breaking ties comes at a
+relatively high computational cost compared to a simple predict.
+
+.. versionadded:: 0.22"
+tpot,classification,SVC,random_state,None,NoneType,"Controls the pseudo random number generation for shuffling the data for
+probability estimates. Ignored when `probability` is False.
+Pass an int for reproducible output across multiple function calls.
+See :term:`Glossary <random_state>`."
+tpot,classification,XGBClassifier,objective,binary:logistic,str,"Specify the learning task and the corresponding learning objective or a custom
+objective function to be used.
+
+For custom objective, see :doc:`/tutorials/custom_metric_obj` and
+:ref:`custom-obj-metric` for more information, along with the end note for
+function signatures."
+tpot,classification,ARDRegression,max_iter,None,NoneType,"Maximum number of iterations. If `None`, it corresponds to `max_iter=300`.
+
+.. versionchanged:: 1.3"
+tpot,classification,ARDRegression,tol,0.001,float,Stop the algorithm if w has converged.
+tpot,classification,ARDRegression,alpha_1,1e-06,float,"Hyper-parameter : shape parameter for the Gamma distribution prior
+over the alpha parameter."
+tpot,classification,ARDRegression,alpha_2,1e-06,float,"Hyper-parameter : inverse scale parameter (rate parameter) for the
+Gamma distribution prior over the alpha parameter."
+tpot,classification,ARDRegression,lambda_1,1e-06,float,"Hyper-parameter : shape parameter for the Gamma distribution prior
+over the lambda parameter."
+tpot,classification,ARDRegression,lambda_2,1e-06,float,"Hyper-parameter : inverse scale parameter (rate parameter) for the
+Gamma distribution prior over the lambda parameter."
+tpot,classification,ARDRegression,compute_score,False,bool,"If True, compute the objective function at each step of the model."
+tpot,classification,ARDRegression,threshold_lambda,10000.0,float,"Threshold for removing (pruning) weights with high precision from
+the computation."
+tpot,classification,ARDRegression,fit_intercept,True,bool,"Whether to calculate the intercept for this model. If set
+to false, no intercept will be used in calculations
+(i.e. data is expected to be centered)."
+tpot,classification,ARDRegression,copy_X,True,bool,"If True, X will be copied; else, it may be overwritten."
+tpot,classification,ARDRegression,verbose,False,bool,Verbose mode when fitting the model.
+tpot,classification,ARDRegression,n_iter,deprecated,str,"Maximum number of iterations.
+
+.. deprecated:: 1.3
+   `n_iter` is deprecated in 1.3 and will be removed in 1.5. Use
+   `max_iter` instead."
+tpot,regression,AdaBoostRegressor,estimator,None,NoneType,"The base estimator from which the boosted ensemble is built.
+If ``None``, then the base estimator is
+:class:`~sklearn.tree.DecisionTreeRegressor` initialized with
+`max_depth=3`.
+
+.. versionadded:: 1.2
+   `base_estimator` was renamed to `estimator`."
+tpot,regression,AdaBoostRegressor,random_state,None,NoneType,"Controls the random seed given at each `estimator` at each
+boosting iteration.
+Thus, it is only used when `estimator` exposes a `random_state`.
+In addition, it controls the bootstrap of the weights used to train the
+`estimator` at each boosting iteration.
+Pass an int for reproducible output across multiple function calls.
+See :term:`Glossary <random_state>`."
+tpot,regression,AdaBoostRegressor,base_estimator,deprecated,str,"The base estimator from which the boosted ensemble is built.
+If ``None``, then the base estimator is
+:class:`~sklearn.tree.DecisionTreeRegressor` initialized with
+`max_depth=3`.
+
+.. deprecated:: 1.2
+    `base_estimator` is deprecated and will be removed in 1.4.
+    Use `estimator` instead."
+tpot,classification,BaggingRegressor,estimator,None,NoneType,"The base estimator to fit on random subsets of the dataset.
+If None, then the base estimator is a
+:class:`~sklearn.tree.DecisionTreeRegressor`.
+
+.. versionadded:: 1.2
+   `base_estimator` was renamed to `estimator`."
+tpot,classification,BaggingRegressor,n_estimators,10,int,The number of base estimators in the ensemble.
+tpot,classification,BaggingRegressor,max_samples,1.0,float,"The number of samples to draw from X to train each base estimator (with
+replacement by default, see `bootstrap` for more details).
+
+- If int, then draw `max_samples` samples.
+- If float, then draw `max_samples * X.shape[0]` samples."
+tpot,classification,BaggingRegressor,max_features,1.0,float,"The number of features to draw from X to train each base estimator (
+without replacement by default, see `bootstrap_features` for more
+details).
+
+- If int, then draw `max_features` features.
+- If float, then draw `max(1, int(max_features * n_features_in_))` features."
+tpot,classification,BaggingRegressor,bootstrap,True,bool,"Whether samples are drawn with replacement. If False, sampling
+without replacement is performed."
+tpot,classification,BaggingRegressor,bootstrap_features,False,bool,Whether features are drawn with replacement.
+tpot,classification,BaggingRegressor,oob_score,False,bool,"Whether to use out-of-bag samples to estimate
+the generalization error. Only available if bootstrap=True."
+tpot,classification,BaggingRegressor,warm_start,False,bool,"When set to True, reuse the solution of the previous call to fit
+and add more estimators to the ensemble, otherwise, just fit
+a whole new ensemble. See :term:`the Glossary <warm_start>`."
+tpot,classification,BaggingRegressor,n_jobs,None,NoneType,"The number of jobs to run in parallel for both :meth:`fit` and
+:meth:`predict`. ``None`` means 1 unless in a
+:obj:`joblib.parallel_backend` context. ``-1`` means using all
+processors. See :term:`Glossary <n_jobs>` for more details."
+tpot,classification,BaggingRegressor,random_state,None,NoneType,"Controls the random resampling of the original dataset
+(sample wise and feature wise).
+If the base estimator accepts a `random_state` attribute, a different
+seed is generated for each instance in the ensemble.
+Pass an int for reproducible output across multiple function calls.
+See :term:`Glossary <random_state>`."
+tpot,classification,BaggingRegressor,verbose,0,int,Controls the verbosity when fitting and predicting.
+tpot,classification,BaggingRegressor,base_estimator,deprecated,str,"Use `estimator` instead.
+
+.. deprecated:: 1.2
+    `base_estimator` is deprecated and will be removed in 1.4.
+    Use `estimator` instead."
+tpot,classification,BayesianRidge,max_iter,None,NoneType,"Maximum number of iterations over the complete dataset before
+stopping independently of any early stopping criterion. If `None`, it
+corresponds to `max_iter=300`.
+
+.. versionchanged:: 1.3"
+tpot,classification,BayesianRidge,tol,0.001,float,Stop the algorithm if w has converged.
+tpot,classification,BayesianRidge,alpha_1,1e-06,float,"Hyper-parameter : shape parameter for the Gamma distribution prior
+over the alpha parameter."
+tpot,classification,BayesianRidge,alpha_2,1e-06,float,"Hyper-parameter : inverse scale parameter (rate parameter) for the
+Gamma distribution prior over the alpha parameter."
+tpot,classification,BayesianRidge,lambda_1,1e-06,float,"Hyper-parameter : shape parameter for the Gamma distribution prior
+over the lambda parameter."
+tpot,classification,BayesianRidge,lambda_2,1e-06,float,"Hyper-parameter : inverse scale parameter (rate parameter) for the
+Gamma distribution prior over the lambda parameter."
+tpot,classification,BayesianRidge,alpha_init,None,NoneType,"Initial value for alpha (precision of the noise).
+If not set, alpha_init is 1/Var(y).
+
+    .. versionadded:: 0.22"
+tpot,classification,BayesianRidge,lambda_init,None,NoneType,"Initial value for lambda (precision of the weights).
+If not set, lambda_init is 1.
+
+    .. versionadded:: 0.22"
+tpot,classification,BayesianRidge,compute_score,False,bool,"If True, compute the log marginal likelihood at each iteration of the
+optimization."
+tpot,classification,BayesianRidge,fit_intercept,True,bool,"Whether to calculate the intercept for this model.
+The intercept is not treated as a probabilistic parameter
+and thus has no associated variance. If set
+to False, no intercept will be used in calculations
+(i.e. data is expected to be centered)."
+tpot,classification,BayesianRidge,copy_X,True,bool,"If True, X will be copied; else, it may be overwritten."
+tpot,classification,BayesianRidge,verbose,False,bool,Verbose mode when fitting the model.
+tpot,classification,BayesianRidge,n_iter,deprecated,str,"Maximum number of iterations. Should be greater than or equal to 1.
+
+.. deprecated:: 1.3
+   `n_iter` is deprecated in 1.3 and will be removed in 1.5. Use
+   `max_iter` instead."
+tpot,regression,DecisionTreeRegressor,criterion,squared_error,str,"The function to measure the quality of a split. Supported criteria
+are ""squared_error"" for the mean squared error, which is equal to
+variance reduction as feature selection criterion and minimizes the L2
+loss using the mean of each terminal node, ""friedman_mse"", which uses
+mean squared error with Friedman's improvement score for potential
+splits, ""absolute_error"" for the mean absolute error, which minimizes
+the L1 loss using the median of each terminal node, and ""poisson"" which
+uses reduction in Poisson deviance to find splits.
+
+.. versionadded:: 0.18
+   Mean Absolute Error (MAE) criterion.
+
+.. versionadded:: 0.24
+    Poisson deviance criterion."
+tpot,regression,DecisionTreeRegressor,splitter,best,str,"The strategy used to choose the split at each node. Supported
+strategies are ""best"" to choose the best split and ""random"" to choose
+the best random split."
+tpot,regression,DecisionTreeRegressor,min_weight_fraction_leaf,0.0,float,"The minimum weighted fraction of the sum total of weights (of all
+the input samples) required to be at a leaf node. Samples have
+equal weight when sample_weight is not provided."
+tpot,regression,DecisionTreeRegressor,max_features,None,NoneType,"The number of features to consider when looking for the best split:
+
+- If int, then consider `max_features` features at each split.
+- If float, then `max_features` is a fraction and
+  `max(1, int(max_features * n_features_in_))` features are considered at each
+  split.
+- If ""sqrt"", then `max_features=sqrt(n_features)`.
+- If ""log2"", then `max_features=log2(n_features)`.
+- If None, then `max_features=n_features`.
+Note: the search for a split does not stop until at least one
+valid partition of the node samples is found, even if it requires to
+effectively inspect more than ``max_features`` features."
+tpot,regression,DecisionTreeRegressor,random_state,None,NoneType,"Controls the randomness of the estimator. The features are always
+randomly permuted at each split, even if ``splitter`` is set to
+``""best""``. When ``max_features < n_features``, the algorithm will
+select ``max_features`` at random at each split before finding the best
+split among them. But the best found split may vary across different
+runs, even if ``max_features=n_features``. That is the case, if the
+improvement of the criterion is identical for several splits and one
+split has to be selected at random. To obtain a deterministic behaviour
+during fitting, ``random_state`` has to be fixed to an integer.
+See :term:`Glossary <random_state>` for details."
+tpot,regression,DecisionTreeRegressor,max_leaf_nodes,None,NoneType,"Grow a tree with ``max_leaf_nodes`` in best-first fashion.
+Best nodes are defined as relative reduction in impurity.
+If None then unlimited number of leaf nodes."
+tpot,regression,DecisionTreeRegressor,min_impurity_decrease,0.0,float,"A node will be split if this split induces a decrease of the impurity
+greater than or equal to this value.
+
+The weighted impurity decrease equation is the following::
+
+    N_t / N * (impurity - N_t_R / N_t * right_impurity
+                        - N_t_L / N_t * left_impurity)
+
+where ``N`` is the total number of samples, ``N_t`` is the number of
+samples at the current node, ``N_t_L`` is the number of samples in the
+left child, and ``N_t_R`` is the number of samples in the right child.
+
+``N``, ``N_t``, ``N_t_R`` and ``N_t_L`` all refer to the weighted sum,
+if ``sample_weight`` is passed.
+
+.. versionadded:: 0.19"
+tpot,regression,DecisionTreeRegressor,ccp_alpha,0.0,float,"Complexity parameter used for Minimal Cost-Complexity Pruning. The
+subtree with the largest cost complexity that is smaller than
+``ccp_alpha`` will be chosen. By default, no pruning is performed. See
+:ref:`minimal_cost_complexity_pruning` for details.
+
+.. versionadded:: 0.22"
+tpot,classification,ElasticNet,alpha,1.0,float,"Constant that multiplies the penalty terms. Defaults to 1.0.
+See the notes for the exact mathematical meaning of this
+parameter. ``alpha = 0`` is equivalent to an ordinary least square,
+solved by the :class:`LinearRegression` object. For numerical
+reasons, using ``alpha = 0`` with the ``Lasso`` object is not advised.
+Given this, you should use the :class:`LinearRegression` object."
+tpot,classification,ElasticNet,l1_ratio,0.5,float,"The ElasticNet mixing parameter, with ``0 <= l1_ratio <= 1``. For
+``l1_ratio = 0`` the penalty is an L2 penalty. ``For l1_ratio = 1`` it
+is an L1 penalty.  For ``0 < l1_ratio < 1``, the penalty is a
+combination of L1 and L2."
+tpot,classification,ElasticNet,fit_intercept,True,bool,"Whether the intercept should be estimated or not. If ``False``, the
+data is assumed to be already centered."
+tpot,classification,ElasticNet,precompute,False,bool,"Whether to use a precomputed Gram matrix to speed up
+calculations. The Gram matrix can also be passed as argument.
+For sparse input this option is always ``False`` to preserve sparsity."
+tpot,classification,ElasticNet,max_iter,1000,int,The maximum number of iterations.
+tpot,classification,ElasticNet,copy_X,True,bool,"If ``True``, X will be copied; else, it may be overwritten."
+tpot,classification,ElasticNet,tol,0.0001,float,"The tolerance for the optimization: if the updates are
+smaller than ``tol``, the optimization code checks the
+dual gap for optimality and continues until it is smaller
+than ``tol``, see Notes below."
+tpot,classification,ElasticNet,warm_start,False,bool,"When set to ``True``, reuse the solution of the previous call to fit as
+initialization, otherwise, just erase the previous solution.
+See :term:`the Glossary <warm_start>`."
+tpot,classification,ElasticNet,positive,False,bool,"When set to ``True``, forces the coefficients to be positive."
+tpot,classification,ElasticNet,random_state,None,NoneType,"The seed of the pseudo random number generator that selects a random
+feature to update. Used when ``selection`` == 'random'.
+Pass an int for reproducible output across multiple function calls.
+See :term:`Glossary <random_state>`."
+tpot,classification,ElasticNet,selection,cyclic,str,"If set to 'random', a random coefficient is updated every iteration
+rather than looping over features sequentially by default. This
+(setting to 'random') often leads to significantly faster convergence
+especially when tol is higher than 1e-4."
+tpot,regression,ExtraTreesRegressor,criterion,squared_error,str,"The function to measure the quality of a split. Supported criteria
+are ""squared_error"" for the mean squared error, which is equal to
+variance reduction as feature selection criterion and minimizes the L2
+loss using the mean of each terminal node, ""friedman_mse"", which uses
+mean squared error with Friedman's improvement score for potential
+splits, ""absolute_error"" for the mean absolute error, which minimizes
+the L1 loss using the median of each terminal node, and ""poisson"" which
+uses reduction in Poisson deviance to find splits.
+Training using ""absolute_error"" is significantly slower
+than when using ""squared_error"".
+
+.. versionadded:: 0.18
+   Mean Absolute Error (MAE) criterion."
+tpot,regression,ExtraTreesRegressor,max_depth,None,NoneType,"The maximum depth of the tree. If None, then nodes are expanded until
+all leaves are pure or until all leaves contain less than
+min_samples_split samples."
+tpot,regression,ExtraTreesRegressor,min_weight_fraction_leaf,0.0,float,"The minimum weighted fraction of the sum total of weights (of all
+the input samples) required to be at a leaf node. Samples have
+equal weight when sample_weight is not provided."
+tpot,regression,ExtraTreesRegressor,max_leaf_nodes,None,NoneType,"Grow trees with ``max_leaf_nodes`` in best-first fashion.
+Best nodes are defined as relative reduction in impurity.
+If None then unlimited number of leaf nodes."
+tpot,regression,ExtraTreesRegressor,min_impurity_decrease,0.0,float,"A node will be split if this split induces a decrease of the impurity
+greater than or equal to this value.
+
+The weighted impurity decrease equation is the following::
+
+    N_t / N * (impurity - N_t_R / N_t * right_impurity
+                        - N_t_L / N_t * left_impurity)
+
+where ``N`` is the total number of samples, ``N_t`` is the number of
+samples at the current node, ``N_t_L`` is the number of samples in the
+left child, and ``N_t_R`` is the number of samples in the right child.
+
+``N``, ``N_t``, ``N_t_R`` and ``N_t_L`` all refer to the weighted sum,
+if ``sample_weight`` is passed.
+
+.. versionadded:: 0.19"
+tpot,regression,ExtraTreesRegressor,oob_score,False,bool,"Whether to use out-of-bag samples to estimate the generalization score.
+By default, :func:`~sklearn.metrics.r2_score` is used.
+Provide a callable with signature `metric(y_true, y_pred)` to use a
+custom metric. Only available if `bootstrap=True`."
+tpot,regression,ExtraTreesRegressor,n_jobs,None,NoneType,"The number of jobs to run in parallel. :meth:`fit`, :meth:`predict`,
+:meth:`decision_path` and :meth:`apply` are all parallelized over the
+trees. ``None`` means 1 unless in a :obj:`joblib.parallel_backend`
+context. ``-1`` means using all processors. See :term:`Glossary
+<n_jobs>` for more details."
+tpot,regression,ExtraTreesRegressor,random_state,None,NoneType,"Controls 3 sources of randomness:
+
+- the bootstrapping of the samples used when building trees
+  (if ``bootstrap=True``)
+- the sampling of the features to consider when looking for the best
+  split at each node (if ``max_features < n_features``)
+- the draw of the splits for each of the `max_features`
+See :term:`Glossary <random_state>` for details."
+tpot,regression,ExtraTreesRegressor,verbose,0,int,Controls the verbosity when fitting and predicting.
+tpot,regression,ExtraTreesRegressor,warm_start,False,bool,"When set to ``True``, reuse the solution of the previous call to fit
+and add more estimators to the ensemble, otherwise, just fit a whole
+new forest. See :term:`Glossary <warm_start>` and
+:ref:`gradient_boosting_warm_start` for details."
+tpot,regression,ExtraTreesRegressor,ccp_alpha,0.0,float,"Complexity parameter used for Minimal Cost-Complexity Pruning. The
+subtree with the largest cost complexity that is smaller than
+``ccp_alpha`` will be chosen. By default, no pruning is performed. See
+:ref:`minimal_cost_complexity_pruning` for details.
+
+.. versionadded:: 0.22"
+tpot,regression,ExtraTreesRegressor,max_samples,None,NoneType,"If bootstrap is True, the number of samples to draw from X
+to train each base estimator.
+
+- If None (default), then draw `X.shape[0]` samples.
+- If int, then draw `max_samples` samples.
+- If float, then draw `max_samples * X.shape[0]` samples. Thus,
+  `max_samples` should be in the interval `(0.0, 1.0]`.
+
+.. versionadded:: 0.22"
+tpot,classification,GaussianProcessRegressor,kernel,None,NoneType,"The kernel specifying the covariance function of the GP. If None is
+passed, the kernel ``ConstantKernel(1.0, constant_value_bounds=""fixed"")
+* RBF(1.0, length_scale_bounds=""fixed"")`` is used as default. Note that
+the kernel hyperparameters are optimized during fitting unless the
+bounds are marked as ""fixed""."
+tpot,classification,GaussianProcessRegressor,alpha,1e-10,float,"Value added to the diagonal of the kernel matrix during fitting.
+This can prevent a potential numerical issue during fitting, by
+ensuring that the calculated values form a positive definite matrix.
+It can also be interpreted as the variance of additional Gaussian
+measurement noise on the training observations. Note that this is
+different from using a `WhiteKernel`. If an array is passed, it must
+have the same number of entries as the data used for fitting and is
+used as datapoint-dependent noise level. Allowing to specify the
+noise level directly as a parameter is mainly for convenience and
+for consistency with :class:`~sklearn.linear_model.Ridge`."
+tpot,classification,GaussianProcessRegressor,optimizer,fmin_l_bfgs_b,str,"Can either be one of the internally supported optimizers for optimizing
+the kernel's parameters, specified by a string, or an externally
+defined optimizer passed as a callable. If a callable is passed, it
+must have the signature::
+
+    def optimizer(obj_func, initial_theta, bounds):
+        # * 'obj_func': the objective function to be minimized, which
+        #   takes the hyperparameters theta as a parameter and an
+        #   optional flag eval_gradient, which determines if the
+        #   gradient is returned additionally to the function value
+        # * 'initial_theta': the initial value for theta, which can be
+        #   used by local optimizers
+        # * 'bounds': the bounds on the values of theta
+        ....
+        # Returned are the best found hyperparameters theta and
+        # the corresponding value of the target function.
+        return theta_opt, func_min
+
+Per default, the L-BFGS-B algorithm from `scipy.optimize.minimize`
+is used. If None is passed, the kernel's parameters are kept fixed.
+Available internal optimizers are: `{'fmin_l_bfgs_b'}`."
+tpot,classification,GaussianProcessRegressor,n_restarts_optimizer,0,int,"The number of restarts of the optimizer for finding the kernel's
+parameters which maximize the log-marginal likelihood. The first run
+of the optimizer is performed from the kernel's initial parameters,
+the remaining ones (if any) from thetas sampled log-uniform randomly
+from the space of allowed theta-values. If greater than 0, all bounds
+must be finite. Note that `n_restarts_optimizer == 0` implies that one
+run is performed."
+tpot,classification,GaussianProcessRegressor,normalize_y,False,bool,"Whether or not to normalize the target values `y` by removing the mean
+and scaling to unit-variance. This is recommended for cases where
+zero-mean, unit-variance priors are used. Note that, in this
+implementation, the normalisation is reversed before the GP predictions
+are reported.
+
+.. versionchanged:: 0.23"
+tpot,classification,GaussianProcessRegressor,copy_X_train,True,bool,"If True, a persistent copy of the training data is stored in the
+object. Otherwise, just a reference to the training data is stored,
+which might cause predictions to change if the data is modified
+externally."
+tpot,classification,GaussianProcessRegressor,n_targets,None,NoneType,"The number of dimensions of the target values. Used to decide the number
+of outputs when sampling from the prior distributions (i.e. calling
+:meth:`sample_y` before :meth:`fit`). This parameter is ignored once
+:meth:`fit` has been called.
+
+.. versionadded:: 1.3"
+tpot,classification,GaussianProcessRegressor,random_state,None,NoneType,"Determines random number generation used to initialize the centers.
+Pass an int for reproducible results across multiple function calls.
+See :term:`Glossary <random_state>`."
+tpot,regression,GradientBoostingRegressor,criterion,friedman_mse,str,"The function to measure the quality of a split. Supported criteria are
+""friedman_mse"" for the mean squared error with improvement score by
+Friedman, ""squared_error"" for mean squared error. The default value of
+""friedman_mse"" is generally the best as it can provide a better
+approximation in some cases.
+
+.. versionadded:: 0.18"
+tpot,regression,GradientBoostingRegressor,min_weight_fraction_leaf,0.0,float,"The minimum weighted fraction of the sum total of weights (of all
+the input samples) required to be at a leaf node. Samples have
+equal weight when sample_weight is not provided.
+Values must be in the range `[0.0, 0.5]`."
+tpot,regression,GradientBoostingRegressor,min_impurity_decrease,0.0,float,"A node will be split if this split induces a decrease of the impurity
+greater than or equal to this value.
+Values must be in the range `[0.0, inf)`.
+
+The weighted impurity decrease equation is the following::
+
+    N_t / N * (impurity - N_t_R / N_t * right_impurity
+                        - N_t_L / N_t * left_impurity)
+
+where ``N`` is the total number of samples, ``N_t`` is the number of
+samples at the current node, ``N_t_L`` is the number of samples in the
+left child, and ``N_t_R`` is the number of samples in the right child.
+
+``N``, ``N_t``, ``N_t_R`` and ``N_t_L`` all refer to the weighted sum,
+if ``sample_weight`` is passed.
+
+.. versionadded:: 0.19"
+tpot,regression,GradientBoostingRegressor,init,None,NoneType,"An estimator object that is used to compute the initial predictions.
+``init`` has to provide :term:`fit` and :term:`predict`. If 'zero', the
+initial raw predictions are set to zero. By default a
+``DummyEstimator`` is used, predicting either the average target value
+(for loss='squared_error'), or a quantile for the other losses."
+tpot,regression,GradientBoostingRegressor,random_state,None,NoneType,"Controls the random seed given to each Tree estimator at each
+boosting iteration.
+In addition, it controls the random permutation of the features at
+each split (see Notes for more details).
+It also controls the random splitting of the training data to obtain a
+validation set if `n_iter_no_change` is not None.
+Pass an int for reproducible output across multiple function calls.
+See :term:`Glossary <random_state>`."
+tpot,regression,GradientBoostingRegressor,verbose,0,int,"Enable verbose output. If 1 then it prints progress and performance
+once in a while (the more trees the lower the frequency). If greater
+than 1 then it prints progress and performance for every tree.
+Values must be in the range `[0, inf)`."
+tpot,regression,GradientBoostingRegressor,max_leaf_nodes,None,NoneType,"Grow trees with ``max_leaf_nodes`` in best-first fashion.
+Best nodes are defined as relative reduction in impurity.
+Values must be in the range `[2, inf)`.
+If None, then unlimited number of leaf nodes."
+tpot,regression,GradientBoostingRegressor,warm_start,False,bool,"When set to ``True``, reuse the solution of the previous call to fit
+and add more estimators to the ensemble, otherwise, just erase the
+previous solution. See :term:`the Glossary <warm_start>`."
+tpot,regression,GradientBoostingRegressor,validation_fraction,0.1,float,"The proportion of training data to set aside as validation set for
+early stopping. Values must be in the range `(0.0, 1.0)`.
+Only used if ``n_iter_no_change`` is set to an integer.
+
+.. versionadded:: 0.20"
+tpot,regression,GradientBoostingRegressor,n_iter_no_change,None,NoneType,"``n_iter_no_change`` is used to decide if early stopping will be used
+to terminate training when validation score is not improving. By
+default it is set to None to disable early stopping. If set to a
+number, it will set aside ``validation_fraction`` size of the training
+data as validation and terminate training when validation score is not
+improving in all of the previous ``n_iter_no_change`` numbers of
+iterations.
+Values must be in the range `[1, inf)`.
+
+.. versionadded:: 0.20"
+tpot,regression,GradientBoostingRegressor,tol,0.0001,float,"Tolerance for the early stopping. When the loss is not improving
+by at least tol for ``n_iter_no_change`` iterations (if set to a
+number), the training stops.
+Values must be in the range `[0.0, inf)`.
+
+.. versionadded:: 0.20"
+tpot,regression,GradientBoostingRegressor,ccp_alpha,0.0,float,"Complexity parameter used for Minimal Cost-Complexity Pruning. The
+subtree with the largest cost complexity that is smaller than
+``ccp_alpha`` will be chosen. By default, no pruning is performed.
+Values must be in the range `[0.0, inf)`.
+See :ref:`minimal_cost_complexity_pruning` for details.
+
+.. versionadded:: 0.22"
+tpot,classification,HistGradientBoostingRegressor,loss,squared_error,str,"The loss function to use in the boosting process. Note that the
+""squared error"", ""gamma"" and ""poisson"" losses actually implement
+""half least squares loss"", ""half gamma deviance"" and ""half poisson
+deviance"" to simplify the computation of the gradient. Furthermore,
+""gamma"" and ""poisson"" losses internally use a log-link, ""gamma""
+requires ``y > 0`` and ""poisson"" requires ``y >= 0``.
+""quantile"" uses the pinball loss.
+
+.. versionchanged:: 0.23
+   Added option 'poisson'.
+
+.. versionchanged:: 1.1
+   Added option 'quantile'.
+
+.. versionchanged:: 1.3
+   Added option 'gamma'."
+tpot,classification,HistGradientBoostingRegressor,quantile,None,NoneType,"If loss is ""quantile"", this parameter specifies which quantile to be estimated
+and must be between 0 and 1."
+tpot,classification,HistGradientBoostingRegressor,learning_rate,0.1,float,"The learning rate, also known as *shrinkage*. This is used as a
+multiplicative factor for the leaves values. Use ``1`` for no
+shrinkage."
+tpot,classification,HistGradientBoostingRegressor,max_iter,100,int,"The maximum number of iterations of the boosting process, i.e. the
+maximum number of trees."
+tpot,classification,HistGradientBoostingRegressor,max_leaf_nodes,31,int,"The maximum number of leaves for each tree. Must be strictly greater
+than 1. If None, there is no maximum limit."
+tpot,classification,HistGradientBoostingRegressor,max_depth,None,NoneType,"The maximum depth of each tree. The depth of a tree is the number of
+edges to go from the root to the deepest leaf.
+Depth isn't constrained by default."
+tpot,classification,HistGradientBoostingRegressor,min_samples_leaf,20,int,"The minimum number of samples per leaf. For small datasets with less
+than a few hundred samples, it is recommended to lower this value
+since only very shallow trees would be built."
+tpot,classification,HistGradientBoostingRegressor,l2_regularization,0.0,float,"The L2 regularization parameter. Use ``0`` for no regularization
+(default)."
+tpot,classification,HistGradientBoostingRegressor,max_bins,255,int,"The maximum number of bins to use for non-missing values. Before
+training, each feature of the input array `X` is binned into
+integer-valued bins, which allows for a much faster training stage.
+Features with a small number of unique values may use less than
+``max_bins`` bins. In addition to the ``max_bins`` bins, one more bin
+is always reserved for missing values. Must be no larger than 255."
+tpot,classification,HistGradientBoostingRegressor,categorical_features,None,NoneType,"Indicates the categorical features.
+
+- None : no feature will be considered categorical.
+- boolean array-like : boolean mask indicating categorical features.
+- integer array-like : integer indices indicating categorical
+  features.
+- str array-like: names of categorical features (assuming the training
+  data has feature names).
+
+For each categorical feature, there must be at most `max_bins` unique
+categories, and each categorical value must be less then `max_bins - 1`.
+Negative values for categorical features are treated as missing values.
+All categorical values are converted to floating point numbers.
+This means that categorical values of 1.0 and 1 are treated as
+the same category.
+
+Read more in the :ref:`User Guide <categorical_support_gbdt>`.
+
+.. versionadded:: 0.24
+
+.. versionchanged:: 1.2
+   Added support for feature names."
+tpot,classification,HistGradientBoostingRegressor,monotonic_cst,None,NoneType,"Monotonic constraint to enforce on each feature are specified using the
+following integer values:
+
+- 1: monotonic increase
+- 0: no constraint
+- -1: monotonic decrease
+
+If a dict with str keys, map feature to monotonic constraints by name.
+If an array, the features are mapped to constraints by position. See
+:ref:`monotonic_cst_features_names` for a usage example.
+
+The constraints are only valid for binary classifications and hold
+over the probability of the positive class.
+Read more in the :ref:`User Guide <monotonic_cst_gbdt>`.
+
+.. versionadded:: 0.23
+
+.. versionchanged:: 1.2
+   Accept dict of constraints with feature names as keys."
+tpot,classification,HistGradientBoostingRegressor,interaction_cst,None,NoneType,"Specify interaction constraints, the sets of features which can
+interact with each other in child node splits.
+
+Each item specifies the set of feature indices that are allowed
+to interact with each other. If there are more features than
+specified in these constraints, they are treated as if they were
+specified as an additional set.
+
+The strings ""pairwise"" and ""no_interactions"" are shorthands for
+allowing only pairwise or no interactions, respectively.
+
+For instance, with 5 features in total, `interaction_cst=[{0, 1}]`
+is equivalent to `interaction_cst=[{0, 1}, {2, 3, 4}]`,
+and specifies that each branch of a tree will either only split
+on features 0 and 1 or only split on features 2, 3 and 4.
+
+.. versionadded:: 1.2"
+tpot,classification,HistGradientBoostingRegressor,warm_start,False,bool,"When set to ``True``, reuse the solution of the previous call to fit
+and add more estimators to the ensemble. For results to be valid, the
+estimator should be re-trained on the same data only.
+See :term:`the Glossary <warm_start>`."
+tpot,classification,HistGradientBoostingRegressor,early_stopping,auto,str,"If 'auto', early stopping is enabled if the sample size is larger than
+10000. If True, early stopping is enabled, otherwise early stopping is
+disabled.
+
+.. versionadded:: 0.23"
+tpot,classification,HistGradientBoostingRegressor,scoring,loss,str,"Scoring parameter to use for early stopping. It can be a single
+string (see :ref:`scoring_parameter`) or a callable (see
+:ref:`scoring`). If None, the estimator's default scorer is used. If
+``scoring='loss'``, early stopping is checked w.r.t the loss value.
+Only used if early stopping is performed."
+tpot,classification,HistGradientBoostingRegressor,validation_fraction,0.1,float,"Proportion (or absolute size) of training data to set aside as
+validation data for early stopping. If None, early stopping is done on
+the training data. Only used if early stopping is performed."
+tpot,classification,HistGradientBoostingRegressor,n_iter_no_change,10,int,"Used to determine when to ""early stop"". The fitting process is
+stopped when none of the last ``n_iter_no_change`` scores are better
+than the ``n_iter_no_change - 1`` -th-to-last one, up to some
+tolerance. Only used if early stopping is performed."
+tpot,classification,HistGradientBoostingRegressor,tol,1e-07,float,"The absolute tolerance to use when comparing scores during early
+stopping. The higher the tolerance, the more likely we are to early
+stop: higher tolerance means that it will be harder for subsequent
+iterations to be considered an improvement upon the reference score."
+tpot,classification,HistGradientBoostingRegressor,verbose,0,int,"The verbosity level. If not zero, print some information about the
+fitting process."
+tpot,classification,HistGradientBoostingRegressor,random_state,None,NoneType,"Pseudo-random number generator to control the subsampling in the
+binning process, and the train/validation data split if early stopping
+is enabled.
+Pass an int for reproducible output across multiple function calls.
+See :term:`Glossary <random_state>`."
+tpot,regression,KNeighborsRegressor,algorithm,auto,str,"Algorithm used to compute the nearest neighbors:
+
+- 'ball_tree' will use :class:`BallTree`
+- 'kd_tree' will use :class:`KDTree`
+- 'brute' will use a brute-force search.
+- 'auto' will attempt to decide the most appropriate algorithm
+  based on the values passed to :meth:`fit` method.
+Note: fitting on sparse input will override the setting of
+this parameter, using brute force."
+tpot,regression,KNeighborsRegressor,leaf_size,30,int,"Leaf size passed to BallTree or KDTree.  This can affect the
+speed of the construction and query, as well as the memory
+required to store the tree.  The optimal value depends on the
+nature of the problem."
+tpot,regression,KNeighborsRegressor,metric,minkowski,str,"Metric to use for distance computation. Default is ""minkowski"", which
+results in the standard Euclidean distance when p = 2. See the
+documentation of `scipy.spatial.distance
+<https://docs.scipy.org/doc/scipy/reference/spatial.distance.html>`_ and
+the metrics listed in
+:class:`~sklearn.metrics.pairwise.distance_metrics` for valid metric
+values.
+
+If metric is ""precomputed"", X is assumed to be a distance matrix and
+must be square during fit. X may be a :term:`sparse graph`, in which
+case only ""nonzero"" elements may be considered neighbors.
+
+If metric is a callable function, it takes two arrays representing 1D
+vectors as inputs and must return one value indicating the distance
+between those vectors. This works for Scipy's metrics, but is less
+efficient than passing the metric name as a string."
+tpot,regression,KNeighborsRegressor,metric_params,None,NoneType,Additional keyword arguments for the metric function.
+tpot,regression,KNeighborsRegressor,n_jobs,None,NoneType,"The number of parallel jobs to run for neighbors search.
+``None`` means 1 unless in a :obj:`joblib.parallel_backend` context.
+``-1`` means using all processors. See :term:`Glossary <n_jobs>`
+for more details.
+Doesn't affect :meth:`fit` method."
+tpot,classification,LGBMRegressor,boosting_type,gbdt,str,"'gbdt', traditional Gradient Boosting Decision Tree.
+'dart', Dropouts meet Multiple Additive Regression Trees.
+'rf', Random Forest."
+tpot,classification,LGBMRegressor,num_leaves,31,int,Maximum tree leaves for base learners.
+tpot,classification,LGBMRegressor,max_depth,-1,int,"Maximum tree depth for base learners, <=0 means no limit.
+If setting this to a positive value, consider also changing ``num_leaves`` to ``<= 2^max_depth``."
+tpot,classification,LGBMRegressor,learning_rate,0.1,float,"Boosting learning rate.
+You can use ``callbacks`` parameter of ``fit`` method to shrink/adapt learning rate
+in training using ``reset_parameter`` callback.
+Note, that this will ignore the ``learning_rate`` argument in training."
+tpot,classification,LGBMRegressor,n_estimators,100,int,Number of boosted trees to fit.
+tpot,classification,LGBMRegressor,subsample_for_bin,200000,int,Number of samples for constructing bins.
+tpot,classification,LGBMRegressor,objective,None,NoneType,"Specify the learning task and the corresponding learning objective or
+a custom objective function to be used (see note below).
+Default: 'regression' for LGBMRegressor, 'binary' or 'multiclass' for LGBMClassifier, 'lambdarank' for LGBMRanker."
+tpot,classification,LGBMRegressor,class_weight,None,NoneType,"Weights associated with classes in the form ``{class_label: weight}``.
+Use this parameter only for multi-class classification task;
+for binary classification task you may use ``is_unbalance`` or ``scale_pos_weight`` parameters.
+Note, that the usage of all these parameters will result in poor estimates of the individual class probabilities.
+You may want to consider performing probability calibration
+(https://scikit-learn.org/stable/modules/calibration.html) of your model.
+The 'balanced' mode uses the values of y to automatically adjust weights
+inversely proportional to class frequencies in the input data as ``n_samples / (n_classes * np.bincount(y))``.
+If None, all classes are supposed to have weight one.
+Note, that these weights will be multiplied with ``sample_weight`` (passed through the ``fit`` method)
+if ``sample_weight`` is specified."
+tpot,classification,LGBMRegressor,min_split_gain,0.0,float,Minimum loss reduction required to make a further partition on a leaf node of the tree.
+tpot,classification,LGBMRegressor,min_child_weight,0.001,float,Minimum sum of instance weight (Hessian) needed in a child (leaf).
+tpot,classification,LGBMRegressor,min_child_samples,20,int,Minimum number of data needed in a child (leaf).
+tpot,classification,LGBMRegressor,subsample,1.0,float,Subsample ratio of the training instance.
+tpot,classification,LGBMRegressor,subsample_freq,0,int,"Frequency of subsample, <=0 means no enable."
+tpot,classification,LGBMRegressor,colsample_bytree,1.0,float,Subsample ratio of columns when constructing each tree.
+tpot,classification,LGBMRegressor,reg_alpha,0.0,float,L1 regularization term on weights.
+tpot,classification,LGBMRegressor,reg_lambda,0.0,float,L2 regularization term on weights.
+tpot,classification,LGBMRegressor,random_state,None,NoneType,"Random number seed.
+If int, this number is used to seed the C++ code.
+If RandomState or Generator object (numpy), a random integer is picked based on its state to seed the C++ code.
+If None, default seeds in C++ code are used."
+tpot,classification,LGBMRegressor,n_jobs,None,NoneType,"Number of parallel threads to use for training (can be changed at prediction time by
+passing it as an extra keyword argument).
+
+For better performance, it is recommended to set this to the number of physical cores
+in the CPU.
+
+Negative integers are interpreted as following joblib's formula (n_cpus + 1 + n_jobs), just like
+scikit-learn (so e.g. -1 means using all threads). A value of zero corresponds the default number of
+threads configured for OpenMP in the system. A value of ``None`` (the default) corresponds
+to using the number of physical cores in the system (its correct detection requires
+either the ``joblib`` or the ``psutil`` util libraries to be installed).
+
+.. versionchanged:: 4.0.0"
+tpot,classification,LGBMRegressor,importance_type,split,str,"The type of feature importance to be filled into ``feature_importances_``.
+If 'split', result contains numbers of times the feature is used in a model.
+If 'gain', result contains total gains of splits which use the feature."
+tpot,classification,Lars,fit_intercept,True,bool,"Whether to calculate the intercept for this model. If set
+to false, no intercept will be used in calculations
+(i.e. data is expected to be centered)."
+tpot,classification,Lars,verbose,False,bool,Sets the verbosity amount.
+tpot,classification,Lars,normalize,deprecated,str,"This parameter is ignored when ``fit_intercept`` is set to False.
+If True, the regressors X will be normalized before regression by
+subtracting the mean and dividing by the l2-norm.
+If you wish to standardize, please use
+:class:`~sklearn.preprocessing.StandardScaler` before calling ``fit``
+on an estimator with ``normalize=False``.
+
+.. versionchanged:: 1.2
+   default changed from True to False in 1.2.
+
+.. deprecated:: 1.2
+    ``normalize`` was deprecated in version 1.2 and will be removed in 1.4."
+tpot,classification,Lars,precompute,auto,str,"Whether to use a precomputed Gram matrix to speed up
+calculations. If set to ``'auto'`` let us decide. The Gram
+matrix can also be passed as argument."
+tpot,classification,Lars,n_nonzero_coefs,500,int,Target number of non-zero coefficients. Use ``np.inf`` for no limit.
+tpot,classification,Lars,eps,2.220446049250313e-16,float64,"The machine-precision regularization in the computation of the
+Cholesky diagonal factors. Increase this for very ill-conditioned
+systems. Unlike the ``tol`` parameter in some iterative
+optimization-based algorithms, this parameter does not control
+the tolerance of the optimization."
+tpot,classification,Lars,copy_X,True,bool,"If ``True``, X will be copied; else, it may be overwritten."
+tpot,classification,Lars,fit_path,True,bool,"If True the full path is stored in the ``coef_path_`` attribute.
+If you compute the solution for a large problem or many targets,
+setting ``fit_path`` to ``False`` will lead to a speedup, especially
+with a small alpha."
+tpot,classification,Lars,jitter,None,NoneType,"Upper bound on a uniform noise parameter to be added to the
+`y` values, to satisfy the model's assumption of
+one-at-a-time computations. Might help with stability.
+
+.. versionadded:: 0.23"
+tpot,classification,Lars,random_state,None,NoneType,"Determines random number generation for jittering. Pass an int
+for reproducible output across multiple function calls.
+See :term:`Glossary <random_state>`. Ignored if `jitter` is None.
+
+.. versionadded:: 0.23"
+tpot,classification,Lasso,alpha,1.0,float,"Constant that multiplies the L1 term, controlling regularization
+strength. `alpha` must be a non-negative float i.e. in `[0, inf)`.
+
+When `alpha = 0`, the objective is equivalent to ordinary least
+squares, solved by the :class:`LinearRegression` object. For numerical
+reasons, using `alpha = 0` with the `Lasso` object is not advised.
+Instead, you should use the :class:`LinearRegression` object."
+tpot,classification,Lasso,fit_intercept,True,bool,"Whether to calculate the intercept for this model. If set
+to False, no intercept will be used in calculations
+(i.e. data is expected to be centered)."
+tpot,classification,Lasso,precompute,False,bool,"Whether to use a precomputed Gram matrix to speed up
+calculations. The Gram matrix can also be passed as argument.
+For sparse input this option is always ``False`` to preserve sparsity."
+tpot,classification,Lasso,copy_X,True,bool,"If ``True``, X will be copied; else, it may be overwritten."
+tpot,classification,Lasso,max_iter,1000,int,The maximum number of iterations.
+tpot,classification,Lasso,tol,0.0001,float,"The tolerance for the optimization: if the updates are
+smaller than ``tol``, the optimization code checks the
+dual gap for optimality and continues until it is smaller
+than ``tol``, see Notes below."
+tpot,classification,Lasso,warm_start,False,bool,"When set to True, reuse the solution of the previous call to fit as
+initialization, otherwise, just erase the previous solution.
+See :term:`the Glossary <warm_start>`."
+tpot,classification,Lasso,positive,False,bool,"When set to ``True``, forces the coefficients to be positive."
+tpot,classification,Lasso,random_state,None,NoneType,"The seed of the pseudo random number generator that selects a random
+feature to update. Used when ``selection`` == 'random'.
+Pass an int for reproducible output across multiple function calls.
+See :term:`Glossary <random_state>`."
+tpot,classification,Lasso,selection,cyclic,str,"If set to 'random', a random coefficient is updated every iteration
+rather than looping over features sequentially by default. This
+(setting to 'random') often leads to significantly faster convergence
+especially when tol is higher than 1e-4."
+tpot,classification,LassoLars,alpha,1.0,float,"Constant that multiplies the penalty term. Defaults to 1.0.
+``alpha = 0`` is equivalent to an ordinary least square, solved
+by :class:`LinearRegression`. For numerical reasons, using
+``alpha = 0`` with the LassoLars object is not advised and you
+should prefer the LinearRegression object."
+tpot,classification,LassoLars,fit_intercept,True,bool,"Whether to calculate the intercept for this model. If set
+to false, no intercept will be used in calculations
+(i.e. data is expected to be centered)."
+tpot,classification,LassoLars,verbose,False,bool,Sets the verbosity amount.
+tpot,classification,LassoLars,normalize,deprecated,str,"This parameter is ignored when ``fit_intercept`` is set to False.
+If True, the regressors X will be normalized before regression by
+subtracting the mean and dividing by the l2-norm.
+If you wish to standardize, please use
+:class:`~sklearn.preprocessing.StandardScaler` before calling ``fit``
+on an estimator with ``normalize=False``.
+
+.. versionchanged:: 1.2
+   default changed from True to False in 1.2.
+
+.. deprecated:: 1.2
+    ``normalize`` was deprecated in version 1.2 and will be removed in 1.4."
+tpot,classification,LassoLars,precompute,auto,str,"Whether to use a precomputed Gram matrix to speed up
+calculations. If set to ``'auto'`` let us decide. The Gram
+matrix can also be passed as argument."
+tpot,classification,LassoLars,max_iter,500,int,Maximum number of iterations to perform.
+tpot,classification,LassoLars,eps,2.220446049250313e-16,float64,"The machine-precision regularization in the computation of the
+Cholesky diagonal factors. Increase this for very ill-conditioned
+systems. Unlike the ``tol`` parameter in some iterative
+optimization-based algorithms, this parameter does not control
+the tolerance of the optimization."
+tpot,classification,LassoLars,copy_X,True,bool,"If True, X will be copied; else, it may be overwritten."
+tpot,classification,LassoLars,fit_path,True,bool,"If ``True`` the full path is stored in the ``coef_path_`` attribute.
+If you compute the solution for a large problem or many targets,
+setting ``fit_path`` to ``False`` will lead to a speedup, especially
+with a small alpha."
+tpot,classification,LassoLars,positive,False,bool,"Restrict coefficients to be >= 0. Be aware that you might want to
+remove fit_intercept which is set True by default.
+Under the positive restriction the model coefficients will not converge
+to the ordinary-least-squares solution for small values of alpha.
+Only coefficients up to the smallest alpha value (``alphas_[alphas_ >
+0.].min()`` when fit_path=True) reached by the stepwise Lars-Lasso
+algorithm are typically in congruence with the solution of the
+coordinate descent Lasso estimator."
+tpot,classification,LassoLars,jitter,None,NoneType,"Upper bound on a uniform noise parameter to be added to the
+`y` values, to satisfy the model's assumption of
+one-at-a-time computations. Might help with stability.
+
+.. versionadded:: 0.23"
+tpot,classification,LassoLars,random_state,None,NoneType,"Determines random number generation for jittering. Pass an int
+for reproducible output across multiple function calls.
+See :term:`Glossary <random_state>`. Ignored if `jitter` is None.
+
+.. versionadded:: 0.23"
+tpot,regression,LinearSVR,fit_intercept,True,bool,"Whether or not to fit an intercept. If set to True, the feature vector
+is extended to include an intercept term: `[x_1, ..., x_n, 1]`, where
+1 corresponds to the intercept. If set to False, no intercept will be
+used in calculations (i.e. data is expected to be already centered)."
+tpot,regression,LinearSVR,intercept_scaling,1.0,float,"When `fit_intercept` is True, the instance vector x becomes `[x_1, ...,
+x_n, intercept_scaling]`, i.e. a ""synthetic"" feature with a constant
+value equal to `intercept_scaling` is appended to the instance vector.
+The intercept becomes intercept_scaling * synthetic feature weight.
+Note that liblinear internally penalizes the intercept, treating it
+like any other term in the feature vector. To reduce the impact of the
+regularization on the intercept, the `intercept_scaling` parameter can
+be set to a value greater than 1; the higher the value of
+`intercept_scaling`, the lower the impact of regularization on it.
+Then, the weights become `[w_x_1, ..., w_x_n,
+w_intercept*intercept_scaling]`, where `w_x_1, ..., w_x_n` represent
+the feature weights and the intercept weight is scaled by
+`intercept_scaling`. This scaling allows the intercept term to have a
+different regularization behavior compared to the other features."
+tpot,regression,LinearSVR,verbose,0,int,"Enable verbose output. Note that this setting takes advantage of a
+per-process runtime setting in liblinear that, if enabled, may not work
+properly in a multithreaded context."
+tpot,regression,LinearSVR,random_state,None,NoneType,"Controls the pseudo random number generation for shuffling the data.
+Pass an int for reproducible output across multiple function calls.
+See :term:`Glossary <random_state>`."
+tpot,regression,LinearSVR,max_iter,1000,int,The maximum number of iterations to be run.
+tpot,classification,MLPRegressor,hidden_layer_sizes,"(100,)",tuple,"The ith element represents the number of neurons in the ith
+hidden layer."
+tpot,classification,MLPRegressor,activation,relu,str,"Activation function for the hidden layer.
+
+- 'identity', no-op activation, useful to implement linear bottleneck,
+  returns f(x) = x
+
+- 'logistic', the logistic sigmoid function,
+  returns f(x) = 1 / (1 + exp(-x)).
+
+- 'tanh', the hyperbolic tan function,
+  returns f(x) = tanh(x).
+
+- 'relu', the rectified linear unit function,
+  returns f(x) = max(0, x)"
+tpot,classification,MLPRegressor,solver,adam,str,"The solver for weight optimization.
+
+- 'lbfgs' is an optimizer in the family of quasi-Newton methods.
+
+- 'sgd' refers to stochastic gradient descent.
+
+- 'adam' refers to a stochastic gradient-based optimizer proposed by
+  Kingma, Diederik, and Jimmy Ba
+Note: The default solver 'adam' works pretty well on relatively
+large datasets (with thousands of training samples or more) in terms of
+both training time and validation score.
+For small datasets, however, 'lbfgs' can converge faster and perform
+better."
+tpot,classification,MLPRegressor,alpha,0.0001,float,"Strength of the L2 regularization term. The L2 regularization term
+is divided by the sample size when added to the loss."
+tpot,classification,MLPRegressor,batch_size,auto,str,"Size of minibatches for stochastic optimizers.
+If the solver is 'lbfgs', the regressor will not use minibatch.
+When set to ""auto"", `batch_size=min(200, n_samples)`."
+tpot,classification,MLPRegressor,learning_rate,constant,str,"Learning rate schedule for weight updates.
+
+- 'constant' is a constant learning rate given by
+  'learning_rate_init'.
+
+- 'invscaling' gradually decreases the learning rate ``learning_rate_``
+  at each time step 't' using an inverse scaling exponent of 'power_t'.
+  effective_learning_rate = learning_rate_init / pow(t, power_t)
+
+- 'adaptive' keeps the learning rate constant to
+  'learning_rate_init' as long as training loss keeps decreasing.
+  Each time two consecutive epochs fail to decrease training loss by at
+  least tol, or fail to increase validation score by at least tol if
+  'early_stopping' is on, the current learning rate is divided by 5.
+
+Only used when solver='sgd'."
+tpot,classification,MLPRegressor,learning_rate_init,0.001,float,"The initial learning rate used. It controls the step-size
+in updating the weights. Only used when solver='sgd' or 'adam'."
+tpot,classification,MLPRegressor,power_t,0.5,float,"The exponent for inverse scaling learning rate.
+It is used in updating effective learning rate when the learning_rate
+is set to 'invscaling'. Only used when solver='sgd'."
+tpot,classification,MLPRegressor,max_iter,200,int,"Maximum number of iterations. The solver iterates until convergence
+(determined by 'tol') or this number of iterations. For stochastic
+solvers ('sgd', 'adam'), note that this determines the number of epochs
+(how many times each data point will be used), not the number of
+gradient steps."
+tpot,classification,MLPRegressor,shuffle,True,bool,"Whether to shuffle samples in each iteration. Only used when
+solver='sgd' or 'adam'."
+tpot,classification,MLPRegressor,random_state,None,NoneType,"Determines random number generation for weights and bias
+initialization, train-test split if early stopping is used, and batch
+sampling when solver='sgd' or 'adam'.
+Pass an int for reproducible results across multiple function calls.
+See :term:`Glossary <random_state>`."
+tpot,classification,MLPRegressor,tol,0.0001,float,"Tolerance for the optimization. When the loss or score is not improving
+by at least ``tol`` for ``n_iter_no_change`` consecutive iterations,
+unless ``learning_rate`` is set to 'adaptive', convergence is
+considered to be reached and training stops."
+tpot,classification,MLPRegressor,verbose,False,bool,Whether to print progress messages to stdout.
+tpot,classification,MLPRegressor,warm_start,False,bool,"When set to True, reuse the solution of the previous
+call to fit as initialization, otherwise, just erase the
+previous solution. See :term:`the Glossary <warm_start>`."
+tpot,classification,MLPRegressor,momentum,0.9,float,"Momentum for gradient descent update. Should be between 0 and 1. Only
+used when solver='sgd'."
+tpot,classification,MLPRegressor,nesterovs_momentum,True,bool,"Whether to use Nesterov's momentum. Only used when solver='sgd' and
+momentum > 0."
+tpot,classification,MLPRegressor,early_stopping,False,bool,"Whether to use early stopping to terminate training when validation
+score is not improving. If set to True, it will automatically set
+aside ``validation_fraction`` of training data as validation and
+terminate training when validation score is not improving by at
+least ``tol`` for ``n_iter_no_change`` consecutive epochs.
+Only effective when solver='sgd' or 'adam'."
+tpot,classification,MLPRegressor,validation_fraction,0.1,float,"The proportion of training data to set aside as validation set for
+early stopping. Must be between 0 and 1.
+Only used if early_stopping is True."
+tpot,classification,MLPRegressor,beta_1,0.9,float,"Exponential decay rate for estimates of first moment vector in adam,
+should be in [0, 1). Only used when solver='adam'."
+tpot,classification,MLPRegressor,beta_2,0.999,float,"Exponential decay rate for estimates of second moment vector in adam,
+should be in [0, 1). Only used when solver='adam'."
+tpot,classification,MLPRegressor,epsilon,1e-08,float,Value for numerical stability in adam. Only used when solver='adam'.
+tpot,classification,MLPRegressor,n_iter_no_change,10,int,"Maximum number of epochs to not meet ``tol`` improvement.
+Only effective when solver='sgd' or 'adam'.
+
+.. versionadded:: 0.20"
+tpot,classification,MLPRegressor,max_fun,15000,int,"Only used when solver='lbfgs'. Maximum number of function calls.
+The solver iterates until convergence (determined by ``tol``), number
+of iterations reaches max_iter, or this number of function calls.
+Note that number of function calls will be greater than or equal to
+the number of iterations for the MLPRegressor.
+
+.. versionadded:: 0.22"
+tpot,classification,OrthogonalMatchingPursuit,n_nonzero_coefs,None,NoneType,"Desired number of non-zero entries in the solution. If None (by
+default) this value is set to 10% of n_features."
+tpot,classification,OrthogonalMatchingPursuit,tol,None,NoneType,"Maximum squared norm of the residual. If not None, overrides n_nonzero_coefs."
+tpot,classification,OrthogonalMatchingPursuit,fit_intercept,True,bool,"Whether to calculate the intercept for this model. If set
+to false, no intercept will be used in calculations
+(i.e. data is expected to be centered)."
+tpot,classification,OrthogonalMatchingPursuit,normalize,deprecated,str,"This parameter is ignored when ``fit_intercept`` is set to False.
+If True, the regressors X will be normalized before regression by
+subtracting the mean and dividing by the l2-norm.
+If you wish to standardize, please use
+:class:`~sklearn.preprocessing.StandardScaler` before calling ``fit``
+on an estimator with ``normalize=False``.
+
+.. versionchanged:: 1.2
+   default changed from True to False in 1.2.
+
+.. deprecated:: 1.2
+    ``normalize`` was deprecated in version 1.2 and will be removed in 1.4."
+tpot,classification,OrthogonalMatchingPursuit,precompute,auto,str,"Whether to use a precomputed Gram and Xy matrix to speed up
+calculations. Improves performance when :term:`n_targets` or
+:term:`n_samples` is very large. Note that if you already have such
+matrices, you can pass them directly to the fit method."
+tpot,classification,Perceptron,penalty,None,NoneType,The penalty (aka regularization term) to be used.
+tpot,classification,Perceptron,alpha,0.0001,float,"Constant that multiplies the regularization term if regularization is
+used."
+tpot,classification,Perceptron,l1_ratio,0.15,float,"The Elastic Net mixing parameter, with `0 <= l1_ratio <= 1`.
+`l1_ratio=0` corresponds to L2 penalty, `l1_ratio=1` to L1.
+Only used if `penalty='elasticnet'`.
+
+.. versionadded:: 0.24"
+tpot,classification,Perceptron,fit_intercept,True,bool,"Whether the intercept should be estimated or not. If False, the
+data is assumed to be already centered."
+tpot,classification,Perceptron,max_iter,1000,int,"The maximum number of passes over the training data (aka epochs).
+It only impacts the behavior in the ``fit`` method, and not the
+:meth:`partial_fit` method.
+
+.. versionadded:: 0.19"
+tpot,classification,Perceptron,tol,0.001,float,"The stopping criterion. If it is not None, the iterations will stop
+when (loss > previous_loss - tol).
+
+.. versionadded:: 0.19"
+tpot,classification,Perceptron,shuffle,True,bool,Whether or not the training data should be shuffled after each epoch.
+tpot,classification,Perceptron,verbose,0,int,The verbosity level.
+tpot,classification,Perceptron,eta0,1.0,float,Constant by which the updates are multiplied.
+tpot,classification,Perceptron,n_jobs,None,NoneType,"The number of CPUs to use to do the OVA (One Versus All, for
+multi-class problems) computation.
+``None`` means 1 unless in a :obj:`joblib.parallel_backend` context.
+``-1`` means using all processors. See :term:`Glossary <n_jobs>`
+for more details."
+tpot,classification,Perceptron,random_state,0,int,"Used to shuffle the training data, when ``shuffle`` is set to
+``True``. Pass an int for reproducible output across multiple
+function calls.
+See :term:`Glossary <random_state>`."
+tpot,classification,Perceptron,early_stopping,False,bool,"Whether to use early stopping to terminate training when validation.
+score is not improving. If set to True, it will automatically set aside
+a stratified fraction of training data as validation and terminate
+training when validation score is not improving by at least tol for
+n_iter_no_change consecutive epochs.
+
+.. versionadded:: 0.20"
+tpot,classification,Perceptron,validation_fraction,0.1,float,"The proportion of training data to set aside as validation set for
+early stopping. Must be between 0 and 1.
+Only used if early_stopping is True.
+
+.. versionadded:: 0.20"
+tpot,classification,Perceptron,n_iter_no_change,5,int,"Number of iterations with no improvement to wait before early stopping.
+
+.. versionadded:: 0.20"
+tpot,classification,Perceptron,class_weight,None,NoneType,"Preset for the class_weight fit parameter.
+
+Weights associated with classes. If not given, all classes
+are supposed to have weight one.
+
+The ""balanced"" mode uses the values of y to automatically adjust
+weights inversely proportional to class frequencies in the input data
+as ``n_samples / (n_classes * np.bincount(y))``."
+tpot,classification,Perceptron,warm_start,False,bool,"When set to True, reuse the solution of the previous call to fit as
+initialization, otherwise, just erase the previous solution. See
+:term:`the Glossary <warm_start>`."
+tpot,regression,RandomForestRegressor,criterion,squared_error,str,"The function to measure the quality of a split. Supported criteria
+are ""squared_error"" for the mean squared error, which is equal to
+variance reduction as feature selection criterion and minimizes the L2
+loss using the mean of each terminal node, ""friedman_mse"", which uses
+mean squared error with Friedman's improvement score for potential
+splits, ""absolute_error"" for the mean absolute error, which minimizes
+the L1 loss using the median of each terminal node, and ""poisson"" which
+uses reduction in Poisson deviance to find splits.
+Training using ""absolute_error"" is significantly slower
+than when using ""squared_error"".
+
+.. versionadded:: 0.18
+   Mean Absolute Error (MAE) criterion.
+
+.. versionadded:: 1.0
+   Poisson criterion."
+tpot,regression,RandomForestRegressor,max_depth,None,NoneType,"The maximum depth of the tree. If None, then nodes are expanded until
+all leaves are pure or until all leaves contain less than
+min_samples_split samples."
+tpot,regression,RandomForestRegressor,min_weight_fraction_leaf,0.0,float,"The minimum weighted fraction of the sum total of weights (of all
+the input samples) required to be at a leaf node. Samples have
+equal weight when sample_weight is not provided."
+tpot,regression,RandomForestRegressor,max_leaf_nodes,None,NoneType,"Grow trees with ``max_leaf_nodes`` in best-first fashion.
+Best nodes are defined as relative reduction in impurity.
+If None then unlimited number of leaf nodes."
+tpot,regression,RandomForestRegressor,min_impurity_decrease,0.0,float,"A node will be split if this split induces a decrease of the impurity
+greater than or equal to this value.
+
+The weighted impurity decrease equation is the following::
+
+    N_t / N * (impurity - N_t_R / N_t * right_impurity
+                        - N_t_L / N_t * left_impurity)
+
+where ``N`` is the total number of samples, ``N_t`` is the number of
+samples at the current node, ``N_t_L`` is the number of samples in the
+left child, and ``N_t_R`` is the number of samples in the right child.
+
+``N``, ``N_t``, ``N_t_R`` and ``N_t_L`` all refer to the weighted sum,
+if ``sample_weight`` is passed.
+
+.. versionadded:: 0.19"
+tpot,regression,RandomForestRegressor,oob_score,False,bool,"Whether to use out-of-bag samples to estimate the generalization score.
+By default, :func:`~sklearn.metrics.r2_score` is used.
+Provide a callable with signature `metric(y_true, y_pred)` to use a
+custom metric. Only available if `bootstrap=True`."
+tpot,regression,RandomForestRegressor,n_jobs,None,NoneType,"The number of jobs to run in parallel. :meth:`fit`, :meth:`predict`,
+:meth:`decision_path` and :meth:`apply` are all parallelized over the
+trees. ``None`` means 1 unless in a :obj:`joblib.parallel_backend`
+context. ``-1`` means using all processors. See :term:`Glossary
+<n_jobs>` for more details."
+tpot,regression,RandomForestRegressor,random_state,None,NoneType,"Controls both the randomness of the bootstrapping of the samples used
+when building trees (if ``bootstrap=True``) and the sampling of the
+features to consider when looking for the best split at each node
+(if ``max_features < n_features``).
+See :term:`Glossary <random_state>` for details."
+tpot,regression,RandomForestRegressor,verbose,0,int,Controls the verbosity when fitting and predicting.
+tpot,regression,RandomForestRegressor,warm_start,False,bool,"When set to ``True``, reuse the solution of the previous call to fit
+and add more estimators to the ensemble, otherwise, just fit a whole
+new forest. See :term:`Glossary <warm_start>` and
+:ref:`gradient_boosting_warm_start` for details."
+tpot,regression,RandomForestRegressor,ccp_alpha,0.0,float,"Complexity parameter used for Minimal Cost-Complexity Pruning. The
+subtree with the largest cost complexity that is smaller than
+``ccp_alpha`` will be chosen. By default, no pruning is performed. See
+:ref:`minimal_cost_complexity_pruning` for details.
+
+.. versionadded:: 0.22"
+tpot,regression,RandomForestRegressor,max_samples,None,NoneType,"If bootstrap is True, the number of samples to draw from X
+to train each base estimator.
+
+- If None (default), then draw `X.shape[0]` samples.
+- If int, then draw `max_samples` samples.
+- If float, then draw `max(round(n_samples * max_samples), 1)` samples. Thus,
+  `max_samples` should be in the interval `(0.0, 1.0]`.
+
+.. versionadded:: 0.22"
+tpot,classification,Ridge,alpha,1.0,float,"Constant that multiplies the L2 term, controlling regularization
+strength. `alpha` must be a non-negative float i.e. in `[0, inf)`.
+
+When `alpha = 0`, the objective is equivalent to ordinary least
+squares, solved by the :class:`LinearRegression` object. For numerical
+reasons, using `alpha = 0` with the `Ridge` object is not advised.
+Instead, you should use the :class:`LinearRegression` object.
+
+If an array is passed, penalties are assumed to be specific to the
+targets. Hence they must correspond in number."
+tpot,classification,Ridge,fit_intercept,True,bool,"Whether to fit the intercept for this model. If set
+to false, no intercept will be used in calculations
+(i.e. ``X`` and ``y`` are expected to be centered)."
+tpot,classification,Ridge,copy_X,True,bool,"If True, X will be copied; else, it may be overwritten."
+tpot,classification,Ridge,max_iter,None,NoneType,"Maximum number of iterations for conjugate gradient solver.
+For 'sparse_cg' and 'lsqr' solvers, the default value is determined
+by scipy.sparse.linalg. For 'sag' solver, the default value is 1000.
+For 'lbfgs' solver, the default value is 15000."
+tpot,classification,Ridge,tol,0.0001,float,"The precision of the solution (`coef_`) is determined by `tol` which
+specifies a different convergence criterion for each solver:
+
+- 'svd': `tol` has no impact.
+
+- 'cholesky': `tol` has no impact.
+
+- 'sparse_cg': norm of residuals smaller than `tol`.
+
+- 'lsqr': `tol` is set as atol and btol of scipy.sparse.linalg.lsqr,
+  which control the norm of the residual vector in terms of the norms of
+  matrix and coefficients.
+
+- 'sag' and 'saga': relative change of coef smaller than `tol`.
+
+- 'lbfgs': maximum of the absolute (projected) gradient=max|residuals|
+  smaller than `tol`.
+
+.. versionchanged:: 1.2
+   Default value changed from 1e-3 to 1e-4 for consistency with other linear
+   models."
+tpot,classification,Ridge,solver,auto,str,"Solver to use in the computational routines:
+
+- 'auto' chooses the solver automatically based on the type of data.
+
+- 'svd' uses a Singular Value Decomposition of X to compute the Ridge
+  coefficients. It is the most stable solver, in particular more stable
+  for singular matrices than 'cholesky' at the cost of being slower.
+
+- 'cholesky' uses the standard scipy.linalg.solve function to
+  obtain a closed-form solution.
+
+- 'sparse_cg' uses the conjugate gradient solver as found in
+  scipy.sparse.linalg.cg. As an iterative algorithm, this solver is
+  more appropriate than 'cholesky' for large-scale data
+  (possibility to set `tol` and `max_iter`).
+
+- 'lsqr' uses the dedicated regularized least-squares routine
+  scipy.sparse.linalg.lsqr. It is the fastest and uses an iterative
+  procedure.
+
+- 'sag' uses a Stochastic Average Gradient descent, and 'saga' uses
+  its improved, unbiased version named SAGA. Both methods also use an
+  iterative procedure, and are often faster than other solvers when
+  both n_samples and n_features are large. Note that 'sag' and
+  'saga' fast convergence is only guaranteed on features with
+  approximately the same scale. You can preprocess the data with a
+  scaler from sklearn.preprocessing.
+
+- 'lbfgs' uses L-BFGS-B algorithm implemented in
+  `scipy.optimize.minimize`. It can be used only when `positive`
+  is True.
+
+All solvers except 'svd' support both dense and sparse data. However, only
+'lsqr', 'sag', 'sparse_cg', and 'lbfgs' support sparse input when
+`fit_intercept` is True.
+
+.. versionadded:: 0.17
+   Stochastic Average Gradient descent solver.
+.. versionadded:: 0.19
+   SAGA solver."
+tpot,classification,Ridge,positive,False,bool,"When set to ``True``, forces the coefficients to be positive.
+Only 'lbfgs' solver is supported in this case."
+tpot,classification,Ridge,random_state,None,NoneType,"Used when ``solver`` == 'sag' or 'saga' to shuffle the data.
+See :term:`Glossary <random_state>` for details.
+
+.. versionadded:: 0.17
+   `random_state` to support Stochastic Average Gradient."
+tpot,regression,SGDRegressor,max_iter,1000,int,"The maximum number of passes over the training data (aka epochs).
+It only impacts the behavior in the ``fit`` method, and not the
+:meth:`partial_fit` method.
+
+.. versionadded:: 0.19"
+tpot,regression,SGDRegressor,tol,0.001,float,"The stopping criterion. If it is not None, training will stop
+when (loss > best_loss - tol) for ``n_iter_no_change`` consecutive
+epochs.
+Convergence is checked against the training loss or the
+validation loss depending on the `early_stopping` parameter.
+
+.. versionadded:: 0.19"
+tpot,regression,SGDRegressor,shuffle,True,bool,Whether or not the training data should be shuffled after each epoch.
+tpot,regression,SGDRegressor,verbose,0,int,The verbosity level.
+tpot,regression,SGDRegressor,epsilon,0.1,float,"Epsilon in the epsilon-insensitive loss functions; only if `loss` is
+'huber', 'epsilon_insensitive', or 'squared_epsilon_insensitive'.
+For 'huber', determines the threshold at which it becomes less
+important to get the prediction exactly right.
+For epsilon-insensitive, any differences between the current prediction
+and the correct label are ignored if they are less than this threshold."
+tpot,regression,SGDRegressor,random_state,None,NoneType,"Used for shuffling the data, when ``shuffle`` is set to ``True``.
+Pass an int for reproducible output across multiple function calls.
+See :term:`Glossary <random_state>`."
+tpot,regression,SGDRegressor,early_stopping,False,bool,"Whether to use early stopping to terminate training when validation
+score is not improving. If set to True, it will automatically set aside
+a fraction of training data as validation and terminate
+training when validation score returned by the `score` method is not
+improving by at least `tol` for `n_iter_no_change` consecutive
+epochs.
+
+.. versionadded:: 0.20
+    Added 'early_stopping' option"
+tpot,regression,SGDRegressor,validation_fraction,0.1,float,"The proportion of training data to set aside as validation set for
+early stopping. Must be between 0 and 1.
+Only used if `early_stopping` is True.
+
+.. versionadded:: 0.20
+    Added 'validation_fraction' option"
+tpot,regression,SGDRegressor,n_iter_no_change,5,int,"Number of iterations with no improvement to wait before stopping
+fitting.
+Convergence is checked against the training loss or the
+validation loss depending on the `early_stopping` parameter.
+
+.. versionadded:: 0.20
+    Added 'n_iter_no_change' option"
+tpot,regression,SGDRegressor,warm_start,False,bool,"When set to True, reuse the solution of the previous call to fit as
+initialization, otherwise, just erase the previous solution.
+See :term:`the Glossary <warm_start>`.
+
+Repeatedly calling fit or partial_fit when warm_start is True can
+result in a different solution than when calling fit a single time
+because of the way the data is shuffled.
+If a dynamic learning rate is used, the learning rate is adapted
+depending on the number of samples already seen. Calling ``fit`` resets
+this counter, while ``partial_fit``  will result in increasing the
+existing counter."
+tpot,regression,SGDRegressor,average,False,bool,"When set to True, computes the averaged SGD weights across all
+updates and stores the result in the ``coef_`` attribute. If set to
+an int greater than 1, averaging will begin once the total number of
+samples seen reaches `average`. So ``average=10`` will begin
+averaging after seeing 10 samples."
+tpot,classification,SVR,kernel,rbf,str,"Specifies the kernel type to be used in the algorithm.
+If none is given, 'rbf' will be used. If a callable is given it is
+used to precompute the kernel matrix."
+tpot,classification,SVR,degree,3,int,"Degree of the polynomial kernel function ('poly').
+Must be non-negative. Ignored by all other kernels."
+tpot,classification,SVR,gamma,scale,str,"Kernel coefficient for 'rbf', 'poly' and 'sigmoid'.
+
+- if ``gamma='scale'`` (default) is passed then it uses
+  1 / (n_features * X.var()) as value of gamma,
+- if 'auto', uses 1 / n_features
+- if float, must be non-negative.
+
+.. versionchanged:: 0.22
+   The default value of ``gamma`` changed from 'auto' to 'scale'."
+tpot,classification,SVR,coef0,0.0,float,"Independent term in kernel function.
+It is only significant in 'poly' and 'sigmoid'."
+tpot,classification,SVR,tol,0.001,float,Tolerance for stopping criterion.
+tpot,classification,SVR,C,1.0,float,"Regularization parameter. The strength of the regularization is
+inversely proportional to C. Must be strictly positive.
+The penalty is a squared l2 penalty."
+tpot,classification,SVR,epsilon,0.1,float,"Epsilon in the epsilon-SVR model. It specifies the epsilon-tube
+within which no penalty is associated in the training loss function
+with points predicted within a distance epsilon from the actual
+value. Must be non-negative."
+tpot,classification,SVR,shrinking,True,bool,"Whether to use the shrinking heuristic.
+See the :ref:`User Guide <shrinking_svm>`."
+tpot,classification,SVR,cache_size,200,int,Specify the size of the kernel cache (in MB).
+tpot,classification,SVR,verbose,False,bool,"Enable verbose output. Note that this setting takes advantage of a
+per-process runtime setting in libsvm that, if enabled, may not work
+properly in a multithreaded context."
+tpot,classification,SVR,max_iter,-1,int,"Hard limit on iterations within solver, or -1 for no limit."
+tpot,classification,TheilSenRegressor,fit_intercept,True,bool,"Whether to calculate the intercept for this model. If set
+to false, no intercept will be used in calculations."
+tpot,classification,TheilSenRegressor,copy_X,True,bool,"If True, X will be copied; else, it may be overwritten."
+tpot,classification,TheilSenRegressor,max_subpopulation,10000.0,float,"Instead of computing with a set of cardinality 'n choose k', where n is
+the number of samples and k is the number of subsamples (at least
+number of features), consider only a stochastic subpopulation of a
+given maximal size if 'n choose k' is larger than max_subpopulation.
+For other than small problem sizes this parameter will determine
+memory usage and runtime if n_subsamples is not changed. Note that the
+data type should be int but floats such as 1e4 can be accepted too."
+tpot,classification,TheilSenRegressor,n_subsamples,None,NoneType,"Number of samples to calculate the parameters. This is at least the
+number of features (plus 1 if fit_intercept=True) and the number of
+samples as a maximum. A lower number leads to a higher breakdown
+point and a low efficiency while a high number leads to a low
+breakdown point and a high efficiency. If None, take the
+minimum number of subsamples leading to maximal robustness.
+If n_subsamples is set to n_samples, Theil-Sen is identical to least
+squares."
+tpot,classification,TheilSenRegressor,max_iter,300,int,Maximum number of iterations for the calculation of spatial median.
+tpot,classification,TheilSenRegressor,tol,0.001,float,Tolerance when calculating spatial median.
+tpot,classification,TheilSenRegressor,random_state,None,NoneType,"A random number generator instance to define the state of the random
+permutations generator. Pass an int for reproducible output across
+multiple function calls.
+See :term:`Glossary <random_state>`."
+tpot,classification,TheilSenRegressor,n_jobs,None,NoneType,"Number of CPUs to use during the cross validation.
+``None`` means 1 unless in a :obj:`joblib.parallel_backend` context.
+``-1`` means using all processors. See :term:`Glossary <n_jobs>`
+for more details."
+tpot,classification,TheilSenRegressor,verbose,False,bool,Verbose mode when fitting the model.

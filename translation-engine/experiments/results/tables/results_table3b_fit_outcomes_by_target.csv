@@ -1,0 +1,7 @@
+Framework,Translations,Success,Error from fit,Error from incorrect value range
+AutoGluon,"20,769","20,761",8,0
+auto-sklearn,"21,852","21,713",0,139
+FLAML,"22,432","22,432",0,0
+H2O,"3,657","3,592",0,65
+TPOT,"44,572","41,810","2,731",31
+Total,"113,282","110,308","2,739",235

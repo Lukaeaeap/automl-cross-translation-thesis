@@ -1,0 +1,493 @@
+{
+  "adaboost": {
+    "autosklearn": [
+      "AdaBoostClassifier",
+      "AdaBoostRegressor",
+      "adaboost"
+    ],
+    "h2o": [
+      "AdaBoost",
+      "H2OAdaBoostEstimator"
+    ],
+    "tpot": [
+      "AdaBoostClassifier",
+      "AdaBoostRegressor"
+    ]
+  },
+  "aggregator": {
+    "h2o": [
+      "H2OAggregatorEstimator"
+    ]
+  },
+  "anovaglm": {
+    "h2o": [
+      "ANOVAGLM",
+      "H2OANOVAGLMEstimator"
+    ]
+  },
+  "ard_regression": {
+    "autosklearn": [
+      "ARDRegression",
+      "ard_regression"
+    ],
+    "tpot": [
+      "ARDRegression"
+    ]
+  },
+  "bagging": {
+    "tpot": [
+      "BaggingClassifier",
+      "BaggingRegressor"
+    ]
+  },
+  "bayesian_ridge": {
+    "tpot": [
+      "BayesianRidge"
+    ]
+  },
+  "catboost": {
+    "autogluon": [
+      "CatBoostModel"
+    ],
+    "flaml": [
+      "CatBoostEstimator"
+    ]
+  },
+  "cox_proportional_hazards": {
+    "h2o": [
+      "H2OCoxProportionalHazardsEstimator"
+    ]
+  },
+  "decision_tree": {
+    "autosklearn": [
+      "DecisionTreeClassifier",
+      "DecisionTreeRegressor",
+      "decision_tree"
+    ],
+    "h2o": [
+      "DT",
+      "H2ODecisionTreeEstimator"
+    ],
+    "tpot": [
+      "DecisionTreeClassifier",
+      "DecisionTreeRegressor"
+    ]
+  },
+  "elastic": {
+    "flaml": [
+      "ElasticNetEstimator"
+    ],
+    "tpot": [
+      "ElasticNet"
+    ]
+  },
+  "elastic_cv": {
+    "tpot": [
+      "ElasticNetCV"
+    ]
+  },
+  "extended_isolation_forest": {
+    "h2o": [
+      "H2OExtendedIsolationForestEstimator"
+    ]
+  },
+  "extra_trees": {
+    "autogluon": [
+      "XTModel"
+    ],
+    "autosklearn": [
+      "ExtraTreesClassifier",
+      "ExtraTreesRegressor",
+      "extra_trees"
+    ],
+    "flaml": [
+      "ExtraTreesEstimator"
+    ],
+    "tpot": [
+      "ExtraTreesClassifier",
+      "ExtraTreesRegressor"
+    ]
+  },
+  "gaussian_process": {
+    "autosklearn": [
+      "GaussianProcessRegressor",
+      "gaussian_process"
+    ],
+    "tpot": [
+      "GaussianProcessClassifier",
+      "GaussianProcessRegressor"
+    ]
+  },
+  "generalized": {
+    "h2o": [
+      "GLM",
+      "H2OGeneralizedLinearEstimator",
+      "glm"
+    ]
+  },
+  "generalized_additive": {
+    "h2o": [
+      "GAM",
+      "H2OGeneralizedAdditiveEstimator"
+    ]
+  },
+  "generalized_low_rank": {
+    "h2o": [
+      "GLRM",
+      "H2OGeneralizedLowRankEstimator"
+    ]
+  },
+  "generic": {
+    "h2o": [
+      "H2OGenericEstimator"
+    ]
+  },
+  "gradient_boosting": {
+    "autosklearn": [
+      "HistGradientBoostingClassifier",
+      "HistGradientBoostingRegressor",
+      "gradient_boosting"
+    ],
+    "h2o": [
+      "GBM",
+      "H2OGradientBoostingEstimator",
+      "gbm"
+    ],
+    "tpot": [
+      "GradientBoostingClassifier",
+      "GradientBoostingRegressor"
+    ]
+  },
+  "h2oautoencoderestimator": {
+    "h2o": [
+      "H2OAutoEncoderEstimator"
+    ]
+  },
+  "h2omodelselectionestimator": {
+    "h2o": [
+      "H2OModelSelectionEstimator"
+    ]
+  },
+  "hglm": {
+    "h2o": [
+      "H2OHGLMEstimator"
+    ]
+  },
+  "hist_gradient_boosting": {
+    "tpot": [
+      "HistGradientBoostingClassifier",
+      "HistGradientBoostingRegressor"
+    ]
+  },
+  "infogram": {
+    "h2o": [
+      "H2OInfogram"
+    ]
+  },
+  "isolation_forest": {
+    "h2o": [
+      "H2OIsolationForestEstimator",
+      "IsolationForest"
+    ]
+  },
+  "isotonic_regression": {
+    "h2o": [
+      "H2OIsotonicRegressionEstimator"
+    ]
+  },
+  "k_means": {
+    "h2o": [
+      "H2OKMeansEstimator"
+    ]
+  },
+  "k_nearest_neighbors": {
+    "autogluon": [
+      "KNNModel"
+    ],
+    "autosklearn": [
+      "KNeighborsClassifier",
+      "KNeighborsRegressor",
+      "k_nearest_neighbors"
+    ],
+    "flaml": [
+      "KNeighborsEstimator"
+    ],
+    "tpot": [
+      "KNeighborsClassifier",
+      "KNeighborsRegressor"
+    ]
+  },
+  "lars": {
+    "tpot": [
+      "Lars"
+    ]
+  },
+  "lasso": {
+    "tpot": [
+      "Lasso"
+    ]
+  },
+  "lasso_lars": {
+    "flaml": [
+      "LassoLarsEstimator"
+    ],
+    "tpot": [
+      "LassoLars"
+    ]
+  },
+  "lasso_lars_cv": {
+    "tpot": [
+      "LassoLarsCV"
+    ]
+  },
+  "lightgbm": {
+    "autogluon": [
+      "LGBModel"
+    ],
+    "flaml": [
+      "LGBMEstimator"
+    ],
+    "tpot": [
+      "LGBMClassifier",
+      "LGBMRegressor"
+    ]
+  },
+  "linear_discriminant_analysis": {
+    "autosklearn": [
+      "LinearDiscriminantAnalysis",
+      "lda"
+    ],
+    "tpot": [
+      "LinearDiscriminantAnalysis"
+    ]
+  },
+  "linearmodel": {
+    "autogluon": [
+      "LinearModel"
+    ]
+  },
+  "logistic_regression": {
+    "flaml": [
+      "LRL1Classifier",
+      "LRL2Classifier"
+    ],
+    "tpot": [
+      "LogisticRegression"
+    ]
+  },
+  "naive_bayes": {
+    "autosklearn": [
+      "BernoulliNB",
+      "GaussianNB",
+      "MultinomialNB",
+      "bernoulli_nb",
+      "gaussian_nb",
+      "multinomial_nb"
+    ],
+    "h2o": [
+      "H2ONaiveBayesEstimator",
+      "NaiveBayes"
+    ],
+    "tpot": [
+      "BernoulliNB",
+      "GaussianNB",
+      "MultinomialNB"
+    ]
+  },
+  "neural_network": {
+    "autosklearn": [
+      "MLPClassifier",
+      "MLPRegressor",
+      "mlp"
+    ],
+    "h2o": [
+      "DeepLearning",
+      "H2ODeepLearningEstimator",
+      "deeplearning"
+    ],
+    "tpot": [
+      "MLPClassifier",
+      "MLPRegressor"
+    ]
+  },
+  "nn": {
+    "autogluon": [
+      "NNFastAiTabularModel"
+    ]
+  },
+  "orthogonal_matching_pursuit": {
+    "tpot": [
+      "OrthogonalMatchingPursuit"
+    ]
+  },
+  "passive_aggressive": {
+    "autosklearn": [
+      "PassiveAggressiveClassifier",
+      "passive_aggressive"
+    ],
+    "tpot": [
+      "PassiveAggressiveClassifier"
+    ]
+  },
+  "perceptron": {
+    "tpot": [
+      "Perceptron"
+    ]
+  },
+  "principal_component_analysis": {
+    "h2o": [
+      "H2OPrincipalComponentAnalysisEstimator",
+      "PCA"
+    ]
+  },
+  "quadratic_discriminant_analysis": {
+    "autosklearn": [
+      "QuadraticDiscriminantAnalysis",
+      "qda"
+    ],
+    "tpot": [
+      "QuadraticDiscriminantAnalysis"
+    ]
+  },
+  "random_forest": {
+    "autogluon": [
+      "RFModel"
+    ],
+    "autosklearn": [
+      "RandomForestClassifier",
+      "RandomForestRegressor",
+      "random_forest"
+    ],
+    "flaml": [
+      "RandomForestEstimator"
+    ],
+    "h2o": [
+      "DRF",
+      "H2ORandomForestEstimator",
+      "XRT",
+      "drf"
+    ],
+    "tpot": [
+      "RandomForestClassifier",
+      "RandomForestRegressor"
+    ]
+  },
+  "ridge": {
+    "tpot": [
+      "Ridge"
+    ]
+  },
+  "ridge_cv": {
+    "tpot": [
+      "RidgeCV"
+    ]
+  },
+  "rule_fit": {
+    "h2o": [
+      "H2ORuleFitEstimator",
+      "RuleFit"
+    ]
+  },
+  "sgd": {
+    "autosklearn": [
+      "SGDClassifier",
+      "SGDRegressor",
+      "sgd"
+    ],
+    "flaml": [
+      "SGDEstimator"
+    ],
+    "tpot": [
+      "SGDClassifier",
+      "SGDRegressor"
+    ]
+  },
+  "singular_value_decomposition": {
+    "h2o": [
+      "H2OSingularValueDecompositionEstimator",
+      "SVD"
+    ]
+  },
+  "stacked_ensemble": {
+    "h2o": [
+      "H2OStackedEnsembleEstimator",
+      "StackedEnsemble",
+      "stackedensemble"
+    ]
+  },
+  "svm": {
+    "autosklearn": [
+      "LinearSVC",
+      "LinearSVR",
+      "SVC",
+      "SVR",
+      "liblinear_svc",
+      "liblinear_svr",
+      "libsvm_svc",
+      "libsvm_svr"
+    ],
+    "flaml": [
+      "SVCEstimator"
+    ],
+    "h2o": [
+      "H2OSupportVectorMachineEstimator",
+      "PSVM"
+    ],
+    "tpot": [
+      "LinearSVC",
+      "LinearSVR",
+      "SVC",
+      "SVR"
+    ]
+  },
+  "target": {
+    "h2o": [
+      "H2OTargetEncoderEstimator"
+    ]
+  },
+  "theil_sen": {
+    "tpot": [
+      "TheilSenRegressor"
+    ]
+  },
+  "transformersestimator": {
+    "flaml": [
+      "TransformersEstimator"
+    ]
+  },
+  "transformersestimatormodelselection": {
+    "flaml": [
+      "TransformersEstimatorModelSelection"
+    ]
+  },
+  "uplift_random_forest": {
+    "h2o": [
+      "H2OUpliftRandomForestEstimator",
+      "UpliftDRF"
+    ]
+  },
+  "word2vec": {
+    "h2o": [
+      "H2OWord2vecEstimator"
+    ]
+  },
+  "xgboost": {
+    "autogluon": [
+      "XGBoostModel"
+    ],
+    "flaml": [
+      "XGBoostEstimator",
+      "XGBoostLimitDepthEstimator",
+      "XGBoostSklearnEstimator"
+    ],
+    "h2o": [
+      "H2OXGBoostEstimator",
+      "XGBoost",
+      "xgboost"
+    ],
+    "tpot": [
+      "XGBClassifier",
+      "XGBRegressor"
+    ]
+  }
+}
