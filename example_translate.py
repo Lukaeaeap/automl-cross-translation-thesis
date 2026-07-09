@@ -23,7 +23,7 @@ print(f"unmapped: {result['unmapped_params']}\n")
 
 
 # use broadcast to translate from one source framework to all others
-# flaml -> Autogluon, Autosklearn, 
+# flaml -> Autogluon, Autosklearn, H2O, and TPOT
 result2 = engine.broadcast(
     config={
         "model": "XGBoostSklearnEstimator",
