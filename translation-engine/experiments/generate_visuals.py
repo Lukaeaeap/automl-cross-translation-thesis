@@ -9,14 +9,16 @@ Outputs to experiments/results/tables/
 
 import json
 import sys
+from collections import Counter
 import pandas as pd
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
 
-from constants import ENSEMBLE_KEYWORDS, FIT_SUCCESS, FIT_FAIL, FIT_FAIL_RANGE
-from config_loader import is_ensemble, parse_raw
+from constants import FIT_SUCCESS, FIT_FAIL, FIT_FAIL_RANGE, CLASSIFIER_CANONICALS
+from config_loader import load_configs_from_excel, load_configs_from_june_excel
+from engine import TranslationEngine
 from translators import REGISTRY
 
 RESULTS = HERE / "results"
@@ -77,8 +79,8 @@ m3 = pd.DataFrame(m3_data)
 m3["outcome"] = [get_outcome(r) for r in m3_data]
 
 total = len(m3)
-pair_total = pair_counts(m3)  
-pair_ok = pair_counts(m3, m3["outcome"] == FIT_SUCCESS) 
+pair_total = pair_counts(m3)
+pair_ok = pair_counts(m3, m3["outcome"] == FIT_SUCCESS)
 
 # translatable = engine.translate() produced a real model, not just a models.json matrix hit
 translatability = pd.DataFrame(translatability_data)
@@ -139,10 +141,13 @@ def outcome_breakdown(role):
     counts = counts.reindex(index=FW_ORDER, columns=counts.columns, fill_value=0)
 
     def row(label, c):
+        total = int(c.sum())
+        success = int(c.get(FIT_SUCCESS, 0))
+        pct = 100 * success / total if total else 0
         return [
             label,
-            f"{int(c.sum()):,}",
-            f"{int(c.get(FIT_SUCCESS, 0)):,}",
+            f"{total:,}",
+            f"{success:,} ({pct:.1f}%)",
             f"{int(c.get(FIT_FAIL, 0)):,}",
             f"{int(c.get(FIT_FAIL_RANGE, 0)):,}"
         ]
@@ -191,13 +196,12 @@ def pair_total_table(n_map, hit_map, fmt):
 
 def fmt_count_rate(n, ok):
     pct = 100 * ok / n if n else 0
-    if pct >= 100.0:
-        return f"{n:,} / {ok:,}"
     return f"{n:,} / {ok:,} ({pct:.1f}%)"
 
 
 def fmt_count(n, hit):
-    return f"{hit:,} / {n:,}"
+    pct = 100 * hit / n if n else 0
+    return f"{hit:,} / {n:,} ({pct:.1f}%)"
 
 
 save_csv(
@@ -235,60 +239,53 @@ roles = json.loads((ONTOLOGY_DIR / "algorithm_roles.json").read_text())
 tested_set = set(m3["canonical_model"])
 
 # Source excel config data usage: raw configs per framework, and how many are dropped
-# (ensemble models, invalid params from json) before use by the experiments.
+# (ensembles, unparsable params, then Quality Gate 1) before use by the experiments.
+# Reuses the same loaders and the same QG1 check (engine.resolve_model + CLASSIFIER_CANONICALS)
+# as experiment_translatability.py, so this table's final count matches Table 2's N exactly.
 NEW_DATA = HERE.parent.parent / "automl-data" / "New-Data"
 MAY_XLSX = NEW_DATA / "automl_results_may.xlsx"
 JUNE_XLSX = NEW_DATA / "results_binary_June_15_new.xlsx"
 
 
-def analyze_source(df_raw, frameworks, algo_col, params_col, use_keyword_fallback=False):
-    stats = {}
-    for fw in frameworks:
-        raw_rows = df_raw[df_raw["framework"] == fw]
-        total = len(raw_rows)
-        non_ensemble = raw_rows
-        if "is_ensemble" in raw_rows.columns:
-            non_ensemble = non_ensemble[non_ensemble["is_ensemble"] == 0]
-        elif use_keyword_fallback:
-            non_ensemble = non_ensemble[
-                ~non_ensemble[algo_col].str.lower().str.contains("|".join(ENSEMBLE_KEYWORDS), na=False)
-            ]
-        non_ensemble = non_ensemble[
-            ~non_ensemble[algo_col].astype(str).str.strip().apply(is_ensemble)
-        ]
-        parse_ok = sum(
-            1
-            for _, row in non_ensemble.iterrows()
-            if isinstance(parse_raw(row, params_col), dict)
-        )
-        stats[fw] = {
-            "raw_total": total,
-            "ensemble_dropped": total - len(non_ensemble),
-            "final": parse_ok,
-        }
-    return stats
+def raw_counts(df_raw, frameworks):
+    return {fw: int((df_raw["framework"] == fw).sum()) for fw in frameworks}
 
 
-may_stats = analyze_source(pd.read_excel(MAY_XLSX), ("autosklearn", "tpot", "h2o"), "algorithm", "params_json")
+may_raw = raw_counts(pd.read_excel(MAY_XLSX), ("autosklearn", "tpot", "h2o"))
+june_raw = raw_counts(pd.read_excel(JUNE_XLSX, sheet_name="TopK_Summary"), ("h2o", "autogluon", "flaml"))
+raw_total = {fw: may_raw.get(fw, 0) + june_raw.get(fw, 0) for fw in FW_ORDER}
 
-df_june = pd.read_excel(JUNE_XLSX, sheet_name="TopK_Summary")
-june_algo_col = "algo" if "algo" in df_june.columns else "algorithm"
-june_params_col = "params_json" if "params_json" in df_june.columns else "refit_params_json"
-june_stats = analyze_source(
-    df_june, ("h2o", "autogluon", "flaml"), june_algo_col, june_params_col, use_keyword_fallback=True
-)
+configs_source = load_configs_from_excel(str(MAY_XLSX)) + load_configs_from_june_excel(str(JUNE_XLSX))
 
-# merge per framework across both source files (h2o appears in both)
-combined = pd.DataFrame(may_stats).T.add(pd.DataFrame(june_stats).T, fill_value=0)
-combined = combined[["raw_total", "ensemble_dropped", "final"]].astype(int).sort_index()
-combined.loc["TOTAL"] = combined.sum()
+qg1_engine = TranslationEngine()
 
-h11 = ["framework", "raw_rows", "dropped_ensemble", "final_configs_used"]
-r11 = [list(row) for row in combined.itertuples(name=None)]
 
+def qg1_passes(cfg):
+    canonical = qg1_engine.resolve_model(cfg["framework"], cfg["model"])
+    return canonical is not None and canonical in CLASSIFIER_CANONICALS
+
+
+post_ensemble = Counter(cfg["framework"] for cfg in configs_source)
+post_qg1 = Counter(cfg["framework"] for cfg in configs_source if qg1_passes(cfg))
+
+r11 = []
+for fw in FW_ORDER:
+    raw = raw_total.get(fw, 0)
+    ensemble_ok = post_ensemble.get(fw, 0)
+    qg1_ok = post_qg1.get(fw, 0)
+    r11.append([fw, raw, raw - ensemble_ok, ensemble_ok - qg1_ok, qg1_ok])
+r11.append(["TOTAL"] + [sum(row[i] for row in r11) for i in range(1, 5)])
+
+h11 = [
+    "framework",
+    "raw_rows",
+    "dropped_ensemble",
+    "dropped_qg1_no_classifier_mapping",
+    "final_configs_used",
+]
 save_csv("results_table1_source_data_usage.csv", h11, r11)
 
-# Per model cross-framework hyperparameter overlap. 
+# Per model cross-framework hyperparameter overlap.
 # A structural property of the ontology.
 models_ont = json.loads((ONTOLOGY_DIR / "models.json").read_text())
 params_ont = json.loads((ONTOLOGY_DIR / "params.json").read_text())
@@ -407,6 +404,8 @@ cov_by_model_pair = m3.groupby(["canonical_model", "source_framework", "target_f
 succ_by_model_pair = m3[m3["outcome"] == FIT_SUCCESS].groupby(["canonical_model", "source_framework", "target_framework"]).size()
 
 h_mf = ["canonical_model"] + FW_LABELS
+h_mf_long = ["source_framework", "canonical_model"] + FW_LABELS
+r_mf_long = []
 for src, src_label in zip(FW_ORDER, FW_LABELS):
     models = sorted(m3[m3["source_framework"] == src]["canonical_model"].unique())
     r_mf = []
@@ -419,7 +418,13 @@ for src, src_label in zip(FW_ORDER, FW_LABELS):
             else:
                 row.append("-")
         r_mf.append(row)
+        r_mf_long.append([src_label] + row)
     save_csv(f"results_table8_model_by_target_source_{src}.csv", h_mf, r_mf)
+
+# Table 8b: same data as the per-source table_8 files above, merged into one
+# long table with an explicit source_framework column (source + model on rows,
+# target framework on columns).
+save_csv("results_table8b_model_by_source_target_transferability.csv", h_mf_long, r_mf_long)
 
 cov_by_model_fw = m3.groupby(["canonical_model", "source_framework"])["param_coverage"].mean()
 succ_by_model_fw = m3[m3["outcome"] == FIT_SUCCESS].groupby(["canonical_model", "source_framework"]).size()
@@ -497,4 +502,5 @@ summary_rows = [
 save_csv("results_table0_overall_summary.csv", ["metric", "value"], summary_rows)
 
 print(f"Saved all tables to {CSV_DIR}")
+
 

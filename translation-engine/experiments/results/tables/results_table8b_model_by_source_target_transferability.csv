@@ -1,0 +1,39 @@
+source_framework,canonical_model,AutoGluon,auto-sklearn,FLAML,H2O,TPOT
+AutoGluon,extra_trees,-,83.3% (558),100.0% (558),-,100.0% (558)
+AutoGluon,lightgbm,-,-,75.6% (836),-,82.2% (836)
+AutoGluon,random_forest,-,83.3% (558),100.0% (558),33.3% (558),100.0% (558)
+AutoGluon,xgboost,-,-,57.1% (279),71.4% (279),71.4% (279)
+auto-sklearn,adaboost,-,-,-,70.0% (105),85.0% (105)
+auto-sklearn,decision_tree,-,-,-,52.3% (99),86.4% (99)
+auto-sklearn,extra_trees,100.0% (158),-,100.0% (158),-,100.0% (158)
+auto-sklearn,gaussian_process,-,-,-,-,100.0% (49)
+auto-sklearn,gradient_boosting,-,-,-,43.5% (673),65.3% (673)
+auto-sklearn,k_nearest_neighbors,100.0% (128),-,100.0% (128),-,100.0% (128)
+auto-sklearn,linear_discriminant_analysis,-,-,-,-,87.4% (20)
+auto-sklearn,naive_bayes,-,-,-,67.1% (178),100.0% (178)
+auto-sklearn,neural_network,-,-,-,69.0% (51),92.2% (116)
+auto-sklearn,passive_aggressive,-,-,-,-,100.0% (84)
+auto-sklearn,quadratic_discriminant_analysis,-,-,-,-,100.0% (145)
+auto-sklearn,random_forest,100.0% (195),-,100.0% (195),47.7% (195),100.0% (195)
+auto-sklearn,sgd,-,-,100.0% (370),-,100.0% (370)
+auto-sklearn,svm,-,-,90.1% (399),78.1% (399),100.0% (399)
+FLAML,extra_trees,100.0% (270),75.5% (270),-,-,100.0% (270)
+FLAML,lightgbm,75.3% (270),-,-,-,87.6% (270)
+FLAML,logistic_regression,-,-,-,-,100.0% (270)
+FLAML,random_forest,100.0% (270),75.5% (270),-,26.5% (270),100.0% (270)
+FLAML,sgd,-,100.0% (131),-,-,100.0% (270)
+FLAML,xgboost,72.5% (540),-,-,94.5% (540),50.5% (540)
+H2O,gradient_boosting,-,34.8% (16300),-,-,34.8% (16300)
+H2O,neural_network,-,18.6% (2700),-,-,18.6% (0)
+H2O,random_forest,23.8% (524),19.1% (524),23.8% (524),-,23.8% (524)
+H2O,xgboost,30.3% (18138),-,36.4% (18146),-,24.2% (18146)
+TPOT,decision_tree,-,100.0% (26),-,50.0% (26),-
+TPOT,extra_trees,100.0% (142),83.3% (142),100.0% (142),-,-
+TPOT,gradient_boosting,-,85.7% (67),-,85.7% (67),-
+TPOT,k_nearest_neighbors,100.0% (12),100.0% (12),100.0% (12),-,-
+TPOT,logistic_regression,-,-,100.0% (8),-,-
+TPOT,naive_bayes,-,100.0% (23),-,73.9% (23),-
+TPOT,neural_network,-,100.0% (14),-,0.0% (14),-
+TPOT,random_forest,100.0% (113),83.3% (113),100.0% (113),33.3% (113),-
+TPOT,sgd,-,100.0% (3),100.0% (3),-,-
+TPOT,svm,-,100.0% (2),100.0% (2),0.0% (2),-

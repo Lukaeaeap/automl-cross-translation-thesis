@@ -2,7 +2,7 @@ canonical_model,frameworks_with_model,shared_hyperparams,role,tested_in_fit_expe
 random_forest,5,18,both,yes,6640
 svm,4,22,both,yes,1203
 extra_trees,4,18,both,yes,3384
-xgboost,4,13,both,yes,56897
+xgboost,4,13,both,yes,56895
 k_nearest_neighbors,4,8,both,yes,420
 neural_network,3,23,both,yes,5660
 sgd,3,22,both,yes,1286

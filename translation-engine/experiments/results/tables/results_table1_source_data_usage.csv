@@ -1,7 +1,7 @@
-framework,raw_rows,dropped_ensemble,final_configs_used
-autogluon,2510,279,2231
-autosklearn,2826,0,2826
-flaml,1890,0,1890
-h2o,40619,2682,37937
-tpot,410,0,410
-TOTAL,48255,2961,45294
+framework,raw_rows,dropped_ensemble,dropped_qg1_no_classifier_mapping,final_configs_used
+autogluon,2510,279,0,2231
+autosklearn,2826,0,45,2781
+flaml,1890,0,0,1890
+h2o,40619,2682,267,37670
+tpot,410,0,0,410
+TOTAL,48255,2961,312,44982
